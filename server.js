@@ -88,8 +88,8 @@ Bao gồm thiết kế banner, poster, social media và các ấn phẩm hỗ tr
     catLabel: 'Design',
     title: 'SƠN TÙNG DESIGN - HIGH-END BRAND VISUAL',
     short: 'Xây dựng hệ thống hình ảnh truyền thông cho dịch vụ xây nhà trọn gói phân khúc cao cấp, tập trung vào trải nghiệm sang trọng và khách hàng thu nhập cao.',
-    thumb: '/images/projects/design/SONGTUNG/design-02.jpg',
-    cover: '/images/projects/design/SONGTUNG/design-01.jpg',
+    thumb: '/images/projects/design/SONTUNG/design-02.jpg',
+    cover: '/images/projects/design/SONTUNG/design-01.jpg',
     tags: ['Canva', 'Photoshop', 'Social Design'],
     desc: `Dự án tập trung xây dựng hệ thống hình ảnh truyền thông cho thương hiệu Sơn Tùng Design – đơn vị cung cấp dịch vụ xây nhà trọn gói trong phân khúc cao cấp.
 
@@ -97,7 +97,7 @@ Với định hướng khách hàng thu nhập cao, hệ thống visual được
 
 Các ấn phẩm được triển khai bao gồm social media, website và tài liệu truyền thông, đảm bảo sự đồng bộ và nâng cao nhận diện thương hiệu trong phân khúc premium.`,
     results: ['Xây dựng hình ảnh thương hiệu cao cấp', 'Tăng độ nhận diện trong phân khúc premium', 'Đồng bộ hệ thống visual', 'Nâng perception thương hiệu','Khách hàng cao cấp không thích quảng cáo “bán hàng','Họ mua cảm giác & đẳng cấp'],
-    images: ['/images/projects/design/SONGTUNG/design-03.jpg']
+    images: ['/images/projects/design/SONTUNG/design-03.jpg']
   },
   {
     id: 'video-bao-an',
