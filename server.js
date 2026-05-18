@@ -16,12 +16,16 @@ const projects = [
     id: 'brand-identity',
     cat: 'brand',
     catLabel: 'Thương hiệu',
-    title: 'Brand Identity Campaign',
-    short: 'Xây dựng nhận diện thương hiệu tổng thể từ logo đến bộ ấn phẩm truyền thông.',
+    title: 'Brand Identity Campaign – MEGAPOWER',
+    short: 'Xây dựng hệ thống nhận diện thương hiệu toàn diện cho MEGAPOWER – tổng kho phân phối thiết bị năng lượng mặt trời, nhằm chuẩn hóa hình ảnh B2B và nâng cao khả năng mở rộng đại lý trên toàn quốc.',
     thumb: '/images/projects/brand/brand-01.jpg',
     cover: '/images/projects/brand/brand-01.jpg',
     tags: ['Branding', 'Visual Identity', 'Design'],
-    desc: `Chiến lược xây dựng nhận diện thương hiệu toàn diện bao gồm hệ thống logo, bảng màu, typography và bộ ấn phẩm truyền thông đồng bộ trên tất cả kênh.`,
+    desc: `MEGAPOWER là tổng kho phân phối thiết bị năng lượng mặt trời, tập trung vào hệ thống đại lý và đội thi công trên toàn quốc.
+
+Thách thức của dự án là xây dựng một hệ thống nhận diện thương hiệu chuyên nghiệp, nhất quán và dễ áp dụng trong môi trường B2B, nơi thương hiệu cần thể hiện sự uy tín, năng lực và khả năng mở rộng.
+
+Dự án bao gồm việc thiết kế logo, hệ thống màu sắc, typography và bộ Brand Guideline hoàn chỉnh nhằm đảm bảo tính đồng bộ trên tất cả các điểm chạm: từ tài liệu nội bộ, truyền thông đến hệ thống đại lý.`,
     results: ['Tăng nhận diện thương hiệu 40%', 'Đồng bộ visual identity trên 5 kênh', 'Bộ brand guideline hoàn chỉnh'],
     images: ['/images/projects/brand/brand-01.jpg', '/images/projects/brand/brand-02.jpg']
   },
@@ -35,7 +39,7 @@ const projects = [
     cover: '/images/projects/brand/brand-02.jpg',
     tags: ['Social Media', 'Branding', 'Content'],
     desc: `Xây dựng bộ nhận diện thống nhất trên Facebook, Instagram, TikTok và YouTube, bao gồm template post, story, thumbnail và cover photo.`,
-    results: ['Tăng engagement 60%', 'Tăng follower 35%/tháng', 'Bộ 50+ template đồng bộ'],
+    results: ['Xây dựng hoàn chỉnh bộ Brand Guideline 13+ trang', 'Chuẩn hóa 100% hệ thống nhận diện trên digital & offline', 'Tăng khả năng nhận diện thương hiệu trong hệ thống đại lý','Tạo nền tảng mở rộng marketing & bán hàng B2B','Rút ngắn thời gian triển khai thiết kế & truyền thông'],
     images: ['/images/projects/brand/brand-02.jpg']
   },
   {
