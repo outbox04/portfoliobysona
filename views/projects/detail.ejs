@@ -6,19 +6,17 @@
   <title><%= project.title %> — Trần Hồng Sơn</title>
   <meta name="description" content="<%= project.short %>" />
   <link rel="canonical" href="<%= siteUrl %>/projects/<%= project.id %>" />
-
-  <meta property="og:type"        content="article" />
-  <meta property="og:url"         content="<%= siteUrl %>/projects/<%= project.id %>" />
-  <meta property="og:title"       content="<%= project.title %> — Trần Hồng Sơn" />
-  <meta property="og:description" content="<%= project.short %>" />
-  <meta property="og:image"       content="<%= siteUrl %><%= project.thumb %>" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height"content="630" />
-  <meta property="og:locale"      content="vi_VN" />
-  <meta name="twitter:card"       content="summary_large_image" />
-  <meta name="twitter:title"      content="<%= project.title %>" />
-  <meta name="twitter:image"      content="<%= siteUrl %><%= project.thumb %>" />
-
+  <meta property="og:type"         content="article" />
+  <meta property="og:url"          content="<%= siteUrl %>/projects/<%= project.id %>" />
+  <meta property="og:title"        content="<%= project.title %> — Trần Hồng Sơn" />
+  <meta property="og:description"  content="<%= project.short %>" />
+  <meta property="og:image"        content="<%= siteUrl %><%= project.thumb %>" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale"       content="vi_VN" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="<%= project.title %>" />
+  <meta name="twitter:image"       content="<%= siteUrl %><%= project.thumb %>" />
   <link rel="icon" href="/images/software/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,11 +24,9 @@
   <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
-
 <div class="cursor" id="cursor"></div>
 <div class="cursor-follower" id="cursorFollower"></div>
 
-<!-- NAV -->
 <nav class="nav scrolled" id="nav">
   <a href="/" class="nav__logo">HS<span>.</span></a>
   <div class="nav__right">
@@ -51,7 +47,6 @@
   </div>
 </nav>
 
-<!-- DETAIL HERO -->
 <section class="detail-hero">
   <div class="container">
     <div class="detail-hero__back reveal-up">
@@ -64,22 +59,15 @@
     <h1 class="detail-hero__title reveal-up"><%= project.title %></h1>
     <p class="detail-hero__desc reveal-up"><%= project.desc %></p>
     <div class="detail-hero__tags reveal-up">
-      <% project.tags.forEach(t => { %><span class="detail-hero__tag"><%= t %></span><% }) %>
+      <% project.tags.forEach(function(t) { %><span class="detail-hero__tag"><%= t %></span><% }); %>
     </div>
   </div>
 </section>
 
-<!-- COVER IMAGE -->
 <div class="container">
-  <img
-    src="<%= project.cover %>"
-    alt="<%= project.title %>"
-    class="detail-cover reveal-scale"
-    onerror='this.style.background="var(--bg-4)";this.src=""'
-  />
+  <img src="<%= project.cover %>" alt="<%= project.title %>" class="detail-cover reveal-scale" onerror='this.style.background="var(--bg-4)";this.src=""' />
 </div>
 
-<!-- DETAIL BODY -->
 <section class="detail-body">
   <div class="container">
     <div class="detail-grid">
@@ -88,27 +76,17 @@
         <p><%= project.desc %></p>
         <p>Dự án thuộc mảng <strong><%= project.catLabel %></strong>, sử dụng các công cụ và kỹ năng chuyên sâu để đạt được kết quả tốt nhất cho doanh nghiệp khách hàng.</p>
 
-        <% if (project.images && project.images.length > 0) { %>
-        <%# YouTube embed nếu có %>
-<% if (project.youtube) { %>
-<div class="detail-video reveal-up">
-  <iframe
-    src="<%= project.youtube %>?rel=0&modestbranding=1"
-    title="<%= project.title %>"
-    frameborder="0"
-    allowfullscreen
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-  ></iframe>
-</div>
-<% } %>
+        <% if (project.youtube) { %>
+        <div class="detail-video reveal-up">
+          <iframe src="<%= project.youtube %>?rel=0&modestbranding=1" title="<%= project.title %>" frameborder="0" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+        </div>
+        <% } %>
 
-<% if (project.images && project.images.length > 0) { %>
-<div class="detail-images">
-  ...
-          <div class="detail-images">
-          <% project.images.forEach(img => { %>
-          <img src="<%= img %>" alt="<%= project.title %>"  onerror='this.style.background="var(--bg-4)";this.src=""' loading="lazy" />
-          <% }) %>
+        <% if (project.images && project.images.length > 0) { %>
+        <div class="detail-images">
+          <% project.images.forEach(function(img) { %>
+          <img src="<%= img %>" alt="<%= project.title %>" onerror='this.style.background="var(--bg-4)";this.src=""' loading="lazy" />
+          <% }); %>
         </div>
         <% } %>
       </div>
@@ -117,7 +95,7 @@
         <div class="results-card">
           <h3>Kết quả đạt được</h3>
           <ul>
-            <% project.results.forEach(r => { %><li><%= r %></li><% }) %>
+            <% project.results.forEach(function(r) { %><li><%= r %></li><% }); %>
           </ul>
         </div>
       </div>
@@ -125,22 +103,18 @@
   </div>
 </section>
 
-<!-- RELATED PROJECTS -->
 <% if (related && related.length > 0) { %>
 <section class="related-section">
   <div class="container">
     <h2 class="related-title reveal-up">Dự án liên quan</h2>
     <div class="related-grid">
-      <% related.forEach(p => { %>
+      <% related.forEach(function(p) { %>
       <a href="/projects/<%= p.id %>" class="project-card reveal-up" data-cat="<%= p.cat %>">
         <div class="project-card__img">
           <img src="<%= p.thumb %>" alt="<%= p.title %>" onerror='this.parentElement.style.background="var(--bg-4)";this.style.display="none"' loading="lazy" />
           <div class="project-card__overlay">
             <span class="overlay-cat"><%= p.catLabel %></span>
-            <span class="overlay-link">
-              Xem chi tiết
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
+            <span class="overlay-link">Xem chi tiết <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
           </div>
         </div>
         <div class="project-card__body">
@@ -149,13 +123,12 @@
           <p><%= p.short %></p>
         </div>
       </a>
-      <% }) %>
+      <% }); %>
     </div>
   </div>
 </section>
 <% } %>
 
-<!-- DOWNLOAD CV -->
 <section class="download-cv">
   <div class="container">
     <div class="download-cv__inner reveal-up">
@@ -174,13 +147,10 @@
 <footer class="footer">
   <div class="container">
     <p>© 2026 Trần Hồng Sơn — Marketing Portfolio</p>
-    <p class="footer__sub">portfoliobyson.site</p>
   </div>
 </footer>
 
 <script src="/js/main.js"></script>
 <script defer src="/_vercel/insights/script.js"></script>
-<script src="/js/main.js"></script>
-</body>
 </body>
 </html>
