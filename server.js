@@ -48,12 +48,12 @@ Dự án bao gồm việc thiết kế logo, hệ thống màu sắc, typography
     catLabel: 'Performance',
     title: 'Facebook Ads — KPI 800M/tháng',
     short: 'Tối ưu hóa chiến dịch Facebook Ads đạt 800 triệu doanh thu/tháng tại HCG.',
-    thumb: '/images/projects/performance/perf-02.jpg',
-    cover: '/images/projects/performance/perf-01.jpg',
+    thumb: '/images/projects/performance/BAOAN/perf-02.jpg',
+    cover: '/images/projects/performance/BAOAN/perf-01.jpg',
     tags: ['Facebook Ads', 'Performance', 'ROAS'],
     desc: `Quản lý toàn bộ hệ thống quảng cáo Facebook cho Công ty HCG, tối ưu từng campaign, ad set và creative để đạt KPI doanh thu cao nhất với ngân sách tối ưu.`,
     results: ['KPI 800 triệu/tháng', 'Top 5 toàn hệ thống Bảo An', 'ROAS tăng 3.2x'],
-    images: ['/images/projects/performance/perf-02.jpg', '/images/projects/performance/perf-03.jpg']
+    images: ['/images/projects/performance/BAOAN/perf-02.jpg', '/images/projects/performance/BAOAN/perf-03.jpg']
   },
   {
     id: 'multi-ads',
@@ -62,7 +62,7 @@ Dự án bao gồm việc thiết kế logo, hệ thống màu sắc, typography
     title: 'Multi-channel Ads Campaign',
     short: 'Triển khai ADS đồng thời trên FB, Google, TikTok cho doanh nghiệp xây dựng.',
     thumb: '/images/projects/performance/perf-02.jpg',
-    cover: '/images/projects/performance/perf-02.jpg',
+    cover: '/images/projects/performance/perf-01.jpg',
     tags: ['Google Ads', 'TikTok Ads', 'FB Ads'],
     desc: `Chiến dịch quảng cáo đa kênh cho công ty xây dựng và nội thất, phối hợp giữa Facebook Ads, Google Search và TikTok để tiếp cận đúng tệp khách hàng mục tiêu.`,
     results: ['CPL giảm 45%', 'Lead tăng 120%/tháng', '3 kênh vận hành song song'],
