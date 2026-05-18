@@ -112,20 +112,21 @@ Các ấn phẩm được triển khai bao gồm social media, website và tài 
 Video được xây dựng nhằm ghi lại tiến độ công trình, đồng thời truyền tải hình ảnh chuyên nghiệp, uy tín của Nhà Việt Construction trong lĩnh vực xây dựng công trình quy mô lớn.`,
     results: ['Ghi dấu cột mốc quan trọng của dự án', 'Nâng cao hình ảnh thương hiệu Nhà Việt Construction', 'Tăng độ tin tưởng với khách hàng & đối tác', 'Tối ưu nội dung cho đa nền tảng (Facebook, Youtube)'],
     youtube: 'https://www.youtube.com/embed/4EHlYIcEhwY',
-    images: ['/images/projects/video/NHAVIET/video-03.jpg']
+    images: ['/images/projects/video/NHAVIET/video-03.jpg','/images/projects/video/NHAVIET/video-02.jpg']
   },
   {
     id: 'video-son-tung',
     cat: 'video',
     catLabel: 'Video',
-    title: 'Video Công trình — Sơn Tùng',
-    short: 'Quay dựng video showcase công trình kiến trúc và nội thất thực tế.',
-    thumb: '/images/projects/video/video-02.jpg',
-    cover: '/images/projects/video/video-02.jpg',
+    title: 'SONTUNG DESIGN - LUXURY VIDEO CAMPAIGN',
+    short: 'Sản xuất video quảng cáo dịch vụ thiết kế & thi công nhà cao cấp, tận dụng thời điểm cuối năm – đầu năm để gia tăng nhu cầu xây dựng.',
+    thumb: '/images/projects/video/SONTUNG/video-02.jpg',
+    cover: '/images/projects/video/SONTUNG/video-01.jpg',
     tags: ['Cinematography', 'Editing', 'Real Estate'],
     desc: `Quay và dựng video showcase các công trình kiến trúc, nội thất hoàn thiện của Công ty Sơn Tùng, sử dụng kỹ thuật quay chuyển động và hiệu ứng chỉnh màu chuyên nghiệp.`,
-    results: ['20+ video công trình', 'Tăng trust 80% từ khách hàng', 'Viral TikTok 50K+ views'],
-    images: ['/images/projects/video/video-02.jpg']
+    results: ['Xây dựng video quảng cáo mang tính thương hiệu', 'Nâng cao perception phân khúc cao cấp', 'Tăng độ nhận diện trong giai đoạn cao điểm', 'Tối ưu nội dung đa nền tảng (Facebook, Youtube, Reels'],
+    facebook: 'https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2reel%2762029853624808',
+    images: ['/images/projects/video/SONTUNG/video-02.jpg','/images/projects/video/SONTUNG/video-03.jpg']
   }
 ];
 
