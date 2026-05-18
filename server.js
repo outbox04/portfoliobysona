@@ -18,8 +18,8 @@ const projects = [
     catLabel: 'Thương hiệu',
     title: 'Brand Identity Campaign – MEGAPOWER',
     short: 'Xây dựng hệ thống nhận diện thương hiệu toàn diện cho MEGAPOWER – tổng kho phân phối thiết bị năng lượng mặt trời, nhằm chuẩn hóa hình ảnh B2B và nâng cao khả năng mở rộng đại lý trên toàn quốc.',
-    thumb: '/images/projects/brand/brand-01.jpg',
-    cover: '/images/projects/brand/brand-01.jpg',
+    thumb: '/images/projects/brand/brand-02.jpg',
+    cover: '/images/projects/brand/brand-02.jpg',
     tags: ['Branding', 'Visual Identity', 'Design'],
     desc: `MEGAPOWER là tổng kho phân phối thiết bị năng lượng mặt trời, tập trung vào hệ thống đại lý và đội thi công trên toàn quốc.
 
