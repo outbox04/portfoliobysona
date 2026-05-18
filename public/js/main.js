@@ -155,3 +155,12 @@ s.textContent = `
   .nav__link.active-link::after { width: 100% !important; }
 `;
 document.head.appendChild(s);
+// ═══ MINDSET TABS ═══
+document.querySelectorAll('.mindset-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.mindset-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.mindset-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
