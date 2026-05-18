@@ -48,12 +48,12 @@ Dự án bao gồm việc thiết kế logo, hệ thống màu sắc, typography
     catLabel: 'Performance',
     title: 'Facebook Ads — KPI 800M/tháng',
     short: 'Tối ưu hóa chiến dịch Facebook Ads đạt 800 triệu doanh thu/tháng tại HCG.',
-    thumb: '/images/projects/performance/perf-01.jpg',
+    thumb: '/images/projects/performance/perf-02.jpg',
     cover: '/images/projects/performance/perf-01.jpg',
     tags: ['Facebook Ads', 'Performance', 'ROAS'],
     desc: `Quản lý toàn bộ hệ thống quảng cáo Facebook cho Công ty HCG, tối ưu từng campaign, ad set và creative để đạt KPI doanh thu cao nhất với ngân sách tối ưu.`,
     results: ['KPI 800 triệu/tháng', 'Top 5 toàn hệ thống Bảo An', 'ROAS tăng 3.2x'],
-    images: ['/images/projects/performance/perf-01.jpg', '/images/projects/performance/perf-02.jpg']
+    images: ['/images/projects/performance/perf-02.jpg', '/images/projects/performance/perf-03.jpg']
   },
   {
     id: 'multi-ads',
