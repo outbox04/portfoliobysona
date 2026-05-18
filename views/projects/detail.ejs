@@ -75,7 +75,7 @@
     src="<%= project.cover %>"
     alt="<%= project.title %>"
     class="detail-cover reveal-scale"
-    onerror="this.style.background='var(--bg-4)';this.src=''"
+    onerror='this.style.background="var(--bg-4)";this.src=""'
   />
 </div>
 
@@ -107,7 +107,7 @@
   ...
           <div class="detail-images">
           <% project.images.forEach(img => { %>
-          <img src="<%= img %>" alt="<%= project.title %>" onerror="this.style.background='var(--bg-4)';this.src=''" loading="lazy" />
+          <img src="<%= img %>" alt="<%= project.title %>"  onerror='this.style.background="var(--bg-4)";this.src=""' loading="lazy" />
           <% }) %>
         </div>
         <% } %>
@@ -134,7 +134,7 @@
       <% related.forEach(p => { %>
       <a href="/projects/<%= p.id %>" class="project-card reveal-up" data-cat="<%= p.cat %>">
         <div class="project-card__img">
-          <img src="<%= p.thumb %>" alt="<%= p.title %>" onerror="this.parentElement.style.background='var(--bg-4)';this.style.display='none'" loading="lazy" />
+          <img src="<%= p.thumb %>" alt="<%= p.title %>" onerror='this.parentElement.style.background="var(--bg-4)";this.style.display="none"' loading="lazy" />
           <div class="project-card__overlay">
             <span class="overlay-cat"><%= p.catLabel %></span>
             <span class="overlay-link">
