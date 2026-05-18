@@ -18,8 +18,8 @@ const projects = [
     catLabel: 'Thương hiệu',
     title: 'Brand Identity Campaign – MEGAPOWER',
     short: 'Xây dựng hệ thống nhận diện thương hiệu toàn diện cho MEGAPOWER – tổng kho phân phối thiết bị năng lượng mặt trời, nhằm chuẩn hóa hình ảnh B2B và nâng cao khả năng mở rộng đại lý trên toàn quốc.',
-    thumb: '/images/projects/brand/brand-01.jpg',
-    cover: '/images/projects/brand/brand-02.jpg',
+    thumb: '/images/projects/brand/MEGAPOWER/brand-01.jpg',
+    cover: '/images/projects/brand/MEGAPOWER/brand-02.jpg',
     tags: ['Branding', 'Visual Identity', 'Design'],
     desc: `MEGAPOWER là tổng kho phân phối thiết bị năng lượng mặt trời, tập trung vào hệ thống đại lý và đội thi công trên toàn quốc.
 
@@ -27,7 +27,7 @@ Thách thức của dự án là xây dựng một hệ thống nhận diện th
 
 Dự án bao gồm việc thiết kế logo, hệ thống màu sắc, typography và bộ Brand Guideline hoàn chỉnh nhằm đảm bảo tính đồng bộ trên tất cả các điểm chạm: từ tài liệu nội bộ, truyền thông đến hệ thống đại lý.`,
     results: ['Xây dựng hoàn chỉnh bộ Brand Guideline 13+ trang', 'Chuẩn hóa 100% hệ thống nhận diện trên digital & offline', 'Tăng khả năng nhận diện thương hiệu trong hệ thống đại lý','Tạo nền tảng mở rộng marketing & bán hàng B2B','Rút ngắn thời gian triển khai thiết kế & truyền thông'],
-    images: ['/images/projects/brand/brand-01.jpg', '/images/projects/brand/brand-02.jpg']
+    images: ['/images/projects/brand/MEGAPOWER/brand-01.jpg', '/images/projects/brand/MEGAPOWER/brand-03.jpg']
   },
   {
     id: 'social-branding',
