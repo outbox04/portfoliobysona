@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tin Tức & Kiến Thức Marketing — Trần Hồng Sơn</title>
+  <meta name="description" content="Tin tức AI & doanh nghiệp mới nhất, kiến thức Marketing chuyên sâu: Branding, Performance, Content, SEO và hơn thế nữa." />
+  <link rel="icon" href="/images/software/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/kien-thuc.css" />
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav__logo">HS<span>.</span></a>
+  <div class="nav__right">
+    <ul class="nav__links" id="navLinks">
+      <li><a href="/#about"      class="nav__link">Giới thiệu</a></li>
+      <li><a href="/#skills"     class="nav__link">Kỹ năng</a></li>
+      <li><a href="/#experience" class="nav__link">Kinh nghiệm</a></li>
+      <li><a href="/#projects"   class="nav__link">Dự án</a></li>
+      <li><a href="/kien-thuc"   class="nav__link nav__link--active">Kiến Thức</a></li>
+      <li><a href="/#contact"    class="nav__link">Liên hệ</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Chuyển giao diện">
+      <span class="theme-toggle__icon moon">🌙</span>
+      <span class="theme-toggle__icon sun">☀️</span>
+    </button>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="kt-hero">
+  <div class="kt-hero__bg">
+    <div class="kt-blob kt-blob--1"></div>
+    <div class="kt-blob kt-blob--2"></div>
+    <div class="kt-grid-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="kt-hero__inner">
+      <span class="kt-hero__tag reveal-up">Cập nhật liên tục</span>
+      <h1 class="kt-hero__title reveal-up">Tin Tức &<br/><em>Kiến Thức</em></h1>
+      <p class="kt-hero__sub reveal-up">Thông tin AI & xu hướng tác động doanh nghiệp · Kiến thức Marketing chuyên sâu phân theo chuyên ngành</p>
+    </div>
+  </div>
+</section>
+
+<!-- TAB SWITCHER -->
+<div class="kt-tabs-wrap" id="ktTabsWrap">
+  <div class="container">
+    <div class="kt-tabs">
+      <button class="kt-tab active" data-tab="news">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l6 6v8a2 2 0 01-2 2z"/><path d="M17 20v-8H7v8M7 4v4h8"/></svg>
+        Tin Tức
+      </button>
+      <button class="kt-tab" data-tab="knowledge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        Kiến Thức
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== TAB: TIN TỨC ===== -->
+<section class="kt-section" id="tabNews" data-panel="news">
+  <div class="container">
+    <div class="kt-section-header reveal-up">
+      <div class="section-label">TIN TỨC</div>
+      <h2 class="section-title">AI & Thay đổi<br/><em>tác động doanh nghiệp</em></h2>
+      <p class="kt-section-sub">Những tin tức quan trọng về AI và công nghệ ảnh hưởng trực tiếp đến sản phẩm, dịch vụ và chiến lược kinh doanh.</p>
+    </div>
+
+    <!-- News Category Filter -->
+    <div class="kt-filter reveal-up">
+      <button class="kt-filter-btn active" data-news="all">Tất cả</button>
+      <button class="kt-filter-btn" data-news="ai">🤖 AI & Công nghệ</button>
+      <button class="kt-filter-btn" data-news="business">💼 Doanh nghiệp</button>
+      <button class="kt-filter-btn" data-news="platform">📱 Nền tảng MXH</button>
+      <button class="kt-filter-btn" data-news="ads">📣 Quảng cáo</button>
+    </div>
+
+    <!-- Featured News -->
+    <div class="kt-news-featured reveal-up">
+      <div class="kt-news-featured__badge">🔥 Nổi bật</div>
+      <div class="kt-news-featured__inner">
+        <div class="kt-news-featured__content">
+          <div class="kt-news-meta">
+            <span class="kt-news-cat kt-news-cat--ai">AI & Công nghệ</span>
+            <span class="kt-news-date">Tháng 5, 2025</span>
+          </div>
+          <h3 class="kt-news-featured__title">Google AI Overviews thay đổi cách người dùng tìm kiếm — SEO truyền thống đang chết?</h3>
+          <p class="kt-news-featured__desc">Google tích hợp AI tóm tắt kết quả trực tiếp trên SERP, khiến lượng click vào website giảm mạnh. Các doanh nghiệp cần thay đổi chiến lược content ngay lập tức để thích ứng với thời đại "zero-click search".</p>
+          <div class="kt-news-tags">
+            <span>#SEO</span><span>#GoogleAI</span><span>#ContentMarketing</span>
+          </div>
+          <div class="kt-news-impact">
+            <span class="kt-impact-label">Mức độ tác động:</span>
+            <div class="kt-impact-dots">
+              <span class="dot active"></span><span class="dot active"></span>
+              <span class="dot active"></span><span class="dot active"></span><span class="dot"></span>
+            </div>
+            <span class="kt-impact-text">Rất cao</span>
+          </div>
+        </div>
+        <div class="kt-news-featured__visual">
+          <div class="kt-news-visual-card">
+            <div class="kt-news-visual-icon">🤖</div>
+            <div class="kt-news-visual-stat">
+              <span class="kt-stat-num">-25%</span>
+              <span class="kt-stat-label">Organic CTR trung bình</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- News Grid -->
+    <div class="kt-news-grid">
+
+      <article class="kt-news-card reveal-up" data-news-cat="ai">
+        <div class="kt-news-card__head">
+          <span class="kt-news-cat kt-news-cat--ai">🤖 AI & Công nghệ</span>
+          <span class="kt-news-date">Tháng 4, 2025</span>
+        </div>
+        <h4 class="kt-news-card__title">ChatGPT ra mắt tính năng Memory nâng cao — Cơ hội cho Marketer cá nhân hóa content</h4>
+        <p class="kt-news-card__desc">OpenAI cập nhật ChatGPT với khả năng ghi nhớ lâu dài, cho phép tạo nội dung cá nhân hóa cực cao. Marketer có thể tận dụng để xây dựng hệ thống content tự động theo từng phân khúc khách hàng.</p>
+        <div class="kt-news-card__footer">
+          <div class="kt-impact-row">
+            <span class="kt-impact-label">Tác động:</span>
+            <div class="kt-impact-dots">
+              <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+          <span class="kt-news-tag">#AIContent</span>
+        </div>
+      </article>
+
+      <article class="kt-news-card reveal-up" data-news-cat="platform">
+        <div class="kt-news-card__head">
+          <span class="kt-news-cat kt-news-cat--platform">📱 Nền tảng MXH</span>
+          <span class="kt-news-date">Tháng 4, 2025</span>
+        </div>
+        <h4 class="kt-news-card__title">TikTok Shop bùng nổ tại Việt Nam — Thị phần eCommerce đang tái định hình</h4>
+        <p class="kt-news-card__desc">TikTok Shop chiếm hơn 20% thị phần eCommerce Việt Nam trong Q1/2025. Doanh nghiệp SME có cơ hội tiếp cận khách hàng trực tiếp qua livestream và video shoppable với chi phí thấp hơn sàn TMĐT truyền thống.</p>
+        <div class="kt-news-card__footer">
+          <div class="kt-impact-row">
+            <span class="kt-impact-label">Tác động:</span>
+            <div class="kt-impact-dots">
+              <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span>
+            </div>
+          </div>
+          <span class="kt-news-tag">#TikTokShop</span>
+        </div>
+      </article>
+
+      <article class="kt-news-card reveal-up" data-news-cat="ads">
+        <div class="kt-news-card__head">
+          <span class="kt-news-cat kt-news-cat--ads">📣 Quảng cáo</span>
+          <span class="kt-news-date">Tháng 3, 2025</span>
+        </div>
+        <h4 class="kt-news-card__title">Meta Advantage+ tự động hóa hoàn toàn — CPL tăng hay giảm?</h4>
+        <p class="kt-news-card__desc">Meta đẩy mạnh Advantage+ Shopping Campaigns với AI tối ưu tự động từ creative đến targeting. Theo dữ liệu thực chiến, CPL giảm trung bình 18% nhưng kiểm soát đối tượng bị hạn chế đáng kể.</p>
+        <div class="kt-news-card__footer">
+          <div class="kt-impact-row">
+            <span class="kt-impact-label">Tác động:</span>
+            <div class="kt-impact-dots">
+              <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span>
+            </div>
+          </div>
+          <span class="kt-news-tag">#MetaAds</span>
+        </div>
+      </article>
+
+      <article class="kt-news-card reveal-up" data-news-cat="business">
+        <div class="kt-news-card__head">
+          <span class="kt-news-cat kt-news-cat--business">💼 Doanh nghiệp</span>
+          <span class="kt-news-date">Tháng 3, 2025</span>
+        </div>
+        <h4 class="kt-news-card__title">Xu hướng D2C tại Việt Nam 2025 — Thương hiệu nội địa vươn lên mạnh mẽ</h4>
+        <p class="kt-news-card__desc">Ngày càng nhiều thương hiệu Việt chọn mô hình Direct-to-Consumer, bỏ qua trung gian phân phối. Social Commerce và livestream bán hàng là hai vũ khí chính giúp SME cạnh tranh sòng phẳng với các tập đoàn lớn.</p>
+        <div class="kt-news-card__footer">
+          <div class="kt-impact-row">
+            <span class="kt-impact-label">Tác động:</span>
+            <div class="kt-impact-dots">
+              <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+          </div>
+          <span class="kt-news-tag">#D2C</span>
+        </div>
+      </article>
+
+      <article class="kt-news-card reveal-up" data-news-cat="ai">
+        <div class="kt-news-card__head">
+          <span class="kt-news-cat kt-news-cat--ai">🤖 AI & Công nghệ</span>
+          <span class="kt-news-date">Tháng 2, 2025</span>
+        </div>
+        <h4 class="kt-news-card__title">AI Generate Video bùng nổ — Sora, Kling, Runway thay đổi ngành Video Production</h4>
+        <p class="kt-news-card__desc">Các công cụ AI tạo video đã đạt chất lượng đủ dùng cho quảng cáo. Chi phí sản xuất video ads giảm 60–80%, mở ra cơ hội cho SME có thể tạo video chuyên nghiệp với ngân sách tối thiểu.</p>
+        <div class="kt-news-card__footer">
+          <div class="kt-impact-row">
+            <span class="kt-impact-label">Tác động:</span>
+            <div class="kt-impact-dots">
+              <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span>
+            </div>
+          </div>
+          <span class="kt-news-tag">#AIVideo</span>
+        </div>
+      </article>
+
+      <article class="kt-news-card reveal-up" data-news-cat="platform">
+        <div class="kt-news-card__head">
+          <span class="kt-news-cat kt-news-cat--platform">📱 Nền tảng MXH</span>
+          <span class="kt-news-date">Tháng 2, 2025</span>
+        </div>
+        <h4 class="kt-news-card__title">Facebook giảm reach bài viết thường — Tập trung Reels và Stories để giữ tầm với</h4>
+        <p class="kt-news-card__desc">Meta tiếp tục giảm organic reach của bài đăng văn bản và ảnh tĩnh. Dữ liệu cho thấy Reels có reach gấp 3–5 lần post thông thường. Chiến lược video-first không còn là lựa chọn mà là bắt buộc.</p>
+        <div class="kt-news-card__footer">
+          <div class="kt-impact-row">
+            <span class="kt-impact-label">Tác động:</span>
+            <div class="kt-impact-dots">
+              <span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot active"></span><span class="dot"></span>
+            </div>
+          </div>
+          <span class="kt-news-tag">#Facebook</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== TAB: KIẾN THỨC ===== -->
+<section class="kt-section hidden" id="tabKnowledge" data-panel="knowledge">
+  <div class="container">
+    <div class="kt-section-header reveal-up">
+      <div class="section-label">KIẾN THỨC</div>
+      <h2 class="section-title">Marketing<br/><em>chuyên sâu</em></h2>
+      <p class="kt-section-sub">Kho kiến thức được phân loại theo chuyên ngành — từ Branding chiến lược đến Performance thực chiến.</p>
+    </div>
+
+    <!-- Knowledge Category Tabs -->
+    <div class="kt-cat-tabs reveal-up" id="ktCatTabs">
+      <button class="kt-cat-btn active" data-cat="all">
+        <span class="kt-cat-icon">📚</span> Tất cả
+      </button>
+      <button class="kt-cat-btn" data-cat="branding">
+        <span class="kt-cat-icon">💎</span> Branding
+      </button>
+      <button class="kt-cat-btn" data-cat="performance">
+        <span class="kt-cat-icon">📊</span> Performance
+      </button>
+      <button class="kt-cat-btn" data-cat="content">
+        <span class="kt-cat-icon">✍️</span> Content
+      </button>
+      <button class="kt-cat-btn" data-cat="seo">
+        <span class="kt-cat-icon">🔍</span> SEO
+      </button>
+      <button class="kt-cat-btn" data-cat="strategy">
+        <span class="kt-cat-icon">🎯</span> Strategy
+      </button>
+      <button class="kt-cat-btn" data-cat="ai-mkt">
+        <span class="kt-cat-icon">🤖</span> AI Marketing
+      </button>
+    </div>
+
+    <!-- Knowledge Grid -->
+    <div class="kt-knowledge-grid" id="ktKnowledgeGrid">
+
+      <!-- BRANDING -->
+      <article class="kt-know-card reveal-up" data-know-cat="branding">
+        <div class="kt-know-card__tag kt-tag--branding">💎 Branding</div>
+        <div class="kt-know-card__level">
+          <span class="kt-level kt-level--advanced">Nâng cao</span>
+        </div>
+        <h4 class="kt-know-card__title">Brand Positioning: Định vị thương hiệu khác biệt trong thị trường bão hòa</h4>
+        <p class="kt-know-card__desc">Framework xây dựng brand positioning hiệu quả: từ phân tích đối thủ, xác định USP, đến tạo ra "mental availability" trong tâm trí khách hàng mục tiêu.</p>
+        <ul class="kt-know-points">
+          <li>Mô hình Brand Ladder: Feature → Benefit → Emotion → Value</li>
+          <li>Perceptual Map — công cụ visualize vị trí thương hiệu</li>
+          <li>Kỹ thuật "Zig where others Zag"</li>
+        </ul>
+        <div class="kt-know-card__footer">
+          <span class="kt-read-time">⏱ 8 phút đọc</span>
+          <div class="kt-know-tags"><span>#BrandStrategy</span><span>#Positioning</span></div>
+        </div>
+      </article>
+
+      <article class="kt-know-card reveal-up" data-know-cat="branding">
+        <div class="kt-know-card__tag kt-tag--branding">💎 Branding</div>
+        <div class="kt-know-card__level">
+          <span class="kt-level kt-level--basic">Cơ bản</span>
+        </div>
+        <h4 class="kt-know-card__title">Brand Identity System: Xây dựng hệ thống nhận diện thương hiệu toàn diện</h4>
+        <p class="kt-know-card__desc">Hướng dẫn từng bước tạo brand identity hoàn chỉnh: logo, màu sắc, typography, tone of voice và cách áp dụng nhất quán trên mọi touchpoint.</p>
+        <ul class="kt-know-points">
+          <li>6 yếu tố cốt lõi của Brand Identity System</li>
+          <li>Tạo Brand Guideline chuẩn doanh nghiệp</li>
+          <li>Kiểm tra tính nhất quán thương hiệu</li>
+        </ul>
+        <div class="kt-know-card__footer">
+          <span class="kt-read-time">⏱ 10 phút đọc</span>
+          <div class="kt-know-tags"><span>#BrandIdentity</span><span>#Design</span></div>
+        </div>
+      </article>
+
+      <!-- PERFORMANCE -->
+      <article class="kt-know-card reveal-up" data-know-cat="performance">
+        <div class="kt-know-card__tag kt-tag--performance">📊 Performance</div>
+        <div class="kt-know-card__level">
+          <span class="kt-level kt-level--advanced">Nâng cao</span>
+        </div>
+        <h4 class="kt-know-card__title">Facebook Ads Structure 2025: Campaign Architecture tối ưu cho ROAS cao</h4>
+        <p class="kt-know-card__desc">Cách tổ chức cấu trúc campaign Facebook Ads trong thời đại AI bidding, từ CBO/ABO, audience stacking đến creative testing framework giúp tăng ROAS bền vững.</p>
+        <ul class="kt-know-points">
+          <li>CBO vs ABO — khi nào dùng cái nào?</li>
+          <li>3–2–2 Creative Testing Method</li>
+          <li>Audience Waterfall Strategy</li>
+        </ul>
+        <div class="kt-know-card__footer">
+          <span class="kt-read-time">⏱ 12 phút đọc</span>
+          <div class="kt-know-tags"><span>#FacebookAds</span><span>#ROAS</span></div>
+        </div>
+      </article>
+
+      <article class="kt-know-card reveal-up" data-know-cat="performance">
+        <div class="kt-know-card__tag kt-tag--performance">📊 Performance</div>
+        <div class="kt-know-card__level">
+          <span class="kt-level kt-level--intermediate">Trung cấp</span>
+        </div>
+        <h4 class="kt-know-card__title">Google Ads Smart Bidding: Tối ưu Target CPA và Target ROAS hiệu quả</h4>
+        <p class="kt-know-card__desc">Hiểu cơ chế học máy của Google Ads, cách thiết lập conversion tracking chuẩn và chiến lược chuyển đổi từ manual bidding sang smart bidding không mất điểm chất lượng.</p>
+        <ul class="kt-know-points">
+          <li>Conversion lag và learning period</li>
+          <li>Micro conversion để nuôi data model</li>
+          <li>Portfolio bidding strategy</li>
+        </ul>
+        <div class="kt-know-card__footer">
+          <span class="kt-read-time">⏱ 9 phút đọc</span>
+          <div class="kt-know-tags"><span>#GoogleAds</span><span>#SmartBidding</span></div>
+        </div>
+      </article>
+
+      <!-- CONTENT -->
+      <article class="kt-know-card reveal-up" data-know-cat="content">
+        <div class="kt-know-card__tag kt-tag--content">✍️ Content</div>
+        <div class="kt-know-card__level">
+          <span class="kt-level kt-level--basic">Cơ bản</span>
+        </div>
+        <h4 class="kt-know-card__title">Content Pillar Strategy: Xây dựng hệ thống nội dung 90 ngày không cạn ý tưởng</h4>
+        <p class="kt-know-card__desc">Framework lập kế hoạch content theo Content Pillars giúp tạo ra nội dung nhất quán, phủ đủ các giai đoạn hành trình khách hàng từ Awareness đến Conversion.</p>
+        <ul class="kt-know-points">
+          <li>Xác định 3–5 Content Pillars phù hợp thương hiệu</li>
+          <li>Content Calendar 90 ngày từ 1 chủ đề gốc</li>
+          <li>Repurpose content đa kênh từ 1 bài gốc</li>
+        </ul>
+        <div class="kt-know-card__footer">
+          <span class="kt-read-time">⏱ 7 phút đọc</span>
+          <div class="kt-know-tags"><span>#ContentStrategy</span><span>#Pillars</span></div>
+        </div>
+      </article>
+
+      <article class="kt-know-card reveal-up" data-know-cat="content">
+        <div class="kt-know-card__tag kt-tag--content">✍️ Content</div>
+        <div class="kt-know-card__level">
+          <span class="kt-level kt-level--intermediate">Trung cấp</span>
+        </div>
+        <h4 class="kt-know-card__title">Hook Formula: 7 mẫu hook video TikTok/Reels tăng tỷ lệ xem hơn 80%</h4>
+        <p class="kt-know-card__desc">Bộ sưu tập 7 công thức viết hook mạnh cho video short-form, kèm ví dụ thực tế từ các ngành: thực phẩm, làm đẹp, xây dựng và giáo dục.</p>
+        <ul class="kt-know-points">
+          <li>Pattern Interrupt Hook — gây ngạc nhiên ngay giây đầu</li>
+          <li>Problem-Agitate Hook — đánh đúng nỗi đau</li>
+          <li>Curiosity Gap Hook — tạo khoảng trống thông tin</li>
+        </ul>
+        <div class="kt-know-card__footer">
+          <span class="kt-read-time">⏱ 6 phút đọc</span>
+          <div class="kt-know-tags"><span>#VideoContent</span><span>#Hook</span></div>
+        </div>
+      </article>
+
+      <!-- SEO -->
+      <article class="kt-know-card reveal-up" data-know-cat="seo">
+        <div class="kt-know-card__tag kt-tag--seo">🔍 SEO</div>
+        <div class="kt-know-card__level">
+          <span class="kt-level kt-level--intermediate">Trung cấp</span>
+        </div>
+        <h4 class="kt-know-card__title">SEO trong kỷ nguyên AI: Tối ưu cho Google SGE và ChatGPT Search</h4>
+        <p class="kt-know-card__desc">Chiến lược SEO mới khi AI tóm tắt kết quả — cách viết content để được trích dẫn trong AI Overview, xây dựng E-E-A-T và tối ưu cho "answer engine".</p>
+        <ul class="kt-know-points">
+          <li>Tối ưu Featured Snippet và AI citation</li>
+          <li>Xây dựng Topical Authority cho website</li>
+          <li>Schema Markup cho AI understanding</li>
+        </ul>
+        <div class="kt-know-card__footer">
+          <span class="kt-read-time">⏱ 11 phút đọc</span>
+          <div class="kt-know-tags"><span>#SEO</span><span>#AISO</span></div>
+        </div>
+      </article>
+
+      <!-- STRATEGY -->
+      <article class="kt-know-card reveal-up" data-know-cat="strategy">
+        <div class="kt-know-card__tag kt-tag--strategy">🎯 Strategy</div>
+        <div class="kt-know-card__level">
+          <span class="kt-level kt-level--advanced">Nâng cao</span>
+        </div>
+        <h4 class="kt-know-card__title">Marketing Funnel 2025: Từ Awareness đến Advocacy trong thời đại đa kênh</h4>
+        <p class="kt-know-card__desc">Cập nhật mô hình marketing funnel phù hợp với hành vi người tiêu dùng 2025 — khi journey không còn tuyến tính và mỗi touchpoint đều có thể là điểm quyết định mua.</p>
+        <ul class="kt-know-points">
+          <li>Full-funnel attribution modelling</li>
+          <li>Micro-moment marketing tại từng touchpoint</li>
+          <li>Customer retention loop — từ buyer thành advocate</li>
+        </ul>
+        <div class="kt-know-card__footer">
+          <span class="kt-read-time">⏱ 14 phút đọc</span>
+          <div class="kt-know-tags"><span>#MarketingFunnel</span><span>#Strategy</span></div>
+        </div>
+      </article>
+
+      <!-- AI MARKETING -->
+      <article class="kt-know-card reveal-up" data-know-cat="ai-mkt">
+        <div class="kt-know-card__tag kt-tag--ai-mkt">🤖 AI Marketing</div>
+        <div class="kt-know-card__level">
+          <span class="kt-level kt-level--basic">Cơ bản</span>
+        </div>
+        <h4 class="kt-know-card__title">AI Marketing Workflow: Bộ công cụ AI tăng năng suất Marketer x3 lần</h4>
+        <p class="kt-know-card__desc">Hệ thống workflow kết hợp ChatGPT, Midjourney, Canva AI và công cụ automation để tạo ra content, thiết kế và báo cáo nhanh hơn gấp 3 lần so với quy trình truyền thống.</p>
+        <ul class="kt-know-points">
+          <li>Prompt engineering cho content marketing</li>
+          <li>AI Design workflow: brief → concept → final</li>
+          <li>Automation báo cáo với AI + Google Sheets</li>
+        </ul>
+        <div class="kt-know-card__footer">
+          <span class="kt-read-time">⏱ 8 phút đọc</span>
+          <div class="kt-know-tags"><span>#AIWorkflow</span><span>#Productivity</span></div>
+        </div>
+      </article>
+
+      <article class="kt-know-card reveal-up" data-know-cat="ai-mkt">
+        <div class="kt-know-card__tag kt-tag--ai-mkt">🤖 AI Marketing</div>
+        <div class="kt-know-card__level">
+          <span class="kt-level kt-level--intermediate">Trung cấp</span>
+        </div>
+        <h4 class="kt-know-card__title">Prompt Framework cho Marketing: 50 prompt mẫu cho mọi tác vụ MKT</h4>
+        <p class="kt-know-card__desc">Bộ sưu tập 50 prompt được tối ưu cho các tác vụ marketing phổ biến: viết ad copy, phân tích đối thủ, lên kế hoạch campaign, tạo persona và nghiên cứu thị trường.</p>
+        <ul class="kt-know-points">
+          <li>RISEN Framework cho prompt marketing</li>
+          <li>Chain-of-thought prompting cho phân tích chiến lược</li>
+          <li>Role + Context + Task + Format template</li>
+        </ul>
+        <div class="kt-know-card__footer">
+          <span class="kt-read-time">⏱ 15 phút đọc</span>
+          <div class="kt-know-tags"><span>#PromptEngineering</span><span>#AITools</span></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER CTA -->
+<section class="kt-cta">
+  <div class="container">
+    <div class="kt-cta__inner reveal-up">
+      <div class="kt-cta__content">
+        <div class="kt-cta__icon">📬</div>
+        <div>
+          <h3>Nhận cập nhật mới nhất</h3>
+          <p>Tin tức AI & kiến thức Marketing mới được gửi thẳng về cho bạn</p>
+        </div>
+      </div>
+      <a href="/#contact" class="btn btn--primary">Liên hệ Hồng Sơn</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 Trần Hồng Sơn — Marketing Portfolio</p>
+    <p class="footer__sub">portfoliobyson.site</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/kien-thuc.js"></script>
+</body>
+</html>
