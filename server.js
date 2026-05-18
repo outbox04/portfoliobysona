@@ -59,14 +59,14 @@ Dự án bao gồm việc thiết kế logo, hệ thống màu sắc, typography
     id: 'multi-ads',
     cat: 'performance',
     catLabel: 'Performance',
-    title: 'Multi-channel Ads Campaign',
-    short: 'Triển khai ADS đồng thời trên FB, Google, TikTok cho doanh nghiệp xây dựng.',
-    thumb: '/images/projects/performance/perf-02.jpg',
-    cover: '/images/projects/performance/perf-01.jpg',
+    title: 'TREND PRODUCT ADS',
+    short: 'Tìm kiếm sản phẩm trending từ nền tảng TMĐT Trung Quốc và triển khai Facebook Ads để kiểm chứng thị trường & scale tại Việt Nam.',
+    thumb: '/images/projects/performance/TREND/perf-02.jpg',
+    cover: '/images/projects/performance/TREND/perf-01.jpg',
     tags: ['Google Ads', 'TikTok Ads', 'FB Ads'],
-    desc: `Chiến dịch quảng cáo đa kênh cho công ty xây dựng và nội thất, phối hợp giữa Facebook Ads, Google Search và TikTok để tiếp cận đúng tệp khách hàng mục tiêu.`,
-    results: ['CPL giảm 45%', 'Lead tăng 120%/tháng', '3 kênh vận hành song song'],
-    images: ['/images/projects/performance/perf-02.jpg']
+    desc: `Xây dựng hệ thống tìm – test – scale sản phẩm trend xuyên thị trường.`,
+    results: ['Tổng sản phẩm đã test: 100+', 'Sản phẩm WIN: 8–12 sản phẩm', 'Tỷ lệ WIN: ~8–12%', 'Doanh thu trung bình sản phẩm WIN: 7 triệu/ngày', 'Thời gian tìm sản phẩm WIN: 2–5 ngày'],
+    images: ['/images/projects/performance/TREND/perf-02.jpg','/images/projects/performance/TREND/perf-03.jpg']
   },
   {
     id: 'anpham-nha-viet',
