@@ -1,0 +1,21 @@
+{
+  "name": "tran-hong-son-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio cá nhân Trần Hồng Sơn - Marketing Leader",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "compression": "^1.8.1",
+    "ejs": "^5.0.2",
+    "express": "^5.2.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

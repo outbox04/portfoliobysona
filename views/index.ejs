@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trần Hồng Sơn — Marketing Portfolio</title>
+  <meta name="description" content="Marketing Leader 5 năm kinh nghiệm | Branding · Performance Ads · Design · Video Production. KPI 800 triệu/tháng." />
+  <meta name="author" content="Trần Hồng Sơn" />
+  <link rel="canonical" href="<%= siteUrl %>" />
+
+  <meta property="og:type"         content="website" />
+  <meta property="og:url"          content="<%= siteUrl %>" />
+  <meta property="og:site_name"    content="Trần Hồng Sơn Portfolio" />
+  <meta property="og:title"        content="Trần Hồng Sơn — Marketing Leader & Content Creator" />
+  <meta property="og:description"  content="5 năm kinh nghiệm xây dựng thương hiệu, tối ưu Performance Ads và sản xuất nội dung đa nền tảng. KPI 800 triệu/tháng." />
+  <meta property="og:image"        content="<%= siteUrl %>/images/og-image.jpg" />
+  <meta property="og:image:width"  content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"    content="Trần Hồng Sơn - Marketing Portfolio" />
+  <meta property="og:locale"       content="vi_VN" />
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="Trần Hồng Sơn — Marketing Leader & Content Creator" />
+  <meta name="twitter:description" content="5 năm kinh nghiệm · Branding · Performance Ads · Design · Video." />
+  <meta name="twitter:image"       content="<%= siteUrl %>/images/og-image.jpg" />
+  <meta property="zalo:title"      content="Trần Hồng Sơn — Marketing Portfolio" />
+  <meta property="zalo:description"content="Marketing Leader · 5 năm kinh nghiệm · KPI 800 triệu/tháng" />
+  <meta property="zalo:image"      content="<%= siteUrl %>/images/og-image.jpg" />
+
+  <link rel="icon" href="/images/software/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav__logo">HS<span>.</span></a>
+  <div class="nav__right">
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#about"      class="nav__link">Giới thiệu</a></li>
+      <li><a href="#skills"     class="nav__link">Kỹ năng</a></li>
+      <li><a href="#experience" class="nav__link">Kinh nghiệm</a></li>
+      <li><a href="#projects"   class="nav__link">Dự án</a></li>
+      <li><a href="#contact"    class="nav__link">Liên hệ</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Chuyển giao diện">
+      <span class="theme-toggle__icon moon">🌙</span>
+      <span class="theme-toggle__icon sun">☀️</span>
+    </button>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero__bg">
+    <div class="hero__blob blob-1"></div>
+    <div class="hero__blob blob-2"></div>
+    <div class="hero__grid"></div>
+  </div>
+  <div class="hero__content">
+    <div class="hero__text">
+      <p class="hero__eyebrow reveal-up">Marketing Leader & Content Creator</p>
+      <h1 class="hero__name reveal-up">Trần<br /><em>Hồng Sơn</em></h1>
+      <p class="hero__desc reveal-up">5 năm kinh nghiệm xây dựng thương hiệu, tối ưu hiệu suất quảng cáo và sản xuất nội dung đa nền tảng.</p>
+      <div class="hero__tags reveal-up">
+        <span>Branding</span><span>Performance Ads</span><span>Design</span><span>Video</span>
+      </div>
+      <div class="hero__cta reveal-up">
+        <a href="#projects" class="btn btn--primary">Xem dự án</a>
+        <a href="#contact"  class="btn btn--ghost">Liên hệ</a>
+      </div>
+    </div>
+    <div class="hero__avatar-wrap">
+      <div class="hero__avatar-ring"></div>
+      <div class="hero__avatar-glow"></div>
+      <img src="/images/avatar/avatar.jpg" alt="Trần Hồng Sơn" class="hero__avatar reveal-scale" />
+      <div class="hero__avatar-badge">
+        <span class="badge__num">5+</span>
+        <span class="badge__text">Năm KN</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero__scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<!-- ABOUT -->
+<section class="about section" id="about">
+  <div class="container">
+    <div class="section-label reveal-up">01 — Giới thiệu</div>
+    <div class="about__grid">
+      <div class="about__left reveal-up">
+        <h2 class="section-title">Marketer đa nhiệm,<br /><em>kết quả thực chiến</em></h2>
+        <p class="about__text">Tôi là Trần Hồng Sơn — Marketing Leader với nền tảng vững chắc từ Digital Marketing, Brand Strategy đến Video Production. Không chỉ lên kế hoạch, tôi thực thi từ concept đến kết quả đo lường được.</p>
+        <p class="about__text">Với kinh nghiệm quản lý ngân sách quảng cáo lên tới <strong>800 triệu/tháng</strong>, tôi hiểu cách mỗi đồng chi phí tạo ra giá trị thực sự cho doanh nghiệp.</p>
+        <div class="about__stats">
+          <div class="stat-card"><span class="stat-num" data-target="5">0</span><span>+</span><span class="stat-label">Năm KN</span></div>
+          <div class="stat-card"><span class="stat-num" data-target="4">0</span><span class="stat-label">Công ty</span></div>
+          <div class="stat-card"><span class="stat-num" data-target="800">0</span><span>M+</span><span class="stat-label">KPI/tháng</span></div>
+        </div>
+      </div>
+      <div class="about__right reveal-right">
+        <div class="info-card">
+          <div class="info-row">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            <span>0987 603 615</span>
+          </div>
+          <div class="info-row">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <a href="mailto:decaztran@gmail.com">decaztran@gmail.com</a>
+          </div>
+          <div class="info-row">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            <span>KĐT Kỳ Bá, Tp. Thái Bình</span>
+          </div>
+          <div class="info-row">
+            <svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06 2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+            <a href="https://www.facebook.com/secaz.0410" target="_blank" rel="noopener">facebook.com/secaz.0410</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="skills section" id="skills">
+  <div class="container">
+    <div class="section-label reveal-up">02 — Kỹ năng</div>
+    <h2 class="section-title reveal-up">Bộ công cụ<br /><em>& năng lực</em></h2>
+    <div class="skills__grid">
+      <div class="skill-group reveal-up">
+        <h3 class="skill-group__title"><span>📣</span> Marketing & Ads</h3>
+        <div class="skill-bars">
+          <div class="skill-bar-item"><span>Facebook Ads</span><div class="bar"><div class="bar__fill" data-w="92"></div></div></div>
+          <div class="skill-bar-item"><span>Google Ads</span><div class="bar"><div class="bar__fill" data-w="80"></div></div></div>
+          <div class="skill-bar-item"><span>Content Strategy</span><div class="bar"><div class="bar__fill" data-w="88"></div></div></div>
+          <div class="skill-bar-item"><span>Social Media</span><div class="bar"><div class="bar__fill" data-w="95"></div></div></div>
+        </div>
+      </div>
+      <div class="skill-group reveal-up">
+        <h3 class="skill-group__title"><span>🎨</span> Design & Visual</h3>
+        <div class="skill-bars">
+          <div class="skill-bar-item"><span>Adobe Photoshop</span><div class="bar"><div class="bar__fill" data-w="88"></div></div></div>
+          <div class="skill-bar-item"><span>Adobe Illustrator</span><div class="bar"><div class="bar__fill" data-w="78"></div></div></div>
+          <div class="skill-bar-item"><span>Canva</span><div class="bar"><div class="bar__fill" data-w="95"></div></div></div>
+          <div class="skill-bar-item"><span>Adobe Premiere</span><div class="bar"><div class="bar__fill" data-w="82"></div></div></div>
+        </div>
+      </div>
+      <div class="skill-group reveal-up">
+        <h3 class="skill-group__title"><span>🤖</span> AI & Workflow</h3>
+        <div class="skill-bars">
+          <div class="skill-bar-item"><span>ChatGPT / Gemini</span><div class="bar"><div class="bar__fill" data-w="90"></div></div></div>
+          <div class="skill-bar-item"><span>Midjourney / Flow AI</span><div class="bar"><div class="bar__fill" data-w="82"></div></div></div>
+          <div class="skill-bar-item"><span>After Effects</span><div class="bar"><div class="bar__fill" data-w="65"></div></div></div>
+          <div class="skill-bar-item"><span>WordPress</span><div class="bar"><div class="bar__fill" data-w="78"></div></div></div>
+        </div>
+      </div>
+    </div>
+    <div class="software-section reveal-up">
+      <h3 class="software-title">Phần mềm sử dụng</h3>
+      <div class="software-grid">
+        <% [
+          {name:'Photoshop', abbr:'Ps', file:'photoshop.svg'},
+          {name:'Premiere',  abbr:'Pr', file:'premiere.svg'},
+          {name:'Illustrator',abbr:'Ai',file:'illustrator.svg'},
+          {name:'After FX',  abbr:'Ae', file:'aftereffects.svg'},
+          {name:'Canva',     abbr:'Ca', file:'canva.svg'},
+          {name:'ChatGPT',   abbr:'AI', file:'chatgpt.svg'},
+          {name:'Midjourney',abbr:'Mj', file:'midjourney.svg'},
+          {name:'WordPress', abbr:'Wp', file:'wordpress.svg'}
+        ].forEach(sw => { %>
+        <div class="software-card">
+          <div class="software-icon">
+            <img src="/images/software/<%= sw.file %>" alt="<%= sw.name %>"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+            <span class="software-fallback" style="display:none"><%= sw.abbr %></span>
+          </div>
+          <span><%= sw.name %></span>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section class="experience section" id="experience">
+  <div class="container">
+    <div class="section-label reveal-up">03 — Kinh nghiệm</div>
+    <h2 class="section-title reveal-up">Hành trình<br /><em>sự nghiệp</em></h2>
+    <div class="timeline">
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">10/2024 — 03/2026</div>
+        <div class="timeline-card">
+          <div class="timeline-badge hl">Marketing Leader</div>
+          <h3>Công ty CP Kiến trúc & Nội thất Sơn Tùng</h3>
+          <ul>
+            <li>Lập kế hoạch Marketing tổng thể cho dịch vụ xây dựng & nội thất</li>
+            <li>Chạy ADS đa kênh, quản trị toàn bộ Social Media</li>
+            <li>Quay chụp sự kiện, công trình thực tế</li>
+            <li>Thiết kế ấn phẩm: Banner, Poster, Backdrop</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">11/2023 — 10/2024</div>
+        <div class="timeline-card">
+          <div class="timeline-badge">Truyền thông - Marketing</div>
+          <h3>Công ty TNHH Tư vấn Xây dựng và Phát triển Nhà Việt</h3>
+          <ul>
+            <li>Quản trị các trang truyền thông MXH</li>
+            <li>Chạy ADS cho 3 mảng dịch vụ</li>
+            <li>Dựng video, thiết kế ấn phẩm</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">09/2022 — 10/2023</div>
+        <div class="timeline-card">
+          <div class="timeline-badge hl">Trưởng phòng Marketing</div>
+          <h3>Công ty HCG (Tách chi nhánh)</h3>
+          <ul>
+            <li>Đạt <strong>KPI 800 triệu/tháng</strong></li>
+            <li>Top 5 tăng trưởng toàn hệ thống công ty Bảo An</li>
+            <li>Đào tạo nhân viên mới thành nhân viên chính thức sau 2 tháng</li>
+          </ul>
+        </div>
+      </div>
+      <div class="timeline-item reveal-up">
+        <div class="timeline-dot"></div>
+        <div class="timeline-date">02/2021 — 08/2022</div>
+        <div class="timeline-card">
+          <div class="timeline-badge">Digital Marketing</div>
+          <h3>Công ty TNHH Dược phẩm Bảo An</h3>
+          <ul>
+            <li>Làm video, viết content và thiết lập campaign Facebook Ads</li>
+            <li>Đạt mục tiêu KPI <strong>200 triệu/tháng</strong></li>
+            <li>Tối ưu hóa ngân sách quảng cáo</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects section" id="projects">
+  <div class="container">
+    <div class="section-label reveal-up">04 — Dự án</div>
+    <h2 class="section-title reveal-up">Portfolio<br /><em>thực chiến</em></h2>
+    <div class="project-tabs reveal-up">
+      <button class="tab-btn active" data-filter="all">Tất cả</button>
+      <button class="tab-btn" data-filter="brand">Thương hiệu</button>
+      <button class="tab-btn" data-filter="performance">Performance</button>
+      <button class="tab-btn" data-filter="design">Design</button>
+      <button class="tab-btn" data-filter="video">Video</button>
+    </div>
+    <div class="projects__grid" id="projectsGrid">
+      <% projects.forEach(p => { %>
+      <a href="/projects/<%= p.id %>" class="project-card reveal-up" data-cat="<%= p.cat %>">
+        <div class="project-card__img">
+          <img src="<%= p.thumb %>" alt="<%= p.title %>" onerror="this.parentElement.style.background='var(--bg-4)';this.style.display='none'" loading="lazy" />
+          <div class="project-card__overlay">
+            <span class="overlay-cat"><%= p.catLabel %></span>
+            <span class="overlay-link">
+              Xem chi tiết
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="project-card__body">
+          <span class="project-tag <%= p.cat %>"><%= p.catLabel %></span>
+          <h4><%= p.title %></h4>
+          <p><%= p.short %></p>
+        </div>
+      </a>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact section" id="contact">
+  <div class="container">
+    <div class="section-label reveal-up">05 — Liên hệ</div>
+    <h2 class="section-title reveal-up">Hãy cùng<br /><em>làm việc</em></h2>
+    <p class="contact__sub reveal-up">Bạn có dự án cần một marketer đa năng? Tôi sẵn sàng lắng nghe.</p>
+    <div class="contact__grid reveal-up">
+      <a href="tel:0987603615" class="contact-item">
+        <div class="contact-icon">📞</div>
+        <span class="contact-label">Điện thoại</span>
+        <span class="contact-val">0987 603 615</span>
+      </a>
+      <a href="mailto:decaztran@gmail.com" class="contact-item">
+        <div class="contact-icon">✉️</div>
+        <span class="contact-label">Email</span>
+        <span class="contact-val">decaztran@gmail.com</span>
+      </a>
+      <a href="https://www.facebook.com/secaz.0410" target="_blank" rel="noopener" class="contact-item">
+        <div class="contact-icon">📘</div>
+        <span class="contact-label">Facebook</span>
+        <span class="contact-val">secaz.0410</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD CV -->
+<section class="download-cv">
+  <div class="container">
+    <div class="download-cv__inner reveal-up">
+      <div class="download-cv__text">
+        <h3>Tải CV của tôi</h3>
+        <p>Xem đầy đủ kinh nghiệm và thành tích trong file CV</p>
+      </div>
+      <a href="/download-cv" class="btn btn--download">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Tải xuống CV
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 Trần Hồng Sơn — Marketing Portfolio</p>
+    <p class="footer__sub">portfoliobyson.site</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>
