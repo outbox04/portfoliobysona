@@ -72,27 +72,32 @@ Dự án bao gồm việc thiết kế logo, hệ thống màu sắc, typography
     id: 'anpham-nha-viet',
     cat: 'design',
     catLabel: 'Design',
-    title: 'Ấn phẩm truyền thông — Nhà Việt',
-    short: 'Thiết kế banner, poster, backdrop cho các sự kiện và chiến dịch truyền thông.',
-    thumb: '/images/projects/design/design-01.jpg',
-    cover: '/images/projects/design/design-01.jpg',
+    title: 'ẤN PHẨM TRUYỀN THÔNG - NHÀ VIỆT BRANDING',
+    short: 'Thiết kế hệ thống ấn phẩm truyền thông cho thương hiệu Nhà Việt, bao gồm bộ nhận diện online & offline phục vụ marketing và bán hàng.',
+    thumb: '/images/projects/design/NHAVIET/design-04.jpg',
+    cover: '/images/projects/design/NHAVIET/design-01.jpg',
     tags: ['Print Design', 'Banner', 'Poster'],
-    desc: `Thiết kế toàn bộ ấn phẩm truyền thông cho Công ty Nhà Việt bao gồm banner online/offline, poster sự kiện, backdrop hội nghị và bộ tài liệu marketing.`,
-    results: ['30+ ấn phẩm/tháng', 'Giảm 50% thời gian thiết kế', 'Đồng bộ brand guideline'],
-    images: ['/images/projects/design/design-01.jpg', '/images/projects/design/design-02.jpg']
+    desc: `Dự án tập trung thiết kế hệ thống ấn phẩm truyền thông đồng bộ cho thương hiệu Nhà Việt, phục vụ hoạt động marketing đa nền tảng.
+Bao gồm thiết kế banner, poster, social media và các ấn phẩm hỗ trợ bán hàng, đảm bảo tính nhất quán và nhận diện thương hiệu.`,
+    results: ['Xây dựng hệ thống 30+ ấn phẩm truyền thông', 'Đồng bộ hình ảnh thương hiệu trên đa nền tảng', 'Tăng nhận diện thương hiệu', 'Hỗ trợ hiệu quả cho chiến dịch marketing'],
+    images: ['/images/projects/design/NHAVIET/design-02.jpg', '/images/projects/design/NHAVIET/design-03.jpg']
   },
   {
     id: 'social-visual',
     cat: 'design',
     catLabel: 'Design',
-    title: 'Social Media Visual Design',
-    short: 'Bộ template và nội dung hình ảnh đồng bộ cho fanpage và các kênh MXH.',
-    thumb: '/images/projects/design/design-02.jpg',
-    cover: '/images/projects/design/design-02.jpg',
+    title: 'SƠN TÙNG DESIGN - HIGH-END BRAND VISUAL',
+    short: 'Xây dựng hệ thống hình ảnh truyền thông cho dịch vụ xây nhà trọn gói phân khúc cao cấp, tập trung vào trải nghiệm sang trọng và khách hàng thu nhập cao.',
+    thumb: '/images/projects/design/SONGTUNG/design-02.jpg',
+    cover: '/images/projects/design/SONGTUNG/design-01.jpg',
     tags: ['Canva', 'Photoshop', 'Social Design'],
-    desc: `Xây dựng hệ thống template thiết kế cho mạng xã hội, đảm bảo tính nhất quán về visual và dễ dàng cập nhật nội dung mới theo từng chiến dịch.`,
-    results: ['100+ template có thể tái sử dụng', 'Giảm 70% thời gian production', 'Tăng nhất quán thương hiệu'],
-    images: ['/images/projects/design/design-02.jpg']
+    desc: `Dự án tập trung xây dựng hệ thống hình ảnh truyền thông cho thương hiệu Sơn Tùng Design – đơn vị cung cấp dịch vụ xây nhà trọn gói trong phân khúc cao cấp.
+
+Với định hướng khách hàng thu nhập cao, hệ thống visual được thiết kế theo phong cách tối giản, sang trọng, nhấn mạnh vào trải nghiệm, cảm xúc và giá trị sống thay vì yếu tố bán hàng trực tiếp.
+
+Các ấn phẩm được triển khai bao gồm social media, website và tài liệu truyền thông, đảm bảo sự đồng bộ và nâng cao nhận diện thương hiệu trong phân khúc premium.`,
+    results: ['Xây dựng hình ảnh thương hiệu cao cấp', 'Tăng độ nhận diện trong phân khúc premium', 'Đồng bộ hệ thống visual', 'Nâng perception thương hiệu','Khách hàng cao cấp không thích quảng cáo “bán hàng','Họ mua cảm giác & đẳng cấp'],
+    images: ['/images/projects/design/SONGTUNG/design-03.jpg']
   },
   {
     id: 'video-bao-an',
