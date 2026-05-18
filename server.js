@@ -103,14 +103,16 @@ Các ấn phẩm được triển khai bao gồm social media, website và tài 
     id: 'video-bao-an',
     cat: 'video',
     catLabel: 'Video',
-    title: 'Video Ads — Dược phẩm Bảo An',
-    short: 'Sản xuất video quảng cáo sản phẩm dược phẩm tối ưu cho mobile feed.',
-    thumb: '/images/projects/video/video-01.jpg',
-    cover: '/images/projects/video/video-01.jpg',
+    title: 'VIDEO PRODUCTION - LỄ CẤT NÓC EDEN LUXURY HOTEL',
+    short: 'Sản xuất video ghi dấu cột mốc thi công quan trọng, góp phần nâng cao hình ảnh thương hiệu Nhà Việt Construction.',
+    thumb: '/images/projects/video/NHAVIET/video-02.jpg',
+    cover: '/images/projects/video/NHAVIET/video-01.jpg',
     tags: ['Video Ads', 'Premiere', 'Mobile'],
-    desc: `Sản xuất series video quảng cáo cho các sản phẩm dược phẩm Bảo An, tối ưu định dạng cho Facebook/TikTok feed với hook mạnh trong 3 giây đầu.`,
-    results: ['CTR tăng 2.8x', 'View through rate 65%', 'KPI 200 triệu/tháng'],
-    images: ['/images/projects/video/video-01.jpg', '/images/projects/video/video-02.jpg']
+    desc: `Dự án tập trung sản xuất video truyền thông cho sự kiện lễ cất nóc khách sạn Eden Luxury – một cột mốc quan trọng trong quá trình thi công.
+Video được xây dựng nhằm ghi lại tiến độ công trình, đồng thời truyền tải hình ảnh chuyên nghiệp, uy tín của Nhà Việt Construction trong lĩnh vực xây dựng công trình quy mô lớn.`,
+    results: ['Ghi dấu cột mốc quan trọng của dự án', 'Nâng cao hình ảnh thương hiệu Nhà Việt Construction', 'Tăng độ tin tưởng với khách hàng & đối tác', 'Tối ưu nội dung cho đa nền tảng (Facebook, Youtube)'],
+    youtube: 'https://www.youtube.com/embed/4EHlYIcEhwY',
+    images: ['/images/projects/video/NHAVIET/video-03.jpg']
   },
   {
     id: 'video-son-tung',

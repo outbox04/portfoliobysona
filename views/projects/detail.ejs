@@ -89,7 +89,23 @@
         <p>Dự án thuộc mảng <strong><%= project.catLabel %></strong>, sử dụng các công cụ và kỹ năng chuyên sâu để đạt được kết quả tốt nhất cho doanh nghiệp khách hàng.</p>
 
         <% if (project.images && project.images.length > 0) { %>
-        <div class="detail-images">
+        <%# YouTube embed nếu có %>
+<% if (project.youtube) { %>
+<div class="detail-video reveal-up">
+  <iframe
+    src="<%= project.youtube %>?rel=0&modestbranding=1"
+    title="<%= project.title %>"
+    frameborder="0"
+    allowfullscreen
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  ></iframe>
+</div>
+<% } %>
+
+<% if (project.images && project.images.length > 0) { %>
+<div class="detail-images">
+  ...
+          <div class="detail-images">
           <% project.images.forEach(img => { %>
           <img src="<%= img %>" alt="<%= project.title %>" onerror="this.style.background='var(--bg-4)';this.src=''" loading="lazy" />
           <% }) %>
