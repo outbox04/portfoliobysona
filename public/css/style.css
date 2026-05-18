@@ -621,3 +621,10 @@ ul { list-style: none; }
   height: 100%;
   border: none;
 }
+/* Facebook Reel — tỉ lệ dọc 9:16 , giới hạn chiều rộng */
+.detail-video--reel {
+  aspect-ratio: 9 / 16;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
