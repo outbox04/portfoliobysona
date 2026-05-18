@@ -27,20 +27,20 @@ Thách thức của dự án là xây dựng một hệ thống nhận diện th
 
 Dự án bao gồm việc thiết kế logo, hệ thống màu sắc, typography và bộ Brand Guideline hoàn chỉnh nhằm đảm bảo tính đồng bộ trên tất cả các điểm chạm: từ tài liệu nội bộ, truyền thông đến hệ thống đại lý.`,
     results: ['Xây dựng hoàn chỉnh bộ Brand Guideline 13+ trang', 'Chuẩn hóa 100% hệ thống nhận diện trên digital & offline', 'Tăng khả năng nhận diện thương hiệu trong hệ thống đại lý','Tạo nền tảng mở rộng marketing & bán hàng B2B','Rút ngắn thời gian triển khai thiết kế & truyền thông'],
-    images: ['/images/projects/brand/MEGAPOWER/brand-01.jpg', '/images/projects/brand/MEGAPOWER/brand-03.jpg', '/images/projects/brand/MEGAPOWER/brand-04.jpg']
+    images: ['/images/projects/brand/MEGAPOWER/brand-01.jpg', '/images/projects/brand/MEGAPOWER/brand-03.jpg', '/images/projects/brand/MEGAPOWER/brand-04.jpg', '/images/projects/brand/MEGAPOWER/brand-05.jpg']
   },
   {
     id: 'social-branding',
     cat: 'brand',
     catLabel: 'Thương hiệu',
-    title: 'Social Media Branding',
-    short: 'Thiết lập bộ nhận diện đồng bộ trên tất cả kênh mạng xã hội.',
-    thumb: '/images/projects/brand/brand-02.jpg',
-    cover: '/images/projects/brand/brand-02.jpg',
+    title: 'TIẾN DƯƠNG HOME-Brand Identity Design',
+    short: 'Xây dựng bộ nhận diện thương hiệu cho công ty kiến trúc & xây dựng, tập trung vào sự vững chắc, uy tín và hiện đại.',
+    thumb: '/images/projects/brand/TDH/brand-02.jpg',
+    cover: '/images/projects/brand/TDH/brand-01.jpg',
     tags: ['Social Media', 'Branding', 'Content'],
-    desc: `Xây dựng bộ nhận diện thống nhất trên Facebook, Instagram, TikTok và YouTube, bao gồm template post, story, thumbnail và cover photo.`,
-    results: ['Xây dựng hoàn chỉnh bộ Brand Guideline 13+ trang', 'Chuẩn hóa 100% hệ thống nhận diện trên digital & offline', 'Tăng khả năng nhận diện thương hiệu trong hệ thống đại lý','Tạo nền tảng mở rộng marketing & bán hàng B2B','Rút ngắn thời gian triển khai thiết kế & truyền thông'],
-    images: ['/images/projects/brand/brand-02.jpg']
+    desc: `TIẾN DƯƠNG HOME là thương hiệu hoạt động trong lĩnh vực thiết kế và thi công nhà ở. Dự án tập trung xây dựng một hệ thống nhận diện đồng bộ, thể hiện sự chuyên nghiệp, đáng tin cậy và định hướng phát triển dài hạn.`,
+    results: ['Tạo logo dễ nhận diện, mang tính biểu tượng ngành xây dựng', 'Xây dựng hệ màu thể hiện sự bền vững & tin cậy', 'Ứng dụng linh hoạt trên nhiều nền tảng (online + offline)'],
+    images: ['/images/projects/brand/TDH/brand-02.jpg','/images/projects/brand/TDH/brand-03.jpg','/images/projects/brand/TDH/brand-04.jpg','/images/projects/brand/TDH/brand-05.jpg']
   },
   {
     id: 'fb-ads-hcg',
