@@ -61,7 +61,7 @@ Dự án bao gồm việc thiết kế logo, hệ thống màu sắc, typography
     catLabel: 'Performance',
     title: 'TREND PRODUCT ADS',
     short: 'Tìm kiếm sản phẩm trending từ nền tảng TMĐT Trung Quốc và triển khai Facebook Ads để kiểm chứng thị trường & scale tại Việt Nam.',
-    thumb: '/images/projects/performance/TREND/perf-02.jpg',
+    thumb: '/images/projects/performance/TREND/perf-03.jpg',
     cover: '/images/projects/performance/TREND/perf-01.jpg',
     tags: ['Google Ads', 'TikTok Ads', 'FB Ads'],
     desc: `Xây dựng hệ thống tìm – test – scale sản phẩm trend xuyên thị trường.`,
