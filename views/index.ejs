@@ -465,10 +465,64 @@
   </div>
 </section>
 
+<!-- KNOWLEDGE PREVIEW -->
+<section class="knowledge-preview section" id="knowledge">
+  <div class="container">
+    <div class="section-label reveal-up">05 — Kiến thức</div>
+    <div class="knowledge-preview__head reveal-up">
+      <h2 class="section-title" style="margin-bottom:0">Tin tức<br /><em>& Kiến thức MKT</em></h2>
+      <a href="/kien-thuc" class="btn btn--ghost">
+        Xem tất cả
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+
+    <!-- Filter tabs -->
+    <div class="kp-tabs reveal-up">
+      <button class="kp-tab active" data-filter="all">Tất cả</button>
+      <button class="kp-tab" data-filter="news">📰 Tin tức</button>
+      <button class="kp-tab" data-filter="knowledge">📚 Kiến thức</button>
+    </div>
+
+    <!-- Cards grid — chỉ hiển thị 6 bài -->
+    <div class="kp-grid" id="kpGrid">
+      <% knowledge.slice(0,6).forEach(function(k) { %>
+      <a href="/kien-thuc/<%= k.id %>" class="kp-card reveal-up" data-type="<%= k.type %>">
+        <div class="kp-card__img">
+          <img src="<%= k.thumb %>" alt="<%= k.title %>"
+            onerror='this.parentElement.classList.add("no-img");this.style.display="none"'
+            loading="lazy" />
+          <span class="kp-card__type <%= k.type %>">
+            <%= k.type === 'news' ? '📰 Tin tức' : '📚 Kiến thức' %>
+          </span>
+        </div>
+        <div class="kp-card__body">
+          <span class="kp-card__cat"><%= k.cat %></span>
+          <h4><%= k.title %></h4>
+          <p><%= k.short %></p>
+          <div class="kp-card__meta">
+            <span>🗓 <%= k.date %></span>
+            <span>⏱ <%= k.readTime %></span>
+          </div>
+        </div>
+      </a>
+      <% }); %>
+    </div>
+
+    <!-- CTA -->
+    <div class="kp-cta reveal-up">
+      <a href="/kien-thuc" class="btn btn--primary">
+        Xem tất cả bài viết
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- PROJECTS -->
 <section class="projects section" id="projects">
   <div class="container">
-    <div class="section-label reveal-up">05 — Dự án</div>
+    <div class="section-label reveal-up">06 — Dự án</div>
     <h2 class="section-title reveal-up">Portfolio<br /><em>thực chiến</em></h2>
     <div class="project-tabs reveal-up">
       <button class="tab-btn active" data-filter="all">Tất cả</button>
@@ -504,7 +558,7 @@
 <!-- CONTACT -->
 <section class="contact section" id="contact">
   <div class="container">
-    <div class="section-label reveal-up">06 — Liên hệ</div>
+    <div class="section-label reveal-up">07 — Liên hệ</div>
     <h2 class="section-title reveal-up">Hãy cùng<br /><em>làm việc</em></h2>
     <p class="contact__sub reveal-up">Bạn có dự án cần một marketer đa năng? Tôi sẵn sàng lắng nghe.</p>
     <div class="contact__grid reveal-up">

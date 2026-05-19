@@ -164,3 +164,16 @@ document.querySelectorAll('.mindset-tab').forEach(btn => {
     document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
   });
 });
+// ═══ KNOWLEDGE FILTER ═══
+document.querySelectorAll('.kp-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.kp-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.kp-card').forEach(card => {
+      const show = f === 'all' || card.dataset.type === f;
+      card.classList.toggle('hidden', !show);
+      if (show) card.style.animation = 'cardIn .35s ease forwards';
+    });
+  });
+});
