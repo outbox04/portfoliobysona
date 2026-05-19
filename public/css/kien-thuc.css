@@ -512,3 +512,49 @@
   .kt-item__img { aspect-ratio: 16/9; }
   .kt-item__body { padding: 16px; }
 }
+/* ===== FIX KT CATEGORIES OVERFLOW ===== */
+.kt-categories {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+
+.kt-cat-btn {
+  width: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 16px;
+  overflow: hidden;
+
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+}
+
+.kt-cat-btn__icon {
+  flex-shrink: 0;
+}
+
+.kt-cat-btn__name {
+  flex: 1;
+  min-width: 0;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kt-cat-btn__count {
+  flex-shrink: 0;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .kt-categories {
+    grid-template-columns: 1fr;
+  }
+}
