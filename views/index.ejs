@@ -465,10 +465,46 @@
   </div>
 </section>
 
+<!-- PROJECTS -->
+<section class="projects section" id="projects">
+  <div class="container">
+    <div class="section-label reveal-up">05 — Dự án</div>
+    <h2 class="section-title reveal-up">Portfolio<br /><em>thực chiến</em></h2>
+    <div class="project-tabs reveal-up">
+      <button class="tab-btn active" data-filter="all">Tất cả</button>
+      <button class="tab-btn" data-filter="brand">Thương hiệu</button>
+      <button class="tab-btn" data-filter="performance">Performance</button>
+      <button class="tab-btn" data-filter="design">Design</button>
+      <button class="tab-btn" data-filter="video">Video</button>
+    </div>
+    <div class="projects__grid" id="projectsGrid">
+      <% projects.forEach(p => { %>
+      <a href="/projects/<%= p.id %>" class="project-card reveal-up" data-cat="<%= p.cat %>">
+        <div class="project-card__img">
+          <img src="<%= p.thumb %>" alt="<%= p.title %>" onerror="this.parentElement.style.background='var(--bg-4)';this.style.display='none'" loading="lazy" />
+          <div class="project-card__overlay">
+            <span class="overlay-cat"><%= p.catLabel %></span>
+            <span class="overlay-link">
+              Xem chi tiết
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </span>
+          </div>
+        </div>
+        <div class="project-card__body">
+          <span class="project-tag <%= p.cat %>"><%= p.catLabel %></span>
+          <h4><%= p.title %></h4>
+          <p><%= p.short %></p>
+        </div>
+      </a>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
 <!-- KNOWLEDGE PREVIEW -->
 <section class="knowledge-preview section" id="knowledge">
   <div class="container">
-    <div class="section-label reveal-up">05 — Kiến thức</div>
+    <div class="section-label reveal-up">06 — Kiến thức</div>
     <div class="knowledge-preview__head reveal-up">
       <h2 class="section-title" style="margin-bottom:0">Tin tức<br /><em>& Kiến thức MKT</em></h2>
       <a href="/kien-thuc" class="btn btn--ghost">
@@ -515,42 +551,6 @@
         Xem tất cả bài viết
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="projects section" id="projects">
-  <div class="container">
-    <div class="section-label reveal-up">06 — Dự án</div>
-    <h2 class="section-title reveal-up">Portfolio<br /><em>thực chiến</em></h2>
-    <div class="project-tabs reveal-up">
-      <button class="tab-btn active" data-filter="all">Tất cả</button>
-      <button class="tab-btn" data-filter="brand">Thương hiệu</button>
-      <button class="tab-btn" data-filter="performance">Performance</button>
-      <button class="tab-btn" data-filter="design">Design</button>
-      <button class="tab-btn" data-filter="video">Video</button>
-    </div>
-    <div class="projects__grid" id="projectsGrid">
-      <% projects.forEach(p => { %>
-      <a href="/projects/<%= p.id %>" class="project-card reveal-up" data-cat="<%= p.cat %>">
-        <div class="project-card__img">
-          <img src="<%= p.thumb %>" alt="<%= p.title %>" onerror="this.parentElement.style.background='var(--bg-4)';this.style.display='none'" loading="lazy" />
-          <div class="project-card__overlay">
-            <span class="overlay-cat"><%= p.catLabel %></span>
-            <span class="overlay-link">
-              Xem chi tiết
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </span>
-          </div>
-        </div>
-        <div class="project-card__body">
-          <span class="project-tag <%= p.cat %>"><%= p.catLabel %></span>
-          <h4><%= p.title %></h4>
-          <p><%= p.short %></p>
-        </div>
-      </a>
-      <% }) %>
     </div>
   </div>
 </section>
