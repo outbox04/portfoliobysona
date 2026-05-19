@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tin tức & Kiến thức Marketing — Trần Hồng Sơn</title>
+  <meta name="description" content="Cập nhật tin tức AI, Marketing và kiến thức chuyên ngành Branding, Performance, Content, Social Media." />
+  <link rel="canonical" href="<%= siteUrl %>/kien-thuc" />
+  <meta property="og:type"        content="website" />
+  <meta property="og:url"         content="<%= siteUrl %>/kien-thuc" />
+  <meta property="og:title"       content="Tin tức & Kiến thức Marketing — Trần Hồng Sơn" />
+  <meta property="og:description" content="Cập nhật tin tức AI, Marketing và kiến thức chuyên ngành." />
+  <meta property="og:image"       content="<%= siteUrl %>/images/og-image.jpg" />
+  <meta property="og:locale"      content="vi_VN" />
+  <link rel="icon" href="/images/software/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/kien-thuc.css" />
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- NAV -->
+<nav class="nav scrolled" id="nav">
+  <a href="/" class="nav__logo">HS<span>.</span></a>
+  <div class="nav__right">
+    <ul class="nav__links" id="navLinks">
+      <li><a href="/#about"      class="nav__link">Giới thiệu</a></li>
+      <li><a href="/#skills"     class="nav__link">Kỹ năng</a></li>
+      <li><a href="/#experience" class="nav__link">Kinh nghiệm</a></li>
+      <li><a href="/#projects"   class="nav__link">Dự án</a></li>
+      <li><a href="/kien-thuc"   class="nav__link active-link">Kiến thức</a></li>
+      <li><a href="/#contact"    class="nav__link">Liên hệ</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Chuyển giao diện">
+      <span class="theme-toggle__icon moon">🌙</span>
+      <span class="theme-toggle__icon sun">☀️</span>
+    </button>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="kt-hero">
+  <div class="kt-hero__bg">
+    <div class="hero__blob blob-1"></div>
+    <div class="hero__blob blob-2"></div>
+    <div class="hero__grid"></div>
+  </div>
+  <div class="container">
+    <div class="kt-hero__inner">
+      <a href="/" class="btn btn--back" style="margin-bottom:28px;display:inline-flex">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Trang chủ
+      </a>
+      <p class="kt-hero__label">Tin tức & Kiến thức</p>
+      <h1 class="kt-hero__title">Marketing<br /><em>Hub</em></h1>
+      <p class="kt-hero__desc">Cập nhật tin tức AI, xu hướng thị trường và kiến thức chuyên sâu về Branding, Performance, Content và Social Media.</p>
+      <div class="kt-hero__stats">
+        <div class="kt-stat"><span><%= knowledge.length %>+</span><p>Bài viết</p></div>
+        <div class="kt-stat"><span><%= knowledge.filter(k=>k.type==='news').length %></span><p>Tin tức</p></div>
+        <div class="kt-stat"><span><%= knowledge.filter(k=>k.type==='knowledge').length %></span><p>Kiến thức</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<section class="kt-main">
+  <div class="container">
+    <div class="kt-layout">
+
+      <!-- LEFT: ARTICLES -->
+      <div class="kt-articles">
+
+        <!-- TABS -->
+        <div class="kt-tabs reveal-up">
+          <button class="kt-tab active" data-tab="all">
+            Tất cả <span class="kt-tab__count"><%= knowledge.length %></span>
+          </button>
+          <button class="kt-tab" data-tab="news">
+            📰 Tin tức <span class="kt-tab__count"><%= knowledge.filter(k=>k.type==='news').length %></span>
+          </button>
+          <button class="kt-tab" data-tab="knowledge">
+            📚 Kiến thức <span class="kt-tab__count"><%= knowledge.filter(k=>k.type==='knowledge').length %></span>
+          </button>
+        </div>
+
+        <!-- CAT FILTER (chỉ hiện khi tab knowledge) -->
+        <div class="kt-catfilter reveal-up" id="ktCatFilter">
+          <button class="kt-cat active" data-cat="all">Tất cả</button>
+          <% const cats = [...new Set(knowledge.filter(k=>k.type==='knowledge').map(k=>k.cat))]; %>
+          <% cats.forEach(function(c) { %>
+          <button class="kt-cat" data-cat="<%= c %>"><%= c %></button>
+          <% }); %>
+        </div>
+
+        <!-- FEATURED (bài đầu tiên) -->
+        <% const featured = knowledge[0]; %>
+        <a href="/kien-thuc/<%= featured.id %>" class="kt-featured reveal-up" id="ktFeatured">
+          <div class="kt-featured__img">
+            <img src="<%= featured.thumb %>" alt="<%= featured.title %>"
+              onerror='this.parentElement.classList.add("no-img");this.style.display="none"' />
+            <span class="kt-featured__badge">
+              <%= featured.type === 'news' ? '📰 Tin tức nổi bật' : '📚 Kiến thức nổi bật' %>
+            </span>
+          </div>
+          <div class="kt-featured__body">
+            <span class="kt-featured__cat"><%= featured.cat %></span>
+            <h2><%= featured.title %></h2>
+            <p><%= featured.short %></p>
+            <div class="kt-featured__meta">
+              <span>🗓 <%= featured.date %></span>
+              <span>⏱ <%= featured.readTime %></span>
+            </div>
+          </div>
+        </a>
+
+        <!-- ARTICLES LIST -->
+        <div class="kt-list" id="ktList">
+          <% knowledge.slice(1).forEach(function(k) { %>
+          <a href="/kien-thuc/<%= k.id %>"
+            class="kt-item reveal-up"
+            data-type="<%= k.type %>"
+            data-cat="<%= k.cat %>">
+            <div class="kt-item__img">
+              <img src="<%= k.thumb %>" alt="<%= k.title %>"
+                onerror='this.parentElement.classList.add("no-img");this.style.display="none"'
+                loading="lazy" />
+              <span class="kt-item__badge <%= k.type %>">
+                <%= k.type === 'news' ? '📰' : '📚' %>
+              </span>
+            </div>
+            <div class="kt-item__body">
+              <span class="kt-item__cat"><%= k.cat %></span>
+              <h3><%= k.title %></h3>
+              <p><%= k.short %></p>
+              <div class="kt-item__meta">
+                <span>🗓 <%= k.date %></span>
+                <span>⏱ <%= k.readTime %></span>
+              </div>
+            </div>
+          </a>
+          <% }); %>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: SIDEBAR -->
+      <aside class="kt-sidebar">
+
+        <!-- TIN TỨC MỚI NHẤT -->
+        <div class="kt-widget reveal-right">
+          <h3 class="kt-widget__title">📰 Tin tức mới nhất</h3>
+          <div class="kt-widget__list">
+            <% knowledge.filter(k=>k.type==='news').slice(0,4).forEach(function(k) { %>
+            <a href="/kien-thuc/<%= k.id %>" class="kt-widget__item">
+              <div class="kt-widget__img">
+                <img src="<%= k.thumb %>" alt="<%= k.title %>"
+                  onerror='this.parentElement.classList.add("no-img");this.style.display="none"'
+                  loading="lazy" />
+              </div>
+              <div>
+                <p><%= k.title %></p>
+                <span><%= k.date %></span>
+              </div>
+            </a>
+            <% }); %>
+          </div>
+        </div>
+
+        <!-- KIẾN THỨC THEO DANH MỤC -->
+        <div class="kt-widget reveal-right">
+          <h3 class="kt-widget__title">📚 Danh mục kiến thức</h3>
+          <div class="kt-categories">
+            <%
+              const allCats = [
+                { name: 'Branding',     icon: '🏷️', color: '#D4A843' },
+                { name: 'Performance',  icon: '⚡', color: '#E63022' },
+                { name: 'Content',      icon: '✍️', color: '#63B3ED' },
+                { name: 'Social Media', icon: '📱', color: '#9A75DA' },
+                { name: 'Design',       icon: '🎨', color: '#68D391' },
+                { name: 'AI & Công nghệ', icon: '🤖', color: '#F6AD55' },
+                { name: 'Video',        icon: '🎬', color: '#FC8181' },
+                { name: 'Analytics',    icon: '📊', color: '#76E4F7' }
+              ];
+            %>
+            <% allCats.forEach(function(c) { %>
+            <button class="kt-cat-btn" data-cat="<%= c.name %>" style="--cat-color: <%= c.color %>">
+              <span class="kt-cat-btn__icon"><%= c.icon %></span>
+              <span class="kt-cat-btn__name"><%= c.name %></span>
+              <span class="kt-cat-btn__count">
+                <%= knowledge.filter(k=>k.cat===c.name).length %>
+              </span>
+            </button>
+            <% }); %>
+          </div>
+        </div>
+
+        <!-- TAGS -->
+        <div class="kt-widget reveal-right">
+          <h3 class="kt-widget__title">🏷 Tags phổ biến</h3>
+          <div class="kt-tags">
+            <span>Facebook Ads</span><span>Branding</span>
+            <span>AI Marketing</span><span>Content Strategy</span>
+            <span>TikTok</span><span>ROAS</span>
+            <span>Brand Identity</span><span>Copywriting</span>
+            <span>Meta Ads</span><span>SEO</span>
+            <span>Video Marketing</span><span>Analytics</span>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 Trần Hồng Sơn — Marketing Portfolio</p>
+    <p class="footer__sub">portfoliobyson.site</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/kien-thuc.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
