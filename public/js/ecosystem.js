@@ -200,3 +200,59 @@ document.addEventListener('keydown', e => {
   }
 
 });
+// ======================
+// ANTI COPY
+// ======================
+
+document.addEventListener('contextmenu', e => {
+  e.preventDefault();
+});
+
+document.addEventListener('copy', e => {
+  e.preventDefault();
+});
+
+document.addEventListener('cut', e => {
+  e.preventDefault();
+});
+
+document.addEventListener('paste', e => {
+  e.preventDefault();
+});
+
+document.addEventListener('selectstart', e => {
+  e.preventDefault();
+});
+
+document.addEventListener('dragstart', e => {
+  e.preventDefault();
+});
+
+document.addEventListener('keydown', e => {
+
+  // F12
+  if (e.key === 'F12') {
+    e.preventDefault();
+  }
+
+  // Ctrl+Shift+I
+  if (e.ctrlKey && e.shiftKey && e.key === 'I') {
+    e.preventDefault();
+  }
+
+  // Ctrl+U
+  if (e.ctrlKey && e.key.toLowerCase() === 'u') {
+    e.preventDefault();
+  }
+
+  // Ctrl+C
+  if (e.ctrlKey && e.key.toLowerCase() === 'c') {
+    e.preventDefault();
+  }
+
+  // Ctrl+A
+  if (e.ctrlKey && e.key.toLowerCase() === 'a') {
+    e.preventDefault();
+  }
+
+});
