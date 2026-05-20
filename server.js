@@ -156,156 +156,6 @@ app.get('/projects/:id', (req, res) => {
   res.render('projects/detail', { siteUrl: getSiteUrl(req), project, related, projects });
 });
 
-// ─── ECOSYSTEM DATA ────────────────────────────────────────────────────────
-
-const depts = [
-  { icon: '💎', name: 'Branding',        desc: 'Xây dựng nhận diện thương hiệu, định vị và brand story',                          color: 'rgba(167,139,250,0.08)', border: 'rgba(167,139,250,0.25)', ai: 45 },
-  { icon: '📊', name: 'Performance Ads', desc: 'Facebook Ads, Google Ads, TikTok Ads — tối ưu ROAS thực chiến',                    color: 'rgba(52,211,153,0.08)',  border: 'rgba(52,211,153,0.25)',  ai: 82 },
-  { icon: '✍️', name: 'Content',         desc: 'Chiến lược nội dung, copywriting, content calendar đa kênh',                       color: 'rgba(230,48,34,0.07)',   border: 'rgba(230,48,34,0.2)',   ai: 88 },
-  { icon: '🔍', name: 'SEO',             desc: 'Tối ưu công cụ tìm kiếm, technical SEO và topical authority',                      color: 'rgba(96,165,250,0.08)',  border: 'rgba(96,165,250,0.25)', ai: 70 },
-  { icon: '🎬', name: 'Video',           desc: 'Sản xuất video ads, short-form content cho TikTok và Reels',                       color: 'rgba(255,107,53,0.08)',  border: 'rgba(255,107,53,0.25)', ai: 75 },
-  { icon: '📱', name: 'Social Media',    desc: 'Quản trị fanpage, community building và organic growth',                           color: 'rgba(34,211,238,0.08)',  border: 'rgba(34,211,238,0.25)', ai: 60 },
-  { icon: '📧', name: 'Email Marketing', desc: 'Automation, nurturing và lifecycle email campaigns',                               color: 'rgba(212,168,67,0.08)',  border: 'rgba(212,168,67,0.25)', ai: 78 },
-  { icon: '📈', name: 'Analytics',       desc: 'Đo lường KPI, phân tích dữ liệu và báo cáo hiệu quả',                            color: 'rgba(16,185,129,0.08)',  border: 'rgba(16,185,129,0.25)', ai: 85 },
-];
-
-const toolCats = [
-  { id: 'design',      icon: '🎨', name: 'Design' },
-  { id: 'ads',         icon: '📣', name: 'Ads' },
-  { id: 'content',     icon: '✍️', name: 'Content' },
-  { id: 'analytics',   icon: '📊', name: 'Analytics' },
-  { id: 'ai',          icon: '🤖', name: 'AI Tools' },
-  { id: 'social',      icon: '📱', name: 'Social' },
-];
-
-const tools = [
-  { icon: '🖼️', name: 'Photoshop',      catLabel: 'Design',     cat: 'design',    ai: false, level: 'must'     },
-  { icon: '✏️', name: 'Illustrator',    catLabel: 'Design',     cat: 'design',    ai: false, level: 'must'     },
-  { icon: '🎨', name: 'Canva',          catLabel: 'Design',     cat: 'design',    ai: true,  level: 'must'     },
-  { icon: '🎬', name: 'Premiere',       catLabel: 'Design',     cat: 'design',    ai: false, level: 'must'     },
-  { icon: '✨', name: 'After Effects',  catLabel: 'Design',     cat: 'design',    ai: false, level: 'pro'      },
-  { icon: '📣', name: 'Ads Manager',    catLabel: 'Ads',        cat: 'ads',       ai: true,  level: 'must'     },
-  { icon: '🔍', name: 'Google Ads',     catLabel: 'Ads',        cat: 'ads',       ai: true,  level: 'must'     },
-  { icon: '🎵', name: 'TikTok Ads',     catLabel: 'Ads',        cat: 'ads',       ai: true,  level: 'pro'      },
-  { icon: '🤖', name: 'ChatGPT',        catLabel: 'AI Tools',   cat: 'ai',        ai: true,  level: 'must'     },
-  { icon: '🖼️', name: 'Midjourney',     catLabel: 'AI Tools',   cat: 'ai',        ai: true,  level: 'pro'      },
-  { icon: '🎥', name: 'Kling AI',       catLabel: 'AI Tools',   cat: 'ai',        ai: true,  level: 'pro'      },
-  { icon: '📝', name: 'Claude',         catLabel: 'AI Tools',   cat: 'ai',        ai: true,  level: 'must'     },
-  { icon: '📊', name: 'GA4',            catLabel: 'Analytics',  cat: 'analytics', ai: false, level: 'must'     },
-  { icon: '📉', name: 'Meta Pixel',     catLabel: 'Analytics',  cat: 'analytics', ai: false, level: 'must'     },
-  { icon: '📋', name: 'Data Studio',    catLabel: 'Analytics',  cat: 'analytics', ai: true,  level: 'pro'      },
-  { icon: '🐦', name: 'Buffer',         catLabel: 'Social',     cat: 'social',    ai: true,  level: 'optional' },
-  { icon: '📱', name: 'Meta Suite',     catLabel: 'Social',     cat: 'social',    ai: false, level: 'must'     },
-  { icon: '🌐', name: 'WordPress',      catLabel: 'Content',    cat: 'content',   ai: false, level: 'must'     },
-  { icon: '📝', name: 'Notion',         catLabel: 'Content',    cat: 'content',   ai: true,  level: 'pro'      },
-  { icon: '📧', name: 'Mailchimp',      catLabel: 'Content',    cat: 'content',   ai: true,  level: 'optional' },
-];
-
-const workflows = [
-  {
-    icon: '🔬', title: 'Research',
-    desc: 'Nghiên cứu thị trường, phân tích đối thủ, xác định tệp khách hàng mục tiêu.',
-    tools: ['GA4', 'ChatGPT', 'SimilarWeb'],
-  },
-  {
-    icon: '🎯', title: 'Strategy',
-    desc: 'Xác định mục tiêu, thông điệp chính, kênh triển khai và ngân sách tối ưu.',
-    tools: ['Notion', 'ChatGPT', 'Slides'],
-  },
-  {
-    icon: '🎨', title: 'Creative',
-    desc: 'Sản xuất nội dung: hình ảnh, video, copy ads và landing page.',
-    tools: ['Canva', 'Photoshop', 'Premiere', 'Midjourney'],
-  },
-  {
-    icon: '🚀', title: 'Launch',
-    desc: 'Triển khai chiến dịch đa kênh theo timeline đã lên kế hoạch.',
-    tools: ['Ads Manager', 'Meta Suite', 'Buffer'],
-  },
-  {
-    icon: '📊', title: 'Optimize',
-    desc: 'Theo dõi KPI realtime, A/B test creative và tối ưu ngân sách liên tục.',
-    tools: ['GA4', 'Meta Pixel', 'Data Studio'],
-  },
-  {
-    icon: '📈', title: 'Report',
-    desc: 'Báo cáo kết quả, rút insight và lên kế hoạch cho chiến dịch tiếp theo.',
-    tools: ['Data Studio', 'ChatGPT', 'Sheets'],
-  },
-];
-
-const aiImpacts = [
-  {
-    icon: '✍️', title: 'Content Creation tăng tốc x5',
-    desc: 'AI có thể tạo draft content, ad copy và email template trong giây lát — giúp Marketer tập trung vào strategy thay vì execution.',
-    trend: 'up', change: 'Năng suất +400%',
-  },
-  {
-    icon: '🎨', title: 'AI Design hạ thấp rào cản sản xuất',
-    desc: 'Midjourney, Canva AI và Stable Diffusion cho phép tạo visual chất lượng cao mà không cần kỹ năng thiết kế chuyên sâu.',
-    trend: 'up', change: 'Chi phí giảm 60%',
-  },
-  {
-    icon: '📊', title: 'Smart Bidding tự động hoá targeting',
-    desc: 'Meta Advantage+ và Google Performance Max dùng AI để phân phối quảng cáo tối ưu — nhưng đòi hỏi Marketer hiểu dữ liệu sâu hơn.',
-    trend: 'neutral', change: 'ROAS ổn định hơn',
-  },
-  {
-    icon: '🔍', title: 'SEO chuyển hướng sang Answer Engine',
-    desc: 'Google SGE và ChatGPT Search thay đổi hoàn toàn cách content được tìm thấy — tối ưu cho AI citation quan trọng hơn keyword.',
-    trend: 'down', change: 'Organic CTR -25%',
-  },
-  {
-    icon: '🎬', title: 'AI Video phá vỡ ngành sản xuất',
-    desc: 'Sora, Kling và Runway Gen-3 tạo video quảng cáo chất lượng với chi phí bằng 1/10 so với quay thực tế.',
-    trend: 'up', change: 'Chi phí giảm 80%',
-  },
-  {
-    icon: '🤖', title: 'Personalization ở quy mô lớn',
-    desc: 'AI cho phép cá nhân hóa nội dung theo từng micro-segment mà trước đây chỉ các tập đoàn lớn mới đủ nguồn lực thực hiện.',
-    trend: 'up', change: 'Conversion +35%',
-  },
-];
-
-// ─── END ECOSYSTEM DATA ────────────────────────────────────────────────────
-
-function getSiteUrl(req) {
-  const protocol = req.headers['x-forwarded-proto'] || req.protocol;
-  const host = req.headers['x-forwarded-host'] || req.get('host');
-  return `${protocol}://${host}`;
-}
-
-app.get('/robots.txt', (req, res) => {
-  res.type('text/plain');
-  res.send('User-agent: *\nAllow: /');
-});
-
-app.get('/', (req, res) => {
-  res.render('index', { siteUrl: getSiteUrl(req), projects });
-});
-
-app.get('/projects/:id', (req, res) => {
-  const project = projects.find(p => p.id === req.params.id);
-  if (!project) return res.redirect('/');
-  const related = projects.filter(p => p.cat === project.cat && p.id !== project.id).slice(0, 3);
-  res.render('projects/detail', { siteUrl: getSiteUrl(req), project, related, projects });
-});
-
-app.get('/kien-thuc', (req, res) => {
-  res.render('kien-thuc', { siteUrl: getSiteUrl(req) });
-});
-
-app.get('/ecosystem', (req, res) => {
-  res.render('ecosystem/index', {
-    siteUrl: getSiteUrl(req),
-    depts,
-    tools,
-    toolCats,
-    workflows,
-    aiImpacts,
-  });
-});
-
 app.get('/kien-thuc', (req, res) => {
   res.render('kien-thuc/index', {
     siteUrl: getSiteUrl(req),
@@ -546,6 +396,133 @@ const knowledge = [
     `
   }
 ];
+
+// ─── ECOSYSTEM DATA ────────────────────────────────────────────────────────
+
+const depts = [
+  {
+    icon: '🏷️', name: 'Branding',
+    desc: 'Xây dựng nhận diện, cảm xúc và giá trị thương hiệu — nền tảng của mọi hoạt động marketing.',
+    color: 'rgba(249,115,22,0.06)', border: 'rgba(249,115,22,0.2)', ai: 45,
+    roles:   ['Brand Executive', 'Brand Manager', 'Creative Planner', 'Communication Executive', 'Brand Strategist'],
+    skills:  ['Brand Strategy', 'Consumer Insight', 'Storytelling', 'Market Research', 'Visual Identity', 'Brand Guideline'],
+    tools:   ['Figma', 'Illustrator', 'Photoshop', 'Notion', 'Canva'],
+    aiUses:  ['AI brainstorm campaign', 'AI viết brand concept', 'AI tạo moodboard', 'AI phân tích insight', 'AI generate logo idea', 'AI competitor analysis'],
+  },
+  {
+    icon: '⚡', name: 'Performance',
+    desc: 'Tối ưu quảng cáo trả phí đa kênh — Facebook Ads, Google Ads, TikTok Ads để đạt ROAS cao nhất.',
+    color: 'rgba(52,211,153,0.06)', border: 'rgba(52,211,153,0.2)', ai: 82,
+    roles:   ['Performance Marketer', 'Media Buyer', 'Ads Specialist', 'Growth Hacker', 'PPC Manager'],
+    skills:  ['Facebook Ads', 'Google Ads', 'TikTok Ads', 'A/B Testing', 'Conversion Optimization', 'ROAS / CPA'],
+    tools:   ['Meta Ads Manager', 'Google Ads', 'TikTok Ads Manager', 'Google Tag Manager', 'Data Studio'],
+    aiUses:  ['AI tối ưu bidding tự động', 'AI generate ad creative', 'AI phân tích audience', 'AI dự đoán ROAS', 'AI viết ad copy', 'Meta Advantage+'],
+  },
+  {
+    icon: '✍️', name: 'Content',
+    desc: 'Xây dựng chiến lược nội dung, sản xuất content đa nền tảng và tối ưu engagement.',
+    color: 'rgba(230,48,34,0.06)', border: 'rgba(230,48,34,0.18)', ai: 88,
+    roles:   ['Content Strategist', 'Copywriter', 'Content Creator', 'Social Content', 'Editorial Manager'],
+    skills:  ['Copywriting', 'Content Calendar', 'Storytelling', 'SEO Writing', 'Hook Writing', 'Brand Voice'],
+    tools:   ['Notion', 'WordPress', 'Canva', 'ChatGPT', 'Hemingway'],
+    aiUses:  ['AI viết bài tự động', 'AI tối ưu headline', 'AI lên content calendar', 'AI phân tích engagement', 'AI repurpose content', 'AI viết caption MXH'],
+  },
+  {
+    icon: '📱', name: 'Social Media',
+    desc: 'Quản trị fanpage, xây dựng cộng đồng và tối ưu organic reach trên các nền tảng MXH.',
+    color: 'rgba(167,139,250,0.06)', border: 'rgba(167,139,250,0.2)', ai: 60,
+    roles:   ['Social Media Manager', 'Community Manager', 'Social Strategist', 'Influencer Manager', 'Page Admin'],
+    skills:  ['Facebook Management', 'TikTok Strategy', 'Community Building', 'Influencer Marketing', 'Viral Content', 'Live Selling'],
+    tools:   ['Meta Business Suite', 'Buffer', 'Hootsuite', 'TikTok Studio', 'Sprout Social'],
+    aiUses:  ['AI lên lịch đăng bài', 'AI phân tích hashtag', 'AI gợi ý trend', 'AI tạo caption nhanh', 'AI báo cáo tự động'],
+  },
+  {
+    icon: '🔍', name: 'SEO / GEO',
+    desc: 'Tối ưu công cụ tìm kiếm truyền thống và AI — từ technical SEO đến GEO (Generative Engine Optimization).',
+    color: 'rgba(96,165,250,0.06)', border: 'rgba(96,165,250,0.2)', ai: 72,
+    roles:   ['SEO Specialist', 'SEO Manager', 'Technical SEO', 'Content SEO', 'GEO Strategist'],
+    skills:  ['On-page SEO', 'Technical SEO', 'Link Building', 'Keyword Research', 'GEO / AI Search', 'Core Web Vitals'],
+    tools:   ['Ahrefs', 'SEMrush', 'Google Search Console', 'Screaming Frog', 'SurferSEO'],
+    aiUses:  ['AI viết meta description', 'AI cluster từ khóa', 'AI tối ưu schema', 'AI phân tích backlink', 'AI cho AI Overview citation', 'AI content brief'],
+  },
+  {
+    icon: '🎨', name: 'Design',
+    desc: 'Thiết kế ấn phẩm truyền thông, visual identity và UI/UX cho các kênh digital và print.',
+    color: 'rgba(244,114,182,0.06)', border: 'rgba(244,114,182,0.2)', ai: 70,
+    roles:   ['Graphic Designer', 'Visual Designer', 'UI/UX Designer', 'Art Director', 'Motion Designer'],
+    skills:  ['Visual Design', 'Typography', 'Color Theory', 'UI/UX', 'Motion Graphics', 'Brand Collateral'],
+    tools:   ['Photoshop', 'Illustrator', 'Figma', 'After Effects', 'Canva', 'Midjourney'],
+    aiUses:  ['AI generate hình ảnh', 'AI xóa phông tự động', 'AI tạo mockup', 'AI upscale ảnh', 'AI tạo animation', 'Canva AI magic design'],
+  },
+  {
+    icon: '🎬', name: 'Video',
+    desc: 'Sản xuất video quảng cáo, short-form content cho TikTok, Reels và YouTube.',
+    color: 'rgba(251,191,36,0.06)', border: 'rgba(251,191,36,0.2)', ai: 78,
+    roles:   ['Video Producer', 'Video Editor', 'Motion Designer', 'Content Videographer', 'TikToker'],
+    skills:  ['Video Editing', 'Color Grading', 'Script Writing', 'Short-form Video', 'Motion Graphics', 'Hook Strategy'],
+    tools:   ['Premiere Pro', 'After Effects', 'DaVinci Resolve', 'CapCut', 'TikTok Studio'],
+    aiUses:  ['AI generate video (Kling/Sora)', 'AI dựng tự động', 'AI viết script', 'AI tạo voice-over', 'AI auto subtitle', 'AI color grade'],
+  },
+  {
+    icon: '🔗', name: 'CRM & Auto',
+    desc: 'Tự động hoá marketing, quản lý khách hàng và xây dựng hệ thống nurturing hiệu quả.',
+    color: 'rgba(34,211,238,0.06)', border: 'rgba(34,211,238,0.2)', ai: 80,
+    roles:   ['CRM Manager', 'Marketing Automation', 'Email Marketer', 'Customer Success', 'RevOps'],
+    skills:  ['Email Marketing', 'Marketing Automation', 'CRM Management', 'Lead Nurturing', 'Segmentation', 'A/B Testing'],
+    tools:   ['HubSpot', 'Mailchimp', 'ActiveCampaign', 'Klaviyo', 'Zapier'],
+    aiUses:  ['AI cá nhân hoá email', 'AI phân đoạn khách hàng', 'AI dự đoán churn', 'AI gợi ý upsell', 'AI chatbot CSKH', 'AI tối ưu send time'],
+  },
+  {
+    icon: '📊', name: 'Analytics',
+    desc: 'Đo lường hiệu quả marketing, phân tích dữ liệu và đưa ra quyết định dựa trên data.',
+    color: 'rgba(16,185,129,0.06)', border: 'rgba(16,185,129,0.2)', ai: 85,
+    roles:   ['Marketing Analyst', 'Data Analyst', 'BI Analyst', 'Growth Analyst', 'Performance Analyst'],
+    skills:  ['Google Analytics', 'Data Visualization', 'Attribution Modeling', 'Cohort Analysis', 'SQL Cơ bản', 'Dashboard'],
+    tools:   ['GA4', 'Looker Studio', 'Meta Pixel', 'Mixpanel', 'Google Sheets'],
+    aiUses:  ['AI phân tích báo cáo', 'AI dự đoán xu hướng', 'AI tạo dashboard tự động', 'AI anomaly detection', 'AI insight từ data', 'AI viết báo cáo'],
+  },
+  {
+    icon: '🤖', name: 'AI Marketing',
+    desc: 'Ứng dụng AI vào toàn bộ quy trình Marketing — từ research, sáng tạo đến tối ưu và đo lường.',
+    color: 'rgba(230,48,34,0.06)', border: 'rgba(230,48,34,0.18)', ai: 98,
+    roles:   ['AI Marketing Specialist', 'Prompt Engineer', 'AI Content Lead', 'AI Ads Manager', 'Marketing Technologist'],
+    skills:  ['Prompt Engineering', 'AI Workflow Design', 'LLM Integration', 'AI Tool Evaluation', 'Automation', 'AI Ethics'],
+    tools:   ['ChatGPT', 'Claude', 'Midjourney', 'Kling AI', 'Make.com', 'Zapier AI'],
+    aiUses:  ['AI làm tất cả mọi thứ 😄', 'Prompt marketing chuyên sâu', 'AI workflow end-to-end', 'Multi-agent automation', 'AI brand voice training', 'AI performance loop'],
+  },
+];
+
+// ─── END ECOSYSTEM DATA ────────────────────────────────────────────────────
+
+function getSiteUrl(req) {
+  const protocol = req.headers['x-forwarded-proto'] || req.protocol;
+  const host = req.headers['x-forwarded-host'] || req.get('host');
+  return `${protocol}://${host}`;
+}
+
+app.get('/robots.txt', (req, res) => {
+  res.type('text/plain');
+  res.send('User-agent: *\nAllow: /');
+});
+
+app.get('/', (req, res) => {
+  res.render('index', { siteUrl: getSiteUrl(req), projects });
+});
+
+app.get('/projects/:id', (req, res) => {
+  const project = projects.find(p => p.id === req.params.id);
+  if (!project) return res.redirect('/');
+  const related = projects.filter(p => p.cat === project.cat && p.id !== project.id).slice(0, 3);
+  res.render('projects/detail', { siteUrl: getSiteUrl(req), project, related, projects });
+});
+
+app.get('/kien-thuc', (req, res) => {
+  res.render('kien-thuc', { siteUrl: getSiteUrl(req) });
+});
+
+app.get('/ecosystem', (req, res) => {
+  res.render('ecosystem/index', { siteUrl: getSiteUrl(req), depts });
+});
 
 app.get('/download-cv', (req, res) => {
   const file = path.join(__dirname, 'public', 'files', 'CV_Tran_Hong_Son.pdf');
