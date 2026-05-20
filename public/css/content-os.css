@@ -225,12 +225,40 @@
   padding: 0 13px 12px;
 }
 
+.cos-thumb-wrap {
+  position: relative;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+}
+
 .cos-thumb {
   width: 52px;
   height: 52px;
   border: 1px solid var(--border);
   border-radius: 8px;
   object-fit: cover;
+  background: var(--bg);
+  display: block;
+}
+
+.cos-thumb-remove {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  width: 20px;
+  height: 20px;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 900;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
 }
 
 .cos-generate {

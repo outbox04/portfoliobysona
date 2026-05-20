@@ -353,21 +353,61 @@
     }
   }
 
-  function handleUploads(files) {
-    appState.uploads = Array.from(files || []);
+  async function handleUploads(files) {
+    const incoming = Array.from(files || []).filter(file => file.type.startsWith('image/'));
+    const existingKeys = new Set(appState.uploads.map(item => item.key));
+    const nextUploads = [];
+
+    for (const file of incoming) {
+      const key = `${file.name}-${file.size}-${file.lastModified}`;
+      if (existingKeys.has(key)) continue;
+      const dataUrl = await readFileAsDataUrl(file);
+      nextUploads.push({ key, file, dataUrl });
+      existingKeys.add(key);
+    }
+
+    appState.uploads = [...appState.uploads, ...nextUploads].slice(0, 8);
+    renderUploadList();
+    uploadInput.value = '';
+  }
+
+  function renderUploadList() {
     uploadList.innerHTML = '';
-    appState.uploads.slice(0, 8).forEach((file, index) => {
+    appState.uploads.forEach((item, index) => {
+      const wrap = document.createElement('div');
+      wrap.className = 'cos-thumb-wrap';
+
       const img = document.createElement('img');
       img.className = 'cos-thumb';
-      img.alt = file.name;
-      img.src = URL.createObjectURL(file);
-      uploadList.appendChild(img);
+      img.alt = item.file.name;
+      img.src = item.dataUrl;
+
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'cos-thumb-remove';
+      button.dataset.removeUpload = index;
+      button.setAttribute('aria-label', `Xóa ${item.file.name}`);
+      button.textContent = '×';
+
+      wrap.appendChild(img);
+      wrap.appendChild(button);
+      uploadList.appendChild(wrap);
+
       if (index === 0) extractImageColor(img);
     });
   }
 
+  function readFileAsDataUrl(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = () => reject(reader.error || new Error('Cannot read image file.'));
+      reader.readAsDataURL(file);
+    });
+  }
+
   function extractImageColor(img) {
-    img.addEventListener('load', () => {
+    const readColor = () => {
       const canvas = document.createElement('canvas');
       const size = 24;
       canvas.width = size;
@@ -388,7 +428,13 @@
       const color = `#${[r, g, b].map(v => Math.round(v / count).toString(16).padStart(2, '0')).join('')}`;
       form.elements.brandColor.value = color;
       if (appState.output) generate();
-    }, { once: true });
+    };
+
+    if (img.complete && img.naturalWidth > 0) {
+      readColor();
+      return;
+    }
+    img.addEventListener('load', readColor, { once: true });
   }
 
   function exportFirstVisual() {
@@ -470,6 +516,13 @@
 
   uploadInput.addEventListener('change', event => handleUploads(event.target.files));
 
+  uploadList.addEventListener('click', event => {
+    const removeButton = event.target.closest('[data-remove-upload]');
+    if (!removeButton) return;
+    appState.uploads.splice(Number(removeButton.dataset.removeUpload), 1);
+    renderUploadList();
+  });
+
   copyBtn.addEventListener('click', async () => {
     if (!appState.output) await generate();
     await navigator.clipboard.writeText(appState.output.copyVersion);
@@ -497,6 +550,7 @@
     appState.visuals = [];
     appState.images = [];
     appState.uploads = [];
+    uploadInput.value = '';
     outputEl.innerHTML = '<div class="cos-empty"><span>Content + Explanation + Psychology</span><p>Input đã được reset. Nhấn Generate để tạo bản content mới.</p></div>';
     visualEl.innerHTML = '<div class="cos-visual-card is-empty"><span>HOOK</span><strong>Visual preview sẽ xuất hiện ở đây</strong><p>Typography, màu logo và content hierarchy được render bằng frontend.</p></div>';
     swatches.innerHTML = '';
