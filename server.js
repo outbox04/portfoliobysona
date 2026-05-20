@@ -1,6 +1,10 @@
 const express = require('express');
 const compression = require('compression');
 const path = require('path');
+require('dotenv').config();
+
+const { generateContent } = require('./services/content.service');
+const { generateImages, reviseImage } = require('./services/image.service');
 
 const app = express();
 app.disable('x-powered-by');
@@ -10,6 +14,7 @@ const helmet = require('helmet');
 
 app.use(helmet());
 
+app.use(express.json({ limit: '25mb' }));
 app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
@@ -533,9 +538,84 @@ app.get('/content-os', (req, res) => {
   res.render('content-os/index', { siteUrl: getSiteUrl(req) });
 });
 
+app.post('/api/content-os/generate', async (req, res) => {
+  try {
+    const result = await generateContent(req.body || {});
+    res.json(result);
+  } catch (error) {
+    const status = error.code === 'OPENAI_API_KEY_MISSING' ? 503 : 500;
+    if (status === 503) {
+      console.warn('[content-os] OPENAI_API_KEY is not configured.');
+    } else {
+      console.error('[content-os]', error);
+    }
+    res.status(status).json({
+      error: 'CONTENT_OS_GENERATION_FAILED',
+      code: error.code || 'OPENAI_REQUEST_FAILED',
+      message: status === 503
+        ? 'OPENAI_API_KEY is not configured. Add it to .env to enable Phase 2 AI generation.'
+        : 'Content OS could not generate content right now.'
+    });
+  }
+});
+
+app.post('/api/content-os/images', async (req, res) => {
+  try {
+    const result = await generateImages(req.body || {});
+    res.json(result);
+  } catch (error) {
+    const status = error.code === 'OPENAI_API_KEY_MISSING' ? 503 : 500;
+    if (status === 503) {
+      console.warn('[content-os-images] OPENAI_API_KEY is not configured.');
+    } else {
+      console.error('[content-os-images]', error);
+    }
+    res.status(status).json({
+      error: 'CONTENT_OS_IMAGE_GENERATION_FAILED',
+      code: error.code || 'OPENAI_IMAGE_REQUEST_FAILED',
+      message: status === 503
+        ? 'OPENAI_API_KEY is not configured. Add it to .env to enable gpt-image-2 generation.'
+        : 'Content OS could not generate images right now.'
+    });
+  }
+});
+
+app.post('/api/content-os/images/revise', async (req, res) => {
+  try {
+    const result = await reviseImage(req.body || {});
+    res.json(result);
+  } catch (error) {
+    const status = error.code === 'OPENAI_API_KEY_MISSING' ? 503 : 500;
+    if (status === 503) {
+      console.warn('[content-os-image-revise] OPENAI_API_KEY is not configured.');
+    } else {
+      console.error('[content-os-image-revise]', error);
+    }
+    res.status(status).json({
+      error: 'CONTENT_OS_IMAGE_REVISION_FAILED',
+      code: error.code || 'OPENAI_IMAGE_EDIT_REQUEST_FAILED',
+      message: status === 503
+        ? 'OPENAI_API_KEY is not configured. Add it to .env to enable gpt-image-2 image edits.'
+        : 'Content OS could not revise this image right now.'
+    });
+  }
+});
+
 app.get('/download-cv', (req, res) => {
   const file = path.join(__dirname, 'public', 'files', 'CV_Tran_Hong_Son.pdf');
   res.download(file, 'CV_TranHongSon_Marketing.pdf');
+});
+
+app.use((error, req, res, next) => {
+  if (!error) return next();
+  if (req.path.startsWith('/api/')) {
+    return res.status(error.status || 500).json({
+      error: 'API_REQUEST_FAILED',
+      code: error.type || 'SERVER_ERROR',
+      message: error.type === 'entity.parse.failed' ? 'Invalid JSON body.' : 'API request failed.'
+    });
+  }
+  next(error);
 });
 
 app.listen(PORT, () => {

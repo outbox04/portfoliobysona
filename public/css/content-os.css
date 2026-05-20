@@ -97,6 +97,13 @@
   line-height: 1.2;
 }
 
+.cos-panel__actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
 .cos-step {
   display: block;
   color: var(--red);
@@ -241,6 +248,16 @@
   box-shadow: var(--shadow-red);
 }
 
+.cos-generate:disabled {
+  cursor: wait;
+  opacity: 0.72;
+}
+
+.cos-icon-btn:disabled {
+  cursor: wait;
+  opacity: 0.64;
+}
+
 .cos-output,
 .cos-visual-list {
   height: calc(100vh - 280px);
@@ -379,6 +396,20 @@
   aspect-ratio: var(--visual-ratio, 1 / 1);
 }
 
+.cos-visual-card.has-ai-image {
+  aspect-ratio: auto;
+  min-height: auto;
+  gap: 12px;
+}
+
+.cos-ai-image {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  object-fit: cover;
+  aspect-ratio: var(--visual-ratio, 1 / 1);
+}
+
 .cos-visual-card span {
   color: var(--visual-color, var(--red));
   font-size: 0.68rem;
@@ -398,6 +429,35 @@
 .cos-visual-card p {
   color: var(--text-2);
   font-size: 0.84rem;
+}
+
+.cos-image-note {
+  display: grid;
+  gap: 8px;
+}
+
+.cos-image-note textarea {
+  width: 100%;
+  min-height: 74px;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 7px;
+  background: rgba(10,10,11,0.74);
+  color: var(--text);
+  padding: 10px;
+  font: inherit;
+  font-size: 0.78rem;
+  outline: none;
+}
+
+.cos-image-note textarea:focus {
+  border-color: var(--red);
+}
+
+.cos-image-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
 
 .cos-visual-card.is-empty {
