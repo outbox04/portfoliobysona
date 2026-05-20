@@ -25,8 +25,10 @@
 
 /* ══ PARTICLES CANVAS ══ */
 #ecoParticles {
-  position: fixed; inset: 0;
-  pointer-events: none; z-index: 0;
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
   opacity: 0.4;
 }
 
@@ -93,7 +95,7 @@
   color:#fff; padding:14px 32px;
   border-radius:100px; font-size:13px; font-weight:700;
   letter-spacing:0.06em; text-transform:uppercase;
-  cursor:none; transition:transform .3s, box-shadow .3s;
+  cursor:pointer; transition:transform .3s, box-shadow .3s;
   box-shadow:0 4px 24px rgba(124,58,237,0.3);
 }
 .btn--eco-primary:hover { transform:translateY(-3px); box-shadow:0 8px 36px rgba(124,58,237,0.45); }
@@ -102,7 +104,7 @@
   border:1.5px solid var(--glass-border);
   padding:14px 32px; border-radius:100px;
   font-size:13px; font-weight:700; letter-spacing:0.06em;
-  text-transform:uppercase; cursor:none; transition:var(--t);
+  text-transform:uppercase; cursor:pointer; transition:var(--t);
 }
 .btn--eco-ghost:hover { border-color:#7C3AED; color:#A78BFA; transform:translateY(-3px); }
 
@@ -146,7 +148,7 @@
   background:var(--glass-bg);
   border:1px solid var(--glass-border);
   border-radius:16px; padding:24px 20px;
-  cursor:none; transition:transform .3s, border-color .3s, box-shadow .3s;
+  cursor:pointer; transition:transform .3s, border-color .3s, box-shadow .3s;
   group: true;
 }
 .eco-dept-card::before {
@@ -176,14 +178,18 @@
   gap:0; min-height:600px;
 }
 .eco-dept-nav {
-  background:var(--bg-3);
-  border-right:1px solid var(--glass-border);
-  padding:24px 0; position:sticky; top:80px;
-  height:fit-content; border-radius:16px 0 0 16px;
+  background: var(--bg-3);
+  border-right: 1px solid var(--glass-border);
+  padding: 24px 0;
+  position: sticky;
+  top: 80px;
+  height: fit-content;
+  border-radius: 16px 0 0 16px;
+  z-index: 20;
 }
 .eco-dept-nav-item {
   display:flex; align-items:center; gap:12px;
-  padding:12px 24px; cursor:none;
+  padding:12px 24px; cursor:pointer;
   transition:var(--t); position:relative;
   font-size:.88rem; font-weight:600;
   color:var(--text-3);

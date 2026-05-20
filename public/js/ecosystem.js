@@ -70,11 +70,14 @@ deptNavItems.forEach(item => {
   item.addEventListener('click', () => {
     deptNavItems.forEach(i => i.classList.remove('active'));
     deptPanels.forEach(p => p.classList.remove('active'));
+
     item.classList.add('active');
-    const target = document.getElementById('panel-' + item.dataset.dept);
+
+    const target =
+      document.getElementById('panel-' + item.dataset.dept);
+
     if (target) {
       target.classList.add('active');
-      target.style.animation = 'cardIn .35s ease forwards';
     }
   });
 });
