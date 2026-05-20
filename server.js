@@ -163,6 +163,13 @@ app.get('/kien-thuc', (req, res) => {
   });
 });
 
+// ECOSYSTEM PAGE
+app.get('/ecosystem', (req, res) => {
+  res.render('ecosystem/index', {
+    siteUrl: getSiteUrl(req)
+  });
+});
+
 app.get('/kien-thuc/:id', (req, res) => {
   const article = knowledge.find(k => k.id === req.params.id);
   if (!article) return res.redirect('/kien-thuc');
