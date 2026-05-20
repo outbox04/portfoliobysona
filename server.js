@@ -529,6 +529,10 @@ app.get('/ecosystem', (req, res) => {
   res.render('ecosystem/index', { siteUrl: getSiteUrl(req), depts });
 });
 
+app.get('/content-os', (req, res) => {
+  res.render('content-os/index', { siteUrl: getSiteUrl(req) });
+});
+
 app.get('/download-cv', (req, res) => {
   const file = path.join(__dirname, 'public', 'files', 'CV_Tran_Hong_Son.pdf');
   res.download(file, 'CV_TranHongSon_Marketing.pdf');
