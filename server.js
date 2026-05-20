@@ -505,12 +505,6 @@ app.get('/robots.txt', (req, res) => {
   res.send('User-agent: *\nAllow: /');
 });
 
-app.get('/ecosystem', (req, res) => {
-  res.render('ecosystem/index', {
-    siteUrl: getSiteUrl(req)
-  });
-});
-
 app.get('/', (req, res) => {
   res.render('index', { siteUrl: getSiteUrl(req), projects });
 });

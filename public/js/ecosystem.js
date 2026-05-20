@@ -1,6 +1,8 @@
 // ═══ ECOSYSTEM PAGE JS ═══
 
 // ── PARTICLES BACKGROUND ──
+(() => {
+
 (function initParticles() {
   const canvas = document.getElementById('ecoParticles');
   if (!canvas) return;
@@ -164,3 +166,5 @@ document.querySelectorAll('.eco-dept-card').forEach(card => {
   });
   card.addEventListener('mouseleave', () => { card.style.transform = ''; });
 });
+
+})();
