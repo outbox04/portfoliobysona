@@ -1,7 +1,6 @@
 const express = require('express');
 const compression = require('compression');
 const path = require('path');
-require('dotenv').config();
 
 const app = express();
 app.disable('x-powered-by');
