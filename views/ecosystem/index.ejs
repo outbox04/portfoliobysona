@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marketing Ecosystem & AI — Trần Hồng Sơn</title>
+  <meta name="description" content="Toàn cảnh hệ sinh thái Marketing hiện đại: 10+ mảng chuyên môn, 50+ vị trí nghề nghiệp và cách AI đang thay đổi từng phòng ban." />
+  <link rel="canonical" href="<%= siteUrl %>/ecosystem" />
+  <meta property="og:title"       content="Marketing Ecosystem & AI — Trần Hồng Sơn" />
+  <meta property="og:description" content="Toàn cảnh hệ sinh thái Marketing hiện đại và cách AI đang thay đổi từng phòng ban." />
+  <meta property="og:image"       content="<%= siteUrl %>/images/og-image.jpg" />
+  <meta property="og:url"         content="<%= siteUrl %>/ecosystem" />
+  <meta property="og:locale"      content="vi_VN" />
+  <link rel="icon" href="/images/software/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="/css/ecosystem.css" />
+</head>
+<body>
+
+<canvas id="ecoParticles"></canvas>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-follower" id="cursorFollower"></div>
+
+<!-- SCROLL NAV DOTS -->
+<nav class="eco-scroll-nav">
+  <div class="eco-scroll-dot active" data-section="hero"     data-label="Hero"></div>
+  <div class="eco-scroll-dot"        data-section="overview" data-label="Overview"></div>
+  <div class="eco-scroll-dot"        data-section="depts"    data-label="Departments"></div>
+  <div class="eco-scroll-dot"        data-section="ai"       data-label="AI Matrix"></div>
+  <div class="eco-scroll-dot"        data-section="roadmap"  data-label="Career"></div>
+  <div class="eco-scroll-dot"        data-section="future"   data-label="Future"></div>
+</nav>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav__logo">HS<span>.</span></a>
+  <div class="nav__right">
+    <ul class="nav__links" id="navLinks">
+      <li><a href="/"          class="nav__link">Trang chủ</a></li>
+      <li><a href="/#projects" class="nav__link">Dự án</a></li>
+      <li><a href="/kien-thuc" class="nav__link">Kiến thức</a></li>
+      <li><a href="/ecosystem" class="nav__link active-link">Ecosystem</a></li>
+      <li><a href="/#contact"  class="nav__link">Liên hệ</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Chuyển giao diện">
+      <span class="theme-toggle__icon moon">🌙</span>
+      <span class="theme-toggle__icon sun">☀️</span>
+    </button>
+    <button class="nav__toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════
+     1. HERO
+══════════════════════════════════════ -->
+<section class="eco-hero" data-eco="hero">
+  <div class="eco-hero__bg">
+    <div class="eco-hero__orb orb-1"></div>
+    <div class="eco-hero__orb orb-2"></div>
+    <div class="eco-hero__orb orb-3"></div>
+    <div class="eco-hero__grid"></div>
+  </div>
+  <div class="container">
+    <div class="eco-hero__content">
+      <div class="eco-hero__badge reveal-up">
+        <span></span> Marketing Ecosystem 2025
+      </div>
+      <h1 class="eco-hero__title reveal-up">
+        <span class="line-1">MARKETING</span>
+        <span class="line-2">ECOSYSTEM</span>
+        <span class="line-3">& AI</span>
+      </h1>
+      <p class="eco-hero__sub reveal-up">Toàn cảnh hệ sinh thái Marketing hiện đại — 10+ mảng chuyên môn, 50+ vị trí nghề nghiệp và cách AI đang tái định hình từng phòng ban.</p>
+      <div class="eco-hero__cta reveal-up">
+        <a href="#overview" class="btn--eco-primary" onclick="document.querySelector('[data-eco=overview]').scrollIntoView({behavior:'smooth'});return false">
+          Explore Ecosystem
+        </a>
+        <a href="#ai" class="btn--eco-ghost" onclick="document.querySelector('[data-eco=ai]').scrollIntoView({behavior:'smooth'});return false">
+          AI in Marketing
+        </a>
+      </div>
+      <div class="eco-hero__stats reveal-up">
+        <div class="eco-stat">
+          <span class="eco-stat__num" data-target="10" data-suffix="+">0+</span>
+          <span class="eco-stat__label">Marketing Fields</span>
+        </div>
+        <div class="eco-stat">
+          <span class="eco-stat__num" data-target="50" data-suffix="+">0+</span>
+          <span class="eco-stat__label">Career Positions</span>
+        </div>
+        <div class="eco-stat">
+          <span class="eco-stat__num" data-target="100" data-suffix="+">0+</span>
+          <span class="eco-stat__label">AI Use Cases</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     2. OVERVIEW
+══════════════════════════════════════ -->
+<section class="eco-section eco-section--alt" id="overview" data-eco="overview">
+  <div class="container">
+    <div class="eco-label reveal-up">🌐 Hệ sinh thái</div>
+    <h2 class="eco-title reveal-up">Marketing gồm<br /><em>những mảng nào?</em></h2>
+    <p class="eco-sub reveal-up">Mỗi mảng là một hệ thống chuyên môn riêng biệt — nhưng chúng kết nối và hỗ trợ lẫn nhau để tạo nên chiến lược Marketing tổng thể.</p>
+
+    <div class="eco-overview-grid">
+      <%
+      const depts = [
+        { icon:'🏷️', name:'Branding',           desc:'Xây dựng nhận diện & cảm xúc thương hiệu',     ai:90, color:'rgba(230,48,34,0.08)',   border:'rgba(230,48,34,0.2)' },
+        { icon:'⚡', name:'Performance',         desc:'Tối ưu quảng cáo & đo lường kết quả',          ai:95, color:'rgba(245,158,11,0.08)',  border:'rgba(245,158,11,0.2)' },
+        { icon:'✍️', name:'Content Marketing',   desc:'Tạo nội dung giá trị thu hút & chuyển đổi',    ai:92, color:'rgba(16,185,129,0.08)', border:'rgba(16,185,129,0.2)' },
+        { icon:'📱', name:'Social Media',         desc:'Xây dựng cộng đồng & tương tác đa nền tảng',  ai:85, color:'rgba(99,179,237,0.08)',  border:'rgba(99,179,237,0.2)' },
+        { icon:'🔍', name:'SEO / GEO',            desc:'Tối ưu tìm kiếm & AI search engine',          ai:88, color:'rgba(124,58,237,0.08)', border:'rgba(124,58,237,0.2)' },
+        { icon:'🎨', name:'Design Creative',      desc:'Thiết kế visual & sản xuất ấn phẩm',          ai:80, color:'rgba(236,72,153,0.08)',  border:'rgba(236,72,153,0.2)' },
+        { icon:'🎬', name:'Video Production',     desc:'Sản xuất video đa nền tảng & storytelling',   ai:78, color:'rgba(6,182,212,0.08)',   border:'rgba(6,182,212,0.2)'  },
+        { icon:'🤝', name:'CRM & Automation',     desc:'Tự động hóa chăm sóc & nuôi dưỡng khách hàng',ai:96, color:'rgba(16,185,129,0.08)', border:'rgba(16,185,129,0.2)' },
+        { icon:'📊', name:'Data Analytics',       desc:'Phân tích dữ liệu & đưa ra insight',          ai:94, color:'rgba(245,158,11,0.08)',  border:'rgba(245,158,11,0.2)' },
+        { icon:'🤖', name:'AI Marketing',         desc:'Ứng dụng AI vào workflow marketing',           ai:100,color:'rgba(124,58,237,0.08)', border:'rgba(124,58,237,0.2)' },
+      ];
+      depts.forEach(d => { %>
+      <div class="eco-dept-card reveal-up" style="--card-color:<%= d.color %>; background:<%= d.color %>; border-color:<%= d.border %>">
+        <span class="eco-dept-icon"><%= d.icon %></span>
+        <div class="eco-dept-name"><%= d.name %></div>
+        <div class="eco-dept-desc"><%= d.desc %></div>
+        <div class="ai-impact">
+          <span class="ai-impact__label">AI</span>
+          <div class="ai-impact__bar"><div class="ai-impact__fill" data-w="<%= d.ai %>"></div></div>
+          <span class="ai-impact__pct"><%= d.ai %>%</span>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     3. DEPARTMENTS
+══════════════════════════════════════ -->
+<section class="eco-section" id="depts" data-eco="depts">
+  <div class="container">
+    <div class="eco-label reveal-up">🏢 Vị trí & Kỹ năng</div>
+    <h2 class="eco-title reveal-up">Từng phòng ban<br /><em>trong Marketing</em></h2>
+    <p class="eco-sub reveal-up">Chọn mảng để xem chi tiết các vị trí, kỹ năng, công cụ và cách AI đang hỗ trợ từng phòng ban.</p>
+
+    <div class="eco-dept-layout">
+      <!-- LEFT NAV -->
+      <div class="eco-dept-nav reveal-up">
+        <div class="eco-dept-nav-item active" data-dept="branding">      <span class="eco-dept-nav-icon">🏷️</span> Branding</div>
+        <div class="eco-dept-nav-item"         data-dept="performance">  <span class="eco-dept-nav-icon">⚡</span> Performance</div>
+        <div class="eco-dept-nav-item"         data-dept="content">      <span class="eco-dept-nav-icon">✍️</span> Content</div>
+        <div class="eco-dept-nav-item"         data-dept="social">       <span class="eco-dept-nav-icon">📱</span> Social Media</div>
+        <div class="eco-dept-nav-item"         data-dept="seo">          <span class="eco-dept-nav-icon">🔍</span> SEO / GEO</div>
+        <div class="eco-dept-nav-item"         data-dept="design">       <span class="eco-dept-nav-icon">🎨</span> Design</div>
+        <div class="eco-dept-nav-item"         data-dept="video">        <span class="eco-dept-nav-icon">🎬</span> Video</div>
+        <div class="eco-dept-nav-item"         data-dept="crm">          <span class="eco-dept-nav-icon">🤝</span> CRM & Auto</div>
+        <div class="eco-dept-nav-item"         data-dept="data">         <span class="eco-dept-nav-icon">📊</span> Analytics</div>
+        <div class="eco-dept-nav-item"         data-dept="ai">           <span class="eco-dept-nav-icon">🤖</span> AI Marketing</div>
+      </div>
+
+      <!-- RIGHT PANELS -->
+      <div class="eco-dept-panels">
+
+        <!-- BRANDING -->
+        <div class="eco-dept-panel active" id="panel-branding">
+          <div class="eco-dept-panel__header">
+            <div class="eco-dept-panel__title">🏷️ Branding</div>
+            <div class="eco-dept-panel__desc">Xây dựng nhận diện, cảm xúc và giá trị thương hiệu — nền tảng của mọi hoạt động marketing.</div>
+          </div>
+          <div class="eco-dept-panel__grid">
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Vị trí</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--pos">Brand Executive</span>
+                <span class="eco-tag eco-tag--pos">Brand Manager</span>
+                <span class="eco-tag eco-tag--pos">Creative Planner</span>
+                <span class="eco-tag eco-tag--pos">Communication Executive</span>
+                <span class="eco-tag eco-tag--pos">Brand Strategist</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Kỹ năng</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--skill">Brand Strategy</span>
+                <span class="eco-tag eco-tag--skill">Consumer Insight</span>
+                <span class="eco-tag eco-tag--skill">Storytelling</span>
+                <span class="eco-tag eco-tag--skill">Market Research</span>
+                <span class="eco-tag eco-tag--skill">Visual Identity</span>
+                <span class="eco-tag eco-tag--skill">Brand Guideline</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Tools</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--tool">Figma</span>
+                <span class="eco-tag eco-tag--tool">Illustrator</span>
+                <span class="eco-tag eco-tag--tool">Photoshop</span>
+                <span class="eco-tag eco-tag--tool">Notion</span>
+                <span class="eco-tag eco-tag--tool">Canva</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">🤖 AI Hỗ trợ</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--ai">AI brainstorm campaign</span>
+                <span class="eco-tag eco-tag--ai">AI viết brand concept</span>
+                <span class="eco-tag eco-tag--ai">AI tạo moodboard</span>
+                <span class="eco-tag eco-tag--ai">AI phân tích insight</span>
+                <span class="eco-tag eco-tag--ai">AI generate logo idea</span>
+                <span class="eco-tag eco-tag--ai">AI competitor analysis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PERFORMANCE -->
+        <div class="eco-dept-panel" id="panel-performance">
+          <div class="eco-dept-panel__header">
+            <div class="eco-dept-panel__title">⚡ Performance Marketing</div>
+            <div class="eco-dept-panel__desc">Tối ưu từng đồng ngân sách quảng cáo để tạo ra kết quả đo lường được — data-driven, test liên tục.</div>
+          </div>
+          <div class="eco-dept-panel__grid">
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Vị trí</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--pos">Media Buyer</span>
+                <span class="eco-tag eco-tag--pos">Performance Specialist</span>
+                <span class="eco-tag eco-tag--pos">Growth Marketer</span>
+                <span class="eco-tag eco-tag--pos">Ads Leader</span>
+                <span class="eco-tag eco-tag--pos">Paid Social Manager</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Kỹ năng</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--skill">Facebook Ads</span>
+                <span class="eco-tag eco-tag--skill">Google Ads</span>
+                <span class="eco-tag eco-tag--skill">TikTok Ads</span>
+                <span class="eco-tag eco-tag--skill">Funnel Building</span>
+                <span class="eco-tag eco-tag--skill">Pixel & Tracking</span>
+                <span class="eco-tag eco-tag--skill">ROAS Optimization</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Tools</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--tool">Meta Ads Manager</span>
+                <span class="eco-tag eco-tag--tool">Google Ads</span>
+                <span class="eco-tag eco-tag--tool">GA4</span>
+                <span class="eco-tag eco-tag--tool">Hotjar</span>
+                <span class="eco-tag eco-tag--tool">Triple Whale</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">🤖 AI Hỗ trợ</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--ai">AI viết ads copy</span>
+                <span class="eco-tag eco-tag--ai">AI generate creative</span>
+                <span class="eco-tag eco-tag--ai">AI phân tích campaign</span>
+                <span class="eco-tag eco-tag--ai">AI dự đoán CTR</span>
+                <span class="eco-tag eco-tag--ai">AI tối ưu audience</span>
+                <span class="eco-tag eco-tag--ai">AI A/B test analysis</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="eco-dept-panel" id="panel-content">
+          <div class="eco-dept-panel__header">
+            <div class="eco-dept-panel__title">✍️ Content Marketing</div>
+            <div class="eco-dept-panel__desc">Tạo nội dung có giá trị để thu hút đúng người, nuôi dưỡng niềm tin và dẫn dắt hành vi mua hàng.</div>
+          </div>
+          <div class="eco-dept-panel__grid">
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Vị trí</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--pos">Copywriter</span>
+                <span class="eco-tag eco-tag--pos">Content Creator</span>
+                <span class="eco-tag eco-tag--pos">SEO Writer</span>
+                <span class="eco-tag eco-tag--pos">Script Writer</span>
+                <span class="eco-tag eco-tag--pos">Content Strategist</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Kỹ năng</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--skill">Copywriting</span>
+                <span class="eco-tag eco-tag--skill">Storytelling</span>
+                <span class="eco-tag eco-tag--skill">SEO Writing</span>
+                <span class="eco-tag eco-tag--skill">Content Calendar</span>
+                <span class="eco-tag eco-tag--skill">Hook Writing</span>
+                <span class="eco-tag eco-tag--skill">Brand Voice</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Tools</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--tool">Notion</span>
+                <span class="eco-tag eco-tag--tool">Surfer SEO</span>
+                <span class="eco-tag eco-tag--tool">Grammarly</span>
+                <span class="eco-tag eco-tag--tool">Hemingway</span>
+                <span class="eco-tag eco-tag--tool">CapCut</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">🤖 AI Hỗ trợ</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--ai">AI viết outline</span>
+                <span class="eco-tag eco-tag--ai">AI tạo hook</span>
+                <span class="eco-tag eco-tag--ai">AI viết SEO article</span>
+                <span class="eco-tag eco-tag--ai">AI tối ưu GEO</span>
+                <span class="eco-tag eco-tag--ai">AI tạo video script</span>
+                <span class="eco-tag eco-tag--ai">AI repurpose content</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SOCIAL -->
+        <div class="eco-dept-panel" id="panel-social">
+          <div class="eco-dept-panel__header">
+            <div class="eco-dept-panel__title">📱 Social Media</div>
+            <div class="eco-dept-panel__desc">Xây dựng cộng đồng và tương tác thực chất — mỗi nền tảng có ngôn ngữ và chiến lược riêng.</div>
+          </div>
+          <div class="eco-dept-panel__grid">
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Vị trí</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--pos">Social Media Manager</span>
+                <span class="eco-tag eco-tag--pos">Community Manager</span>
+                <span class="eco-tag eco-tag--pos">TikTok Creator</span>
+                <span class="eco-tag eco-tag--pos">Social Media Specialist</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Kỹ năng</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--skill">Platform Strategy</span>
+                <span class="eco-tag eco-tag--skill">Community Building</span>
+                <span class="eco-tag eco-tag--skill">Trend Analysis</span>
+                <span class="eco-tag eco-tag--skill">Engagement Tactics</span>
+                <span class="eco-tag eco-tag--skill">Crisis Management</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Tools</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--tool">Buffer</span>
+                <span class="eco-tag eco-tag--tool">Hootsuite</span>
+                <span class="eco-tag eco-tag--tool">Later</span>
+                <span class="eco-tag eco-tag--tool">Meta Business Suite</span>
+                <span class="eco-tag eco-tag--tool">TikTok Studio</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">🤖 AI Hỗ trợ</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--ai">AI tạo caption hàng loạt</span>
+                <span class="eco-tag eco-tag--ai">AI phân tích trend</span>
+                <span class="eco-tag eco-tag--ai">AI schedule tối ưu</span>
+                <span class="eco-tag eco-tag--ai">AI reply comment</span>
+                <span class="eco-tag eco-tag--ai">AI generate hashtag</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SEO -->
+        <div class="eco-dept-panel" id="panel-seo">
+          <div class="eco-dept-panel__header">
+            <div class="eco-dept-panel__title">🔍 SEO / GEO</div>
+            <div class="eco-dept-panel__desc">Tối ưu xuất hiện trên công cụ tìm kiếm truyền thống và AI search engine thế hệ mới (GEO).</div>
+          </div>
+          <div class="eco-dept-panel__grid">
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Vị trí</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--pos">SEO Specialist</span>
+                <span class="eco-tag eco-tag--pos">Technical SEO</span>
+                <span class="eco-tag eco-tag--pos">GEO Specialist</span>
+                <span class="eco-tag eco-tag--pos">Link Builder</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Kỹ năng</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--skill">Keyword Research</span>
+                <span class="eco-tag eco-tag--skill">On-page SEO</span>
+                <span class="eco-tag eco-tag--skill">Technical SEO</span>
+                <span class="eco-tag eco-tag--skill">Link Building</span>
+                <span class="eco-tag eco-tag--skill">GEO Optimization</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Tools</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--tool">Ahrefs</span>
+                <span class="eco-tag eco-tag--tool">Semrush</span>
+                <span class="eco-tag eco-tag--tool">Surfer SEO</span>
+                <span class="eco-tag eco-tag--tool">Search Console</span>
+                <span class="eco-tag eco-tag--tool">Screaming Frog</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">🤖 AI Hỗ trợ</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--ai">Semantic clustering</span>
+                <span class="eco-tag eco-tag--ai">AI search optimization</span>
+                <span class="eco-tag eco-tag--ai">Keyword intent analysis</span>
+                <span class="eco-tag eco-tag--ai">AI content mapping</span>
+                <span class="eco-tag eco-tag--ai">GEO content structure</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESIGN -->
+        <div class="eco-dept-panel" id="panel-design">
+          <div class="eco-dept-panel__header">
+            <div class="eco-dept-panel__title">🎨 Design Creative</div>
+            <div class="eco-dept-panel__desc">Thiết kế visual, sản xuất ấn phẩm và xây dựng hệ thống hình ảnh nhất quán cho thương hiệu.</div>
+          </div>
+          <div class="eco-dept-panel__grid">
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Vị trí</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--pos">Graphic Designer</span>
+                <span class="eco-tag eco-tag--pos">Art Director</span>
+                <span class="eco-tag eco-tag--pos">UI/UX Designer</span>
+                <span class="eco-tag eco-tag--pos">Motion Designer</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Kỹ năng</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--skill">Visual Design</span>
+                <span class="eco-tag eco-tag--skill">Typography</span>
+                <span class="eco-tag eco-tag--skill">Color Theory</span>
+                <span class="eco-tag eco-tag--skill">Layout & Grid</span>
+                <span class="eco-tag eco-tag--skill">Motion Graphics</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Tools</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--tool">Figma</span>
+                <span class="eco-tag eco-tag--tool">Photoshop</span>
+                <span class="eco-tag eco-tag--tool">Illustrator</span>
+                <span class="eco-tag eco-tag--tool">After Effects</span>
+                <span class="eco-tag eco-tag--tool">Canva</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">🤖 AI Hỗ trợ</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--ai">Midjourney concept</span>
+                <span class="eco-tag eco-tag--ai">AI banner automation</span>
+                <span class="eco-tag eco-tag--ai">AI background removal</span>
+                <span class="eco-tag eco-tag--ai">AI mockup generation</span>
+                <span class="eco-tag eco-tag--ai">AI image upscale</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- VIDEO -->
+        <div class="eco-dept-panel" id="panel-video">
+          <div class="eco-dept-panel__header">
+            <div class="eco-dept-panel__title">🎬 Video Production</div>
+            <div class="eco-dept-panel__desc">Sản xuất video đa nền tảng — từ ads ngắn TikTok đến video thương hiệu dài, cinematic.</div>
+          </div>
+          <div class="eco-dept-panel__grid">
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Vị trí</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--pos">Video Producer</span>
+                <span class="eco-tag eco-tag--pos">Video Editor</span>
+                <span class="eco-tag eco-tag--pos">Cinematographer</span>
+                <span class="eco-tag eco-tag--pos">Motion Designer</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Kỹ năng</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--skill">Video Editing</span>
+                <span class="eco-tag eco-tag--skill">Color Grading</span>
+                <span class="eco-tag eco-tag--skill">Cinematography</span>
+                <span class="eco-tag eco-tag--skill">Storytelling</span>
+                <span class="eco-tag eco-tag--skill">Sound Design</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Tools</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--tool">Premiere Pro</span>
+                <span class="eco-tag eco-tag--tool">After Effects</span>
+                <span class="eco-tag eco-tag--tool">DaVinci Resolve</span>
+                <span class="eco-tag eco-tag--tool">CapCut</span>
+                <span class="eco-tag eco-tag--tool">Final Cut Pro</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">🤖 AI Hỗ trợ</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--ai">AI script generation</span>
+                <span class="eco-tag eco-tag--ai">AI auto subtitles</span>
+                <span class="eco-tag eco-tag--ai">AI voice cloning</span>
+                <span class="eco-tag eco-tag--ai">AI video upscale</span>
+                <span class="eco-tag eco-tag--ai">AI B-roll suggestion</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- CRM -->
+        <div class="eco-dept-panel" id="panel-crm">
+          <div class="eco-dept-panel__header">
+            <div class="eco-dept-panel__title">🤝 CRM & Automation</div>
+            <div class="eco-dept-panel__desc">Tự động hóa quy trình chăm sóc khách hàng, nuôi dưỡng lead và tối ưu vòng đời khách hàng.</div>
+          </div>
+          <div class="eco-dept-panel__grid">
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Vị trí</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--pos">CRM Manager</span>
+                <span class="eco-tag eco-tag--pos">Marketing Automation</span>
+                <span class="eco-tag eco-tag--pos">Email Marketer</span>
+                <span class="eco-tag eco-tag--pos">Customer Success</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Kỹ năng</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--skill">Lead Nurturing</span>
+                <span class="eco-tag eco-tag--skill">Email Automation</span>
+                <span class="eco-tag eco-tag--skill">Customer Journey</span>
+                <span class="eco-tag eco-tag--skill">Segmentation</span>
+                <span class="eco-tag eco-tag--skill">Retention Strategy</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Tools</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--tool">HubSpot</span>
+                <span class="eco-tag eco-tag--tool">Klaviyo</span>
+                <span class="eco-tag eco-tag--tool">Mailchimp</span>
+                <span class="eco-tag eco-tag--tool">n8n</span>
+                <span class="eco-tag eco-tag--tool">Make</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">🤖 AI Hỗ trợ</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--ai">AI Chatbot</span>
+                <span class="eco-tag eco-tag--ai">AI lead scoring</span>
+                <span class="eco-tag eco-tag--ai">AI email personalization</span>
+                <span class="eco-tag eco-tag--ai">AI customer segmentation</span>
+                <span class="eco-tag eco-tag--ai">AI churn prediction</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DATA -->
+        <div class="eco-dept-panel" id="panel-data">
+          <div class="eco-dept-panel__header">
+            <div class="eco-dept-panel__title">📊 Data Analytics</div>
+            <div class="eco-dept-panel__desc">Biến dữ liệu thành insight hành động — đo lường, phân tích và tối ưu liên tục.</div>
+          </div>
+          <div class="eco-dept-panel__grid">
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Vị trí</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--pos">Marketing Analyst</span>
+                <span class="eco-tag eco-tag--pos">Data Analyst</span>
+                <span class="eco-tag eco-tag--pos">Growth Analyst</span>
+                <span class="eco-tag eco-tag--pos">BI Developer</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Kỹ năng</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--skill">Data Visualization</span>
+                <span class="eco-tag eco-tag--skill">SQL</span>
+                <span class="eco-tag eco-tag--skill">Excel / Sheets</span>
+                <span class="eco-tag eco-tag--skill">KPI Framework</span>
+                <span class="eco-tag eco-tag--skill">Attribution Modeling</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Tools</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--tool">GA4</span>
+                <span class="eco-tag eco-tag--tool">Looker Studio</span>
+                <span class="eco-tag eco-tag--tool">Power BI</span>
+                <span class="eco-tag eco-tag--tool">Tableau</span>
+                <span class="eco-tag eco-tag--tool">BigQuery</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">🤖 AI Hỗ trợ</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--ai">AI data interpretation</span>
+                <span class="eco-tag eco-tag--ai">Predictive analytics</span>
+                <span class="eco-tag eco-tag--ai">AI anomaly detection</span>
+                <span class="eco-tag eco-tag--ai">Natural language query</span>
+                <span class="eco-tag eco-tag--ai">AI report generation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI MARKETING -->
+        <div class="eco-dept-panel" id="panel-ai">
+          <div class="eco-dept-panel__header">
+            <div class="eco-dept-panel__title">🤖 AI Marketing</div>
+            <div class="eco-dept-panel__desc">Mảng mới nhất và tăng trưởng nhanh nhất — ứng dụng AI để tự động hóa, tăng tốc và nâng cao chất lượng marketing.</div>
+          </div>
+          <div class="eco-dept-panel__grid">
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Vị trí</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--pos">AI Automation Specialist</span>
+                <span class="eco-tag eco-tag--pos">Prompt Engineer</span>
+                <span class="eco-tag eco-tag--pos">AI Workflow Builder</span>
+                <span class="eco-tag eco-tag--pos">AI Content Operator</span>
+                <span class="eco-tag eco-tag--pos">AI Marketing Manager</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Kỹ năng</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--skill">Prompt Engineering</span>
+                <span class="eco-tag eco-tag--skill">Workflow Automation</span>
+                <span class="eco-tag eco-tag--skill">AI Tool Mastery</span>
+                <span class="eco-tag eco-tag--skill">System Thinking</span>
+                <span class="eco-tag eco-tag--skill">API Integration</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">Tools</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--tool">ChatGPT</span>
+                <span class="eco-tag eco-tag--tool">Claude</span>
+                <span class="eco-tag eco-tag--tool">n8n</span>
+                <span class="eco-tag eco-tag--tool">Make</span>
+                <span class="eco-tag eco-tag--tool">Dify</span>
+                <span class="eco-tag eco-tag--tool">Langflow</span>
+                <span class="eco-tag eco-tag--tool">Midjourney</span>
+              </div>
+            </div>
+            <div class="eco-panel-card">
+              <div class="eco-panel-card__title">🤖 AI Hỗ trợ</div>
+              <div class="eco-tags">
+                <span class="eco-tag eco-tag--ai">Full workflow automation</span>
+                <span class="eco-tag eco-tag--ai">AI agent building</span>
+                <span class="eco-tag eco-tag--ai">Multi-model pipeline</span>
+                <span class="eco-tag eco-tag--ai">AI content factory</span>
+                <span class="eco-tag eco-tag--ai">Auto reporting system</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end panels -->
+    </div><!-- end dept-layout -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     4. AI MATRIX
+══════════════════════════════════════ -->
+<section class="eco-section eco-section--alt" id="ai" data-eco="ai">
+  <div class="container">
+    <div class="eco-label reveal-up">🤖 AI Integration</div>
+    <h2 class="eco-title reveal-up">AI đang hỗ trợ<br /><em>từng phòng ban ra sao?</em></h2>
+    <p class="eco-sub reveal-up">Ma trận AI Impact — mức độ tự động hóa, ứng dụng thực tế và mức độ rủi ro bị thay thế của từng mảng.</p>
+
+    <div style="overflow-x:auto" class="reveal-up">
+      <table class="eco-matrix">
+        <thead>
+          <tr>
+            <th>Phòng ban</th>
+            <th>AI Use Cases</th>
+            <th>AI Impact</th>
+            <th>Automation</th>
+            <th>Future Risk</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%
+          const matrix = [
+            { icon:'🏷️', dept:'Branding',         uses:['Campaign concept','Moodboard','Insight analysis'],         impact:90, auto:'Medium', risk:'low' },
+            { icon:'⚡', dept:'Performance',       uses:['Ad copy','Creative gen','Audience opt','CTR predict'],      impact:95, auto:'High',   risk:'med' },
+            { icon:'✍️', dept:'Content',           uses:['Article writing','Hook gen','SEO opt','Script'],            impact:92, auto:'High',   risk:'high'},
+            { icon:'📱', dept:'Social Media',      uses:['Caption gen','Trend analysis','Auto reply'],                impact:85, auto:'Medium', risk:'med' },
+            { icon:'🔍', dept:'SEO / GEO',         uses:['Keyword cluster','Intent analysis','GEO content'],          impact:88, auto:'High',   risk:'high'},
+            { icon:'🎨', dept:'Design',            uses:['Concept gen','Banner auto','Background removal'],            impact:80, auto:'Medium', risk:'med' },
+            { icon:'🎬', dept:'Video',             uses:['Script gen','Auto subtitle','Voice clone'],                  impact:78, auto:'Medium', risk:'low' },
+            { icon:'🤝', dept:'CRM & Auto',        uses:['Chatbot','Lead scoring','Email personalize'],               impact:96, auto:'High',   risk:'med' },
+            { icon:'📊', dept:'Analytics',         uses:['Data predict','Anomaly detect','NL query'],                 impact:94, auto:'High',   risk:'high'},
+            { icon:'🤖', dept:'AI Marketing',      uses:['Full automation','Agent build','Multi-model'],              impact:100,auto:'Full',   risk:'low' },
+          ];
+          matrix.forEach(m => { %>
+          <tr>
+            <td><span class="eco-matrix__dept"><span><%= m.icon %></span> <%= m.dept %></span></td>
+            <td>
+              <div class="eco-matrix__uses">
+                <% m.uses.forEach(u => { %><span class="eco-tag eco-tag--ai"><%= u %></span><% }); %>
+              </div>
+            </td>
+            <td>
+              <div class="eco-matrix__meter">
+                <div class="eco-matrix__bar"><div class="eco-matrix__fill" data-w="<%= m.impact %>" style="width:0"></div></div>
+                <span class="eco-matrix__pct"><%= m.impact %>%</span>
+              </div>
+            </td>
+            <td><span class="eco-tag eco-tag--ai"><%= m.auto %></span></td>
+            <td><span class="eco-risk eco-risk--<%= m.risk %>"><%= m.risk === 'low' ? '🟢 Thấp' : m.risk === 'med' ? '🟡 Trung bình' : '🔴 Cao' %></span></td>
+          </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     5. CAREER ROADMAP
+══════════════════════════════════════ -->
+<section class="eco-section" id="roadmap" data-eco="roadmap">
+  <div class="container">
+    <div class="eco-label reveal-up">🗺️ Career Path</div>
+    <h2 class="eco-title reveal-up">Lộ trình phát triển<br /><em>trong ngành Marketing</em></h2>
+    <p class="eco-sub reveal-up">Từ Fresher đến Leader — hành trình xây dựng sự nghiệp Marketing trong kỷ nguyên AI.</p>
+
+    <div class="eco-roadmap reveal-up">
+      <div class="eco-roadmap-step">
+        <div class="eco-roadmap-step__dot" style="--step-bg:#E63022;--step-glow:rgba(230,48,34,0.4)">🌱</div>
+        <div class="eco-roadmap-step__level" style="--step-color:#E63022">Fresher</div>
+        <div class="eco-roadmap-step__role">Foundation Builder</div>
+        <div class="eco-roadmap-step__skills">
+          <span class="eco-roadmap-step__skill">Content Writing</span>
+          <span class="eco-roadmap-step__skill">Canva Design</span>
+          <span class="eco-roadmap-step__skill">Social Media</span>
+          <span class="eco-roadmap-step__skill">AI Basic Tools</span>
+          <span class="eco-roadmap-step__skill">Community Mgmt</span>
+        </div>
+      </div>
+      <div class="eco-roadmap-step">
+        <div class="eco-roadmap-step__dot" style="--step-bg:#7C3AED;--step-glow:rgba(124,58,237,0.4)">⚡</div>
+        <div class="eco-roadmap-step__level" style="--step-color:#A78BFA">Junior</div>
+        <div class="eco-roadmap-step__role">Executor</div>
+        <div class="eco-roadmap-step__skills">
+          <span class="eco-roadmap-step__skill">Facebook Ads</span>
+          <span class="eco-roadmap-step__skill">SEO Basics</span>
+          <span class="eco-roadmap-step__skill">Pixel & Tracking</span>
+          <span class="eco-roadmap-step__skill">Analytics</span>
+          <span class="eco-roadmap-step__skill">AI Copywriting</span>
+        </div>
+      </div>
+      <div class="eco-roadmap-step">
+        <div class="eco-roadmap-step__dot" style="--step-bg:#06B6D4;--step-glow:rgba(6,182,212,0.4)">🎯</div>
+        <div class="eco-roadmap-step__level" style="--step-color:#06B6D4">Senior</div>
+        <div class="eco-roadmap-step__role">Strategist</div>
+        <div class="eco-roadmap-step__skills">
+          <span class="eco-roadmap-step__skill">Marketing Strategy</span>
+          <span class="eco-roadmap-step__skill">Data Analysis</span>
+          <span class="eco-roadmap-step__skill">AI Workflow</span>
+          <span class="eco-roadmap-step__skill">Budget Planning</span>
+          <span class="eco-roadmap-step__skill">Team Mentoring</span>
+        </div>
+      </div>
+      <div class="eco-roadmap-step">
+        <div class="eco-roadmap-step__dot" style="--step-bg:#10B981;--step-glow:rgba(16,185,129,0.4)">👑</div>
+        <div class="eco-roadmap-step__level" style="--step-color:#10B981">Leader</div>
+        <div class="eco-roadmap-step__role">Ecosystem Builder</div>
+        <div class="eco-roadmap-step__skills">
+          <span class="eco-roadmap-step__skill">System Thinking</span>
+          <span class="eco-roadmap-step__skill">AI Integration</span>
+          <span class="eco-roadmap-step__skill">Full Automation</span>
+          <span class="eco-roadmap-step__skill">Growth Strategy</span>
+          <span class="eco-roadmap-step__skill">Team Building</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     6. FUTURE
+══════════════════════════════════════ -->
+<section class="eco-future" data-eco="future">
+  <div class="eco-future__bg"></div>
+  <div class="container">
+    <div class="eco-future__content">
+      <div class="eco-label reveal-up" style="justify-content:center">🔭 Tương lai</div>
+      <h2 class="eco-future__quote reveal-up">
+        Marketing không còn chỉ là chạy quảng cáo.<br />
+        Tương lai thuộc về những người biết kết hợp<br />
+        <em>Creativity + Data + AI + Human Psychology</em>
+      </h2>
+      <div class="eco-future__pillars reveal-up">
+        <div class="eco-future__pillar">🎨 Creativity</div>
+        <div class="eco-future__pillar">📊 Data</div>
+        <div class="eco-future__pillar">🤖 AI</div>
+        <div class="eco-future__pillar">⚙️ Automation</div>
+        <div class="eco-future__pillar">🧠 Psychology</div>
+        <div class="eco-future__pillar">🌐 System Thinking</div>
+      </div>
+      <p class="eco-sub reveal-up" style="margin:0 auto;text-align:center">Marketer giỏi nhất tương lai không phải người làm tất cả — mà là người biết xây dựng hệ thống làm việc thay mình, trong khi tập trung vào những gì AI không thể thay thế: creativity, empathy và strategy.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     7. CTA
+══════════════════════════════════════ -->
+<section class="eco-cta">
+  <div class="container">
+    <div class="eco-label reveal-up" style="justify-content:center">🚀 Let's Work</div>
+    <h2 class="eco-cta__title reveal-up">
+      Build The Future Of<br /><em style="background:var(--grad-main);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Marketing With AI</em>
+    </h2>
+    <p class="eco-cta__sub reveal-up">Bạn có dự án cần một marketer hiểu cả system lẫn AI? Hãy cùng nhau build something great.</p>
+    <div class="eco-cta__btns reveal-up">
+      <a href="/#contact"  class="btn--eco-primary">Contact Me</a>
+      <a href="/#projects" class="btn--eco-ghost">View Portfolio</a>
+      <a href="/kien-thuc" class="btn--eco-ghost">Explore Knowledge</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 Trần Hồng Sơn — Marketing Portfolio</p>
+    <p class="footer__sub">portfoliobyson.site</p>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+<script src="/js/ecosystem.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
+</body>
+</html>
