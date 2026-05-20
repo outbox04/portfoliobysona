@@ -181,11 +181,14 @@
   background: var(--bg-3);
   border-right: 1px solid var(--glass-border);
   padding: 24px 0;
-  position: sticky;
-  top: 80px;
+
+  position: relative;
+
   height: fit-content;
   border-radius: 16px 0 0 16px;
-  z-index: 20;
+
+  z-index: 999;
+  pointer-events: auto;
 }
 .eco-dept-nav-item {
   display:flex; align-items:center; gap:12px;
@@ -207,6 +210,7 @@
 
 .eco-dept-panels { padding:32px; background:var(--bg-3); border-radius:0 16px 16px 0; }
 .eco-dept-panel { display:none; }
+.eco-dept-panels {position: relative;z-index: 1;}
 .eco-dept-panel.active { display:block; }
 .eco-dept-panel__header { margin-bottom:32px; }
 .eco-dept-panel__title { font-family:var(--ff-display); font-size:2rem; font-weight:900; color:var(--text); margin-bottom:8px; }
