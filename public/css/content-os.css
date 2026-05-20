@@ -288,8 +288,8 @@
 
 .cos-output,
 .cos-visual-list {
-  height: calc(100vh - 280px);
-  min-height: 620px;
+  max-height: calc(100vh - 280px);
+  min-height: 360px;
   overflow: auto;
   padding: 14px;
 }
@@ -343,6 +343,44 @@
   font-size: clamp(1.15rem, 2vw, 1.8rem);
   line-height: 1.22;
   margin-bottom: 8px;
+}
+
+.cos-prompt-box {
+  padding: 14px;
+  border-top: 1px solid var(--border);
+}
+
+.cos-prompt-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.cos-prompt-head span {
+  color: var(--text);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cos-prompt-box textarea {
+  width: 100%;
+  min-height: 180px;
+  resize: vertical;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text-2);
+  padding: 12px;
+  font: 500 0.78rem/1.6 var(--ff-body);
+  outline: none;
+}
+
+.cos-prompt-box textarea:focus {
+  border-color: var(--red);
 }
 
 .cos-section p,

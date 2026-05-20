@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Content OS - AI Content & Creative Operating System</title>
+  <title>Prompt Content OS - Content Prompt Builder</title>
   <meta name="description" content="AI Content & Creative Operating System: tạo content, giải thích psychology, dựng visual social-ready trong portfolio Trần Hồng Sơn." />
   <link rel="canonical" href="<%= siteUrl %>/content-os" />
-  <meta property="og:title" content="Content OS - AI Content & Creative Operating System" />
+  <meta property="og:title" content="Prompt Content OS - Content Prompt Builder" />
   <meta property="og:description" content="Workflow tạo content, psychology và visual social-ready cho thương hiệu." />
   <meta property="og:image" content="<%= siteUrl %>/images/og-image.jpg" />
   <meta property="og:url" content="<%= siteUrl %>/content-os" />
@@ -47,13 +47,13 @@
 <main class="cos-shell">
   <section class="cos-topbar">
     <div>
-      <p class="cos-kicker">AI Creative Lab</p>
-      <h1>Content OS</h1>
+      <p class="cos-kicker">Prompt Creative Lab</p>
+      <h1>Prompt Content OS</h1>
       <p>Input thương hiệu, chọn chiến lược, generate content có psychology và visual social-ready.</p>
     </div>
     <div class="cos-flow" aria-label="Workflow">
       <span>Input</span>
-      <span>Generate</span>
+      <span>Prompt</span>
       <span>Output</span>
       <span>Export</span>
     </div>
@@ -189,15 +189,15 @@
           </div>
         </details>
 
-        <button class="cos-generate" type="submit">Generate Content System</button>
+        <button class="cos-generate" type="submit">Build Prompt + Preview</button>
       </form>
     </aside>
 
-    <section class="cos-panel cos-output-panel" aria-label="AI content output">
+    <section class="cos-panel cos-output-panel" aria-label="Prompt content output">
       <div class="cos-panel__head">
         <div>
           <span class="cos-step">02</span>
-          <h2>AI Content Output</h2>
+          <h2>Prompt & Content Output</h2>
         </div>
         <button class="cos-icon-btn" type="button" id="copyBtn">Copy clean content</button>
       </div>
@@ -208,6 +208,20 @@
           <p>Nhấn Generate để tạo bản content đầu tiên. Input sẽ được giữ nguyên cho tới khi reload hoặc bấm Reset.</p>
         </div>
       </div>
+      <div class="cos-prompt-box">
+        <div class="cos-prompt-head">
+          <span>Prompt Builder</span>
+          <button class="cos-icon-btn" type="button" id="copyPromptBtn">Copy prompt</button>
+        </div>
+        <textarea id="promptOutput" readonly placeholder="Prompt chuẩn sẽ xuất hiện sau khi bấm Build Prompt + Preview."></textarea>
+      </div>
+      <div class="cos-prompt-box">
+        <div class="cos-prompt-head">
+          <span>Paste AI Result</span>
+          <button class="cos-icon-btn" type="button" id="applyResultBtn">Apply JSON</button>
+        </div>
+        <textarea id="aiResultInput" placeholder="Dán JSON từ ChatGPT/Gemini web vào đây nếu muốn render lại output theo kết quả AI."></textarea>
+      </div>
     </section>
 
     <aside class="cos-panel cos-visual-panel" aria-label="Visual engine">
@@ -217,7 +231,6 @@
           <h2>Visual Engine</h2>
         </div>
         <div class="cos-panel__actions">
-          <button class="cos-icon-btn" type="button" id="generateImagesBtn">Generate AI Images</button>
           <button class="cos-icon-btn" type="button" id="exportBtn">Export PNG</button>
         </div>
       </div>

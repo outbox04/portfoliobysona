@@ -3,9 +3,6 @@ const compression = require('compression');
 const path = require('path');
 require('dotenv').config();
 
-const { generateContent } = require('./services/content.service');
-const { generateImages, reviseImage } = require('./services/image.service');
-
 const app = express();
 app.disable('x-powered-by');
 const PORT = process.env.PORT || 3000;
@@ -14,7 +11,6 @@ const helmet = require('helmet');
 
 app.use(helmet());
 
-app.use(express.json({ limit: '25mb' }));
 app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');
@@ -536,69 +532,6 @@ app.get('/ecosystem', (req, res) => {
 
 app.get('/content-os', (req, res) => {
   res.render('content-os/index', { siteUrl: getSiteUrl(req) });
-});
-
-app.post('/api/content-os/generate', async (req, res) => {
-  try {
-    const result = await generateContent(req.body || {});
-    res.json(result);
-  } catch (error) {
-    const status = error.code === 'GEMINI_API_KEY_MISSING' ? 503 : 500;
-    if (status === 503) {
-      console.warn('[content-os] GEMINI_API_KEY is not configured.');
-    } else {
-      console.error('[content-os]', error);
-    }
-    res.status(status).json({
-      error: 'CONTENT_OS_GENERATION_FAILED',
-      code: error.code || 'GEMINI_REQUEST_FAILED',
-      message: status === 503
-        ? 'GEMINI_API_KEY is not configured. Add it to .env to enable AI generation.'
-        : 'Content OS could not generate content right now.'
-    });
-  }
-});
-
-app.post('/api/content-os/images', async (req, res) => {
-  try {
-    const result = await generateImages(req.body || {});
-    res.json(result);
-  } catch (error) {
-    const status = error.code === 'GEMINI_API_KEY_MISSING' ? 503 : 500;
-    if (status === 503) {
-      console.warn('[content-os-images] GEMINI_API_KEY is not configured.');
-    } else {
-      console.error('[content-os-images]', error);
-    }
-    res.status(status).json({
-      error: 'CONTENT_OS_IMAGE_GENERATION_FAILED',
-      code: error.code || 'GEMINI_IMAGE_REQUEST_FAILED',
-      message: status === 503
-        ? 'GEMINI_API_KEY is not configured. Add it to .env to enable Gemini image generation.'
-        : 'Content OS could not generate images right now.'
-    });
-  }
-});
-
-app.post('/api/content-os/images/revise', async (req, res) => {
-  try {
-    const result = await reviseImage(req.body || {});
-    res.json(result);
-  } catch (error) {
-    const status = error.code === 'GEMINI_API_KEY_MISSING' ? 503 : 500;
-    if (status === 503) {
-      console.warn('[content-os-image-revise] GEMINI_API_KEY is not configured.');
-    } else {
-      console.error('[content-os-image-revise]', error);
-    }
-    res.status(status).json({
-      error: 'CONTENT_OS_IMAGE_REVISION_FAILED',
-      code: error.code || 'GEMINI_IMAGE_EDIT_REQUEST_FAILED',
-      message: status === 503
-        ? 'GEMINI_API_KEY is not configured. Add it to .env to enable Gemini image edits.'
-        : 'Content OS could not revise this image right now.'
-    });
-  }
 });
 
 app.get('/download-cv', (req, res) => {
