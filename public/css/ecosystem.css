@@ -410,3 +410,11 @@
   .eco-overview-grid { grid-template-columns:1fr 1fr; }
   .eco-hero__title { font-size:3rem; }
 }
+.cursor,
+.cursor-follower {
+  pointer-events: none !important;
+}
+.eco-dept-nav,
+.eco-dept-nav * {
+  pointer-events: auto !important;
+}
