@@ -126,7 +126,7 @@
         { icon:'🤖', name:'AI Marketing',         desc:'Ứng dụng AI vào workflow marketing',           ai:100,color:'rgba(124,58,237,0.08)', border:'rgba(124,58,237,0.2)' },
       ];
       depts.forEach(d => { %>
-      <div class="eco-dept-card reveal-up" style="--card-color:<%= d.color %>; background:<%= d.color %>; border-color:<%= d.border %>">
+      <div class="eco-dept-card reveal-up" data-color="<%= d.color %>" data-border="<%= d.border %>">
         <span class="eco-dept-icon"><%= d.icon %></span>
         <div class="eco-dept-name"><%= d.name %></div>
         <div class="eco-dept-desc"><%= d.desc %></div>

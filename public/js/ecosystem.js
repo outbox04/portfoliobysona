@@ -94,6 +94,12 @@ const barObs = new IntersectionObserver(entries => {
 }, { threshold: 0.3 });
 [...impactBars, ...matrixFills].forEach(b => barObs.observe(b));
 
+document.querySelectorAll('.eco-dept-card[data-color][data-border]').forEach(card => {
+  card.style.setProperty('--card-color', card.dataset.color);
+  card.style.background = card.dataset.color;
+  card.style.borderColor = card.dataset.border;
+});
+
 // ── SCROLL NAV DOTS ──
 const scrollDots = document.querySelectorAll('.eco-scroll-dot');
 const ecoSections = document.querySelectorAll('section[data-eco]');
