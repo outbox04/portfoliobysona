@@ -543,17 +543,17 @@ app.post('/api/content-os/generate', async (req, res) => {
     const result = await generateContent(req.body || {});
     res.json(result);
   } catch (error) {
-    const status = error.code === 'OPENAI_API_KEY_MISSING' ? 503 : 500;
+    const status = error.code === 'GEMINI_API_KEY_MISSING' ? 503 : 500;
     if (status === 503) {
-      console.warn('[content-os] OPENAI_API_KEY is not configured.');
+      console.warn('[content-os] GEMINI_API_KEY is not configured.');
     } else {
       console.error('[content-os]', error);
     }
     res.status(status).json({
       error: 'CONTENT_OS_GENERATION_FAILED',
-      code: error.code || 'OPENAI_REQUEST_FAILED',
+      code: error.code || 'GEMINI_REQUEST_FAILED',
       message: status === 503
-        ? 'OPENAI_API_KEY is not configured. Add it to .env to enable Phase 2 AI generation.'
+        ? 'GEMINI_API_KEY is not configured. Add it to .env to enable AI generation.'
         : 'Content OS could not generate content right now.'
     });
   }
@@ -564,17 +564,17 @@ app.post('/api/content-os/images', async (req, res) => {
     const result = await generateImages(req.body || {});
     res.json(result);
   } catch (error) {
-    const status = error.code === 'OPENAI_API_KEY_MISSING' ? 503 : 500;
+    const status = error.code === 'GEMINI_API_KEY_MISSING' ? 503 : 500;
     if (status === 503) {
-      console.warn('[content-os-images] OPENAI_API_KEY is not configured.');
+      console.warn('[content-os-images] GEMINI_API_KEY is not configured.');
     } else {
       console.error('[content-os-images]', error);
     }
     res.status(status).json({
       error: 'CONTENT_OS_IMAGE_GENERATION_FAILED',
-      code: error.code || 'OPENAI_IMAGE_REQUEST_FAILED',
+      code: error.code || 'GEMINI_IMAGE_REQUEST_FAILED',
       message: status === 503
-        ? 'OPENAI_API_KEY is not configured. Add it to .env to enable gpt-image-2 generation.'
+        ? 'GEMINI_API_KEY is not configured. Add it to .env to enable Gemini image generation.'
         : 'Content OS could not generate images right now.'
     });
   }
@@ -585,17 +585,17 @@ app.post('/api/content-os/images/revise', async (req, res) => {
     const result = await reviseImage(req.body || {});
     res.json(result);
   } catch (error) {
-    const status = error.code === 'OPENAI_API_KEY_MISSING' ? 503 : 500;
+    const status = error.code === 'GEMINI_API_KEY_MISSING' ? 503 : 500;
     if (status === 503) {
-      console.warn('[content-os-image-revise] OPENAI_API_KEY is not configured.');
+      console.warn('[content-os-image-revise] GEMINI_API_KEY is not configured.');
     } else {
       console.error('[content-os-image-revise]', error);
     }
     res.status(status).json({
       error: 'CONTENT_OS_IMAGE_REVISION_FAILED',
-      code: error.code || 'OPENAI_IMAGE_EDIT_REQUEST_FAILED',
+      code: error.code || 'GEMINI_IMAGE_EDIT_REQUEST_FAILED',
       message: status === 503
-        ? 'OPENAI_API_KEY is not configured. Add it to .env to enable gpt-image-2 image edits.'
+        ? 'GEMINI_API_KEY is not configured. Add it to .env to enable Gemini image edits.'
         : 'Content OS could not revise this image right now.'
     });
   }

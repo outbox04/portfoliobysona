@@ -1,49 +1,33 @@
-const { toFile } = require('openai');
-const { createClient } = require('./openai.service');
-
-const SIZE_MAP = {
-  '1:1': '1024x1024',
-  '4:5': '1024x1280',
-  '9:16': '1024x1792',
-  carousel: '1024x1024'
-};
+const { generateImageParts } = require('./gemini.service');
 
 async function generateImages({ input = {}, output = {} }) {
-  const client = createClient();
-  const model = process.env.OPENAI_IMAGE_MODEL || 'gpt-image-2';
+  const model = process.env.GEMINI_IMAGE_MODEL || 'gemini-3.1-flash-image-preview';
   const visuals = getVisuals(input, output);
-  const size = SIZE_MAP[input.exportSize] || SIZE_MAP['1:1'];
 
   const images = [];
   for (let index = 0; index < visuals.length; index++) {
     const visual = visuals[index];
     const prompt = buildImagePrompt({ input, visual, index, total: visuals.length });
-    const response = await client.images.generate({
+    const response = await generateImageParts({
       model,
-      prompt,
-      size,
-      n: 1
+      parts: [{ text: prompt }]
     });
-
-    const b64 = response.data?.[0]?.b64_json;
-    if (!b64) throw new Error('Image generation returned no image data.');
+    const image = extractImage(response);
     images.push({
       index,
       model,
       prompt,
       label: visual.label,
-      dataUrl: `data:image/png;base64,${b64}`
+      dataUrl: image.dataUrl
     });
   }
 
-  return { source: 'openai-image', model, size, images };
+  return { source: 'gemini-image', model, images };
 }
 
 async function reviseImage({ input = {}, visual = {}, imageDataUrl, note = '' }) {
-  const client = createClient();
-  const model = process.env.OPENAI_IMAGE_MODEL || 'gpt-image-2';
-  const size = SIZE_MAP[input.exportSize] || SIZE_MAP['1:1'];
-  const image = await dataUrlToFile(imageDataUrl);
+  const model = process.env.GEMINI_IMAGE_MODEL || 'gemini-3.1-flash-image-preview';
+  const image = parseDataUrl(imageDataUrl);
   const prompt = buildImagePrompt({
     input,
     visual,
@@ -51,27 +35,28 @@ async function reviseImage({ input = {}, visual = {}, imageDataUrl, note = '' })
     total: Number(input.imageCount || 1),
     note
   });
-
-  const response = await client.images.edit({
+  const response = await generateImageParts({
     model,
-    image,
-    prompt,
-    size,
-    n: 1
+    parts: [
+      { text: prompt },
+      {
+        inlineData: {
+          mimeType: image.mimeType,
+          data: image.base64
+        }
+      }
+    ]
   });
-
-  const b64 = response.data?.[0]?.b64_json;
-  if (!b64) throw new Error('Image edit returned no image data.');
+  const revised = extractImage(response);
 
   return {
-    source: 'openai-image-edit',
+    source: 'gemini-image-edit',
     model,
-    size,
     prompt,
     image: {
       index: Number(visual.index || 0),
       label: visual.label,
-      dataUrl: `data:image/png;base64,${b64}`
+      dataUrl: revised.dataUrl
     }
   };
 }
@@ -123,15 +108,23 @@ function buildImagePrompt({ input, visual, index, total, note }) {
   ].join('\n');
 }
 
-async function dataUrlToFile(dataUrl) {
+function extractImage(response) {
+  const inline = response.candidates?.[0]?.content?.parts?.find(part => part.inlineData)?.inlineData;
+  if (!inline?.data) throw new Error('Gemini image generation returned no image data.');
+  return {
+    mimeType: inline.mimeType || 'image/png',
+    dataUrl: `data:${inline.mimeType || 'image/png'};base64,${inline.data}`
+  };
+}
+
+function parseDataUrl(dataUrl) {
   const match = String(dataUrl || '').match(/^data:(image\/[a-zA-Z0-9.+-]+);base64,(.+)$/);
   if (!match) {
     const error = new Error('Invalid image data URL.');
     error.code = 'INVALID_IMAGE_DATA_URL';
     throw error;
   }
-  const buffer = Buffer.from(match[2], 'base64');
-  return toFile(buffer, 'content-os-image.png', { type: match[1] });
+  return { mimeType: match[1], base64: match[2] };
 }
 
 function safe(value, fallback) {

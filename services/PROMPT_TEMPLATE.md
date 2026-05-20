@@ -71,7 +71,9 @@ Prompt trong `prompt.service.js` đang theo cấu trúc 6 phần:
 
 Ảnh được tạo/chỉnh trong `services/image.service.js`.
 
-- Model mặc định: `gpt-image-2`
+- Provider: Gemini API
+- Content model mặc định: `gemini-3.5-flash`
+- Image model mặc định: `gemini-3.1-flash-image-preview`
 - Tạo ảnh: `generateImages()`
 - Chỉnh ảnh theo ghi chú người xem: `reviseImage()`
 - Prompt ảnh chính: `buildImagePrompt()`
