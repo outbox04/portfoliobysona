@@ -209,14 +209,17 @@ document.addEventListener('contextmenu', e => {
 });
 
 document.addEventListener('copy', e => {
+  if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
   e.preventDefault();
 });
 
 document.addEventListener('cut', e => {
+  if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
   e.preventDefault();
 });
 
 document.addEventListener('paste', e => {
+  if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
   e.preventDefault();
 });
 
