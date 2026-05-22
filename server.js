@@ -188,7 +188,7 @@ const knowledge = [
     id: 'ai-thay-doi-marketing-2025',
     type: 'news',
     cat: 'AI & Công nghệ',
-    title: 'AI đang thay đổi ngành Marketing như thế nào trong 2025?',
+    title: 'AI đang thay đổi ngành Marketing như thế nào trong 2026?',
     short: 'Từ tự động hóa content...',
     thumb: '/images/knowledge/AI/post.jpg',
     ogImage: '/images/knowledge/AI/thumb.jpg',
@@ -754,7 +754,7 @@ Cách viết content Facebook Ads chuyển đổi cao
   <span class="related-label">📚 Xem thêm</span>
 
   <a 
-    href="/kien-thuc/ai-dang-thay-doi-nganh-marketing-nhu-the-nao-trong-2026"
+    href="/kien-thuc/ai-thay-doi-marketing-2025"
     class="related-link"
   >
     AI đang thay đổi ngành Marketing như thế nào trong 2026?
