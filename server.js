@@ -387,27 +387,250 @@ const knowledge = [
   },
   {
     id: 'meta-ads-thay-doi-2025',
+    type: 'news',
+    cat: 'AI & Công nghệ',
+    title: 'Chính sách Meta Ads thay đổi mới nhất năm 2026',
+    short: 'Meta Ads 2026 đang thay đổi mạnh với AI Ads, kiểm duyệt nội dung nghiêm ngặt hơn, siết tracking dữ liệu và ưu tiên trải nghiệm người dùng.',
+    thumb: '/images/knowledge/Meta/post.jpg',
+    ogImage: '/images/knowledge/Meta/thumb.jpg',
+    date: '20/05/2026',
+    readTime: '5 phút đọc',
     // ... các field cũ ...
     content: `
-      <h2>Meta Ads 2025 có gì thay đổi?</h2>
-      <p>Meta liên tục cập nhật thuật toán và chính sách quảng cáo. Nắm rõ để không lãng phí ngân sách.</p>
+      <h1>Chính sách Meta Ads thay đổi mới nhất năm 2026</h1>
 
-      <h2>1. Advantage+ Shopping Campaign</h2>
-      <p>Meta đang đẩy mạnh <strong>Advantage+</strong> — hệ thống tự động hóa toàn bộ quảng cáo từ targeting đến creative.</p>
+<p>Meta Ads đang bước vào giai đoạn thay đổi lớn nhất trong nhiều năm trở lại đây. Năm 2026, Meta không chỉ nâng cấp AI quảng cáo mà còn siết mạnh các chính sách liên quan đến nội dung, tracking dữ liệu và trải nghiệm người dùng.</p>
 
-      <h2>2. Thay đổi về Tracking</h2>
-      <p>iOS 17 và các chính sách privacy mới ảnh hưởng đến khả năng tracking. Cần chuyển sang <strong>Conversions API</strong> để đảm bảo data chính xác.</p>
-      <blockquote>First-party data là tài sản quý giá nhất của doanh nghiệp trong kỷ nguyên privacy-first.</blockquote>
+<p>Nếu bạn đang chạy Facebook Ads hoặc Instagram Ads, việc cập nhật chính sách Meta Ads mới nhất 2026 là điều bắt buộc để tránh khóa tài khoản, giảm CPM và duy trì hiệu quả chuyển đổi.</p>
 
-      <div class="highlight-box">
-        <h3>⚡ Checklist tối ưu Meta Ads 2025</h3>
-        <ul>
-          <li>Cài đặt Conversions API</li>
-          <li>Test Advantage+ Campaign</li>
-          <li>Xây dựng first-party data</li>
-          <li>Đa dạng hóa creative format</li>
-        </ul>
-      </div>
+<!-- SEO META -->
+
+<meta name="title" content="Chính sách Meta Ads thay đổi mới nhất năm 2026" />
+<meta name="description" content="Cập nhật chính sách Meta Ads mới nhất năm 2026: AI Ads, kiểm duyệt quảng cáo, tracking dữ liệu, risk score và cách tránh vi phạm Facebook Ads." />
+<meta name="keywords" content="Chính sách Meta Ads 2026, Facebook Ads 2026, Meta Ads mới nhất, AI Meta Ads, Facebook Ads policy 2026, cập nhật Meta Ads" />
+
+<!-- HEADER -->
+
+<h2>1. Meta AI đang thay đổi toàn bộ hệ thống quảng cáo</h2>
+
+<p>Meta hiện ưu tiên AI-driven advertising thay vì các thiết lập target thủ công như trước đây. Các công cụ như Advantage+ Audience, AI Creative Optimization và Automated Campaign đang được Meta đẩy mạnh trong năm 2026.</p>
+
+<p>Điều này khiến advertiser phải thay đổi hoàn toàn tư duy chạy ads truyền thống.</p>
+
+<h3>Những thay đổi đáng chú ý:</h3>
+
+<ul>
+  <li>Meta AI tự động tối ưu audience</li>
+  <li>AI tự test nhiều creative cùng lúc</li>
+  <li>Tự động tối ưu placement</li>
+  <li>Machine Learning quyết định phân phối quảng cáo</li>
+</ul>
+
+<p>Hiện nay, Meta đang giảm dần độ hiệu quả của interest targeting và ưu tiên broad targeting kết hợp AI optimization.</p>
+
+<!-- INTERNAL LINK -->
+
+<p>Xem thêm:
+<a href="/kien-thuc/ai-dang-thay-doi-nganh-marketing-nhu-the-nao-trong-2026">
+AI đang thay đổi ngành Marketing như thế nào trong 2026?
+</a>
+</p>
+
+<h2>2. Chính sách nội dung quảng cáo bị kiểm duyệt chặt hơn</h2>
+
+<p>Một trong những thay đổi lớn nhất của Meta Ads 2026 là AI moderation. Meta hiện sử dụng AI để quét:</p>
+
+<ul>
+  <li>Text trong hình ảnh</li>
+  <li>Voice trong video</li>
+  <li>Landing page</li>
+  <li>Comment và engagement</li>
+</ul>
+
+<h3>Các dạng content dễ bị hạn chế:</h3>
+
+<ul>
+  <li>Before/After quá mạnh</li>
+  <li>Content gây tiêu cực</li>
+  <li>Cam kết kết quả tuyệt đối</li>
+  <li>Tiêu đề clickbait</li>
+  <li>Hình ảnh nhạy cảm</li>
+</ul>
+
+<h3>Ví dụ vi phạm phổ biến:</h3>
+
+<ul>
+  <li>“Giảm 10kg sau 7 ngày”</li>
+  <li>“Bạn đang già đi mỗi ngày mà không biết”</li>
+  <li>“Da xấu như thế này là do bạn”</li>
+</ul>
+
+<p>Meta hiện ưu tiên content tự nhiên, educational content và UGC hơn các mẫu quảng cáo bán hàng trực diện.</p>
+
+<h2>3. Meta siết tracking dữ liệu người dùng trong 2026</h2>
+
+<p>Sau các thay đổi về quyền riêng tư từ Apple và châu Âu, Meta tiếp tục giảm khả năng tracking của Pixel truyền thống.</p>
+
+<h3>Những thay đổi ảnh hưởng lớn:</h3>
+
+<ul>
+  <li>Retargeting kém chính xác hơn</li>
+  <li>Lookalike Audience giảm hiệu quả</li>
+  <li>Tracking conversion thiếu dữ liệu</li>
+  <li>Attribution không còn chính xác tuyệt đối</li>
+</ul>
+
+<h3>Meta hiện ưu tiên:</h3>
+
+<ul>
+  <li>Conversions API (CAPI)</li>
+  <li>Server-side tracking</li>
+  <li>First-party data</li>
+  <li>CRM integration</li>
+</ul>
+
+<p>Nếu doanh nghiệp chưa triển khai CAPI trong năm 2026, hiệu quả Facebook Ads sẽ giảm đáng kể.</p>
+
+<!-- EXTERNAL LINK -->
+
+<p>Nguồn tham khảo chính thức:
+<a href="https://www.facebook.com/business/help" target="_blank" rel="nofollow noopener">
+Meta Business Help Center
+</a>
+</p>
+
+<h2>4. Tài khoản quảng cáo bị đánh giá bằng AI Risk Score</h2>
+
+<p>Meta hiện sử dụng AI Risk Scoring để đánh giá chất lượng advertiser.</p>
+
+<h3>Những yếu tố ảnh hưởng trust score:</h3>
+
+<ul>
+  <li>Lịch sử vi phạm policy</li>
+  <li>Tỷ lệ feedback tiêu cực</li>
+  <li>Landing page quality</li>
+  <li>Comment tiêu cực</li>
+  <li>Tỷ lệ ẩn quảng cáo</li>
+</ul>
+
+<h3>Dấu hiệu tài khoản đang bị hạn chế:</h3>
+
+<ul>
+  <li>CPM tăng bất thường</li>
+  <li>Ads learning kéo dài</li>
+  <li>Reach giảm mạnh</li>
+  <li>Reject quảng cáo liên tục</li>
+</ul>
+
+<p>Meta hiện không chỉ đánh giá từng ads mà còn đánh giá:</p>
+
+<ul>
+  <li>Business Manager</li>
+  <li>Domain</li>
+  <li>Fanpage</li>
+  <li>Payment Profile</li>
+  <li>User behavior</li>
+</ul>
+
+<h2>5. Meta ưu tiên UGC và video ngắn</h2>
+
+<p>Xu hướng creative Meta Ads 2026 đang nghiêng mạnh về short-form content và UGC video.</p>
+
+<h3>Các định dạng đang được Meta ưu tiên:</h3>
+
+<ul>
+  <li>Facebook Reels Ads</li>
+  <li>Instagram Reels</li>
+  <li>Story Ads</li>
+  <li>Click-to-message Ads</li>
+</ul>
+
+<h3>Creative hiệu quả trong 2026:</h3>
+
+<ul>
+  <li>Video review thật</li>
+  <li>Content storytelling</li>
+  <li>Educational content</li>
+  <li>AI-assisted creative</li>
+</ul>
+
+<p>Các banner quá “salesy” đang giảm hiệu quả đáng kể.</p>
+
+<!-- INTERNAL LINK -->
+
+<p>Đọc thêm:
+<a href="/kien-thuc/cach-viet-content-facebook-ads-chuyen-doi-cao">
+Cách viết content Facebook Ads chuyển đổi cao
+</a>
+</p>
+
+<h2>6. Meta ưu tiên trải nghiệm người dùng hơn conversion ngắn hạn</h2>
+
+<p>Một thay đổi lớn trong 2026 là Meta bắt đầu đánh giá trải nghiệm tổng thể thay vì chỉ conversion.</p>
+
+<h3>Meta đang đánh giá:</h3>
+
+<ul>
+  <li>Time on page</li>
+  <li>Bounce rate</li>
+  <li>Negative feedback</li>
+  <li>User engagement</li>
+  <li>Landing page speed</li>
+</ul>
+
+<p>Landing page load chậm hoặc UX kém có thể làm giảm hiệu quả phân phối quảng cáo.</p>
+
+<h2>7. Cách thích nghi với chính sách Meta Ads mới năm 2026</h2>
+
+<p>Để chạy Meta Ads hiệu quả trong năm 2026, advertiser cần thay đổi cách triển khai chiến dịch.</p>
+
+<h3>Checklist tối ưu Meta Ads 2026:</h3>
+
+<ul>
+  <li>Sử dụng Conversions API</li>
+  <li>Tăng first-party data</li>
+  <li>Ưu tiên content tự nhiên</li>
+  <li>Đầu tư video ngắn</li>
+  <li>Giảm phụ thuộc vào interest targeting</li>
+  <li>Tối ưu landing page UX</li>
+  <li>Tuân thủ policy ngay từ creative</li>
+</ul>
+
+<!-- FAQ -->
+
+<h2>FAQ - Câu hỏi thường gặp về chính sách Meta Ads 2026</h2>
+
+<h3>Meta Ads 2026 thay đổi gì lớn nhất?</h3>
+
+<p>Meta đang chuyển sang AI-driven advertising, giảm phụ thuộc vào target thủ công và tăng kiểm duyệt nội dung bằng AI.</p>
+
+<h3>Pixel Facebook còn hiệu quả trong 2026 không?</h3>
+
+<p>Có, nhưng Meta hiện ưu tiên Conversions API và server-side tracking để cải thiện độ chính xác dữ liệu.</p>
+
+<h3>Tại sao quảng cáo Facebook dễ bị từ chối hơn?</h3>
+
+<p>Meta đang dùng AI moderation để kiểm duyệt text, hình ảnh, video và landing page nghiêm ngặt hơn trước.</p>
+
+<h3>Meta hiện ưu tiên loại quảng cáo nào?</h3>
+
+<p>Meta ưu tiên UGC video, short-form video, Reels Ads và các nội dung mang tính tự nhiên.</p>
+
+<h3>Làm sao để tránh khóa tài khoản quảng cáo?</h3>
+
+<p>Doanh nghiệp nên tuân thủ policy, tránh content gây tiêu cực, tối ưu trust score và sử dụng domain chất lượng.</p>
+
+<!-- FOOTER -->
+
+<h2>Kết luận</h2>
+
+<p>Chính sách Meta Ads năm 2026 đang thay đổi theo hướng AI-first, ưu tiên trải nghiệm người dùng và siết mạnh việc kiểm duyệt quảng cáo.</p>
+
+<p>Advertiser cần tập trung vào content quality, dữ liệu first-party, creative tự nhiên và tối ưu trải nghiệm landing page để duy trì hiệu quả quảng cáo lâu dài.</p>
+
+<p>Nếu bạn đang chạy Facebook Ads hoặc Instagram Ads, đây là thời điểm cần cập nhật chiến lược trước khi thuật toán mới ảnh hưởng trực tiếp đến chi phí quảng cáo và khả năng phân phối.</p>
+
+<p><strong>Bạn đã gặp thay đổi nào khi chạy Meta Ads trong năm 2026?</strong> Hãy để lại bình luận để cùng thảo luận.</p>
     `
   },
   {
