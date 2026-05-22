@@ -102,21 +102,92 @@ const barObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 document.querySelectorAll('.bar__fill').forEach(b => barObs.observe(b));
 
-// ═══ PROJECT FILTER ═══
+// ═══ PROJECT FILTER & PAGINATION ═══
 const tabBtns = document.querySelectorAll('.tab-btn');
-const cards = document.querySelectorAll('.project-card');
+const projectCards = document.querySelectorAll('.project-card');
+
+const PROJECT_ITEMS_PER_PAGE = 4; // Hiển thị 4 dự án mỗi trang (bạn có thể đổi thành 6 hoặc 8 tùy ý)
+let projectCurrentPage = 1;
+
+function updateProjectPagination() {
+  if (!projectCards || projectCards.length === 0) return;
+  
+  const activeTabBtn = document.querySelector('.tab-btn.active');
+  const f = activeTabBtn ? activeTabBtn.dataset.filter : 'all';
+
+  let visibleItems = [];
+
+  projectCards.forEach(card => {
+    const show = f === 'all' || card.dataset.cat === f;
+    if (show) visibleItems.push(card);
+    else card.classList.add('hidden');
+  });
+
+  const totalPages = Math.ceil(visibleItems.length / PROJECT_ITEMS_PER_PAGE);
+  if (projectCurrentPage > totalPages) projectCurrentPage = totalPages || 1;
+
+  const startIndex = (projectCurrentPage - 1) * PROJECT_ITEMS_PER_PAGE;
+  const endIndex = startIndex + PROJECT_ITEMS_PER_PAGE;
+
+  visibleItems.forEach((card, index) => {
+    if (index >= startIndex && index < endIndex) {
+      card.classList.remove('hidden');
+      card.style.animation = 'none';
+      card.offsetHeight; // trigger reflow
+      card.style.animation = 'cardIn .35s ease forwards';
+    } else {
+      card.classList.add('hidden');
+    }
+  });
+
+  renderProjectPaginationUI(totalPages);
+}
+
+function renderProjectPaginationUI(totalPages) {
+  let paginationContainer = document.getElementById('projectPagination');
+  if (!paginationContainer) {
+    paginationContainer = document.createElement('div');
+    paginationContainer.id = 'projectPagination';
+    paginationContainer.className = 'project-pagination';
+    const grid = document.getElementById('projectsGrid');
+    if (grid && grid.parentNode) {
+      grid.parentNode.appendChild(paginationContainer);
+    }
+  }
+
+  paginationContainer.innerHTML = '';
+  if (totalPages <= 1) return;
+
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement('button');
+    btn.className = `project-page-btn ${i === projectCurrentPage ? 'active' : ''}`;
+    btn.textContent = i;
+    btn.addEventListener('click', () => {
+      projectCurrentPage = i;
+      updateProjectPagination();
+      
+      const section = document.getElementById('projects');
+      if (section) {
+        const offset = section.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({ top: offset, behavior: 'smooth' });
+      }
+    });
+    paginationContainer.appendChild(btn);
+  }
+}
+
 tabBtns.forEach(btn => {
   btn.addEventListener('click', () => {
     tabBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-    const f = btn.dataset.filter;
-    cards.forEach(card => {
-      const show = f === 'all' || card.dataset.cat === f;
-      card.classList.toggle('hidden', !show);
-      if (show) card.style.animation = 'cardIn .35s ease forwards';
-    });
+    
+    projectCurrentPage = 1;
+    updateProjectPagination();
   });
 });
+
+// Khởi tạo phân trang ở lần load đầu tiên
+updateProjectPagination();
 
 // ═══ CARD TILT ═══
 document.querySelectorAll('.project-card').forEach(card => {

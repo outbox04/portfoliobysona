@@ -469,6 +469,34 @@ ul { list-style: none; }
 .project-card__body h4 { font-size: .9rem; font-weight: 700; color: var(--text); margin-bottom: 6px; line-height: 1.35; }
 .project-card__body p { font-size: .8rem; color: var(--text-3); line-height: 1.6; }
 
+/* ── PROJECT PAGINATION ── */
+.project-pagination {
+  display: flex; flex-wrap: wrap;
+  justify-content: center; gap: 10px;
+  margin-top: 44px;
+}
+.project-page-btn {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--bg-3);
+  border: 1px solid var(--border);
+  color: var(--text-2);
+  font-family: var(--ff-body);
+  font-size: 14px; font-weight: 600;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; transition: all var(--t);
+}
+.project-page-btn:hover {
+  background: transparent;
+  border-color: var(--red);
+  color: var(--red);
+}
+.project-page-btn.active {
+  background: var(--red);
+  border-color: var(--red);
+  color: #fff;
+}
+
 /* ═══ CONTACT ═══ */
 .contact { background: var(--bg-2); }
 .contact__sub { color: var(--text-3); font-size: 1rem; margin-top: -40px; margin-bottom: 44px; max-width: 440px; }
