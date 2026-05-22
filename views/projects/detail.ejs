@@ -13,9 +13,15 @@
   <meta property="og:image"        content="<%= siteUrl %><%= project.thumb %>" />
   <meta property="og:image:width"  content="1200" />
   <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"    content="<%= project.title %>" />
+  <meta property="og:site_name"    content="Trần Hồng Sơn - Marketing Portfolio" />
   <meta property="og:locale"       content="vi_VN" />
+  <meta property="article:author"  content="Trần Hồng Sơn" />
+  <meta property="article:section" content="<%= project.catLabel %>" />
   <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:url"         content="<%= siteUrl %>/projects/<%= project.id %>" />
   <meta name="twitter:title"       content="<%= project.title %>" />
+  <meta name="twitter:description" content="<%= project.short %>" />
   <meta name="twitter:image"       content="<%= siteUrl %><%= project.thumb %>" />
   <link rel="icon" href="/images/software/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />

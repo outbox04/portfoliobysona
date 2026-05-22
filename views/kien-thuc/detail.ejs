@@ -11,9 +11,15 @@
   <meta property="og:title"       content="<%= article.title %>" />
   <meta property="og:description" content="<%= article.short %>" />
   <meta property="og:image"       content="<%= siteUrl %><%= article.thumb %>" />
+  <meta property="og:image:alt"   content="<%= article.title %>" />
+  <meta property="og:site_name"   content="Trần Hồng Sơn - Marketing Portfolio" />
   <meta property="og:locale"      content="vi_VN" />
+  <meta property="article:author" content="Trần Hồng Sơn" />
+  <meta property="article:section" content="<%= article.cat %>" />
   <meta name="twitter:card"       content="summary_large_image" />
+  <meta name="twitter:url"        content="<%= siteUrl %>/kien-thuc/<%= article.id %>" />
   <meta name="twitter:title"      content="<%= article.title %>" />
+  <meta name="twitter:description" content="<%= article.short %>" />
   <meta name="twitter:image"      content="<%= siteUrl %><%= article.thumb %>" />
   <link rel="icon" href="/images/software/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
