@@ -3,6 +3,7 @@ const compression = require('compression');
 const path = require('path');
 
 const app = express();
+app.use(express.json());
 app.disable('x-powered-by');
 const PORT = process.env.PORT || 3000;
 
@@ -531,6 +532,50 @@ app.get('/ecosystem', (req, res) => {
 
 app.get('/content-os', (req, res) => {
   res.render('content-os/index', { siteUrl: getSiteUrl(req) });
+});
+
+app.post('/api/generate-content', async (req, res) => {
+  try {
+    const { buildContentPrompt } = require('./services/prompt.service.js');
+    const promptData = buildContentPrompt(req.body);
+    
+    // Gọi API của LLM tại đây (OpenAI, Gemini, v.v.)
+    // Ví dụ với OpenAI:
+    /*
+    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`
+      },
+      body: JSON.stringify({
+        model: 'gpt-4o-mini',
+        messages: promptData.messages,
+        response_format: { type: 'json_object' }
+      })
+    });
+    const data = await response.json();
+    const content = JSON.parse(data.choices[0].message.content);
+    return res.json(content);
+    */
+
+    // Dữ liệu Mock mô phỏng AI trả về hợp lệ (để test khi chưa gắn API Key)
+    res.json({
+      title: "Content OS: Viết tự động - Nhất quán hệ thống",
+      titleReason: "Gây chú ý ngay từ headline, giải quyết được pain point lặp đi lặp lại.",
+      opening: "Bạn vẫn đang đau đầu vì phải viết bài mỗi ngày mà không thấy sự gắn kết?",
+      openingReason: "Đánh thẳng vào nỗi đau của Content Creator.",
+      body: [{ text: "Content OS giúp bạn xây dựng một hệ thống rõ ràng.", why: "Giới thiệu giải pháp" }],
+      cta: "Thử Content OS ngay hôm nay!",
+      ctaReason: "Kêu gọi hành động ngắn gọn, trực diện.",
+      hashtags: ["#ContentOS", "#Marketing", "#AI"],
+      copyVersion: "Content OS: Viết tự động - Nhất quán hệ thống\n\nBạn vẫn đang đau đầu vì phải viết bài mỗi ngày mà không thấy sự gắn kết?\n\nContent OS giúp bạn xây dựng một hệ thống rõ ràng.\n\nThử Content OS ngay hôm nay!\n\n#ContentOS #Marketing #AI",
+      visualSuggestions: [{ label: "Hook", text: "Hết ý tưởng?", sub: "Dùng Content OS" }]
+    });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Failed to generate content' });
+  }
 });
 
 app.get('/download-cv', (req, res) => {

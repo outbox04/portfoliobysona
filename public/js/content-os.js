@@ -58,130 +58,6 @@
     return text || fallback;
   }
 
-  function buildPrompt(input) {
-    const formula = input.formula || 'AIDA';
-    return [
-      '# PROMPT CONTENT OS',
-      '',
-      '## 1. ROLE - VAI TRO',
-      'Ban la chuyen gia content marketing 10 nam kinh nghiem, dong thoi la brand strategist, social copywriter va creative director.',
-      'Hay tao noi dung social media bang tieng Viet tu nhien, co chien luoc, co psychology va san sang dang.',
-      '',
-      '## 2. CONTEXT - BOI CANH',
-      `Thuong hieu: ${compact(input.brandName, 'Chua cung cap')}`,
-      `Slogan: ${compact(input.slogan, 'Chua cung cap')}`,
-      `Nganh nghe: ${compact(input.industry, 'Chua cung cap')}`,
-      `Mo ta thuong hieu: ${compact(input.brandDesc, 'Chua cung cap')}`,
-      `Core value: ${compact(input.coreValue, 'Chua cung cap')}`,
-      `Brand voice: ${compact(input.brandVoice, 'Chua cung cap')}`,
-      `Khach hang muc tieu: ${compact(input.audience, 'Chua cung cap')}`,
-      `Pain points: ${compact(input.painPoints, 'Chua cung cap')}`,
-      `Aspiration: ${compact(input.aspiration, 'Chua cung cap')}`,
-      `Nhu cau: ${compact(input.needs, 'Chua cung cap')}`,
-      `Muc tieu tam ly: ${compact(input.psychGoal, 'Chua cung cap')}`,
-      `Nen tang: ${compact(input.platform, 'Facebook')}`,
-      `Tone: ${compact(input.tone, 'storytelling')}`,
-      `Cong thuc viet: ${formula}`,
-      `Muc tieu content: ${compact(input.goal, 'branding')}`,
-      `CTA type: ${compact(input.ctaType, 'soft sell')}`,
-      `Hook type: ${compact(input.hookType, 'curiosity')}`,
-      '',
-      '## 3. EXAMPLES - MAU CHAT LUONG',
-      'Tieu de mau: "Content khong can dang nhieu hon. Content can co he thong hon."',
-      'Opening mau: "Nhieu thuong hieu khong thieu bai dang. Ho thieu mot ly do du ro de khach hang nho den minh."',
-      'Moi doan body phai co 1 y chinh ro, co nhip doc tot, khong lan man.',
-      '',
-      '## 4. STYLE - PHONG CACH',
-      'Viet ro rang, co chieu sau, uu tien doan ngan de doc tren mobile.',
-      'Khong viet kieu sao rong, khong overpromise, khong tao so lieu gia.',
-      'Co the dung thuat ngu marketing tieng Anh neu tu nhien: insight, hook, CTA, content system, brand voice.',
-      '',
-      '## 5. FORMAT - DINH DANG DAU RA',
-      'Chi tra ve JSON hop le, khong boc trong markdown.',
-      'Schema:',
-      '{',
-      '  "title": "",',
-      '  "titleReason": "",',
-      '  "opening": "",',
-      '  "openingReason": "",',
-      '  "body": [{ "text": "", "why": "" }],',
-      '  "cta": "",',
-      '  "ctaReason": "",',
-      '  "hashtags": [],',
-      '  "copyVersion": "",',
-      '  "visualSuggestions": [{ "label": "", "text": "", "sub": "" }]',
-      '}',
-      '',
-      '## 6. GOAL - MUC TIEU',
-      'Tao content san sang dang, co giai thich psychology/copywriting phia sau.',
-      'copyVersion chi chua clean content de copy dang bai, khong co label hay explanation.',
-      `Neu visualType la ${input.visualType}, hay tao visualSuggestions phu hop voi ${input.imageCount} anh va ti le ${input.exportSize}.`
-    ].join('\n');
-  }
-
-  function buildContent(input) {
-    const brand = compact(input.brandName, 'thương hiệu của bạn');
-    const audience = compact(input.audience, 'khách hàng mục tiêu');
-    const pain = compact(input.painPoints, 'content chưa tạo đủ niềm tin');
-    const voice = compact(input.brandVoice, 'rõ ràng và có chiều sâu');
-    const formula = formulaMap[input.formula] || formulaMap.AIDA;
-    const title = `${brand}: content không cần ồn, nhưng phải có hệ thống`;
-    const opening = input.hookType === 'contrarian'
-      ? `Không phải cứ đăng nhiều là thương hiệu sẽ mạnh hơn. Điều làm khách hàng nhớ đến ${brand} là một thông điệp nhất quán.`
-      : `Có một vấn đề nhiều thương hiệu gặp phải: content vẫn đăng đều, nhưng khách hàng chưa cảm thấy đủ tin để bắt đầu cuộc trò chuyện.`;
-    const body = [
-      {
-        text: `Nếu ${audience.toLowerCase()} đang thấy ${pain.toLowerCase()}, vấn đề thường không nằm ở từng bài viết riêng lẻ.`,
-        why: `${formula[0]}: mở bằng insight để người đọc nhận ra mình trong tình huống.`
-      },
-      {
-        text: `Vấn đề nằm ở cách các bài viết kết nối với nhau: một bài tạo nhận thức, một bài giải thích niềm tin, một bài chứng minh năng lực, và một bài mở đường cho hành động.`,
-        why: `${formula[1] || 'Interest'}: chuyển từ triệu chứng sang hệ thống, giúp brand voice "${voice}" có nền tảng chiến lược.`
-      },
-      {
-        text: `${brand} nên xây content như một operating system: rõ mục tiêu, rõ vai trò từng bài, rõ visual language và rõ CTA.`,
-        why: `${formula[2] || 'Desire'}: đưa ra khung giải pháp cụ thể, phù hợp mục tiêu ${input.goal}.`
-      },
-      {
-        text: `Khi content đi cùng màu sắc, typography và hierarchy nhất quán, người xem không chỉ đọc bài viết. Họ bắt đầu ghi nhớ thương hiệu.`,
-        why: 'Psychology: visual consistency tạo fluency, làm thông điệp dễ xử lý và đáng tin hơn.'
-      }
-    ];
-    const cta = input.ctaType === 'conversation'
-      ? 'Bạn đang muốn content của thương hiệu tạo nhiều cuộc trò chuyện hơn? Hãy bắt đầu bằng việc audit lại 5 bài gần nhất.'
-      : input.ctaType === 'hard sell'
-        ? `Inbox ${brand} để xây hệ thống content đầu tiên trong tuần này.`
-        : 'Nếu bạn muốn thương hiệu nhìn rõ ràng hơn, hãy bắt đầu từ một content system nhỏ nhưng nhất quán.';
-    const hashtags = ['#ContentOS', '#BrandStrategy', '#AIMarketing', `#${input.platform || 'SocialMedia'}`.replace(/\s+/g, '')];
-    const copyVersion = [title, '', opening, '', ...body.map(item => item.text), '', cta, '', hashtags.join(' ')].join('\n');
-
-    return {
-      title,
-      titleReason: `Tiêu đề dùng contrast để tạo curiosity nhưng vẫn giữ positioning cao cấp cho ${brand}.`,
-      opening,
-      openingReason: `Opening đánh vào pain point "${pain}" và tạo emotional trigger.`,
-      body,
-      cta,
-      ctaReason: `CTA thuộc nhóm ${input.ctaType}, phù hợp mục tiêu ${input.goal} trên ${input.platform}.`,
-      hashtags,
-      copyVersion,
-      visualSuggestions: buildVisuals(input, title, body, cta)
-    };
-  }
-
-  function buildVisuals(input, title, body, cta) {
-    if (input.visualType === 'no image') return [];
-    const count = input.visualType === 'single image' ? 1 : input.imageCount;
-    const blocks = [
-      { label: 'Hook', text: title, sub: compact(input.slogan, 'A clearer content system') },
-      { label: 'Pain point', text: compact(input.painPoints, 'Content rời rạc làm thương hiệu khó được nhớ'), sub: 'Name the real friction' },
-      { label: 'Insight', text: body[1]?.text || 'Content cần kết nối thành một hệ thống', sub: 'Make the invisible structure visible' },
-      { label: 'Solution', text: body[2]?.text || 'Build a repeatable content workflow', sub: compact(input.coreValue, 'Clarity, rhythm, consistency') },
-      { label: 'CTA', text: cta, sub: compact(input.brandName, 'Content OS') }
-    ];
-    return blocks.slice(0, count);
-  }
-
   function renderOutput(output) {
     outputEl.innerHTML = `
       <article class="cos-section"><div class="cos-section__label">Title</div><h3>${escapeHtml(output.title)}</h3><div class="cos-note">${escapeHtml(output.titleReason)}</div></article>
@@ -209,44 +85,37 @@
     `).join('');
   }
 
-  function generate() {
+  async function generate() {
     const input = getInput();
-    const output = buildContent(input);
-    const prompt = buildPrompt(input);
-    appState.input = input;
-    appState.output = output;
-    appState.visuals = output.visualSuggestions;
-    appState.prompt = prompt;
-    promptEl.value = prompt;
-    renderOutput(output);
-    renderVisuals(input, appState.visuals);
-    showToast('Đã build prompt và preview');
-  }
+    
+    outputEl.innerHTML = '<div class="cos-loading"><span>Đang phân tích & tạo nội dung...</span><p>Vui lòng đợi trong giây lát</p></div>';
+    visualEl.innerHTML = '<div class="cos-visual-card is-empty"><span>...</span><strong>Đang tạo visual...</strong></div>';
+    showToast('Đang gửi yêu cầu tới AI...');
 
-  function applyAiResult() {
-    const raw = aiResultInput.value.trim();
-    if (!raw) {
-      showToast('Chưa có JSON để apply');
-      return;
-    }
     try {
-      const cleaned = raw.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/\s*```$/i, '');
-      const output = JSON.parse(cleaned);
-      const normalized = {
-        ...buildContent(getInput()),
-        ...output,
-        body: Array.isArray(output.body) ? output.body : buildContent(getInput()).body,
-        hashtags: Array.isArray(output.hashtags) ? output.hashtags : [],
-        visualSuggestions: Array.isArray(output.visualSuggestions) ? output.visualSuggestions : []
-      };
-      appState.output = normalized;
-      appState.visuals = normalized.visualSuggestions;
-      renderOutput(normalized);
-      renderVisuals(getInput(), appState.visuals);
-      showToast('Đã apply AI result');
+      const response = await fetch('/api/generate-content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(input)
+      });
+
+      if (!response.ok) throw new Error('API request failed');
+      
+      const output = await response.json();
+      
+      appState.input = input;
+      appState.output = output;
+      appState.visuals = output.visualSuggestions || [];
+      
+      if (promptEl) promptEl.value = 'Nội dung được tạo tự động qua API.';
+      renderOutput(output);
+      renderVisuals(input, appState.visuals);
+      showToast('Đã tạo xong content!');
     } catch (error) {
-      console.warn('[Content OS] Invalid pasted JSON:', error);
-      showToast('JSON chưa hợp lệ');
+      console.error('[Content OS] Generation Error:', error);
+      outputEl.innerHTML = '<div class="cos-empty"><span>Lỗi tạo content</span><p>Đã xảy ra lỗi trong quá trình giao tiếp với AI. Vui lòng thử lại.</p></div>';
+      visualEl.innerHTML = '';
+      showToast('Tạo content thất bại');
     }
   }
 
@@ -374,7 +243,6 @@
     await navigator.clipboard.writeText(appState.prompt);
     showToast('Đã copy prompt');
   });
-  applyResultBtn?.addEventListener('click', applyAiResult);
   exportBtn.addEventListener('click', () => {
     if (!appState.output) generate();
     exportFirstVisual();
