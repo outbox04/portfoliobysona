@@ -14,7 +14,8 @@ themeBtn && themeBtn.addEventListener('click', () => {
 // ═══ CURSOR ═══
 const cursor = document.getElementById('cursor');
 const follower = document.getElementById('cursorFollower');
-if (cursor && follower) {
+const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+if (cursor && follower && !isTouchDevice) {
   let mx = 0, my = 0, fx = 0, fy = 0;
   document.addEventListener('mousemove', e => {
     mx = e.clientX; my = e.clientY;
