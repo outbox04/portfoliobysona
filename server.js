@@ -190,8 +190,9 @@ const knowledge = [
     cat: 'AI & Công nghệ',
     title: 'AI đang thay đổi ngành Marketing như thế nào trong 2025?',
     short: 'Từ tự động hóa content...',
-    thumb: '/images/knowledge/news-01.jpg',
-    date: '15/05/2025',
+    thumb: '/images/knowledge/AI/post.jpg',
+    ogImage: '/images/knowledge/AI/thumb.jpg',
+    date: '22/05/2026',
     readTime: '5 phút đọc',
     content: `
 <h1>AI đang thay đổi ngành Marketing như thế nào trong 2026?</h1>

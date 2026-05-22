@@ -10,7 +10,7 @@
   <meta property="og:url"         content="<%= siteUrl %>/kien-thuc/<%= article.id %>" />
   <meta property="og:title"       content="<%= article.title %>" />
   <meta property="og:description" content="<%= article.short %>" />
-  <meta property="og:image"       content="<%= siteUrl %><%= article.thumb %>" />
+  <meta property="og:image"       content="<%= siteUrl %><%= article.ogImage ? article.ogImage : article.thumb %>" />
   <meta property="og:image:alt"   content="<%= article.title %>" />
   <meta property="og:site_name"   content="Trần Hồng Sơn - Marketing Portfolio" />
   <meta property="og:locale"      content="vi_VN" />
@@ -20,13 +20,33 @@
   <meta name="twitter:url"        content="<%= siteUrl %>/kien-thuc/<%= article.id %>" />
   <meta name="twitter:title"      content="<%= article.title %>" />
   <meta name="twitter:description" content="<%= article.short %>" />
-  <meta name="twitter:image"      content="<%= siteUrl %><%= article.thumb %>" />
+  <meta name="twitter:image"      content="<%= siteUrl %><%= article.ogImage ? article.ogImage : article.thumb %>" />
   <link rel="icon" href="/images/software/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/kien-thuc.css" />
+
+  <!-- Schema Markup (JSON-LD) for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "<%= article.type === 'news' ? 'NewsArticle' : 'Article' %>",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "<%= siteUrl %>/kien-thuc/<%= article.id %>"
+    },
+    "headline": "<%= article.title %>",
+    "description": "<%= article.short %>",
+    "image": "<%= siteUrl %><%= article.ogImage ? article.ogImage : article.thumb %>",
+    "author": {
+      "@type": "Person",
+      "name": "Trần Hồng Sơn",
+      "url": "<%= siteUrl %>"
+    }
+  }
+  </script>
 </head>
 <body>
 
