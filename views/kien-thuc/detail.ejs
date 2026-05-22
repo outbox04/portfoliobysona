@@ -131,34 +131,8 @@
               target="_blank" rel="noopener" class="share-btn linkedin">
               💼 LinkedIn
             </a>
-            <button class="share-btn copy" onclick="copyArticleLink(this)">
-              🔗 Copy link
-            </button>
           </div>
         </div>
-
-        <script>
-          function copyArticleLink(btn) {
-            const url = window.location.href;
-            const onSuccess = () => {
-              btn.innerHTML = '✅ Đã copy!';
-              setTimeout(() => { btn.innerHTML = '🔗 Copy link'; }, 2000);
-            };
-            if (navigator.clipboard && window.isSecureContext) {
-              navigator.clipboard.writeText(url).then(onSuccess).catch(err => console.error('Lỗi copy:', err));
-            } else {
-              const textArea = document.createElement('textarea');
-              textArea.value = url;
-              textArea.style.position = 'fixed';
-              textArea.style.opacity = '0';
-              document.body.appendChild(textArea);
-              textArea.select();
-              try { document.execCommand('copy'); onSuccess(); } 
-              catch (err) { console.error('Lỗi copy:', err); }
-              document.body.removeChild(textArea);
-            }
-          }
-        </script>
 
         <!-- Related -->
         <% if (related && related.length > 0) { %>
