@@ -200,7 +200,7 @@ const knowledge = [
 
 <p>Nếu trước đây marketing phụ thuộc nhiều vào nhân sự và kinh nghiệm thủ công, thì hiện nay AI Marketing 2026 đang mở ra một giai đoạn hoàn toàn mới: tự động hóa, tối ưu theo dữ liệu và sáng tạo theo thời gian thực.</p>
 
-<img src="https://images.unsplash.com/photo-1677442136019-21780ecad995" alt="AI Marketing 2026" />
+<img src="/images/knowledge/AI/post-1.jpg" alt="AI Marketing 2026" />
 
 <h2>AI Marketing 2026 là gì?</h2>
 
