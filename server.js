@@ -673,6 +673,33 @@ app.get('/robots.txt', (req, res) => {
   res.send('User-agent: *\nAllow: /');
 });
 
+app.get('/sitemap.xml', (req, res) => {
+  const baseUrl = getSiteUrl(req);
+  let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+  xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+
+  // Các trang tĩnh
+  const staticPages = ['', '/kien-thuc', '/ecosystem', '/content-os'];
+  staticPages.forEach(page => {
+    xml += `  <url>\n    <loc>${baseUrl}${page}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>${page === '' ? '1.0' : '0.8'}</priority>\n  </url>\n`;
+  });
+
+  // Các trang chi tiết Dự án
+  projects.forEach(p => {
+    xml += `  <url>\n    <loc>${baseUrl}/projects/${p.id}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
+  });
+
+  // Các trang chi tiết Kiến thức
+  knowledge.forEach(k => {
+    xml += `  <url>\n    <loc>${baseUrl}/kien-thuc/${k.id}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+  });
+
+  xml += '</urlset>';
+  
+  res.header('Content-Type', 'application/xml');
+  res.send(xml);
+});
+
 app.get('/', (req, res) => {
   res.render('index', { siteUrl: getSiteUrl(req), projects });
 });
