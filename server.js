@@ -431,7 +431,7 @@ const knowledge = [
 <!-- INTERNAL LINK -->
 
 <p>Xem thêm:
-<a href="/kien-thuc/ai-dang-thay-doi-nganh-marketing-nhu-the-nao-trong-2026">
+<a href="https://www.portfoliobyson.site/kien-thuc/ai-thay-doi-marketing-2025">
 AI đang thay đổi ngành Marketing như thế nào trong 2026?
 </a>
 </p>
