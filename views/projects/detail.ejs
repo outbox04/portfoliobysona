@@ -27,8 +27,10 @@
   <link rel="icon" href="/images/software/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="stylesheet" href="/css/style.css" />
+
+  <link rel="preload" as="image" href="<%= project.cover %>" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7REC4SW5DB"></script>
@@ -82,7 +84,7 @@
 </section>
 
 <div class="container">
-  <img src="<%= project.cover %>" alt="<%= project.title %>" class="detail-cover reveal-scale" onerror='this.style.background="var(--bg-4)";this.src=""' />
+  <img src="<%= project.cover %>" alt="<%= project.title %>" class="detail-cover reveal-scale" fetchpriority="high" onerror='this.style.background="var(--bg-4)";this.src=""' />
 </div>
 
 <section class="detail-body">
@@ -187,7 +189,7 @@
   </div>
 </footer>
 
-<script src="/js/main.js"></script>
+<script src="/js/main.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
