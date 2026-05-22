@@ -432,7 +432,7 @@ const knowledge = [
 
 <div class="read-more-box">
   <span>👉 <strong>Xem thêm:</strong></span>
-  <a href="/kien-thuc/ai-thay-doi-marketing-2025">
+  <a href="https://www.portfoliobyson.site/kien-thuc/ai-thay-doi-marketing-2025">
     AI đang thay đổi ngành Marketing như thế nào trong 2026?
   </a>
 </div>
