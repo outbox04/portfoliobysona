@@ -2,6 +2,8 @@
 
 Content OS hiện chạy ở chế độ **No API / Prompt Builder**: ứng dụng tạo prompt, preview nội dung và preview visual cục bộ để người dùng copy prompt sang ChatGPT/Gemini web khi cần.
 
+Mục tiêu chính của template này là tạo ra **một bài post hoàn chỉnh có thể copy và đăng ngay**. Phần dùng để đăng nằm trong field `copyVersion`.
+
 ## Workflow
 
 1. Nhập thông tin brand, audience, strategy và visual settings.
@@ -44,6 +46,70 @@ AI web phải trả về **JSON hợp lệ**, không bọc trong markdown và kh
 }
 ```
 
+## Prompt Mẫu Để Dùng Với AI Web
+
+Copy prompt này sang ChatGPT/Gemini, sau đó thay các phần trong dấu `[]` bằng thông tin thật:
+
+```text
+Bạn là chuyên gia content marketing, social copywriter và brand strategist.
+
+Hãy viết một bài post social media hoàn chỉnh bằng tiếng Việt, có thể copy và đăng ngay.
+
+Thông tin đầu vào:
+- Thương hiệu: [Tên thương hiệu]
+- Ngành hàng: [Ngành hàng]
+- Sản phẩm/dịch vụ: [Sản phẩm hoặc dịch vụ chính]
+- Khách hàng mục tiêu: [Ai là người đọc]
+- Pain point của khách hàng: [Vấn đề họ đang gặp]
+- Mong muốn của khách hàng: [Kết quả họ muốn đạt được]
+- Brand voice: [Ví dụ: chuyên nghiệp, gần gũi, truyền cảm hứng, thẳng thắn]
+- Tone bài viết: [Ví dụ: storytelling, educational, soft-sell, launch, authority]
+- Nền tảng đăng: [Facebook/LinkedIn/Instagram/TikTok caption]
+- Mục tiêu bài viết: [Tăng nhận diện / tạo niềm tin / bán hàng / kéo inbox / giới thiệu sản phẩm]
+- CTA mong muốn: [Ví dụ: inbox, comment, đặt lịch, truy cập website, mua hàng]
+
+Yêu cầu nội dung:
+- Viết như người làm marketing thật, không giống AI đang liệt kê.
+- Có hook mở đầu mạnh, rõ vấn đề hoặc insight.
+- Nội dung có mạch: hook -> vấn đề/insight -> giải pháp/góc nhìn -> lợi ích -> CTA.
+- Câu ngắn, dễ đọc trên mobile.
+- Không dùng số liệu giả, không overpromise, không sáo rỗng.
+- Hashtag vừa đủ, liên quan trực tiếp.
+
+Trả về đúng JSON hợp lệ, không bọc markdown, không thêm giải thích ngoài JSON:
+
+{
+  "title": "",
+  "titleReason": "",
+  "opening": "",
+  "openingReason": "",
+  "body": [
+    {
+      "text": "",
+      "why": ""
+    }
+  ],
+  "cta": "",
+  "ctaReason": "",
+  "hashtags": [],
+  "copyVersion": "",
+  "visualSuggestions": [
+    {
+      "label": "",
+      "text": "",
+      "sub": ""
+    }
+  ]
+}
+
+Quy tắc quan trọng:
+- `copyVersion` phải là bài post hoàn chỉnh để paste thẳng lên nền tảng đăng.
+- `copyVersion` không được chứa label như "Title:", "Opening:", "Body:", "CTA:".
+- `copyVersion` không được chứa giải thích, reason, note hoặc markdown code block.
+- `copyVersion` nên gồm headline/hook, các đoạn nội dung chính, CTA và hashtag.
+- Các field `titleReason`, `openingReason`, `why`, `ctaReason` chỉ dùng để giải thích chiến lược, không được đưa vào `copyVersion`.
+```
+
 ## Field Rules
 
 - `title`: headline chính của bài viết.
@@ -54,7 +120,7 @@ AI web phải trả về **JSON hợp lệ**, không bọc trong markdown và kh
 - `cta`: lời kêu gọi hành động phù hợp với mục tiêu content.
 - `ctaReason`: giải thích chiến lược CTA.
 - `hashtags`: 3-8 hashtag liên quan.
-- `copyVersion`: chỉ chứa nội dung sạch để copy đăng bài, không có label, note hoặc explanation.
+- `copyVersion`: bài post hoàn chỉnh để copy đăng ngay, không có label, note hoặc explanation.
 - `visualSuggestions`: danh sách gợi ý visual để frontend render thành visual card.
 
 ## Visual Rules
