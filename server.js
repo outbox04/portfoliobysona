@@ -149,39 +149,43 @@ app.get('/robots.txt', (req, res) => {
   res.send('User-agent: *\nAllow: /');
 });
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
+  const data = await getCachedData();
   res.render('index', { 
     siteUrl: getSiteUrl(req), 
-    projects,
-    knowledge
+    projects: data.projects,
+    knowledge: data.knowledge
   });
 });
 
-app.get('/projects/:id', (req, res) => {
-  const project = projects.find(p => p.id === req.params.id);
+app.get('/projects/:id', async (req, res) => {
+  const data = await getCachedData();
+  const project = data.projects.find(p => p.id === req.params.id);
   if (!project) return res.redirect('/');
-  const related = projects.filter(p => p.cat === project.cat && p.id !== project.id).slice(0, 3);
-  res.render('projects/detail', { siteUrl: getSiteUrl(req), project, related, projects });
+  const related = data.projects.filter(p => p.cat === project.cat && p.id !== project.id).slice(0, 3);
+  res.render('projects/detail', { siteUrl: getSiteUrl(req), project, related, projects: data.projects });
 });
 
-app.get('/kien-thuc', (req, res) => {
+app.get('/kien-thuc', async (req, res) => {
+  const data = await getCachedData();
   res.render('kien-thuc/index', {
     siteUrl: getSiteUrl(req),
-    knowledge
+    knowledge: data.knowledge
   });
 });
 
-app.get('/kien-thuc/:id', (req, res) => {
-  const article = knowledge.find(k => k.id === req.params.id);
+app.get('/kien-thuc/:id', async (req, res) => {
+  const data = await getCachedData();
+  const article = data.knowledge.find(k => k.id === req.params.id);
   if (!article) return res.redirect('/kien-thuc');
-  const related = knowledge
+  const related = data.knowledge
     .filter(k => k.cat === article.cat && k.id !== article.id)
     .slice(0, 3);
   res.render('kien-thuc/detail', {
     siteUrl: getSiteUrl(req),
     article,
     related,
-    knowledge
+    knowledge: data.knowledge
   });
 });
 
