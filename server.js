@@ -17,7 +17,9 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 // Project data
-const projects = require('./data/projects');
+const projects = require('./projects');
+const knowledge = require('./knowledge');
+const depts = require('./depts');
 
 function getSiteUrl(req) {
   const protocol = req.headers['x-forwarded-proto'] || req.protocol;
