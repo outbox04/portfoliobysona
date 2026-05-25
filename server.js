@@ -1,6 +1,8 @@
 const express = require('express');
 const compression = require('compression');
 const path = require('path');
+// Import hàm clearCache 
+const { clearCache } = require('./services/googleSheet.service');
 
 const app = express();
 app.use(express.json());
@@ -1538,7 +1540,19 @@ app.get('/robots.txt', (req, res) => {
   res.send('User-agent: *\nAllow: /');
 });
 
-app.get('/sitemap.xml', (req, res) => {
+// Webhook bí mật để xóa cache thủ công
+app.get('/api/refresh-cache', (req, res) => {
+  const secret = req.query.secret;
+  // Thay 'mat-khau-bi-mat-cua-son' bằng mật khẩu bạn muốn
+  if (secret !== 'mat-khau-bi-mat-cua-son') {
+    return res.status(403).send('❌ Từ chối truy cập: Sai mã bí mật!');
+  }
+  clearCache();
+  res.send('✅ Đã xóa cache thành công! Lần tải trang tiếp theo sẽ lấy dữ liệu mới nhất từ Google Sheets.');
+});
+
+app.get('/sitemap.xml', async (req, res) => {
+  const data = await getCachedData();
   const baseUrl = getSiteUrl(req);
   let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
@@ -1550,12 +1564,12 @@ app.get('/sitemap.xml', (req, res) => {
   });
 
   // Các trang chi tiết Dự án
-  projects.forEach(p => {
+  data.projects.forEach(p => {
     xml += `  <url>\n    <loc>${baseUrl}/projects/${p.id}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>\n`;
   });
 
   // Các trang chi tiết Kiến thức
-  knowledge.forEach(k => {
+  data.knowledge.forEach(k => {
     xml += `  <url>\n    <loc>${baseUrl}/kien-thuc/${k.id}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
   });
 
@@ -1565,23 +1579,9 @@ app.get('/sitemap.xml', (req, res) => {
   res.send(xml);
 });
 
-app.get('/', (req, res) => {
-  res.render('index', { siteUrl: getSiteUrl(req), projects });
-});
-
-app.get('/projects/:id', (req, res) => {
-  const project = projects.find(p => p.id === req.params.id);
-  if (!project) return res.redirect('/');
-  const related = projects.filter(p => p.cat === project.cat && p.id !== project.id).slice(0, 3);
-  res.render('projects/detail', { siteUrl: getSiteUrl(req), project, related, projects });
-});
-
-app.get('/kien-thuc', (req, res) => {
-  res.render('kien-thuc', { siteUrl: getSiteUrl(req) });
-});
-
-app.get('/ecosystem', (req, res) => {
-  res.render('ecosystem/index', { siteUrl: getSiteUrl(req), depts });
+app.get('/ecosystem', async (req, res) => {
+  const data = await getCachedData();
+  res.render('ecosystem/index', { siteUrl: getSiteUrl(req), depts: data.depts });
 });
 
 app.get('/content-os', (req, res) => {
