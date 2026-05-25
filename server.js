@@ -969,7 +969,14 @@ Shopify - Branding Guide
   },
   {
     id: 'facebook-ads-co-ban',
-    // ... các field cũ ...
+    type: 'branding',
+    cat: 'Branding',
+    title: 'Brand là gì? Tại sao Branding quan trọng trong Marketing hiện đại?',
+    short: 'Tìm hiểu Brand là gì, Branding là gì và cách xây dựng thương hiệu mạnh giúp doanh nghiệp tăng nhận diện, tạo niềm tin và phát triển bền vững trong 2026.',
+    thumb: '/images/knowledge/Brandj/post.jpg',
+    ogImage: '/images/knowledge/Brandj/thumb.jpg',
+    date: '19/05/2026',
+    readTime: '5 phút đọc',
     content: `
       <h2>Cấu trúc Facebook Ads</h2>
       <p>Facebook Ads có 3 tầng: <strong>Campaign → Ad Set → Ad</strong>. Hiểu đúng từng tầng sẽ giúp bạn tối ưu hiệu quả và tiết kiệm ngân sách.</p>
@@ -1011,44 +1018,382 @@ Shopify - Branding Guide
   },
   {
     id: 'content-marketing-strategy',
-    // ... các field cũ ...
+    type: 'branding',
+    cat: 'Branding',
+    title: 'Brand là gì? Tại sao Branding quan trọng trong Marketing hiện đại?',
+    short: 'Tìm hiểu Brand là gì, Branding là gì và cách xây dựng thương hiệu mạnh giúp doanh nghiệp tăng nhận diện, tạo niềm tin và phát triển bền vững trong 2026.',
+    thumb: '/images/knowledge/Brandj/post.jpg',
+    ogImage: '/images/knowledge/Brandj/thumb.jpg',
+    date: '19/05/2026',
+    readTime: '5 phút đọc',
     content: `
-      <h2>Content Marketing là gì?</h2>
-      <p>Content Marketing là chiến lược tạo ra và phân phối nội dung có giá trị, liên quan và nhất quán để thu hút và giữ chân khách hàng mục tiêu — từ đó thúc đẩy hành động có lợi cho doanh nghiệp.</p>
+      <h1>Content Marketing là gì? Chiến lược Content Marketing hiệu quả trong 2026</h1>
 
-      <h2>Content Pillar — Nền tảng hệ thống</h2>
-      <p>Thay vì đăng bài ngẫu hứng, hãy xây dựng <strong>Content Pillar</strong> — 3-5 chủ đề cốt lõi phản ánh chuyên môn và giá trị thương hiệu.</p>
-      <ul>
-        <li><strong>Educational</strong> — Dạy khách hàng điều gì đó hữu ích</li>
-        <li><strong>Inspirational</strong> — Truyền cảm hứng, kể câu chuyện</li>
-        <li><strong>Entertaining</strong> — Giải trí, tăng kết nối cảm xúc</li>
-        <li><strong>Promotional</strong> — Quảng bá sản phẩm/dịch vụ (tối đa 20%)</li>
-      </ul>
+<p>Trong thời đại AI và Digital Marketing phát triển mạnh, người dùng không còn thích các quảng cáo bán hàng trực diện như trước. Thay vào đó, họ ưu tiên những thương hiệu mang lại giá trị, kiến thức và trải nghiệm thật.</p>
 
-      <h2>Content Funnel — Dẫn dắt hành trình</h2>
-      <ul>
-        <li><strong>TOFU</strong> (Top of Funnel) — Nội dung thu hút người chưa biết đến bạn</li>
-        <li><strong>MOFU</strong> (Middle) — Nuôi dưỡng người đang cân nhắc</li>
-        <li><strong>BOFU</strong> (Bottom) — Chuyển đổi người sắp mua hàng</li>
-      </ul>
+<p>Đó là lý do Content Marketing trở thành một trong những chiến lược quan trọng nhất trong năm 2026.</p>
 
-      <blockquote>Content tốt không phải là content được nhiều like — mà là content dẫn dắt đúng người đến đúng hành động.</blockquote>
+<p>Content không chỉ giúp doanh nghiệp tăng nhận diện thương hiệu mà còn giúp tạo niềm tin, xây dựng cộng đồng và chuyển đổi khách hàng bền vững.</p>
 
-      <div class="highlight-box">
-        <h3>✍️ Quy trình xây dựng Content System</h3>
-        <ul>
-          <li>Xác định 3-5 Content Pillar phù hợp thương hiệu</li>
-          <li>Lập Content Calendar tối thiểu 4 tuần trước</li>
-          <li>Tạo 1 hero content/tuần, repurpose thành nhiều micro content</li>
-          <li>Đo lường: Reach, Engagement, Click, Conversion</li>
-          <li>Tối ưu dựa trên data, không dựa trên cảm tính</li>
-        </ul>
-      </div>
+<!-- SEO META -->
+
+<meta name="title" content="Content Marketing là gì? Chiến lược Content Marketing hiệu quả trong 2026" />
+
+<meta name="description" content="Tìm hiểu Content Marketing là gì, cách hoạt động và chiến lược Content Marketing hiệu quả giúp tăng nhận diện thương hiệu và chuyển đổi khách hàng trong 2026." />
+
+<meta name="keywords" content="Content Marketing là gì, chiến lược content marketing, content marketing 2026, cách làm content marketing, content branding, content SEO" />
+
+<!-- BODY -->
+
+<h2>1. Content Marketing là gì?</h2>
+
+<p><strong>Content Marketing</strong> là chiến lược tạo và phân phối nội dung có giá trị nhằm thu hút, xây dựng niềm tin và chuyển đổi khách hàng mục tiêu.</p>
+
+<p>Content Marketing không đơn thuần là “đăng bài mỗi ngày”.</p>
+
+<p>Một hệ thống content hiệu quả cần:</p>
+
+<ul>
+  <li>Đúng khách hàng mục tiêu</li>
+  <li>Đúng insight</li>
+  <li>Đúng hành trình mua hàng</li>
+  <li>Có mục tiêu rõ ràng</li>
+</ul>
+
+<h3>Content có thể bao gồm:</h3>
+
+<ul>
+  <li>Bài viết blog</li>
+  <li>Video TikTok/Reels</li>
+  <li>Email marketing</li>
+  <li>Case study</li>
+  <li>Infographic</li>
+  <li>Podcast</li>
+  <li>Social media post</li>
+</ul>
+
+<p>Mục tiêu cuối cùng của Content Marketing là biến người xem thành khách hàng và khách hàng thành người tin tưởng thương hiệu.</p>
+
+<h2>2. Tại sao Content Marketing quan trọng trong 2026?</h2>
+
+<p>Người dùng hiện nay không còn muốn bị “bán hàng” liên tục.</p>
+
+<p>Họ muốn:</p>
+
+<ul>
+  <li>Được cung cấp kiến thức</li>
+  <li>Được giải quyết vấn đề</li>
+  <li>Được truyền cảm hứng</li>
+  <li>Được tin tưởng thương hiệu trước khi mua</li>
+</ul>
+
+<p>Đó là lý do Content Marketing ngày càng quan trọng.</p>
+
+<h3>Content Marketing giúp:</h3>
+
+<ul>
+  <li>Tăng nhận diện thương hiệu</li>
+  <li>Tăng traffic tự nhiên</li>
+  <li>Tăng chuyển đổi</li>
+  <li>Giảm chi phí quảng cáo</li>
+  <li>Xây dựng cộng đồng khách hàng</li>
+</ul>
+
+<p>Trong thời đại AI Search và GEO SEO, content còn giúp thương hiệu được AI hiểu và đề xuất nhiều hơn.</p>
+
+<!-- INTERNAL LINK -->
+
+<div class="related-post">
+
+  <span class="related-label">📚 Xem thêm</span>
+
+  <a 
+    href="/kien-thuc/brand-la-gi"
+    class="related-link"
+  >
+    Brand là gì? Tại sao Branding quan trọng trong Marketing hiện đại?
+  </a>
+
+  <p>
+    Tìm hiểu cách thương hiệu giúp doanh nghiệp tăng độ tin tưởng và khác biệt trong thời đại AI Marketing.
+  </p>
+
+</div>
+
+<h2>3. Các loại Content Marketing phổ biến</h2>
+
+<h3>3.1 Blog Content</h3>
+
+<p>Blog giúp doanh nghiệp:</p>
+
+<ul>
+  <li>Làm SEO</li>
+  <li>Tăng traffic Google</li>
+  <li>Xây topical authority</li>
+  <li>Tăng trust thương hiệu</li>
+</ul>
+
+<p>Đây là dạng content quan trọng nhất cho SEO và GEO.</p>
+
+<h3>3.2 Video Content</h3>
+
+<p>Video đang là định dạng được ưu tiên mạnh trên:</p>
+
+<ul>
+  <li>TikTok</li>
+  <li>Facebook Reels</li>
+  <li>YouTube Shorts</li>
+  <li>Instagram Reels</li>
+</ul>
+
+<p>Video ngắn giúp tăng reach và xây dựng thương hiệu nhanh hơn.</p>
+
+<h3>3.3 Social Content</h3>
+
+<p>Đây là các nội dung đăng trên:</p>
+
+<ul>
+  <li>Facebook</li>
+  <li>LinkedIn</li>
+  <li>Instagram</li>
+  <li>Zalo</li>
+</ul>
+
+<p>Mục tiêu:</p>
+
+<ul>
+  <li>Giữ tương tác</li>
+  <li>Xây cộng đồng</li>
+  <li>Tăng độ nhận diện</li>
+</ul>
+
+<h3>3.4 Email Marketing</h3>
+
+<p>Email giúp:</p>
+
+<ul>
+  <li>Nurture khách hàng</li>
+  <li>Remarketing</li>
+  <li>Tăng retention</li>
+  <li>Tăng chuyển đổi dài hạn</li>
+</ul>
+
+<h2>4. Hệ thống Content Marketing hiện đại</h2>
+
+<p>Một hệ thống content hiệu quả thường chia thành 3 tầng:</p>
+
+<h3>TOFU — Top of Funnel</h3>
+
+<p>Mục tiêu: Thu hút người mới.</p>
+
+<h4>Nội dung phù hợp:</h4>
+
+<ul>
+  <li>Tips</li>
+  <li>Kiến thức</li>
+  <li>Xu hướng</li>
+  <li>Sai lầm phổ biến</li>
+</ul>
+
+<h3>MOFU — Middle of Funnel</h3>
+
+<p>Mục tiêu: Tăng niềm tin.</p>
+
+<h4>Nội dung phù hợp:</h4>
+
+<ul>
+  <li>Case study</li>
+  <li>Review</li>
+  <li>So sánh giải pháp</li>
+  <li>Quy trình làm việc</li>
+</ul>
+
+<h3>BOFU — Bottom of Funnel</h3>
+
+<p>Mục tiêu: Chuyển đổi khách hàng.</p>
+
+<h4>Nội dung phù hợp:</h4>
+
+<ul>
+  <li>Báo giá</li>
+  <li>Ưu đãi</li>
+  <li>Demo</li>
+  <li>CTA mạnh</li>
+</ul>
+
+<h2>5. Content Marketing khác gì với quảng cáo?</h2>
+
+<h3>Quảng cáo:</h3>
+
+<ul>
+  <li>Tiếp cận nhanh</li>
+  <li>Có traffic ngay</li>
+  <li>Phụ thuộc ngân sách</li>
+</ul>
+
+<h3>Content Marketing:</h3>
+
+<ul>
+  <li>Xây trust dài hạn</li>
+  <li>Tạo organic traffic</li>
+  <li>Tăng brand authority</li>
+  <li>Hiệu quả bền vững hơn</li>
+</ul>
+
+<p>Một chiến lược marketing mạnh luôn kết hợp cả content và ads.</p>
+
+<h2>6. Xu hướng Content Marketing năm 2026</h2>
+
+<h3>6.1 AI-assisted Content</h3>
+
+<p>AI đang giúp marketer:</p>
+
+<ul>
+  <li>Viết content nhanh hơn</li>
+  <li>Tạo outline</li>
+  <li>Phân tích insight</li>
+  <li>Tối ưu SEO</li>
+</ul>
+
+<p>Tuy nhiên, content chỉ dùng AI mà thiếu trải nghiệm thật sẽ khó tạo trust.</p>
+
+<h3>6.2 Video-first Content</h3>
+
+<p>Short-form video tiếp tục là xu hướng lớn nhất.</p>
+
+<p>Các nền tảng ưu tiên:</p>
+
+<ul>
+  <li>Reels</li>
+  <li>TikTok</li>
+  <li>Shorts</li>
+</ul>
+
+<h3>6.3 GEO SEO Content</h3>
+
+<p>Content hiện không chỉ tối ưu cho Google mà còn phải tối ưu cho:</p>
+
+<ul>
+  <li>ChatGPT</li>
+  <li>Gemini</li>
+  <li>Perplexity</li>
+  <li>AI Search</li>
+</ul>
+
+<p>Điều này khiến semantic content và topical authority ngày càng quan trọng.</p>
+
+<!-- INTERNAL LINK -->
+
+<div class="related-post">
+
+  <span class="related-label">📚 Xem thêm</span>
+
+  <a 
+    href="/kien-thuc/ai-dang-thay-doi-nganh-marketing-nhu-the-nao-trong-2026"
+    class="related-link"
+  >
+    AI đang thay đổi ngành Marketing như thế nào trong 2026?
+  </a>
+
+  <p>
+    Khám phá cách AI đang thay đổi SEO, Content, Ads và hành vi người dùng trong thời đại AI Search.
+  </p>
+
+</div>
+
+<h2>7. Cách xây dựng chiến lược Content Marketing hiệu quả</h2>
+
+<h3>Bước 1: Xác định khách hàng mục tiêu</h3>
+
+<p>Content hiệu quả bắt đầu từ insight khách hàng.</p>
+
+<h3>Bước 2: Chọn đúng nền tảng</h3>
+
+<ul>
+  <li>TikTok → reach nhanh</li>
+  <li>Facebook → cộng đồng</li>
+  <li>LinkedIn → B2B</li>
+  <li>Blog → SEO dài hạn</li>
+</ul>
+
+<h3>Bước 3: Xây content pillar</h3>
+
+<p>Mỗi thương hiệu nên có 3–5 content pillar chính.</p>
+
+<h4>Ví dụ:</h4>
+
+<ul>
+  <li>Kiến thức</li>
+  <li>Case study</li>
+  <li>Behind the scenes</li>
+  <li>Review khách hàng</li>
+  <li>Xu hướng thị trường</li>
+</ul>
+
+<h3>Bước 4: Duy trì consistency</h3>
+
+<p>Content Marketing là cuộc chơi dài hạn.</p>
+
+<p>Người thắng thường không phải người đăng nhiều nhất, mà là người duy trì đều nhất.</p>
+
+<!-- EXTERNAL LINK -->
+
+<p>Nguồn tham khảo:
+<a href="https://contentmarketinginstitute.com/" target="_blank" rel="nofollow noopener">
+Content Marketing Institute
+</a>
+</p>
+
+<h2>FAQ - Câu hỏi thường gặp về Content Marketing</h2>
+
+<h3>Content Marketing có cần chạy quảng cáo không?</h3>
+
+<p>Không bắt buộc, nhưng kết hợp content và ads sẽ giúp tăng hiệu quả nhanh hơn.</p>
+
+<h3>Content Marketing có phù hợp với B2B không?</h3>
+
+<p>Có. B2B thậm chí cần content nhiều hơn để xây trust và giáo dục khách hàng.</p>
+
+<h3>Content Marketing mất bao lâu để hiệu quả?</h3>
+
+<p>Thông thường cần từ 3–6 tháng để thấy hiệu quả rõ rệt nếu làm đúng chiến lược.</p>
+
+<h3>AI có thay thế Content Marketing không?</h3>
+
+<p>Không. AI chỉ hỗ trợ sản xuất content nhanh hơn, nhưng insight và trải nghiệm thật vẫn là yếu tố quan trọng.</p>
+
+<h3>Nên ưu tiên video hay blog?</h3>
+
+<p>Tốt nhất nên kết hợp cả hai: video để tăng reach, blog để xây SEO dài hạn.</p>
+
+<!-- FOOTER -->
+
+<h2>Kết luận</h2>
+
+<p>Content Marketing không còn là “đăng bài cho có”. Trong thời đại AI và digital marketing 2026, content chính là cách thương hiệu xây dựng niềm tin và tạo lợi thế cạnh tranh lâu dài.</p>
+
+<p>Một hệ thống content tốt giúp doanh nghiệp:</p>
+
+<ul>
+  <li>Được nhớ đến</li>
+  <li>Được tin tưởng</li>
+  <li>Được tìm thấy trên Google và AI Search</li>
+  <li>Chuyển đổi khách hàng bền vững hơn</li>
+</ul>
+
+<p><strong>Theo bạn, điều khó nhất khi làm Content Marketing hiện nay là gì?</strong> Hãy chia sẻ góc nhìn của bạn.</p>
     `
   },
   {
     id: 'tiktok-ads-2025',
-    // ... các field cũ ...
+    type: 'branding',
+    cat: 'Branding',
+    title: 'Brand là gì? Tại sao Branding quan trọng trong Marketing hiện đại?',
+    short: 'Tìm hiểu Brand là gì, Branding là gì và cách xây dựng thương hiệu mạnh giúp doanh nghiệp tăng nhận diện, tạo niềm tin và phát triển bền vững trong 2026.',
+    thumb: '/images/knowledge/Brandj/post.jpg',
+    ogImage: '/images/knowledge/Brandj/thumb.jpg',
+    date: '19/05/2026',
+    readTime: '5 phút đọc',
     content: `
       <h2>Tại sao TikTok là cơ hội vàng năm 2025?</h2>
       <p>TikTok đang có <strong>hơn 100 triệu người dùng tại Đông Nam Á</strong>, với chi phí quảng cáo vẫn thấp hơn Facebook 40-60%. Đây là cửa sổ cơ hội trước khi thị trường bão hòa.</p>
