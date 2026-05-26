@@ -59,7 +59,7 @@ function getSiteUrl(req) {
 
 app.get('/robots.txt', (req, res) => {
   res.type('text/plain');
-  res.send('User-agent: *\nAllow: /');
+  res.send(`User-agent: *\nAllow: /\nSitemap: ${getSiteUrl(req)}/sitemap.xml`);
 });
 
 app.get('/', (req, res) => {
