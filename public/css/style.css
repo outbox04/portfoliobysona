@@ -423,7 +423,7 @@ ul { list-style: none; }
   width: max-content;
   will-change: transform;
   animation: marqueeFlow 34s linear infinite;
-  transform: translate3d(0,0,0);
+  transform: translate3d(-50%,0,0);
 }
 
 .marquee-band:hover .marquee-band__track { animation-play-state: paused; }
@@ -487,8 +487,8 @@ ul { list-style: none; }
 }
 
 @keyframes marqueeFlow {
-  from { transform: translate3d(0,0,0); }
-  to { transform: translate3d(-50%,0,0); }
+  from { transform: translate3d(-50%,0,0); }
+  to { transform: translate3d(0,0,0); }
 }
 
 .about { background: var(--bg-2); }
