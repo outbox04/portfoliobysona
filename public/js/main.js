@@ -14,10 +14,7 @@
     }, 950);
   };
 
-  try {
-    sessionStorage.setItem('portfolioIntroSeen', '1');
-  } catch (e) {}
-
+  // Flag đã được set trong head, không cần set lại
   window.setTimeout(finishIntro, 5000);
 })();
 
