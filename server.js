@@ -9,7 +9,25 @@ const PORT = process.env.PORT || 3000;
 
 const helmet = require('helmet');
 
-app.use(helmet());
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'",
+        "'unsafe-inline'",
+        "https://www.googletagmanager.com",
+        "https://www.google-analytics.com",
+        "https://images.dmca.com"
+      ],
+      styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
+      fontSrc: ["'self'", "https://fonts.gstatic.com"],
+      imgSrc: ["'self'", "data:", "https://images.dmca.com", "https://www.google-analytics.com"],
+      connectSrc: ["'self'", "https://www.google-analytics.com"],
+      frameAncestors: ["'self'"]
+    }
+  }
+}));
 
 app.use(compression());
 app.use(express.static(path.join(__dirname, 'public')));
