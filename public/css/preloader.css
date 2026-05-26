@@ -1,0 +1,396 @@
+/* ═══════════════════════════════════════════════════
+   PRELOADER — MARKETER RUNNING LOADER
+   Premium cinematic dark loader
+═══════════════════════════════════════════════════ */
+
+#preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #080810;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  /* Page starts hidden under preloader */
+}
+
+/* ── BACKGROUND LAYERS ── */
+.pre-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Noise texture overlay */
+.pre-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* Grid lines */
+.pre-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Ambient blobs */
+.pre-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  animation: blobDrift 12s ease-in-out infinite alternate;
+}
+.pre-blob-1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(77,124,255,0.1) 0%, transparent 70%);
+  top: -200px; right: -100px;
+}
+.pre-blob-2 {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, rgba(122,92,255,0.08) 0%, transparent 70%);
+  bottom: -150px; left: -100px;
+  animation-delay: -6s;
+}
+.pre-blob-3 {
+  width: 300px; height: 300px;
+  background: radial-gradient(circle, rgba(77,124,255,0.06) 0%, transparent 70%);
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  animation-delay: -3s;
+}
+@keyframes blobDrift {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(20px, -25px) scale(1.06); }
+}
+
+/* ── MAIN CONTENT ── */
+.pre-content {
+  position: relative;
+  z-index: 2;
+  width: min(640px, 90vw);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── TOP LABEL ── */
+.pre-label {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  margin-bottom: 32px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.2s forwards;
+}
+.pre-label::before,
+.pre-label::after {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+}
+
+/* ── MAIN HEADLINE ── */
+.pre-headline {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: clamp(11px, 1.8vw, 13px);
+  font-weight: 800;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  margin-bottom: 48px;
+  text-align: center;
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.4s forwards;
+}
+.pre-headline .pre-word {
+  display: inline-block;
+  position: relative;
+}
+.pre-headline .pre-highlight {
+  background: linear-gradient(90deg, #4d7cff, #7a5cff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── RUNNER TRACK SYSTEM ── */
+.pre-track-wrap {
+  width: 100%;
+  opacity: 0;
+  animation: fadeUp 0.5s ease 0.6s forwards;
+}
+
+/* Number above track */
+.pre-pct-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 20px;
+  position: relative;
+}
+.pre-pct {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: clamp(36px, 6vw, 56px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255,255,255,0.5) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: none;
+}
+.pre-pct-sym {
+  font-size: clamp(18px, 3vw, 26px);
+  font-weight: 700;
+  color: rgba(255,255,255,0.3);
+  margin-left: 3px;
+  vertical-align: super;
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+.pre-status {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  text-align: right;
+  line-height: 1.6;
+}
+.pre-status-line {
+  display: block;
+  transition: color 0.4s ease;
+}
+.pre-status-line.active {
+  color: rgba(77,124,255,0.8);
+}
+
+/* ── RUNNER AREA ── */
+.pre-runner-area {
+  position: relative;
+  width: 100%;
+  height: 48px;
+  margin-bottom: 10px;
+}
+
+/* The runner character */
+.pre-runner {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(-50%, -60%);
+  width: 36px;
+  height: 36px;
+  transition: left 0.08s linear;
+  z-index: 3;
+  filter: drop-shadow(0 0 8px rgba(77,124,255,0.6));
+}
+
+/* Runner glow halo */
+.pre-runner::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50px; height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(77,124,255,0.3) 0%, transparent 70%);
+  animation: runnerGlow 0.5s ease-in-out infinite alternate;
+}
+@keyframes runnerGlow {
+  from { transform: translate(-50%,-50%) scale(0.9); opacity: 0.6; }
+  to   { transform: translate(-50%,-50%) scale(1.2); opacity: 1; }
+}
+
+/* ── PROGRESS BAR ── */
+.pre-bar-wrap {
+  position: relative;
+  width: 100%;
+  height: 3px;
+}
+
+/* Track background */
+.pre-bar-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.07);
+}
+
+/* Checkpoint markers */
+.pre-checkpoint {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.06);
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+  z-index: 2;
+}
+.pre-checkpoint.passed {
+  background: rgba(77,124,255,0.6);
+  box-shadow: 0 0 8px rgba(77,124,255,0.4);
+}
+.pre-checkpoint.active {
+  background: #fff;
+  box-shadow: 0 0 12px rgba(255,255,255,0.8);
+  animation: cpPulse 0.6s ease-in-out;
+}
+@keyframes cpPulse {
+  0%   { transform: translate(-50%,-50%) scale(1); }
+  50%  { transform: translate(-50%,-50%) scale(2.5); }
+  100% { transform: translate(-50%,-50%) scale(1); }
+}
+
+/* Progress fill */
+.pre-bar-fill {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 0%;
+  border-radius: 100px;
+  background: linear-gradient(90deg, #4d7cff 0%, #7a5cff 50%, #9f8fff 100%);
+  box-shadow: 0 0 12px rgba(77,124,255,0.5), 0 0 24px rgba(77,124,255,0.25);
+  transition: width 0.08s linear;
+  z-index: 1;
+}
+
+/* Trail glow at the tip */
+.pre-bar-tip {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(122,92,255,0.35) 0%, transparent 70%);
+  right: -20px;
+  pointer-events: none;
+  animation: tipPulse 1s ease-in-out infinite alternate;
+}
+@keyframes tipPulse {
+  from { opacity: 0.6; transform: translate(0,-50%) scale(0.8); }
+  to   { opacity: 1;   transform: translate(0,-50%) scale(1.2); }
+}
+
+/* ── CHECKPOINT LABELS ── */
+.pre-cp-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding: 0 2px;
+}
+.pre-cp-label {
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.15);
+  transition: color 0.4s ease;
+  position: relative;
+}
+.pre-cp-label::before {
+  content: attr(data-step);
+  display: block;
+  font-size: 8px;
+  color: rgba(255,255,255,0.08);
+  margin-bottom: 2px;
+}
+.pre-cp-label.active { color: rgba(77,124,255,0.9); }
+.pre-cp-label.passed { color: rgba(255,255,255,0.3); }
+
+/* ── BOTTOM TAGLINE ── */
+.pre-tagline {
+  margin-top: 40px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.1);
+  opacity: 0;
+  animation: fadeUp 0.6s ease 0.8s forwards;
+}
+
+/* ── FINISH FLASH ── */
+.pre-finish-flash {
+  position: absolute;
+  inset: 0;
+  background: rgba(77,124,255,0.08);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── FADE OUT ── */
+#preloader.done {
+  animation: preloaderOut 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+@keyframes preloaderOut {
+  0%   { opacity: 1; transform: scale(1); filter: blur(0px); }
+  60%  { opacity: 1; transform: scale(1.02); filter: blur(0px); }
+  100% { opacity: 0; transform: scale(1.04); filter: blur(4px); pointer-events: none; }
+}
+
+/* ── PAGE REVEAL ── */
+body.pre-loading #root-content,
+body.pre-loading main,
+body.pre-loading .hero,
+body.pre-loading .eco-hero,
+body.pre-loading .cos-page {
+  opacity: 0;
+  filter: blur(8px);
+}
+body.pre-done #root-content,
+body.pre-done main,
+body.pre-done .hero,
+body.pre-done .eco-hero,
+body.pre-done .cos-page {
+  animation: pageReveal 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.1s forwards;
+}
+@keyframes pageReveal {
+  from { opacity: 0; filter: blur(8px); transform: translateY(10px); }
+  to   { opacity: 1; filter: blur(0px); transform: translateY(0); }
+}
+
+/* ── SHARED ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .pre-pct { font-size: 40px; }
+  .pre-headline { font-size: 10px; letter-spacing: 0.2em; }
+  .pre-runner { width: 28px; height: 28px; }
+  .pre-runner-area { height: 36px; }
+}
+@media (max-width: 480px) {
+  .pre-pct { font-size: 32px; }
+  .pre-cp-labels { display: none; }
+  .pre-label { font-size: 9px; }
+}

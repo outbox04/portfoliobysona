@@ -29,20 +29,7 @@
   <meta property="zalo:image"      content="<%= siteUrl %>/images/og/home.jpg" />
 
   <link rel="icon" href="/images/software/logo.png" />
-  <script>
-    try {
-      // Nếu chưa từng thấy intro, thêm class để hiển thị animation
-      if (!sessionStorage.getItem('portfolioIntroSeen')) {
-        // Set flag ngay lập tức để tránh chạy lại khi reload
-        sessionStorage.setItem('portfolioIntroSeen', '1');
-        // Hiển thị intro animation
-        document.documentElement.classList.add('intro-pending');
-      } else {
-        // Đã xem intro, thêm class để ẩn loader khi reload
-        document.documentElement.classList.add('intro-skip');
-      }
-    } catch (e) {}
-  </script>
+  <link rel="stylesheet" href="/css/preloader.css" />
   <style>
     html.intro-skip #marketerLoader {
       display: none !important;
@@ -66,40 +53,7 @@
   </script>
 </head>
 <body>
-
-<div class="marketer-loader" id="marketerLoader">
-  <div class="marketer-loader__content">
-    <h2 class="marketer-loader__title">Building Marketing System</h2>
-    
-    <div class="marketer-loader__bar-wrap">
-      <div class="marketer-loader__bar">
-        <div class="marketer-loader__fill"></div>
-        <div class="marketer-loader__glow"></div>
-      </div>
-      <div class="marketer-loader__runner">
-        <svg class="marketer-loader__runner-icon" viewBox="0 0 24 24" fill="currentColor">
-          <g>
-            <!-- Runner silhouette -->
-            <circle cx="12" cy="4" r="2"/>
-            <path d="M12 6v5M9 9l-3 2M15 9l3 2M10 11l-2 7M14 11l2 7M10 18h4"/>
-          </g>
-        </svg>
-      </div>
-    </div>
-    
-    <div class="marketer-loader__stats">
-      <span class="marketer-loader__percent"><span id="loaderPercent">0</span>%</span>
-      <span class="marketer-loader__text" id="loaderText">Initializing...</span>
-    </div>
-  </div>
-
-  <div class="marketer-loader__bg">
-    <div class="marketer-loader__noise"></div>
-    <div class="marketer-loader__glow-blob marketer-loader__glow-blob--1"></div>
-    <div class="marketer-loader__glow-blob marketer-loader__glow-blob--2"></div>
-  </div>
-</div>
-
+<%- include('../partials/preloader') %>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-follower" id="cursorFollower"></div>
 
@@ -698,7 +652,8 @@
 </section>
 
 <%- include('partials/footer') %>
-
+<script src="/js/preloader.js"></script>
+<script src="/js/main.js"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
 <script src="/js/main.js" defer></script>
