@@ -924,6 +924,15 @@ ul { list-style: none; }
 .footer { background: var(--bg); border-top: 1px solid var(--border); padding: 28px 0; text-align: center; }
 .footer p { font-size: 12px; color: var(--text-dim); }
 .footer__sub { margin-top: 4px; color: var(--text-dim); opacity: .6; }
+.dmca-badge {
+  display: inline-flex;
+  line-height: 0;
+}
+.dmca-badge img {
+  width: 120px;
+  height: 30px;
+  object-fit: contain;
+}
 
 /* ═══ PROJECT DETAIL PAGE ═══ */
 .detail-hero {
