@@ -201,7 +201,7 @@ id: 'ai-thay-doi-marketing-2026',
     `
   },
   {
-    id: 'meta-ads-thay-doi-2025',
+    id: 'meta-ads-thay-doi-2026',
     type: 'news',
     cat: 'AI & Công nghệ',
     title: 'Chính sách Meta Ads thay đổi mới nhất năm 2026',
@@ -246,7 +246,7 @@ id: 'ai-thay-doi-marketing-2026',
 <!-- INTERNAL LINK -->
 
 <p>Xem thêm:
-<a href="https://www.portfoliobyson.site/kien-thuc/ai-thay-doi-marketing-2025">
+<a href="https://www.portfoliobyson.site/kien-thuc/ai-thay-doi-marketing-2026">
 AI đang thay đổi ngành Marketing như thế nào trong 2026?
 </a>
 </p>
@@ -569,7 +569,7 @@ Cách viết content Facebook Ads chuyển đổi cao
   <span class="related-label">📚 Xem thêm</span>
 
   <a 
-    href="/kien-thuc/ai-thay-doi-marketing-2025"
+    href="/kien-thuc/ai-thay-doi-marketing-2026"
     class="related-link"
   >
     AI đang thay đổi ngành Marketing như thế nào trong 2026?
@@ -833,8 +833,8 @@ Shopify - Branding Guide
   },
   {
     id: 'content-marketing-strategy',
-    type: 'branding',
-    cat: 'Branding',
+    type: 'content',
+    cat: 'Content',
     title: 'Content Marketing là gì? Chiến lược Content Marketing hiệu quả trong 2026',
     short: 'Content không chỉ giúp doanh nghiệp tăng nhận diện thương hiệu mà còn giúp tạo niềm tin, xây dựng cộng đồng và chuyển đổi khách hàng bền vững.',
     thumb: '/images/knowledge/content/post.jpg',
@@ -1200,47 +1200,217 @@ Content Marketing Institute
     `
   },
   {
-    id: 'tiktok-ads-2025',
-    type: 'branding',
-    cat: 'Branding',
-    title: 'Brand là gì? Tại sao Branding quan trọng trong Marketing hiện đại?',
-    short: 'Tìm hiểu Brand là gì, Branding là gì và cách xây dựng thương hiệu mạnh giúp doanh nghiệp tăng nhận diện, tạo niềm tin và phát triển bền vững trong 2026.',
-    thumb: '/images/knowledge/Brandj/post.jpg',
-    ogImage: '/images/knowledge/Brandj/thumb.jpg',
-    date: '19/05/2026',
+    id: 'geo-ai-search-2026',
+    type: 'seo',
+    cat: 'Content',
+    title: 'SEO không còn đủ — GEO là xu hướng mới trong thời đại AI',
+    short: 'Tìm hiểu GEO (Generative Engine Optimization), cách AI đang thay đổi hành vi tìm kiếm và vì sao thương hiệu cần tối ưu nội dung cho cả Google lẫn AI.',
+    thumb: '/images/knowledge/GEO/post.jpg',
+    ogImage: '/images/knowledge/GEO/thumb.jpg',
+    date: '25/05/2026',
     readTime: '5 phút đọc',
     content: `
-      <h2>Tại sao TikTok là cơ hội vàng năm 2025?</h2>
-      <p>TikTok đang có <strong>hơn 100 triệu người dùng tại Đông Nam Á</strong>, với chi phí quảng cáo vẫn thấp hơn Facebook 40-60%. Đây là cửa sổ cơ hội trước khi thị trường bão hòa.</p>
+      <h1>SEO không còn đủ — GEO là xu hướng mới trong thời đại AI</h1>
 
-      <h2>TikTok Shop — Social Commerce</h2>
-      <p>TikTok Shop kết hợp giải trí và mua sắm trong cùng một trải nghiệm. Người dùng xem video → thấy sản phẩm → mua ngay mà không cần rời app.</p>
-      <ul>
-        <li>Live Shopping: Doanh thu từ livestream tăng 300% YoY</li>
-        <li>In-feed Shopping: Gắn sản phẩm trực tiếp vào video</li>
-        <li>Affiliate: Hợp tác KOC/KOL bán hàng ăn hoa hồng</li>
-      </ul>
+<p>Người dùng không còn chỉ tìm kiếm thông tin bằng Google. Thay vào đó, họ bắt đầu hỏi trực tiếp ChatGPT, Gemini hay Perplexity để nhận câu trả lời nhanh, đầy đủ và mang tính hội thoại hơn.</p>
 
-      <h2>TikTok Ads — Format hiệu quả nhất</h2>
-      <ul>
-        <li><strong>In-feed Ads</strong> — Xuất hiện tự nhiên trong For You Page</li>
-        <li><strong>TopView</strong> — Hiển thị đầu tiên khi mở app, tỉ lệ xem cao</li>
-        <li><strong>Spark Ads</strong> — Boost organic content của chính bạn</li>
-        <li><strong>Collection Ads</strong> — Kết hợp video + product catalog</li>
-      </ul>
+<p>Điều này đang khiến SEO truyền thống thay đổi mạnh mẽ. Trong thời đại AI tạo sinh, tối ưu nội dung không chỉ để lên top Google mà còn để AI dễ hiểu, dễ trích dẫn và ưu tiên sử dụng trong câu trả lời.</p>
 
-      <blockquote>Trên TikTok, nội dung tốt > ngân sách lớn. Một video viral có thể mang về hàng triệu đồng doanh thu mà không tốn xu quảng cáo nào.</blockquote>
+<!-- SEO META -->
 
-      <div class="highlight-box">
-        <h3>📱 Bắt đầu với TikTok Ads như thế nào?</h3>
-        <ul>
-          <li>Tạo tài khoản TikTok Business và TikTok Shop</li>
-          <li>Sản xuất 3-5 video organic trước khi chạy paid</li>
-          <li>Test với ngân sách nhỏ 200-500k/ngày</li>
-          <li>Tập trung vào hook 3 giây đầu</li>
-          <li>Dùng Spark Ads để boost video organic đang tốt</li>
-        </ul>
-      </div>
+<meta name="title" content="SEO không còn đủ — GEO là xu hướng mới trong thời đại AI" />
+<meta name="description" content="Tìm hiểu GEO (Generative Engine Optimization), cách AI đang thay đổi hành vi tìm kiếm và vì sao thương hiệu cần tối ưu nội dung cho cả Google lẫn AI." />
+<meta name="keywords" content="GEO là gì, AI Search, GEO Marketing, SEO AI, Generative Engine Optimization, AI Marketing 2026, Semantic SEO" />
+
+<!-- HEADER -->
+
+<h2>1. AI đang thay đổi cách người dùng tìm kiếm</h2>
+
+<p>Trước đây, người dùng search Google, click vào nhiều website và tự tổng hợp thông tin. Hiện tại, AI đang rút ngắn toàn bộ hành trình đó bằng cách trả lời trực tiếp.</p>
+
+<h3>Sự thay đổi lớn nhất:</h3>
+
+<ul>
+  <li>Search → Conversation</li>
+  <li>Keyword → Context & Intent</li>
+  <li>Website list → Câu trả lời hoàn chỉnh</li>
+  <li>SEO → GEO (Generative Engine Optimization)</li>
+</ul>
+
+<p>Người dùng hiện có xu hướng hỏi trực tiếp AI thay vì tự tìm kiếm thủ công như trước.</p>
+
+<!-- INTERNAL LINK -->
+
+<p>Xem thêm:
+<a href="/kien-thuc/ai-thay-doi-marketing-2026">
+AI đang thay đổi ngành Marketing như thế nào trong 2026?
+</a>
+</p>
+
+<h2>2. GEO là gì?</h2>
+
+<p>GEO (Generative Engine Optimization) là phương pháp tối ưu nội dung dành cho các công cụ AI tạo sinh như ChatGPT, Gemini, Claude hay Perplexity.</p>
+
+<p>Mục tiêu của GEO không chỉ là lên top tìm kiếm mà còn giúp AI:</p>
+
+<ul>
+  <li>Dễ hiểu nội dung</li>
+  <li>Dễ trích dẫn</li>
+  <li>Ưu tiên hiển thị trong câu trả lời</li>
+  <li>Hiểu rõ semantic context</li>
+</ul>
+
+<h3>Khác biệt giữa SEO và GEO:</h3>
+
+<ul>
+  <li><strong>SEO</strong> → Tối ưu cho Search Engine</li>
+  <li><strong>GEO</strong> → Tối ưu cho Answer Engine</li>
+</ul>
+
+<blockquote>Trong thời đại AI, nội dung không chỉ cần chuẩn SEO — mà còn phải đủ rõ ràng để AI hiểu và đủ giá trị để AI trích dẫn.</blockquote>
+
+<h2>3. SEO truyền thống không còn đủ</h2>
+
+<p>SEO vẫn quan trọng, nhưng Google không còn là nơi duy nhất người dùng tìm kiếm thông tin.</p>
+
+<h3>Những yếu tố SEO cũ đang giảm hiệu quả:</h3>
+
+<ul>
+  <li>Nhồi keyword</li>
+  <li>Content quá ngắn</li>
+  <li>Viết chỉ để “lên top”</li>
+  <li>Spam backlink</li>
+</ul>
+
+<h3>AI hiện ưu tiên:</h3>
+
+<ul>
+  <li>Nội dung có chiều sâu</li>
+  <li>Semantic content</li>
+  <li>Thông tin có cấu trúc rõ ràng</li>
+  <li>Content giải quyết đúng intent</li>
+</ul>
+
+<p>Điều này khiến content strategy và semantic structure trở nên quan trọng hơn bao giờ hết.</p>
+
+<h2>4. Nội dung chuẩn GEO cần gì?</h2>
+
+<p>Để nội dung được AI ưu tiên sử dụng, thương hiệu cần thay đổi cách triển khai content.</p>
+
+<h3>Checklist content chuẩn GEO:</h3>
+
+<ul>
+  <li>Viết theo câu hỏi thực tế của người dùng</li>
+  <li>Sử dụng heading rõ ràng</li>
+  <li>Tăng semantic keyword</li>
+  <li>Có FAQ và bullet point</li>
+  <li>Content có chiều sâu chuyên môn</li>
+  <li>Tối ưu readability</li>
+</ul>
+
+<h3>AI thích dạng content:</h3>
+
+<ul>
+  <li>How-to content</li>
+  <li>Educational content</li>
+  <li>Structured content</li>
+  <li>Problem-solving content</li>
+</ul>
+
+<p>Nội dung càng rõ ràng và dễ scan, AI càng dễ hiểu và ưu tiên trích dẫn.</p>
+
+<!-- EXTERNAL LINK -->
+
+<p>Nguồn tham khảo:
+<a href="https://www.brandsvietnam.com/congdong/topic/khi-ai-tra-loi-thay-google" target="_blank" rel="nofollow noopener">
+Khi AI trả lời thay Google — Brands Vietnam
+</a>
+</p>
+
+<h2>5. GEO ảnh hưởng gì tới Marketing & Branding?</h2>
+
+<p>Trong vài năm tới, thương hiệu sẽ không chỉ cạnh tranh trên Google mà còn cạnh tranh để được AI “nhắc tên”.</p>
+
+<h3>Điều AI đánh giá:</h3>
+
+<ul>
+  <li>Độ tin cậy thương hiệu</li>
+  <li>Semantic structure</li>
+  <li>Content authority</li>
+  <li>Tính nhất quán đa nền tảng</li>
+</ul>
+
+<h3>Điều này đặc biệt quan trọng với:</h3>
+
+<ul>
+  <li>Agency</li>
+  <li>Personal branding</li>
+  <li>Portfolio cá nhân</li>
+  <li>Doanh nghiệp dịch vụ</li>
+  <li>Local business</li>
+</ul>
+
+<p>AI đang dần trở thành lớp trung gian giữa thương hiệu và người dùng.</p>
+
+<h2>6. AI Search sẽ thay đổi Content Marketing như thế nào?</h2>
+
+<p>Content marketing trong tương lai không còn chỉ tập trung vào traffic.</p>
+
+<h3>Xu hướng mới:</h3>
+
+<ul>
+  <li>Content có tính chuyên môn sâu</li>
+  <li>Knowledge system</li>
+  <li>Semantic content clusters</li>
+  <li>AI-friendly structure</li>
+</ul>
+
+<h3>Marketing hiện đại cần:</h3>
+
+<ul>
+  <li>Content Strategy</li>
+  <li>AI Workflow</li>
+  <li>Brand Authority</li>
+  <li>Cross-platform consistency</li>
+</ul>
+
+<p>Thương hiệu có hệ thống content mạnh sẽ có lợi thế lớn trong thời đại AI Search.</p>
+
+<!-- FAQ -->
+
+<h2>FAQ - Câu hỏi thường gặp về GEO & AI Search</h2>
+
+<h3>GEO là gì?</h3>
+
+<p>GEO (Generative Engine Optimization) là phương pháp tối ưu nội dung cho các công cụ AI tạo sinh như ChatGPT hay Gemini.</p>
+
+<h3>SEO có còn quan trọng trong 2026 không?</h3>
+
+<p>Có, nhưng SEO truyền thống cần kết hợp GEO để tối ưu cho cả Google và AI Search.</p>
+
+<h3>AI Search khác gì Google Search?</h3>
+
+<p>Google hiển thị danh sách website, còn AI Search trả lời trực tiếp bằng hội thoại.</p>
+
+<h3>Nội dung chuẩn GEO cần gì?</h3>
+
+<p>Nội dung cần rõ ràng, có cấu trúc, semantic context mạnh và giải quyết đúng intent người dùng.</p>
+
+<h3>Doanh nghiệp nào cần GEO?</h3>
+
+<p>Hầu hết doanh nghiệp làm digital marketing, branding, SEO, content hoặc personal branding đều cần GEO trong tương lai.</p>
+
+<!-- FOOTER -->
+
+<h2>Kết luận</h2>
+
+<p>SEO chưa chết, nhưng đang tiến hóa. Trong thời đại AI Search, thương hiệu không chỉ cần lên top Google mà còn cần được AI hiểu và ưu tiên hiển thị.</p>
+
+<p>GEO sẽ trở thành một phần quan trọng trong chiến lược content marketing, branding và digital strategy của doanh nghiệp trong những năm tới.</p>
+
+<p>Nếu bạn đang xây dựng website, portfolio hoặc hệ thống content, đây là thời điểm phù hợp để bắt đầu tối ưu cho cả Search Engine và AI Engine.</p>
+
+<p><strong>The future of search is AI-driven.</strong></p>
     `
   }
 ];
