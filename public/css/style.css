@@ -1230,7 +1230,7 @@ ul { list-style: none; }
 .timeline::before {
   content: '';
   position: absolute;
-  left: 126px;
+  left: 166px;
   top: 0.75rem;
   bottom: 0.75rem;
   width: 2px;
@@ -1241,7 +1241,7 @@ ul { list-style: none; }
 .timeline-item {
   position: relative;
   display: grid;
-  grid-template-columns: 148px minmax(0, 1fr);
+  grid-template-columns: 190px minmax(0, 1fr);
   gap: 34px;
   margin-bottom: 28px;
 }
@@ -1250,7 +1250,7 @@ ul { list-style: none; }
 
 .timeline-dot {
   position: absolute;
-  left: 119px;
+  left: 158px;
   top: 20px;
   width: 16px;
   height: 16px;
@@ -1262,6 +1262,8 @@ ul { list-style: none; }
 }
 
 .timeline-date {
+  position: relative;
+  z-index: 3;
   align-self: start;
   justify-self: start;
   margin-top: 13px;
@@ -1574,10 +1576,10 @@ ul { list-style: none; }
   .marquee-band__group span { font-size: clamp(2.3rem, 6.8vw, 4.4rem); }
   .about__grid { grid-template-columns: 1fr; }
   .experience-overview { grid-template-columns: repeat(3, 1fr); }
-  .timeline::before { left: 28px; }
-  .timeline-item { grid-template-columns: 58px minmax(0, 1fr); gap: 18px; }
-  .timeline-dot { left: 20px; }
-  .timeline-date { grid-column: 2; margin-top: 0; width: fit-content; }
+  .timeline::before { left: 30px; }
+  .timeline-item { grid-template-columns: 64px minmax(0, 1fr); gap: 18px; }
+  .timeline-dot { left: 22px; }
+  .timeline-date { grid-column: 2; margin-top: 0; margin-left: 10px; width: fit-content; }
   .timeline-card { grid-column: 2; }
   .skill-command { grid-template-columns: 1fr; }
   .skill-command__nav { grid-template-columns: repeat(3, 1fr); }
