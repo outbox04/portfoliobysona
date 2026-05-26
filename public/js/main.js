@@ -101,6 +101,49 @@ const barObs = new IntersectionObserver((entries) => {
 }, { threshold: 0.3 });
 document.querySelectorAll('.bar__fill').forEach(b => barObs.observe(b));
 
+document.querySelectorAll('[data-skill-command]').forEach(command => {
+  const tabs = Array.from(command.querySelectorAll('[data-skill-tab]'));
+  const panels = Array.from(command.querySelectorAll('[data-skill-panel]'));
+  if (!tabs.length || !panels.length) return;
+
+  let activeIndex = Math.max(0, tabs.findIndex(tab => tab.classList.contains('active')));
+  let isHovering = false;
+
+  const activateSkillPanel = (index) => {
+    activeIndex = (index + tabs.length) % tabs.length;
+    const key = tabs[activeIndex].dataset.skillTab;
+
+    tabs.forEach(tab => {
+      const active = tab.dataset.skillTab === key;
+      tab.classList.toggle('active', active);
+      tab.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+
+    panels.forEach(panel => {
+      const active = panel.dataset.skillPanel === key;
+      panel.classList.toggle('active', active);
+      if (!active) return;
+      panel.querySelectorAll('.bar__fill').forEach(fill => {
+        fill.style.width = '0%';
+        fill.offsetHeight;
+        fill.style.width = fill.dataset.w + '%';
+      });
+    });
+  };
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activateSkillPanel(index));
+  });
+
+  command.addEventListener('mouseenter', () => { isHovering = true; });
+  command.addEventListener('mouseleave', () => { isHovering = false; });
+
+  setInterval(() => {
+    if (isHovering || document.hidden) return;
+    activateSkillPanel(activeIndex + 1);
+  }, 5200);
+});
+
 // ═══ PROJECT FILTER & PAGINATION ═══
 const tabBtns = document.querySelectorAll('.tab-btn');
 const projectCards = document.querySelectorAll('.project-card');
