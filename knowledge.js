@@ -450,7 +450,7 @@ Cách viết content Facebook Ads chuyển đổi cao
   },
   {
     id: 'brand-la-gi',
-    type: 'branding',
+    type: 'knowledge',
     cat: 'Branding',
     title: 'Brand là gì? Tại sao Branding quan trọng trong Marketing hiện đại?',
     short: 'Tìm hiểu Brand là gì, Branding là gì và cách xây dựng thương hiệu mạnh giúp doanh nghiệp tăng nhận diện, tạo niềm tin và phát triển bền vững trong 2026.',
@@ -783,57 +783,371 @@ Shopify - Branding Guide
     `
   },
   {
-    id: 'facebook-ads-co-ban',
-    type: 'branding',
-    cat: 'Branding',
-    title: 'Brand là gì? Tại sao Branding quan trọng trong Marketing hiện đại?',
-    short: 'Tìm hiểu Brand là gì, Branding là gì và cách xây dựng thương hiệu mạnh giúp doanh nghiệp tăng nhận diện, tạo niềm tin và phát triển bền vững trong 2026.',
-    thumb: '/images/knowledge/Brandj/post.jpg',
-    ogImage: '/images/knowledge/Brandj/thumb.jpg',
+    id: 'performance-marketing-2026',
+    type: 'knowledge',
+    cat: 'Performance Marketing',
+    title: 'Performance Marketing là gì? Tổng quan kiến thức mới nhất',
+    short: 'Tìm hiểu Performance Marketing là gì, cách hoạt động và chiến lược Performance Marketing giúp doanh nghiệp tăng trưởng doanh số và tối ưu hiệu quả quảng cáo trong 2026.',
+    thumb: '/images/knowledge/Performance/post.jpg',
+    ogImage: '/images/knowledge/Performance/thumb.jpg',
     date: '19/05/2026',
     readTime: '5 phút đọc',
     content: `
-      <h2>Cấu trúc Facebook Ads</h2>
-      <p>Facebook Ads có 3 tầng: <strong>Campaign → Ad Set → Ad</strong>. Hiểu đúng từng tầng sẽ giúp bạn tối ưu hiệu quả và tiết kiệm ngân sách.</p>
+      <h1>Performance Marketing là gì? Tổng quan kiến thức mới nhất</h1>
 
-      <h2>1. Campaign — Mục tiêu</h2>
-      <p>Chọn đúng mục tiêu campaign quyết định 50% thành công. Meta sẽ tối ưu theo mục tiêu bạn chọn.</p>
-      <ul>
-        <li><strong>Awareness</strong> — Tăng nhận diện thương hiệu</li>
-        <li><strong>Traffic</strong> — Kéo người về website/landing page</li>
-        <li><strong>Engagement</strong> — Tăng tương tác bài viết</li>
-        <li><strong>Leads</strong> — Thu thập thông tin khách hàng</li>
-        <li><strong>Sales</strong> — Tối ưu cho đơn hàng/conversion</li>
-      </ul>
+<p>Trong thời đại Digital Marketing phát triển mạnh, doanh nghiệp không còn chỉ chạy quảng cáo để “có mặt” trên internet. Thay vào đó, mọi chiến dịch đều cần đo lường được hiệu quả thực tế.</p>
 
-      <h2>2. Ad Set — Audience & Budget</h2>
-      <p>Đây là nơi xác định <strong>ai sẽ thấy quảng cáo</strong> và bạn sẵn sàng trả bao nhiêu.</p>
-      <ul>
-        <li>Custom Audience từ danh sách khách hàng cũ</li>
-        <li>Lookalike Audience — tìm người giống khách hàng tốt nhất</li>
-        <li>Interest Targeting — nhắm theo sở thích</li>
-        <li>Broad Targeting — để Meta tự tìm</li>
-      </ul>
+<p>Đó là lý do Performance Marketing trở thành một trong những chiến lược quan trọng nhất trong năm 2026.</p>
 
-      <h2>3. Ad — Creative</h2>
-      <p><strong>Creative là vũ khí cạnh tranh</strong> trong thời đại Advantage+. Ad tốt = Hook mạnh trong 3 giây đầu.</p>
-      <blockquote>Ngân sách theo được thuật toán, nhưng creative theo được cảm xúc — và cảm xúc mới tạo ra hành động.</blockquote>
+<p>Khác với marketing truyền thống, Performance Marketing tập trung vào kết quả cụ thể như:</p>
 
-      <div class="highlight-box">
-        <h3>⚡ Công thức Creative hiệu quả</h3>
-        <ul>
-          <li><strong>Hook</strong> — Câu mở đầu gây chú ý trong 3 giây</li>
-          <li><strong>Problem</strong> — Chạm đúng nỗi đau khách hàng</li>
-          <li><strong>Solution</strong> — Sản phẩm/dịch vụ của bạn giải quyết thế nào</li>
-          <li><strong>Proof</strong> — Bằng chứng: số liệu, testimonial</li>
-          <li><strong>CTA</strong> — Kêu gọi hành động rõ ràng</li>
-        </ul>
-      </div>
+<ul>
+  <li>Leads</li>
+  <li>Doanh số</li>
+  <li>Traffic</li>
+  <li>Tỉ lệ chuyển đổi</li>
+  <li>Chi phí trên mỗi kết quả</li>
+</ul>
+
+<p>Doanh nghiệp chỉ tập trung ngân sách cho những hoạt động tạo ra hiệu suất thật.</p>
+
+<!-- SEO META -->
+
+<meta name="title" content="Performance Marketing là gì? Tổng quan kiến thức mới nhất" />
+
+<meta name="description" content="Tìm hiểu Performance Marketing là gì, cách hoạt động và chiến lược Performance Marketing giúp doanh nghiệp tăng trưởng doanh số và tối ưu hiệu quả quảng cáo trong 2026." />
+
+<meta name="keywords" content="Performance Marketing là gì, Performance Marketing 2026, chạy quảng cáo Facebook, TikTok Ads, Google Ads, Digital Performance Marketing" />
+
+<!-- BODY -->
+
+<h2>1. Performance Marketing là gì?</h2>
+
+<p><strong>Performance Marketing</strong> là hình thức marketing tập trung vào hiệu suất thực tế và kết quả có thể đo lường được.</p>
+
+<p>Doanh nghiệp sẽ theo dõi các chỉ số như:</p>
+
+<ul>
+  <li>CPC (Cost Per Click)</li>
+  <li>CPA (Cost Per Action)</li>
+  <li>ROAS (Return On Ad Spend)</li>
+  <li>Conversion Rate</li>
+  <li>CTR (Click Through Rate)</li>
+</ul>
+
+<p>Điểm khác biệt lớn nhất của Performance Marketing là mọi hoạt động đều được tối ưu dựa trên dữ liệu.</p>
+
+<h3>Performance Marketing thường bao gồm:</h3>
+
+<ul>
+  <li>Facebook Ads</li>
+  <li>TikTok Ads</li>
+  <li>Google Ads</li>
+  <li>Affiliate Marketing</li>
+  <li>Email Marketing</li>
+  <li>Remarketing</li>
+</ul>
+
+<p>Mục tiêu cuối cùng là tăng trưởng hiệu quả với chi phí tối ưu nhất.</p>
+
+<h2>2. Tại sao Performance Marketing quan trọng trong 2026?</h2>
+
+<p>Chi phí quảng cáo ngày càng tăng khiến doanh nghiệp không thể chạy ads theo cảm tính như trước.</p>
+
+<p>Marketing hiện đại cần:</p>
+
+<ul>
+  <li>Đo lường chính xác</li>
+  <li>Tối ưu liên tục</li>
+  <li>Hiểu hành vi khách hàng</li>
+  <li>Tăng hiệu quả ngân sách</li>
+</ul>
+
+<p>Đó là lý do Performance Marketing ngày càng quan trọng.</p>
+
+<h3>Performance Marketing giúp:</h3>
+
+<ul>
+  <li>Tối ưu ngân sách quảng cáo</li>
+  <li>Tăng doanh số</li>
+  <li>Scale chiến dịch hiệu quả</li>
+  <li>Đo lường chính xác ROI</li>
+  <li>Tăng tốc độ tăng trưởng</li>
+</ul>
+
+<p>Trong thời đại AI Marketing, dữ liệu và automation đang trở thành lợi thế cạnh tranh lớn.</p>
+
+<!-- INTERNAL LINK -->
+
+<div class="related-post">
+
+  <span class="related-label">📚 Xem thêm</span>
+
+  <a 
+    href="/kien-thuc/content-marketing-la-gi"
+    class="related-link"
+  >
+    Content Marketing là gì? Chiến lược Content Marketing hiệu quả trong 2026
+  </a>
+
+  <p>
+    Tìm hiểu cách content giúp tăng trust thương hiệu và hỗ trợ Performance Marketing hiệu quả hơn.
+  </p>
+
+</div>
+
+<h2>3. Các nền tảng Performance Marketing phổ biến</h2>
+
+<h3>3.1 Facebook Ads</h3>
+
+<p>Facebook vẫn là nền tảng mạnh cho:</p>
+
+<ul>
+  <li>Lead generation</li>
+  <li>Remarketing</li>
+  <li>Conversion Ads</li>
+  <li>Xây cộng đồng</li>
+</ul>
+
+<p>Meta Ads phù hợp với nhiều ngành hàng từ local business đến e-commerce.</p>
+
+<h3>3.2 TikTok Ads</h3>
+
+<p>TikTok đang là nền tảng tăng trưởng mạnh nhất.</p>
+
+<p>Ưu điểm:</p>
+
+<ul>
+  <li>Reach lớn</li>
+  <li>CPM thấp</li>
+  <li>Dễ viral</li>
+  <li>Phù hợp short-form video</li>
+</ul>
+
+<p>Đây là nền tảng cực mạnh cho:</p>
+
+<ul>
+  <li>Hàng trend</li>
+  <li>Beauty</li>
+  <li>FMCG</li>
+  <li>E-commerce</li>
+</ul>
+
+<h3>3.3 Google Ads</h3>
+
+<p>Google phù hợp với nhu cầu tìm kiếm chủ động.</p>
+
+<ul>
+  <li>Search Ads</li>
+  <li>Display Ads</li>
+  <li>YouTube Ads</li>
+  <li>Shopping Ads</li>
+</ul>
+
+<p>Đây là nền tảng có intent mua hàng rất cao.</p>
+
+<h2>4. Performance Marketing hoạt động như thế nào?</h2>
+
+<p>Một chiến dịch Performance Marketing thường gồm 4 bước:</p>
+
+<h3>Bước 1: Nghiên cứu khách hàng</h3>
+
+<ul>
+  <li>Insight</li>
+  <li>Hành vi</li>
+  <li>Nhu cầu</li>
+  <li>Pain point</li>
+</ul>
+
+<h3>Bước 2: Xây content & creative</h3>
+
+<p>Creative là yếu tố cực kỳ quan trọng.</p>
+
+<p>Một content tốt giúp:</p>
+
+<ul>
+  <li>Tăng CTR</li>
+  <li>Giảm CPM</li>
+  <li>Tăng conversion</li>
+</ul>
+
+<h3>Bước 3: Chạy quảng cáo & test</h3>
+
+<p>Performance Marketing không phải “set ads rồi để đó”.</p>
+
+<p>Cần liên tục:</p>
+
+<ul>
+  <li>Test audience</li>
+  <li>Test creative</li>
+  <li>Test landing page</li>
+  <li>Test funnel</li>
+</ul>
+
+<h3>Bước 4: Tối ưu & scale</h3>
+
+<p>Dựa trên dữ liệu thực tế để:</p>
+
+<ul>
+  <li>Tăng ngân sách</li>
+  <li>Tối ưu ROAS</li>
+  <li>Giảm CPA</li>
+  <li>Scale chiến dịch</li>
+</ul>
+
+<h2>5. Performance Marketing khác gì Branding?</h2>
+
+<h3>Performance Marketing:</h3>
+
+<ul>
+  <li>Tập trung kết quả ngắn hạn</li>
+  <li>Đo lường trực tiếp</li>
+  <li>Tối ưu chuyển đổi</li>
+</ul>
+
+<h3>Branding:</h3>
+
+<ul>
+  <li>Xây nhận diện dài hạn</li>
+  <li>Tạo cảm xúc thương hiệu</li>
+  <li>Tăng trust & perception</li>
+</ul>
+
+<p>Một hệ thống marketing mạnh cần kết hợp cả branding và performance.</p>
+
+<h2>6. Xu hướng Performance Marketing năm 2026</h2>
+
+<h3>6.1 AI Optimization</h3>
+
+<p>AI đang thay đổi cách chạy quảng cáo:</p>
+
+<ul>
+  <li>Auto bidding</li>
+  <li>Creative optimization</li>
+  <li>Audience prediction</li>
+  <li>Automation workflow</li>
+</ul>
+
+<p>Người làm marketing hiện đại cần biết cách kết hợp AI và data.</p>
+
+<h3>6.2 Short-form Video Ads</h3>
+
+<p>Video ngắn tiếp tục là format hiệu quả nhất.</p>
+
+<p>Các nền tảng ưu tiên:</p>
+
+<ul>
+  <li>TikTok</li>
+  <li>Reels</li>
+  <li>YouTube Shorts</li>
+</ul>
+
+<h3>6.3 UGC & Creator Content</h3>
+
+<p>Người dùng hiện tin creator và review thật hơn quảng cáo truyền thống.</p>
+
+<p>UGC đang giúp:</p>
+
+<ul>
+  <li>Tăng trust</li>
+  <li>Tăng conversion</li>
+  <li>Giảm chi phí quảng cáo</li>
+</ul>
+
+<!-- INTERNAL LINK -->
+
+<div class="related-post">
+
+  <span class="related-label">📚 Xem thêm</span>
+
+  <a 
+    href="/kien-thuc/seo-khong-con-du-geo-la-xu-huong-moi"
+    class="related-link"
+  >
+    SEO không còn đủ — GEO là xu hướng mới trong thời đại AI
+  </a>
+
+  <p>
+    Tìm hiểu cách AI đang thay đổi hành vi tìm kiếm và digital marketing trong 2026.
+  </p>
+
+</div>
+
+<h2>7. Những kỹ năng quan trọng trong Performance Marketing</h2>
+
+<h3>Kỹ năng cần có:</h3>
+
+<ul>
+  <li>Phân tích dữ liệu</li>
+  <li>Tư duy funnel</li>
+  <li>Content & creative</li>
+  <li>Media buying</li>
+  <li>Tracking & analytics</li>
+  <li>Automation & AI workflow</li>
+</ul>
+
+<p>Performance Marketing hiện không còn chỉ là “biết chạy ads”.</p>
+
+<p>Đây là sự kết hợp giữa:</p>
+
+<ul>
+  <li>Marketing</li>
+  <li>Psychology</li>
+  <li>Data</li>
+  <li>Creative</li>
+</ul>
+
+<!-- EXTERNAL LINK -->
+
+<p>Nguồn tham khảo:
+<a href="https://www.hubspot.com/marketing-statistics" target="_blank" rel="nofollow noopener">
+HubSpot Marketing Statistics
+</a>
+</p>
+
+<h2>FAQ - Câu hỏi thường gặp về Performance Marketing</h2>
+
+<h3>Performance Marketing có phù hợp với doanh nghiệp nhỏ không?</h3>
+
+<p>Có. Đây là hình thức marketing phù hợp vì có thể đo lường và tối ưu ngân sách hiệu quả.</p>
+
+<h3>Nên bắt đầu với Facebook Ads hay TikTok Ads?</h3>
+
+<p>Phụ thuộc ngành hàng và khách hàng mục tiêu. TikTok mạnh về reach, Facebook mạnh về conversion và remarketing.</p>
+
+<h3>Performance Marketing có cần content không?</h3>
+
+<p>Có. Creative và content là yếu tố ảnh hưởng trực tiếp tới hiệu quả quảng cáo.</p>
+
+<h3>AI có thay thế Performance Marketing không?</h3>
+
+<p>Không. AI chỉ hỗ trợ tối ưu và automation, còn chiến lược và insight vẫn cần con người.</p>
+
+<h3>Performance Marketing có cần website không?</h3>
+
+<p>Không bắt buộc, nhưng website giúp tăng trust và tối ưu conversion tốt hơn.</p>
+
+<!-- FOOTER -->
+
+<h2>Kết luận</h2>
+
+<p>Performance Marketing không còn chỉ là chạy quảng cáo. Trong thời đại AI Marketing 2026, đây là hệ thống tối ưu tăng trưởng dựa trên dữ liệu, content và hành vi người dùng.</p>
+
+<p>Một chiến lược Performance Marketing tốt giúp doanh nghiệp:</p>
+
+<ul>
+  <li>Tăng doanh số</li>
+  <li>Tối ưu ngân sách</li>
+  <li>Tăng hiệu quả marketing</li>
+  <li>Scale tăng trưởng bền vững</li>
+</ul>
+
+<p><strong>Theo bạn, điều khó nhất trong Performance Marketing hiện nay là gì?</strong> Hãy chia sẻ góc nhìn của bạn.</p>
     `
   },
   {
     id: 'content-marketing-strategy',
-    type: 'content',
+    type: 'knowledge',
     cat: 'Content',
     title: 'Content Marketing là gì? Chiến lược Content Marketing hiệu quả trong 2026',
     short: 'Content không chỉ giúp doanh nghiệp tăng nhận diện thương hiệu mà còn giúp tạo niềm tin, xây dựng cộng đồng và chuyển đổi khách hàng bền vững.',
@@ -1201,7 +1515,7 @@ Content Marketing Institute
   },
   {
     id: 'geo-ai-search-2026',
-    type: 'seo',
+    type: 'knowledge',
     cat: 'Content',
     title: 'SEO không còn đủ — GEO là xu hướng mới trong thời đại AI',
     short: 'Tìm hiểu GEO (Generative Engine Optimization), cách AI đang thay đổi hành vi tìm kiếm và vì sao thương hiệu cần tối ưu nội dung cho cả Google lẫn AI.',

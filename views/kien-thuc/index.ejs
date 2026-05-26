@@ -114,7 +114,9 @@
 
         <!-- FEATURED (bài đầu tiên) -->
         <% const featured = knowledge[0]; %>
-        <a href="/kien-thuc/<%= featured.id %>" class="kt-featured reveal-up" id="ktFeatured">
+        <a href="/kien-thuc/<%= featured.id %>" class="kt-featured reveal-up" id="ktFeatured"
+          data-type="<%= featured.type %>"
+          data-cat="<%= featured.cat %>">
           <div class="kt-featured__img">
             <img src="<%= featured.thumb %>" alt="<%= featured.title %>"
               onerror='this.parentElement.classList.add("no-img");this.style.display="none"' fetchpriority="high" decoding="async" />
@@ -193,7 +195,7 @@
             <%
               const allCats = [
                 { name: 'Branding',     icon: '🏷️', color: '#D4A843' },
-                { name: 'Performance',  icon: '⚡', color: '#E63022' },
+                { name: 'Performance Marketing',  icon: '⚡', color: '#E63022' },
                 { name: 'Content',      icon: '✍️', color: '#63B3ED' },
                 { name: 'Social Media', icon: '📱', color: '#9A75DA' },
                 { name: 'Design',       icon: '🎨', color: '#68D391' },
@@ -244,8 +246,8 @@
 </footer>
 
 <script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js" defer></script>
-<script src="/js/main.js" defer></script>
-<script src="/js/kien-thuc.js" defer></script>
+<script src="/js/main.js?v=20260526-knowledge-filter" defer></script>
+<script src="/js/kien-thuc.js?v=20260526-knowledge-filter" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>
