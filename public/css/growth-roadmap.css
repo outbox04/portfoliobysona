@@ -1,6 +1,18 @@
 .roadmap-page {
   --rm-bg: #05060b;
   --rm-panel: rgba(12, 16, 30, 0.68);
+  --rm-panel-strong: rgba(12, 16, 30, 0.76);
+  --rm-card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
+  --rm-shell-bg:
+    radial-gradient(circle at 20% 12%, rgba(55, 140, 255, 0.22), transparent 34rem),
+    radial-gradient(circle at 82% 24%, rgba(152, 82, 255, 0.22), transparent 30rem),
+    linear-gradient(180deg, #030409 0%, #080a12 44%, #04050a 100%);
+  --rm-hero-overlay: linear-gradient(180deg, rgba(5, 6, 11, 0.2), #05060b 88%);
+  --rm-border: rgba(151, 191, 255, 0.18);
+  --rm-chip-bg: rgba(255, 255, 255, 0.05);
+  --rm-chip-text: rgba(245, 249, 255, 0.86);
+  --rm-strong: #fff;
+  --rm-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
   --rm-line: rgba(92, 152, 255, 0.55);
   --rm-blue: #39a7ff;
   --rm-purple: #9b5cff;
@@ -11,12 +23,28 @@
   color: var(--rm-text);
 }
 
+[data-theme="light"] .roadmap-page {
+  --rm-bg: #f7f8fc;
+  --rm-panel: rgba(255, 255, 255, 0.76);
+  --rm-panel-strong: rgba(255, 255, 255, 0.9);
+  --rm-card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(232, 239, 255, 0.58));
+  --rm-shell-bg:
+    radial-gradient(circle at 20% 12%, rgba(42, 120, 255, 0.14), transparent 34rem),
+    radial-gradient(circle at 82% 24%, rgba(145, 82, 255, 0.12), transparent 30rem),
+    linear-gradient(180deg, #f7f8fc 0%, #eef3ff 44%, #fbfcff 100%);
+  --rm-hero-overlay: linear-gradient(180deg, rgba(247, 248, 252, 0.2), #f7f8fc 88%);
+  --rm-border: rgba(63, 91, 142, 0.16);
+  --rm-chip-bg: rgba(42, 80, 145, 0.06);
+  --rm-chip-text: rgba(24, 32, 48, 0.78);
+  --rm-strong: #101522;
+  --rm-text: #101522;
+  --rm-muted: rgba(36, 45, 65, 0.68);
+  --rm-shadow: 0 24px 80px rgba(40, 54, 90, 0.12);
+}
+
 .roadmap-shell {
   overflow: hidden;
-  background:
-    radial-gradient(circle at 20% 12%, rgba(55, 140, 255, 0.22), transparent 34rem),
-    radial-gradient(circle at 82% 24%, rgba(152, 82, 255, 0.22), transparent 30rem),
-    linear-gradient(180deg, #030409 0%, #080a12 44%, #04050a 100%);
+  background: var(--rm-shell-bg);
 }
 
 .roadmap-hero {
@@ -59,7 +87,7 @@
   position: absolute;
   inset: 0;
   z-index: -3;
-  background: linear-gradient(180deg, rgba(5, 6, 11, 0.2), #05060b 88%);
+  background: var(--rm-hero-overlay);
 }
 
 .roadmap-hero__glow {
@@ -150,7 +178,7 @@
 }
 
 .roadmap-hero__reason strong {
-  color: #fff;
+  color: var(--rm-strong);
   font-size: clamp(1.35rem, 3vw, 2.25rem);
 }
 
@@ -290,11 +318,11 @@
   position: relative;
   padding: 1.6rem;
   border-radius: 8px;
-  border: 1px solid rgba(151, 191, 255, 0.18);
+  border: 1px solid var(--rm-border);
   background:
-    linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
+    var(--rm-card-gradient),
     var(--rm-panel);
-  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+  box-shadow: var(--rm-shadow);
   backdrop-filter: blur(18px);
   transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease;
 }
@@ -321,7 +349,7 @@
 }
 
 .road-card__meta span {
-  color: #fff;
+  color: var(--rm-strong);
 }
 
 .road-card h3 {
@@ -345,8 +373,8 @@
   border: 1px solid rgba(134, 183, 255, 0.16);
   border-radius: 999px;
   padding: 0.55rem 0.75rem;
-  color: rgba(245, 249, 255, 0.86);
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--rm-chip-text);
+  background: var(--rm-chip-bg);
 }
 
 .road-goal,
@@ -370,14 +398,14 @@
 }
 
 .road-highlight {
-  color: #fff;
+  color: var(--rm-strong);
   font-size: 1.25rem;
   line-height: 1.45;
   font-weight: 900;
 }
 
 .road-card blockquote {
-  color: #fff;
+  color: var(--rm-strong);
   font-size: 1.25rem;
   line-height: 1.5;
   border-left: 2px solid var(--rm-cyan);
@@ -398,7 +426,7 @@
   min-height: 18rem;
   border-radius: 8px;
   border: 1px solid rgba(86, 240, 255, 0.22);
-  color: #fff;
+  color: var(--rm-strong);
   font-size: 1.8rem;
   font-weight: 900;
   background: radial-gradient(circle at 50% 35%, rgba(86, 240, 255, 0.16), rgba(255, 255, 255, 0.04));
@@ -419,7 +447,7 @@
 .skill-branch:hover,
 .skill-branch:focus,
 .skill-branch.active {
-  color: #fff;
+  color: var(--rm-strong);
   border-color: rgba(86, 240, 255, 0.55);
   background: rgba(75, 150, 255, 0.14);
   box-shadow: 0 0 30px rgba(75, 150, 255, 0.18);
@@ -455,14 +483,17 @@
 
 .ai-card-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
   gap: 0.8rem;
   margin-top: 1.4rem;
 }
 
 .ai-card-grid span {
+  min-width: 0;
   border-radius: 8px;
   text-align: center;
+  white-space: normal;
+  overflow-wrap: break-word;
   box-shadow: 0 0 22px rgba(81, 170, 255, 0.12);
   animation: cardFloat 4s ease-in-out infinite alternate;
 }
@@ -519,7 +550,7 @@
   padding: 1rem 1.2rem;
   border: 1px solid rgba(151, 191, 255, 0.18);
   border-radius: 8px;
-  background: rgba(12, 16, 30, 0.76);
+  background: var(--rm-panel-strong);
   backdrop-filter: blur(16px);
   font-weight: 900;
 }
@@ -545,8 +576,8 @@
   border: 1px solid rgba(151, 191, 255, 0.18);
   border-radius: 8px;
   background:
-    linear-gradient(160deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03)),
-    rgba(11, 14, 26, 0.72);
+    var(--rm-card-gradient),
+    var(--rm-panel);
   backdrop-filter: blur(18px);
 }
 
@@ -557,7 +588,7 @@
 
 .mentor-card p {
   margin: 0;
-  color: #fff;
+  color: var(--rm-strong);
   font-size: clamp(1.15rem, 1.8vw, 1.55rem);
   line-height: 1.35;
   font-weight: 800;
