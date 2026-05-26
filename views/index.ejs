@@ -35,11 +35,8 @@
       if (!sessionStorage.getItem('portfolioIntroSeen')) {
         // Set flag ngay lập tức để tránh chạy lại khi reload
         sessionStorage.setItem('portfolioIntroSeen', '1');
-        
-        // Chỉ hiển thị intro nếu người dùng không disable motion
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          document.documentElement.classList.add('intro-pending');
-        }
+        // Hiển thị intro animation
+        document.documentElement.classList.add('intro-pending');
       }
     } catch (e) {}
   </script>
