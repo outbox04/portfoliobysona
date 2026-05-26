@@ -29,6 +29,13 @@
   <meta property="zalo:image"      content="<%= siteUrl %>/images/og/home.jpg" />
 
   <link rel="icon" href="/images/software/logo.png" />
+  <script>
+    try {
+      if (!sessionStorage.getItem('portfolioIntroSeen') && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('intro-pending');
+      }
+    } catch (e) {}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -47,6 +54,33 @@
   </script>
 </head>
 <body>
+
+<div class="intro-experience" id="introExperience" aria-hidden="true">
+  <div class="intro-experience__noise"></div>
+  <div class="intro-experience__grid"></div>
+  <div class="intro-experience__glow intro-experience__glow--one"></div>
+  <div class="intro-experience__glow intro-experience__glow--two"></div>
+  <div class="intro-experience__beam"></div>
+  <div class="intro-experience__particles">
+    <span></span><span></span><span></span><span></span><span></span>
+  </div>
+  <div class="intro-experience__content">
+    <p class="intro-experience__status">Initializing Marketing System...</p>
+    <div class="intro-experience__copy">
+      <div class="intro-experience__text intro-experience__text--first">
+        <span>Marketing</span>
+        <span>is not about</span>
+        <span>doing everything.</span>
+      </div>
+      <div class="intro-experience__text intro-experience__text--second">
+        <span>It's about</span>
+        <span>doing the right thing</span>
+        <span>at the right stage.</span>
+      </div>
+    </div>
+    <p class="intro-experience__enter">Enter the Marketing Ecosystem</p>
+  </div>
+</div>
 
 <div class="cursor" id="cursor"></div>
 <div class="cursor-follower" id="cursorFollower"></div>
@@ -99,7 +133,7 @@
     <div class="hero__avatar-wrap">
       <div class="hero__avatar-ring"></div>
       <div class="hero__avatar-glow"></div>
-      <img src="/images/avatar/avatar.jpg" alt="Trần Hồng Sơn" class="hero__avatar reveal-scale" fetchpriority="high" />
+      <img src="/images/avatar/avatar.jpg" alt="Trần Hồng Sơn" class="hero__avatar reveal-scale" width="720" height="720" fetchpriority="high" decoding="async" />
       <div class="hero__avatar-badge">
         <span class="badge__num">5+</span>
         <span class="badge__text">Năm KN</span>
@@ -227,6 +261,7 @@
         <div class="software-card">
           <div class="software-icon">
             <img src="/images/software/<%= sw.file %>" alt="<%= sw.name %>"
+              width="48" height="48" loading="lazy" decoding="async"
               onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
             <span class="software-fallback" style="display:none"><%= sw.abbr %></span>
           </div>
@@ -528,7 +563,7 @@
       <% projects.forEach(p => { %>
       <a href="/projects/<%= p.id %>" class="project-card reveal-up" data-cat="<%= p.cat %>">
         <div class="project-card__img">
-          <img src="<%= p.thumb %>" alt="<%= p.title %>" onerror="this.parentElement.style.background='var(--bg-4)';this.style.display='none'" loading="lazy" />
+          <img src="<%= p.thumb %>" alt="<%= p.title %>" onerror="this.parentElement.style.background='var(--bg-4)';this.style.display='none'" loading="lazy" decoding="async" />
           <div class="project-card__overlay">
             <span class="overlay-cat"><%= p.catLabel %></span>
             <span class="overlay-link">
@@ -574,7 +609,7 @@
         <div class="kp-card__img">
           <img src="<%= k.thumb %>" alt="<%= k.title %>"
             onerror='this.parentElement.classList.add("no-img");this.style.display="none"'
-            loading="lazy" />
+            loading="lazy" decoding="async" />
           <span class="kp-card__type <%= k.type %>">
             <%= k.type === 'news' ? '📰 Tin tức' : '📚 Kiến thức' %>
           </span>

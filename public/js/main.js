@@ -1,4 +1,26 @@
 // ═══ THEME TOGGLE ═══
+// First load experience
+(() => {
+  const intro = document.getElementById('introExperience');
+  const rootEl = document.documentElement;
+  if (!intro || !rootEl.classList.contains('intro-pending')) return;
+
+  const finishIntro = () => {
+    intro.classList.add('is-leaving');
+    rootEl.classList.add('intro-revealing');
+    window.setTimeout(() => {
+      rootEl.classList.remove('intro-pending', 'intro-revealing');
+      intro.remove();
+    }, 950);
+  };
+
+  try {
+    sessionStorage.setItem('portfolioIntroSeen', '1');
+  } catch (e) {}
+
+  window.setTimeout(finishIntro, 5000);
+})();
+
 const root = document.documentElement;
 const themeBtn = document.getElementById('themeToggle');
 const saved = localStorage.getItem('theme') || 'dark';

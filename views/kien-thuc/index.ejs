@@ -24,7 +24,8 @@
   <link rel="icon" href="/images/software/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="/css/style.css" />
   <link rel="stylesheet" href="/css/kien-thuc.css" />
 </head>
@@ -116,7 +117,7 @@
         <a href="/kien-thuc/<%= featured.id %>" class="kt-featured reveal-up" id="ktFeatured">
           <div class="kt-featured__img">
             <img src="<%= featured.thumb %>" alt="<%= featured.title %>"
-              onerror='this.parentElement.classList.add("no-img");this.style.display="none"' />
+              onerror='this.parentElement.classList.add("no-img");this.style.display="none"' fetchpriority="high" decoding="async" />
             <span class="kt-featured__badge">
               <%= featured.type === 'news' ? '📰 Tin tức nổi bật' : '📚 Kiến thức nổi bật' %>
             </span>
@@ -142,7 +143,7 @@
             <div class="kt-item__img">
               <img src="<%= k.thumb %>" alt="<%= k.title %>"
                 onerror='this.parentElement.classList.add("no-img");this.style.display="none"'
-                loading="lazy" />
+                loading="lazy" decoding="async" />
               <span class="kt-item__badge <%= k.type %>">
                 <%= k.type === 'news' ? '📰' : '📚' %>
               </span>
@@ -174,7 +175,7 @@
               <div class="kt-widget__img">
                 <img src="<%= k.thumb %>" alt="<%= k.title %>"
                   onerror='this.parentElement.classList.add("no-img");this.style.display="none"'
-                  loading="lazy" />
+                  loading="lazy" decoding="async" />
               </div>
               <div>
                 <p><%= k.title %></p>
@@ -235,16 +236,16 @@
   <div class="container">
     <div style="margin-bottom: 16px; display: flex; justify-content: center;">
       <a href="//www.dmca.com/Protection/Status.aspx?ID=ef2dde35-e56c-46cf-bcd9-e25455623e29" title="DMCA.com Protection Status" class="dmca-badge">
-        <img src="https://images.dmca.com/Badges/dmca_protected_sml_120m.png?ID=ef2dde35-e56c-46cf-bcd9-e25455623e29" alt="DMCA.com Protection Status" />
+        <img src="https://images.dmca.com/Badges/dmca_protected_sml_120m.png?ID=ef2dde35-e56c-46cf-bcd9-e25455623e29" alt="DMCA.com Protection Status" width="120" height="60" loading="lazy" decoding="async" />
       </a>
     </div>
     <p>© 2026 Trần Hồng Sơn — Marketing Portfolio</p>
   </div>
 </footer>
 
-<script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js"></script>
-<script src="/js-obf/main.js"></script>
-<script src="/js/kien-thuc.js"></script>
+<script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js" defer></script>
+<script src="/js/main.js" defer></script>
+<script src="/js/kien-thuc.js" defer></script>
 <script defer src="/_vercel/insights/script.js"></script>
 </body>
 </html>

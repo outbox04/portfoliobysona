@@ -4,19 +4,24 @@
   --rm-panel-strong: rgba(12, 16, 30, 0.76);
   --rm-card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.03));
   --rm-shell-bg:
-    radial-gradient(circle at 20% 12%, rgba(55, 140, 255, 0.22), transparent 34rem),
-    radial-gradient(circle at 82% 24%, rgba(152, 82, 255, 0.22), transparent 30rem),
+    radial-gradient(circle at 20% 12%, rgba(230, 48, 34, 0.2), transparent 34rem),
+    radial-gradient(circle at 82% 24%, rgba(255, 107, 53, 0.16), transparent 30rem),
     linear-gradient(180deg, #030409 0%, #080a12 44%, #04050a 100%);
   --rm-hero-overlay: linear-gradient(180deg, rgba(5, 6, 11, 0.2), #05060b 88%);
-  --rm-border: rgba(151, 191, 255, 0.18);
+  --rm-border: rgba(230, 48, 34, 0.2);
   --rm-chip-bg: rgba(255, 255, 255, 0.05);
   --rm-chip-text: rgba(245, 249, 255, 0.86);
   --rm-strong: #fff;
   --rm-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
-  --rm-line: rgba(92, 152, 255, 0.55);
-  --rm-blue: #39a7ff;
-  --rm-purple: #9b5cff;
-  --rm-cyan: #56f0ff;
+  --rm-line: rgba(230, 48, 34, 0.55);
+  --rm-blue: #e63022;
+  --rm-purple: #ff6b35;
+  --rm-cyan: #e63022;
+  --rm-accent: #e63022;
+  --rm-accent-2: #ff6b35;
+  --rm-glow: rgba(230, 48, 34, 0.32);
+  --rm-soft-glow: rgba(255, 107, 53, 0.14);
+  --rm-ghost-text: rgba(255, 255, 255, 0.36);
   --rm-text: #f6f8ff;
   --rm-muted: rgba(231, 238, 255, 0.68);
   background: var(--rm-bg);
@@ -27,19 +32,22 @@
   --rm-bg: #f7f8fc;
   --rm-panel: rgba(255, 255, 255, 0.76);
   --rm-panel-strong: rgba(255, 255, 255, 0.9);
-  --rm-card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(232, 239, 255, 0.58));
+  --rm-card-gradient: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(255, 244, 241, 0.62));
   --rm-shell-bg:
-    radial-gradient(circle at 20% 12%, rgba(42, 120, 255, 0.14), transparent 34rem),
-    radial-gradient(circle at 82% 24%, rgba(145, 82, 255, 0.12), transparent 30rem),
-    linear-gradient(180deg, #f7f8fc 0%, #eef3ff 44%, #fbfcff 100%);
+    radial-gradient(circle at 20% 12%, rgba(230, 48, 34, 0.1), transparent 34rem),
+    radial-gradient(circle at 82% 24%, rgba(255, 107, 53, 0.12), transparent 30rem),
+    linear-gradient(180deg, #fbfaf8 0%, #fff3ef 44%, #fbfaf8 100%);
   --rm-hero-overlay: linear-gradient(180deg, rgba(247, 248, 252, 0.2), #f7f8fc 88%);
-  --rm-border: rgba(63, 91, 142, 0.16);
-  --rm-chip-bg: rgba(42, 80, 145, 0.06);
+  --rm-border: rgba(230, 48, 34, 0.16);
+  --rm-chip-bg: rgba(230, 48, 34, 0.05);
   --rm-chip-text: rgba(24, 32, 48, 0.78);
   --rm-strong: #101522;
   --rm-text: #101522;
   --rm-muted: rgba(36, 45, 65, 0.68);
   --rm-shadow: 0 24px 80px rgba(40, 54, 90, 0.12);
+  --rm-glow: rgba(230, 48, 34, 0.18);
+  --rm-soft-glow: rgba(255, 107, 53, 0.1);
+  --rm-ghost-text: rgba(16, 21, 34, 0.14);
 }
 
 .roadmap-shell {
@@ -60,8 +68,12 @@
   position: absolute;
   inset: 0;
   z-index: -5;
-  opacity: 0.16;
+  opacity: 0.12;
   filter: saturate(1.2) contrast(1.12);
+}
+
+[data-theme="light"] .roadmap-hero__media {
+  opacity: 0.035;
 }
 
 .roadmap-hero__media img {
@@ -75,8 +87,8 @@
   inset: 0;
   z-index: -4;
   background-image:
-    linear-gradient(rgba(75, 132, 255, 0.11) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(75, 132, 255, 0.11) 1px, transparent 1px);
+    linear-gradient(rgba(230, 48, 34, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(230, 48, 34, 0.09) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: linear-gradient(to bottom, transparent 0%, #000 18%, #000 72%, transparent 100%);
   animation: gridDrift 18s linear infinite;
@@ -104,13 +116,13 @@
 .glow-a {
   left: 5%;
   top: 18%;
-  background: rgba(40, 150, 255, 0.34);
+  background: var(--rm-glow);
 }
 
 .glow-b {
   right: 4%;
   bottom: 10%;
-  background: rgba(150, 80, 255, 0.34);
+  background: var(--rm-soft-glow);
   animation-delay: -4s;
 }
 
@@ -119,8 +131,8 @@
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: rgba(120, 210, 255, 0.75);
-  box-shadow: 0 0 20px rgba(72, 176, 255, 0.85);
+  background: rgba(230, 48, 34, 0.75);
+  box-shadow: 0 0 20px rgba(230, 48, 34, 0.7);
   animation: particleRise 9s linear infinite;
 }
 
@@ -138,8 +150,8 @@
   width: min(36rem, 55vw);
   height: 1px;
   transform: rotate(-18deg);
-  background: linear-gradient(90deg, transparent, rgba(86, 240, 255, 0.95), rgba(155, 92, 255, 0.85), transparent);
-  box-shadow: 0 0 28px rgba(86, 240, 255, 0.8);
+  background: linear-gradient(90deg, transparent, rgba(230, 48, 34, 0.95), rgba(255, 107, 53, 0.85), transparent);
+  box-shadow: 0 0 28px rgba(230, 48, 34, 0.58);
   animation: beamMove 4s ease-in-out infinite;
 }
 
@@ -150,7 +162,7 @@
 
 .roadmap-kicker {
   margin: 0 0 1rem;
-  color: var(--rm-cyan);
+  color: var(--rm-accent);
   font-size: 0.78rem;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -199,29 +211,29 @@
 }
 
 .morph-old {
-  color: rgba(255, 255, 255, 0.36);
+  color: var(--rm-ghost-text);
   animation: glitchOut 5.8s infinite;
 }
 
 .morph-new {
   opacity: 0;
   color: transparent;
-  background: linear-gradient(100deg, #fff, var(--rm-cyan), var(--rm-purple));
+  background: linear-gradient(100deg, var(--rm-strong), var(--rm-accent), var(--rm-accent-2));
   -webkit-background-clip: text;
   background-clip: text;
-  text-shadow: 0 0 42px rgba(82, 167, 255, 0.28);
+  text-shadow: 0 0 42px rgba(230, 48, 34, 0.22);
   animation: morphIn 5.8s infinite;
 }
 
 .roadmap-scroll {
   display: inline-flex;
   margin-top: 1.5rem;
-  color: rgba(242, 248, 255, 0.78);
+  color: var(--rm-strong);
   text-decoration: none;
-  border: 1px solid rgba(120, 180, 255, 0.24);
+  border: 1px solid rgba(230, 48, 34, 0.28);
   border-radius: 999px;
   padding: 0.85rem 1.2rem;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(230, 48, 34, 0.06);
   backdrop-filter: blur(14px);
 }
 
@@ -266,7 +278,7 @@
   bottom: 0;
   width: 2px;
   transform: translateX(-50%);
-  background: linear-gradient(180deg, transparent, rgba(98, 160, 255, 0.22), transparent);
+  background: linear-gradient(180deg, transparent, rgba(230, 48, 34, 0.22), transparent);
 }
 
 .timeline__rail::after {
@@ -277,9 +289,9 @@
   height: 22%;
   transform: translateX(-50%);
   border-radius: 999px;
-  background: linear-gradient(180deg, transparent, var(--rm-cyan), var(--rm-purple), transparent);
+  background: linear-gradient(180deg, transparent, var(--rm-accent), var(--rm-accent-2), transparent);
   filter: blur(1px);
-  box-shadow: 0 0 28px rgba(86, 240, 255, 0.9);
+  box-shadow: 0 0 28px rgba(230, 48, 34, 0.65);
   animation: energyFlow 4.6s linear infinite;
 }
 
@@ -309,9 +321,9 @@
   border-radius: 50%;
   color: #fff;
   font-weight: 900;
-  background: radial-gradient(circle, rgba(86, 240, 255, 0.38), rgba(155, 92, 255, 0.14) 58%, rgba(255, 255, 255, 0.05));
-  border: 1px solid rgba(135, 197, 255, 0.38);
-  box-shadow: 0 0 36px rgba(64, 160, 255, 0.4);
+  background: radial-gradient(circle, rgba(230, 48, 34, 0.38), rgba(255, 107, 53, 0.14) 58%, rgba(255, 255, 255, 0.05));
+  border: 1px solid rgba(230, 48, 34, 0.38);
+  box-shadow: 0 0 36px rgba(230, 48, 34, 0.28);
 }
 
 .road-card {
@@ -329,8 +341,8 @@
 
 .road-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(86, 240, 255, 0.44);
-  box-shadow: 0 30px 90px rgba(41, 120, 255, 0.2);
+  border-color: rgba(230, 48, 34, 0.44);
+  box-shadow: 0 30px 90px rgba(230, 48, 34, 0.16);
 }
 
 .road-card--wide {
@@ -370,7 +382,7 @@
 .road-card li,
 .ai-card-grid span,
 .skill-roadmap span {
-  border: 1px solid rgba(134, 183, 255, 0.16);
+  border: 1px solid var(--rm-border);
   border-radius: 999px;
   padding: 0.55rem 0.75rem;
   color: var(--rm-chip-text);
@@ -385,7 +397,7 @@
 }
 
 .road-goal {
-  color: var(--rm-cyan);
+  color: var(--rm-accent);
   font-weight: 700;
 }
 
@@ -408,7 +420,7 @@
   color: var(--rm-strong);
   font-size: 1.25rem;
   line-height: 1.5;
-  border-left: 2px solid var(--rm-cyan);
+  border-left: 2px solid var(--rm-accent);
   padding-left: 1rem;
 }
 
@@ -425,19 +437,19 @@
   place-items: center;
   min-height: 18rem;
   border-radius: 8px;
-  border: 1px solid rgba(86, 240, 255, 0.22);
+  border: 1px solid rgba(230, 48, 34, 0.22);
   color: var(--rm-strong);
   font-size: 1.8rem;
   font-weight: 900;
-  background: radial-gradient(circle at 50% 35%, rgba(86, 240, 255, 0.16), rgba(255, 255, 255, 0.04));
+  background: radial-gradient(circle at 50% 35%, rgba(230, 48, 34, 0.14), rgba(255, 255, 255, 0.04));
 }
 
 .skill-branch {
   min-height: 3.2rem;
-  border: 1px solid rgba(134, 183, 255, 0.18);
+  border: 1px solid rgba(230, 48, 34, 0.16);
   border-radius: 8px;
-  color: rgba(245, 249, 255, 0.8);
-  background: rgba(255, 255, 255, 0.04);
+  color: var(--rm-chip-text);
+  background: var(--rm-chip-bg);
   font: inherit;
   font-weight: 800;
   cursor: pointer;
@@ -448,9 +460,9 @@
 .skill-branch:focus,
 .skill-branch.active {
   color: var(--rm-strong);
-  border-color: rgba(86, 240, 255, 0.55);
-  background: rgba(75, 150, 255, 0.14);
-  box-shadow: 0 0 30px rgba(75, 150, 255, 0.18);
+  border-color: rgba(230, 48, 34, 0.45);
+  background: rgba(230, 48, 34, 0.1);
+  box-shadow: 0 0 30px rgba(230, 48, 34, 0.14);
 }
 
 .skill-roadmap {
@@ -464,7 +476,7 @@
 }
 
 .skill-roadmap i {
-  color: var(--rm-cyan);
+  color: var(--rm-accent);
   font-style: normal;
 }
 
@@ -476,7 +488,7 @@
   content: "";
   position: absolute;
   inset: -40%;
-  background: conic-gradient(from 180deg, transparent, rgba(86, 240, 255, 0.12), rgba(155, 92, 255, 0.18), transparent);
+  background: conic-gradient(from 180deg, transparent, rgba(230, 48, 34, 0.1), rgba(255, 107, 53, 0.16), transparent);
   animation: rotateLight 9s linear infinite;
   z-index: -1;
 }
@@ -494,7 +506,7 @@
   text-align: center;
   white-space: normal;
   overflow-wrap: break-word;
-  box-shadow: 0 0 22px rgba(81, 170, 255, 0.12);
+  box-shadow: 0 0 22px rgba(230, 48, 34, 0.1);
   animation: cardFloat 4s ease-in-out infinite alternate;
 }
 
@@ -505,9 +517,27 @@
 .ai-quote {
   font-size: clamp(1.5rem, 3vw, 2.45rem) !important;
   color: transparent !important;
-  background: linear-gradient(100deg, #fff, var(--rm-cyan), var(--rm-purple));
+  background: linear-gradient(100deg, var(--rm-strong), var(--rm-accent), var(--rm-accent-2));
   -webkit-background-clip: text;
   background-clip: text;
+}
+
+[data-theme="light"] .morph-new,
+[data-theme="light"] .ai-quote {
+  background: linear-gradient(100deg, #101522 0%, #e63022 58%, #b02219 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: none;
+}
+
+[data-theme="light"] .roadmap-scroll {
+  background: rgba(255, 255, 255, 0.74);
+  border-color: rgba(230, 48, 34, 0.24);
+  box-shadow: 0 14px 42px rgba(230, 48, 34, 0.08);
+}
+
+[data-theme="light"] .learn-flow::before {
+  background: rgba(230, 48, 34, 0.14);
 }
 
 .learn-flow {
@@ -538,8 +568,8 @@
 .learn-flow::after {
   height: var(--fill);
   bottom: auto;
-  background: linear-gradient(180deg, var(--rm-cyan), var(--rm-purple));
-  box-shadow: 0 0 28px rgba(86, 240, 255, 0.65);
+  background: linear-gradient(180deg, var(--rm-accent), var(--rm-accent-2));
+  box-shadow: 0 0 28px rgba(230, 48, 34, 0.45);
 }
 
 .learn-step {
@@ -548,7 +578,7 @@
   width: min(420px, 88%);
   justify-self: start;
   padding: 1rem 1.2rem;
-  border: 1px solid rgba(151, 191, 255, 0.18);
+  border: 1px solid var(--rm-border);
   border-radius: 8px;
   background: var(--rm-panel-strong);
   backdrop-filter: blur(16px);
@@ -573,7 +603,7 @@
   flex-direction: column;
   justify-content: space-between;
   padding: 1.4rem;
-  border: 1px solid rgba(151, 191, 255, 0.18);
+  border: 1px solid var(--rm-border);
   border-radius: 8px;
   background:
     var(--rm-card-gradient),
@@ -582,7 +612,7 @@
 }
 
 .mentor-card span {
-  color: var(--rm-cyan);
+  color: var(--rm-accent);
   font-weight: 900;
 }
 
