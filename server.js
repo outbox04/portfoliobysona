@@ -103,7 +103,7 @@ app.get('/sitemap.xml', (req, res) => {
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
   // Các trang tĩnh
-  const staticPages = ['', '/kien-thuc', '/ecosystem', '/content-os'];
+  const staticPages = ['', '/kien-thuc', '/ecosystem', '/content-os', '/growth-roadmap'];
   staticPages.forEach(page => {
     xml += `  <url>\n    <loc>${baseUrl}${page}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>${page === '' ? '1.0' : '0.8'}</priority>\n  </url>\n`;
   });
@@ -130,6 +130,10 @@ app.get('/ecosystem', (req, res) => {
 
 app.get('/content-os', (req, res) => {
   res.render('content-os/index', { siteUrl: getSiteUrl(req) });
+});
+
+app.get('/growth-roadmap', (req, res) => {
+  res.render('growth-roadmap', { siteUrl: getSiteUrl(req) });
 });
 
 app.post('/api/generate-content', async (req, res) => {
