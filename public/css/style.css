@@ -502,7 +502,9 @@ ul { list-style: none; }
   transition: var(--t);
 }
 .stat-card:hover { border-color: var(--border-hover); transform: translateY(-4px); box-shadow: var(--shadow-red); }
+.stat-value { display: inline-flex; align-items: baseline; justify-content: center; gap: 4px; white-space: nowrap; }
 .stat-num { display: block; font-family: var(--ff-display); font-size: 2.2rem; font-weight: 900; color: var(--red); line-height: 1; }
+.stat-suffix { display: inline-block; color: var(--text); font-size: 0.85rem; font-weight: 800; line-height: 1; }
 .stat-label { display: block; font-size: 10px; color: var(--text-3); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 6px; }
 
 .info-card { background: var(--bg-3); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; display: flex; flex-direction: column; gap: 18px; }
