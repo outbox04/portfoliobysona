@@ -1,6 +1,6 @@
 const knowledge = [
     {
-id: 'ai-thay-doi-marketing-2025',
+id: 'ai-thay-doi-marketing-2026',
     type: 'news',
     cat: 'AI & Công nghệ',
     title: 'AI đang thay đổi ngành Marketing như thế nào trong 2026?',

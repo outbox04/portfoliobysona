@@ -288,6 +288,60 @@ document.querySelectorAll('.kp-tab').forEach(btn => {
     });
   });
 });
+
+// Project brief modal
+const briefModal = document.getElementById('briefModal');
+const briefForm = document.getElementById('briefForm');
+const briefOpenButtons = document.querySelectorAll('[data-brief-open]');
+const briefCloseButtons = document.querySelectorAll('[data-brief-close]');
+
+function openBriefModal() {
+  if (!briefModal) return;
+  briefModal.classList.add('open');
+  briefModal.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  const firstField = briefModal.querySelector('input, textarea, button');
+  firstField && firstField.focus();
+}
+
+function closeBriefModal() {
+  if (!briefModal) return;
+  briefModal.classList.remove('open');
+  briefModal.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+briefOpenButtons.forEach(button => button.addEventListener('click', openBriefModal));
+briefCloseButtons.forEach(button => button.addEventListener('click', closeBriefModal));
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && briefModal && briefModal.classList.contains('open')) {
+    closeBriefModal();
+  }
+});
+
+briefForm && briefForm.addEventListener('submit', e => {
+  e.preventDefault();
+  const data = new FormData(briefForm);
+  const goals = data.getAll('goals');
+  const body = [
+    'Brief dự án mới',
+    '',
+    `Tên thương hiệu: ${data.get('brand') || ''}`,
+    `Sản phẩm / dịch vụ: ${data.get('product') || ''}`,
+    `Website / Fanpage: ${data.get('channel') || ''}`,
+    `Ngân sách dự kiến: ${data.get('budget') || ''}`,
+    `Mong muốn triển khai: ${goals.length ? goals.join(', ') : 'Chưa chọn'}`,
+    '',
+    'Thông tin chi tiết và kỳ vọng:',
+    data.get('detail') || ''
+  ].join('\n');
+
+  const subject = `Brief dự án - ${data.get('brand') || 'Thương hiệu mới'}`;
+  window.location.href = `mailto:decaztran@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  closeBriefModal();
+});
+
 // BLOCK DEVTOOLS
 document.addEventListener('contextmenu', e => {
   e.preventDefault();
@@ -344,6 +398,7 @@ document.addEventListener('paste', e => {
 });
 
 document.addEventListener('selectstart', e => {
+  if (e.target && (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')) return;
   e.preventDefault();
 });
 

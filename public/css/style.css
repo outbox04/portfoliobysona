@@ -1612,8 +1612,14 @@ ul { list-style: none; }
 
 .contact-console__actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.contact-brief-btn {
+  min-width: min(100%, 240px);
+  justify-content: center;
+  cursor: pointer;
 }
 
 .contact__grid {
@@ -1648,18 +1654,6 @@ ul { list-style: none; }
   transform: translateY(28px);
   opacity: 0;
   transition: opacity var(--t), transform var(--t);
-}
-
-.contact-item::after {
-  content: '';
-  position: absolute;
-  right: 18px;
-  top: 18px;
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  border: 1px solid rgba(230,48,34,0.22);
-  background: rgba(230,48,34,0.045);
 }
 
 .contact-item:hover {
@@ -1704,8 +1698,9 @@ ul { list-style: none; }
 
 .contact-val {
   color: var(--text);
-  font-size: 0.95rem;
-  font-weight: 800;
+  font-size: clamp(1.05rem, 1.25vw, 1.32rem);
+  font-weight: 900;
+  line-height: 1.35;
   overflow-wrap: anywhere;
 }
 
@@ -1719,8 +1714,164 @@ ul { list-style: none; }
 }
 
 .contact-action::after {
-  content: ' ->';
+  content: ' →';
   color: var(--red);
+}
+
+.brief-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.brief-modal.open {
+  display: flex;
+}
+
+.brief-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(5, 5, 8, 0.78);
+  backdrop-filter: blur(12px);
+}
+
+.brief-modal__dialog {
+  position: relative;
+  width: min(860px, 100%);
+  max-height: min(88vh, 820px);
+  overflow: auto;
+  border: 1px solid rgba(230,48,34,0.28);
+  border-radius: 22px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(230,48,34,0.14), transparent 34%),
+    var(--bg-2);
+  box-shadow: 0 34px 120px rgba(0,0,0,0.55);
+  padding: 30px;
+}
+
+.brief-modal__close {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-3);
+  color: var(--text);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.brief-modal__head {
+  max-width: 620px;
+  margin-bottom: 24px;
+}
+
+.brief-modal__head h3 {
+  margin: 0 0 10px;
+  color: var(--text);
+  font-family: var(--ff-display);
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.08;
+}
+
+.brief-modal__head p:not(.section-label) {
+  color: var(--text-3);
+  line-height: 1.7;
+}
+
+.brief-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.brief-form label,
+.brief-form fieldset {
+  display: grid;
+  gap: 8px;
+  color: var(--text-2);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.brief-form input,
+.brief-form textarea {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-3);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: none;
+  padding: 13px 14px;
+  outline: none;
+}
+
+.brief-form input:focus,
+.brief-form textarea:focus {
+  border-color: var(--border-hover);
+  box-shadow: 0 0 0 4px rgba(230,48,34,0.12);
+}
+
+.brief-form fieldset,
+.brief-form__wide,
+.brief-form__submit {
+  grid-column: 1 / -1;
+}
+
+.brief-form fieldset {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.brief-form legend {
+  padding: 0 8px;
+  color: var(--red);
+}
+
+.brief-checks {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.brief-checks label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 9px 12px;
+  background: var(--bg-3);
+  color: var(--text-3);
+  font-size: 0.76rem;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.brief-checks input {
+  width: auto;
+  accent-color: var(--red);
+}
+
+.brief-form__submit {
+  justify-self: center;
+  min-width: 220px;
+  cursor: pointer;
 }
 
 @keyframes contactConsoleScan {
@@ -1885,6 +2036,10 @@ ul { list-style: none; }
   .contact-status { left: 24px; top: 22px; }
   .contact__grid { grid-template-columns: 1fr; }
   .contact-item { min-height: 190px; }
+  .brief-modal { padding: 14px; }
+  .brief-modal__dialog { padding: 22px; }
+  .brief-form { grid-template-columns: 1fr; }
+  .brief-checks { grid-template-columns: 1fr; }
   .about__stats { grid-template-columns: repeat(3,1fr); gap: 10px; }
   body { cursor: auto; }
   .cursor, .cursor-follower { display: none; }
