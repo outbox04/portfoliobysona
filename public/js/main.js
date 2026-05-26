@@ -1,21 +1,93 @@
-// ═══ THEME TOGGLE ═══
-// First load experience
+// ═══ MARKETER RUNNING LOADER ═══
+// First load experience with progress animation
 (() => {
-  const intro = document.getElementById('introExperience');
+  const loader = document.getElementById('marketerLoader');
   const rootEl = document.documentElement;
-  if (!intro || !rootEl.classList.contains('intro-pending')) return;
+  if (!loader || !rootEl.classList.contains('intro-pending')) return;
 
-  const finishIntro = () => {
-    intro.classList.add('is-leaving');
-    rootEl.classList.add('intro-revealing');
-    window.setTimeout(() => {
-      rootEl.classList.remove('intro-pending', 'intro-revealing');
-      intro.remove();
-    }, 950);
+  const progressPercent = document.getElementById('loaderPercent');
+  const loaderText = document.getElementById('loaderText');
+  const fillEl = loader.querySelector('.marketer-loader__fill');
+  const glowEl = loader.querySelector('.marketer-loader__glow');
+  const runnerEl = loader.querySelector('.marketer-loader__runner');
+
+  let currentProgress = 0;
+  const messages = [
+    'Initializing...',
+    'Analyzing Markets...',
+    'Building Strategy...',
+    'Crafting Content...',
+    'Optimizing Campaigns...',
+    'Finalizing System...',
+  ];
+
+  // Simulate realistic progress: fast at first, slower near 100%
+  const progressSteps = [
+    { time: 500, value: 15 },
+    { time: 1200, value: 35 },
+    { time: 2000, value: 55 },
+    { time: 3000, value: 75 },
+    { time: 4200, value: 90 },
+  ];
+
+  let stepIndex = 0;
+
+  const updateProgress = (targetProgress) => {
+    currentProgress = targetProgress;
+    const clampedProgress = Math.min(targetProgress, 100);
+    
+    // Update percentage text
+    progressPercent.textContent = Math.round(clampedProgress);
+    
+    // Update progress bar fills
+    fillEl.style.width = clampedProgress + '%';
+    glowEl.style.width = clampedProgress + '%';
+    
+    // Update runner position (add slight offset)
+    const runnerPos = Math.max(0, clampedProgress - 3);
+    runnerEl.style.left = runnerPos + '%';
+    
+    // Update message based on progress
+    const messageIndex = Math.min(
+      Math.floor(clampedProgress / 20),
+      messages.length - 1
+    );
+    loaderText.textContent = messages[messageIndex];
   };
 
-  // Flag đã được set trong head, không cần set lại
-  window.setTimeout(finishIntro, 5000);
+  // Start progress animation
+  progressSteps.forEach((step, idx) => {
+    setTimeout(() => {
+      updateProgress(step.value);
+    }, step.time);
+  });
+
+  // Final finish sequence at 4.5s
+  setTimeout(() => {
+    // Rapid fill to 100%
+    let finalProgress = 90;
+    const finalInterval = setInterval(() => {
+      finalProgress += 2;
+      if (finalProgress >= 100) {
+        finalProgress = 100;
+        clearInterval(finalInterval);
+        
+        // Finish animation
+        setTimeout(() => {
+          loader.classList.add('is-finishing');
+          rootEl.classList.add('intro-revealing');
+          
+          // Remove loader and reveal homepage after animation
+          setTimeout(() => {
+            rootEl.classList.remove('intro-pending', 'intro-revealing');
+            loader.remove();
+          }, 800);
+        }, 300);
+      } else {
+        updateProgress(finalProgress);
+      }
+    }, 50);
+  }, 4500);
 })();
 
 const root = document.documentElement;
