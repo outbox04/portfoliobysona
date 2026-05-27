@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="stylesheet" href="/css/style.css?v=20260527-brief-align" />
+  <link rel="stylesheet" href="/css/style.css?v=20260527-floating-brief" />
 
   <link rel="preload" as="image" href="/images/avatar/avatar.jpg" />
 
@@ -97,6 +97,9 @@
 <%- include('partials/preloader') %>
 <div class="cursor" id="cursor"></div>
 <div class="cursor-follower" id="cursorFollower"></div>
+<button class="floating-brief-btn" type="button" data-brief-open aria-label="Mở form gửi brief dự án">
+  Kết nối dự án
+</button>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
@@ -843,7 +846,7 @@
 
 <%- include('partials/footer') %>
 <script src="/js/preloader.js?v=20260527-session-once"></script>
-<script src="/js/main.js?v=20260527-brief-toast"></script>
+<script src="/js/main.js?v=20260527-floating-brief"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>

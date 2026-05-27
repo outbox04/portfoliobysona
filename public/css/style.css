@@ -1624,6 +1624,44 @@ ul { list-style: none; }
   cursor: pointer;
 }
 
+.floating-brief-btn {
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  z-index: 120;
+  min-width: 170px;
+  min-height: 48px;
+  transform: translate(-50%, 90px);
+  opacity: 0;
+  pointer-events: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 28px;
+  background: var(--red);
+  color: #fff;
+  font-family: var(--ff-body);
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  box-shadow: 0 12px 36px rgba(230,48,34,.34), 0 0 0 1px rgba(255,255,255,.08) inset;
+  cursor: pointer;
+  transition: transform var(--t), opacity var(--t), background var(--t), box-shadow var(--t);
+}
+
+.floating-brief-btn.is-visible {
+  transform: translate(-50%, 0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.floating-brief-btn:hover {
+  background: var(--red-dark);
+  transform: translate(-50%, -3px);
+  box-shadow: 0 16px 44px rgba(230,48,34,.45), 0 0 0 1px rgba(255,255,255,.12) inset;
+}
+
 .contact__grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2112,6 +2150,7 @@ ul { list-style: none; }
   .brief-modal__dialog { padding: 22px; }
   .brief-form { grid-template-columns: 1fr; }
   .brief-checks { grid-template-columns: 1fr; }
+  .floating-brief-btn { bottom: 14px; min-width: 156px; }
   .about__stats { grid-template-columns: repeat(3,1fr); gap: 10px; }
   body { cursor: auto; }
   .cursor, .cursor-follower { display: none; }

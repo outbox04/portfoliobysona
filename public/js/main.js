@@ -298,6 +298,7 @@ const briefModal = document.getElementById('briefModal');
 const briefForm = document.getElementById('briefForm');
 const briefOpenButtons = document.querySelectorAll('[data-brief-open]');
 const briefCloseButtons = document.querySelectorAll('[data-brief-close]');
+const floatingBriefButton = document.querySelector('.floating-brief-btn');
 const briefToast = document.getElementById('briefToast');
 const briefToastIcon = document.getElementById('briefToastIcon');
 const briefToastTitle = document.getElementById('briefToastTitle');
@@ -346,6 +347,7 @@ function openBriefModal() {
   briefModal.classList.add('open');
   briefModal.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
+  updateFloatingBriefButton();
   const firstField = briefModal.querySelector('input, textarea, button');
   firstField && firstField.focus();
 }
@@ -355,6 +357,7 @@ function closeBriefModal() {
   briefModal.classList.remove('open');
   briefModal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  updateFloatingBriefButton();
 }
 
 function showBriefToast(type, title, message, duration = 3200) {
@@ -374,6 +377,15 @@ function showBriefToast(type, title, message, duration = 3200) {
 
 briefOpenButtons.forEach(button => button.addEventListener('click', openBriefModal));
 briefCloseButtons.forEach(button => button.addEventListener('click', closeBriefModal));
+
+function updateFloatingBriefButton() {
+  if (!floatingBriefButton) return;
+  const shouldShow = window.scrollY > 520 && (!briefModal || !briefModal.classList.contains('open'));
+  floatingBriefButton.classList.toggle('is-visible', shouldShow);
+}
+
+window.addEventListener('scroll', updateFloatingBriefButton, { passive: true });
+updateFloatingBriefButton();
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && briefModal && briefModal.classList.contains('open')) {
