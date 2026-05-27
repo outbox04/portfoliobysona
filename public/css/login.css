@@ -6,12 +6,12 @@
     radial-gradient(circle at 82% 12%, rgba(37,99,235,.14), transparent 30rem),
     var(--bg);
   color: var(--text);
-  cursor: auto;
+  cursor: auto !important;
 }
 
 .login-page *,
 .admin-page * {
-  cursor: auto;
+  cursor: auto !important;
 }
 
 .login-page a,
@@ -20,12 +20,12 @@
 .admin-page a,
 .admin-page button,
 .admin-page input {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 .login-page input,
 .admin-page input {
-  cursor: text;
+  cursor: text !important;
 }
 
 .login-shell,
@@ -131,7 +131,7 @@
 
 .login-submit:disabled {
   opacity: .55;
-  cursor: not-allowed;
+  cursor: not-allowed !important;
   box-shadow: none;
 }
 

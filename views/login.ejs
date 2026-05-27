@@ -1,24 +1,24 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Đăng nhập quản trị | Portfolio</title>
+  <title>ÄÄƒng nháº­p quáº£n trá»‹ | Portfolio</title>
   <link rel="icon" href="/images/software/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css?v=20260527-brief-submit-align" />
-  <link rel="stylesheet" href="/css/login.css?v=20260527-auth-register" />
+  <link rel="stylesheet" href="/css/login.css?v=20260527-auth-font-cursor" />
 </head>
 <body class="login-page">
   <main class="login-shell">
     <section class="login-panel" aria-labelledby="loginTitle">
-      <a class="login-brand" href="/" aria-label="Về trang chủ">HS<span>.</span></a>
+      <a class="login-brand" href="/" aria-label="Vá» trang chá»§">HS<span>.</span></a>
       <p class="login-kicker">Project Admin</p>
-      <h1 id="loginTitle">Đăng nhập quản trị dự án</h1>
-      <p class="login-copy">Đăng nhập bằng tài khoản đã được cấp quyền trong hệ thống quản trị.</p>
+      <h1 id="loginTitle">ÄÄƒng nháº­p quáº£n trá»‹ dá»± Ă¡n</h1>
+      <p class="login-copy">ÄÄƒng nháº­p báº±ng tĂ i khoáº£n Ä‘Ă£ Ä‘Æ°á»£c cáº¥p quyá»n trong há»‡ thá»‘ng quáº£n trá»‹.</p>
 
       <% if (error) { %>
         <div class="login-alert" role="alert"><%= error %></div>
@@ -26,17 +26,17 @@
 
       <form class="login-form" action="/login" method="POST" autocomplete="on">
         <label>
-          Tài khoản
-          <input name="username" type="text" autocomplete="username" placeholder="Nhập tài khoản quản trị" required autofocus />
+          TĂ i khoáº£n
+          <input name="username" type="text" autocomplete="username" placeholder="Nháº­p tĂ i khoáº£n quáº£n trá»‹" required autofocus />
         </label>
         <label>
-          Mật khẩu
-          <input name="password" type="password" autocomplete="current-password" placeholder="Nhập mật khẩu" required />
+          Máº­t kháº©u
+          <input name="password" type="password" autocomplete="current-password" placeholder="Nháº­p máº­t kháº©u" required />
         </label>
-        <button class="btn btn--primary login-submit" type="submit">Đăng nhập</button>
+        <button class="btn btn--primary login-submit" type="submit">ÄÄƒng nháº­p</button>
       </form>
 
-      <p class="auth-switch">Chưa có tài khoản? <a href="/register">Đăng ký quyền truy cập</a></p>
+      <p class="auth-switch">ChÆ°a cĂ³ tĂ i khoáº£n? <a href="/register">ÄÄƒng kĂ½ quyá»n truy cáº­p</a></p>
     </section>
   </main>
 </body>

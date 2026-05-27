@@ -1,24 +1,24 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>ÄÄƒng kĂ½ quáº£n trá»‹ | Portfolio</title>
+  <title>&#272;&#259;ng k&#253; qu&#7843;n tr&#7883; | Portfolio</title>
   <link rel="icon" href="/images/software/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="/css/style.css?v=20260527-brief-submit-align" />
-  <link rel="stylesheet" href="/css/login.css?v=20260527-password-strength" />
+  <link rel="stylesheet" href="/css/login.css?v=20260527-auth-font-cursor" />
 </head>
 <body class="login-page">
   <main class="login-shell">
     <section class="login-panel" aria-labelledby="registerTitle">
-      <a class="login-brand" href="/" aria-label="Vá» trang chá»§">HS<span>.</span></a>
+      <a class="login-brand" href="/" aria-label="V&#7873; trang ch&#7911;">HS<span>.</span></a>
       <p class="login-kicker">Project Admin</p>
-      <h1 id="registerTitle">ÄÄƒng kĂ½ tĂ i khoáº£n quáº£n trá»‹</h1>
-      <p class="login-copy">Táº¡o tĂ i khoáº£n Ä‘á»ƒ truy cáº­p khu vá»±c quáº£n trá»‹ dá»± Ă¡n. TĂ i khoáº£n cĂ³ thá»ƒ cáº§n Ä‘Æ°á»£c kĂ­ch hoáº¡t trÆ°á»›c khi Ä‘Äƒng nháº­p.</p>
+      <h1 id="registerTitle">&#272;&#259;ng k&#253; t&#224;i kho&#7843;n qu&#7843;n tr&#7883;</h1>
+      <p class="login-copy">T&#7841;o t&#224;i kho&#7843;n &#273;&#7875; truy c&#7853;p khu v&#7921;c qu&#7843;n tr&#7883; d&#7921; &#225;n. T&#224;i kho&#7843;n c&#243; th&#7875; c&#7847;n &#273;&#432;&#7907;c k&#237;ch ho&#7841;t tr&#432;&#7899;c khi &#273;&#259;ng nh&#7853;p.</p>
 
       <% if (error) { %>
         <div class="login-alert" role="alert"><%= error %></div>
@@ -30,20 +30,20 @@
 
       <form class="login-form" action="/register" method="POST" autocomplete="on">
         <label>
-          Há» tĂªn
-          <input name="fullName" type="text" autocomplete="name" placeholder="Nháº­p há» tĂªn" />
+          H&#7885; t&#234;n
+          <input name="fullName" type="text" autocomplete="name" placeholder="Nh&#7853;p h&#7885; t&#234;n" />
         </label>
         <label>
           Email
-          <input name="email" type="email" autocomplete="email" placeholder="Nháº­p email" />
+          <input name="email" type="email" autocomplete="email" placeholder="Nh&#7853;p email" />
         </label>
         <label>
-          TĂ i khoáº£n
-          <input name="username" type="text" autocomplete="username" placeholder="Táº¡o tĂ i khoáº£n Ä‘Äƒng nháº­p" required autofocus />
+          T&#224;i kho&#7843;n
+          <input name="username" type="text" autocomplete="username" placeholder="T&#7841;o t&#224;i kho&#7843;n &#273;&#259;ng nh&#7853;p" required autofocus />
         </label>
         <label>
-          Máº­t kháº©u
-          <input id="registerPassword" name="password" type="password" autocomplete="new-password" placeholder="Táº¡o máº­t kháº©u" required />
+          M&#7853;t kh&#7849;u
+          <input id="registerPassword" name="password" type="password" autocomplete="new-password" placeholder="T&#7841;o m&#7853;t kh&#7849;u" required />
         </label>
         <div class="password-rules" id="passwordRules" aria-live="polite">
           <p data-rule="length">8 k&#253; t&#7921; tr&#7903; l&#234;n</p>
@@ -52,14 +52,14 @@
           <p data-rule="special">&#205;t nh&#7845;t 1 k&#253; t&#7921; &#273;&#7863;c bi&#7879;t</p>
         </div>
         <label>
-          XĂ¡c nháº­n máº­t kháº©u
-          <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" placeholder="Nháº­p láº¡i máº­t kháº©u" required />
+          X&#225;c nh&#7853;n m&#7853;t kh&#7849;u
+          <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" placeholder="Nh&#7853;p l&#7841;i m&#7853;t kh&#7849;u" required />
         </label>
         <p class="password-match" id="passwordMatch" aria-live="polite"></p>
-        <button class="btn btn--primary login-submit" type="submit">ÄÄƒng kĂ½</button>
+        <button class="btn btn--primary login-submit" type="submit">&#272;&#259;ng k&#253;</button>
       </form>
 
-      <p class="auth-switch">ÄĂ£ cĂ³ tĂ i khoáº£n? <a href="/login">ÄÄƒng nháº­p</a></p>
+      <p class="auth-switch">&#272;&#227; c&#243; t&#224;i kho&#7843;n? <a href="/login">&#272;&#259;ng nh&#7853;p</a></p>
     </section>
   </main>
   <script src="/js/register.js?v=20260527-password-strength" defer></script>
