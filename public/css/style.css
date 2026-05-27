@@ -441,9 +441,11 @@ ul { list-style: none; }
 
 /* ═══ BUTTONS ═══ */
 .btn {
-  display: inline-flex; align-items: center; gap: 10px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   padding: 13px 30px; border-radius: 100px;
+  border: 0;
   font-family: var(--ff-body); font-size: 13px;
+  line-height: 1;
   font-weight: 700; letter-spacing: 0.06em;
   text-transform: uppercase; cursor: none;
   transition: transform var(--t), box-shadow var(--t), background var(--t), color var(--t), border-color var(--t);
@@ -1871,6 +1873,9 @@ ul { list-style: none; }
 .brief-form__submit {
   justify-self: center;
   min-width: 220px;
+  min-height: 48px;
+  text-align: center;
+  white-space: nowrap;
   cursor: pointer;
 }
 

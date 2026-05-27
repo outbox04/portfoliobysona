@@ -23,7 +23,12 @@ app.use(helmet({
       styleSrc: ["'self'", "'unsafe-inline'", "https://fonts.googleapis.com"],
       fontSrc: ["'self'", "https://fonts.gstatic.com"],
       imgSrc: ["'self'", "data:", "https://images.dmca.com", "https://www.google-analytics.com"],
-      connectSrc: ["'self'", "https://www.google-analytics.com"],
+      connectSrc: [
+        "'self'",
+        "https://www.google-analytics.com",
+        "https://script.google.com",
+        "https://script.googleusercontent.com"
+      ],
       frameAncestors: ["'self'"]
     }
   }

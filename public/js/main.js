@@ -360,7 +360,7 @@ briefForm && briefForm.addEventListener('submit', async e => {
       method: 'POST',
       mode: 'no-cors',
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'text/plain;charset=utf-8'
       },
       body: JSON.stringify(payload)
     });
@@ -369,6 +369,7 @@ briefForm && briefForm.addEventListener('submit', async e => {
     form.reset();
     closeBriefModal();
   } catch (error) {
+    console.error('Brief submit failed:', error);
     alert('Có lỗi xảy ra khi gửi brief. Vui lòng thử lại.');
   } finally {
     if (submitBtn) {
