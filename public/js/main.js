@@ -293,6 +293,7 @@ document.querySelectorAll('.kp-tab').forEach(btn => {
 });
 
 // Project brief modal
+const BRIEF_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxWH2w3A4wf8dg6H1dLCHDCP8-_4putsz0L4vtQ_Q7d5_uXPOaqWrenD2yU8Pqowl8s8A/exec';
 const briefModal = document.getElementById('briefModal');
 const briefForm = document.getElementById('briefForm');
 const briefOpenButtons = document.querySelectorAll('[data-brief-open]');
@@ -323,26 +324,58 @@ document.addEventListener('keydown', e => {
   }
 });
 
-briefForm && briefForm.addEventListener('submit', e => {
+briefForm && briefForm.addEventListener('submit', async e => {
   e.preventDefault();
-  const data = new FormData(briefForm);
-  const goals = data.getAll('goals');
-  const body = [
-    'Brief dự án mới',
-    '',
-    `Tên thương hiệu: ${data.get('brand') || ''}`,
-    `Sản phẩm / dịch vụ: ${data.get('product') || ''}`,
-    `Website / Fanpage: ${data.get('channel') || ''}`,
-    `Ngân sách dự kiến: ${data.get('budget') || ''}`,
-    `Mong muốn triển khai: ${goals.length ? goals.join(', ') : 'Chưa chọn'}`,
-    '',
-    'Thông tin chi tiết và kỳ vọng:',
-    data.get('detail') || ''
-  ].join('\n');
+  const form = e.target;
+  const submitBtn = form.querySelector('.brief-form__submit');
+  const goals = Array.from(form.querySelectorAll('input[name="goals"]:checked')).map(item => item.value);
 
-  const subject = `Brief dự án - ${data.get('brand') || 'Thương hiệu mới'}`;
-  window.location.href = `mailto:decaztran@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  closeBriefModal();
+  const payload = {
+    brand: form.brand.value.trim(),
+    product: form.product.value.trim(),
+    channel: form.channel.value.trim(),
+    budget: form.budget.value.trim(),
+    goals,
+    detail: form.detail.value.trim(),
+    source: window.location.href
+  };
+
+  if (!payload.brand || !payload.product || !payload.detail) {
+    alert('Vui lòng điền đầy đủ Tên thương hiệu, Sản phẩm/Dịch vụ và Thông tin chi tiết.');
+    return;
+  }
+
+  if (!BRIEF_WEB_APP_URL || BRIEF_WEB_APP_URL === 'PASTE_WEB_APP_URL') {
+    alert('Chưa cấu hình Web App URL để nhận brief.');
+    return;
+  }
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Đang gửi brief...';
+  }
+
+  try {
+    await fetch(BRIEF_WEB_APP_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    });
+
+    alert('Brief đã được gửi thành công. Tôi sẽ phản hồi bạn sớm!');
+    form.reset();
+    closeBriefModal();
+  } catch (error) {
+    alert('Có lỗi xảy ra khi gửi brief. Vui lòng thử lại.');
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Gửi Brief';
+    }
+  }
 });
 
 // BLOCK DEVTOOLS
