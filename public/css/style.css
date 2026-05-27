@@ -1879,6 +1879,73 @@ ul { list-style: none; }
   cursor: pointer;
 }
 
+.brief-toast {
+  position: fixed;
+  inset: 0;
+  z-index: 260;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  pointer-events: none;
+}
+
+.brief-toast.is-open {
+  display: flex;
+}
+
+.brief-toast__dialog {
+  display: grid;
+  grid-template-columns: 46px minmax(0, 1fr);
+  gap: 14px;
+  width: min(440px, 100%);
+  padding: 20px;
+  border: 1px solid rgba(230,48,34,0.28);
+  border-radius: 18px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(230,48,34,0.14), transparent 42%),
+    var(--bg-2);
+  box-shadow: 0 28px 100px rgba(0,0,0,0.48);
+  animation: briefToastIn .22s var(--ease) forwards;
+}
+
+.brief-toast__icon {
+  width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: var(--red);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 900;
+  box-shadow: 0 0 0 8px rgba(230,48,34,0.12);
+}
+
+.brief-toast__dialog strong {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.brief-toast__dialog p {
+  color: var(--text-3);
+  line-height: 1.65;
+  font-size: .9rem;
+  margin: 0;
+}
+
+.brief-toast--error .brief-toast__icon {
+  background: #b02219;
+}
+
+@keyframes briefToastIn {
+  from { opacity: 0; transform: translateY(12px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
 @keyframes contactConsoleScan {
   0%, 48% { transform: translateX(-120%); opacity: 0; }
   58% { opacity: 1; }

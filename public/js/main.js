@@ -298,6 +298,48 @@ const briefModal = document.getElementById('briefModal');
 const briefForm = document.getElementById('briefForm');
 const briefOpenButtons = document.querySelectorAll('[data-brief-open]');
 const briefCloseButtons = document.querySelectorAll('[data-brief-close]');
+const briefToast = document.getElementById('briefToast');
+const briefToastIcon = document.getElementById('briefToastIcon');
+const briefToastTitle = document.getElementById('briefToastTitle');
+const briefToastMessage = document.getElementById('briefToastMessage');
+let briefToastTimer;
+
+function normalizeBudget(value) {
+  const raw = String(value || '').trim();
+  if (!raw) return '';
+
+  const normalized = raw
+    .toLowerCase()
+    .replace(/\s+/g, ' ')
+    .replace(/,/g, '.');
+
+  const rangeMatch = normalized.match(/^(\d+(?:\.\d+)?)\s*[-–]\s*(\d+(?:\.\d+)?)\s*(k|nghìn|ngàn|tr|triệu|m|mil|million)?(?:\/\s*(tháng|month))?$/i);
+  if (rangeMatch) {
+    const unit = rangeMatch[3] || 'triệu';
+    const suffix = rangeMatch[4] ? '/tháng' : '';
+    const normalizedUnit = normalizeBudgetUnit(unit);
+    return normalizedUnit === 'k'
+      ? `${rangeMatch[1]}-${rangeMatch[2]}k${suffix}`
+      : `${rangeMatch[1]}-${rangeMatch[2]} ${normalizedUnit}${suffix}`;
+  }
+
+  const match = normalized.match(/^(\d+(?:\.\d+)?)\s*(k|nghìn|ngàn|tr|triệu|m|mil|million)?(?:\s*\/\s*(tháng|month))?$/i);
+  if (!match) return raw;
+
+  const amount = match[1];
+  const unit = match[2] || 'triệu';
+  const suffix = match[3] ? '/tháng' : '';
+  const normalizedUnit = normalizeBudgetUnit(unit);
+  return normalizedUnit === 'k'
+    ? `${amount}k${suffix}`
+    : `${amount} ${normalizedUnit}${suffix}`;
+}
+
+function normalizeBudgetUnit(unit) {
+  const value = String(unit || '').toLowerCase();
+  if (['k', 'nghìn', 'ngàn'].includes(value)) return 'k';
+  return 'triệu';
+}
 
 function openBriefModal() {
   if (!briefModal) return;
@@ -313,6 +355,21 @@ function closeBriefModal() {
   briefModal.classList.remove('open');
   briefModal.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+}
+
+function showBriefToast(type, title, message, duration = 3200) {
+  if (!briefToast) return;
+  window.clearTimeout(briefToastTimer);
+  briefToast.classList.toggle('brief-toast--error', type === 'error');
+  if (briefToastIcon) briefToastIcon.textContent = type === 'error' ? '!' : '✓';
+  if (briefToastTitle) briefToastTitle.textContent = title;
+  if (briefToastMessage) briefToastMessage.textContent = message;
+  briefToast.classList.add('is-open');
+  briefToast.setAttribute('aria-hidden', 'false');
+  briefToastTimer = window.setTimeout(() => {
+    briefToast.classList.remove('is-open', 'brief-toast--error');
+    briefToast.setAttribute('aria-hidden', 'true');
+  }, duration);
 }
 
 briefOpenButtons.forEach(button => button.addEventListener('click', openBriefModal));
@@ -334,7 +391,7 @@ briefForm && briefForm.addEventListener('submit', async e => {
     brand: form.brand.value.trim(),
     product: form.product.value.trim(),
     channel: form.channel.value.trim(),
-    budget: form.budget.value.trim(),
+    budget: normalizeBudget(form.budget.value),
     goals: goals.join(', '),
     goalsJson: JSON.stringify(goals),
     detail: form.detail.value.trim(),
@@ -343,12 +400,12 @@ briefForm && briefForm.addEventListener('submit', async e => {
   };
 
   if (!payload.brand || !payload.product || !payload.detail) {
-    alert('Vui lòng điền đầy đủ Tên thương hiệu, Sản phẩm/Dịch vụ và Thông tin chi tiết.');
+    showBriefToast('error', 'Thiếu thông tin brief', 'Vui lòng điền đầy đủ Tên thương hiệu, Sản phẩm/Dịch vụ và Thông tin chi tiết.', 4200);
     return;
   }
 
   if (!BRIEF_WEB_APP_URL || BRIEF_WEB_APP_URL === 'PASTE_WEB_APP_URL') {
-    alert('Chưa cấu hình Web App URL để nhận brief.');
+    showBriefToast('error', 'Chưa cấu hình endpoint', 'Website chưa có Web App URL để nhận brief.', 4200);
     return;
   }
 
@@ -366,12 +423,12 @@ briefForm && briefForm.addEventListener('submit', async e => {
       body
     });
 
-    alert('Brief đã được gửi thành công. Tôi sẽ phản hồi bạn sớm!');
     form.reset();
     closeBriefModal();
+    showBriefToast('success', 'Brief đã được gửi', 'Cảm ơn bạn. Tôi đã nhận thông tin và sẽ phản hồi trong thời gian sớm nhất.');
   } catch (error) {
     console.error('Brief submit failed:', error);
-    alert('Có lỗi xảy ra khi gửi brief. Vui lòng thử lại.');
+    showBriefToast('error', 'Chưa gửi được brief', 'Có lỗi xảy ra khi gửi brief. Vui lòng thử lại hoặc liên hệ trực tiếp qua email.', 4600);
   } finally {
     if (submitBtn) {
       submitBtn.disabled = false;

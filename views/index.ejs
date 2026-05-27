@@ -815,6 +815,16 @@
   </div>
 </div>
 
+<div class="brief-toast" id="briefToast" aria-live="polite" aria-hidden="true">
+  <div class="brief-toast__dialog" role="status">
+    <div class="brief-toast__icon" id="briefToastIcon">✓</div>
+    <div>
+      <strong id="briefToastTitle">Đã gửi brief</strong>
+      <p id="briefToastMessage">Cảm ơn bạn. Tôi sẽ phản hồi trong thời gian sớm nhất.</p>
+    </div>
+  </div>
+</div>
+
 <!-- DOWNLOAD CV -->
 <section class="download-cv">
   <div class="container">
@@ -833,7 +843,7 @@
 
 <%- include('partials/footer') %>
 <script src="/js/preloader.js?v=20260527-session-once"></script>
-<script src="/js/main.js?v=20260527-brief-webapp-new-url"></script>
+<script src="/js/main.js?v=20260527-brief-toast"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 <script defer src="/_vercel/speed-insights/script.js"></script>
 </body>
