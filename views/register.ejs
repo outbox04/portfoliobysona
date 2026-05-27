@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="vi" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow" />
-  <title>Đăng ký quản trị | Portfolio</title>
+  <title>ÄÄƒng kĂ½ quáº£n trá»‹ | Portfolio</title>
   <link rel="icon" href="/images/software/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,10 +15,10 @@
 <body class="login-page">
   <main class="login-shell">
     <section class="login-panel" aria-labelledby="registerTitle">
-      <a class="login-brand" href="/" aria-label="Về trang chủ">HS<span>.</span></a>
+      <a class="login-brand" href="/" aria-label="Vá» trang chá»§">HS<span>.</span></a>
       <p class="login-kicker">Project Admin</p>
-      <h1 id="registerTitle">Đăng ký tài khoản quản trị</h1>
-      <p class="login-copy">Tạo tài khoản để truy cập khu vực quản trị dự án. Tài khoản có thể cần được kích hoạt trước khi đăng nhập.</p>
+      <h1 id="registerTitle">ÄÄƒng kĂ½ tĂ i khoáº£n quáº£n trá»‹</h1>
+      <p class="login-copy">Táº¡o tĂ i khoáº£n Ä‘á»ƒ truy cáº­p khu vá»±c quáº£n trá»‹ dá»± Ă¡n. TĂ i khoáº£n cĂ³ thá»ƒ cáº§n Ä‘Æ°á»£c kĂ­ch hoáº¡t trÆ°á»›c khi Ä‘Äƒng nháº­p.</p>
 
       <% if (error) { %>
         <div class="login-alert" role="alert"><%= error %></div>
@@ -30,36 +30,36 @@
 
       <form class="login-form" action="/register" method="POST" autocomplete="on">
         <label>
-          Họ tên
-          <input name="fullName" type="text" autocomplete="name" placeholder="Nhập họ tên" />
+          Há» tĂªn
+          <input name="fullName" type="text" autocomplete="name" placeholder="Nháº­p há» tĂªn" />
         </label>
         <label>
           Email
-          <input name="email" type="email" autocomplete="email" placeholder="Nhập email" />
+          <input name="email" type="email" autocomplete="email" placeholder="Nháº­p email" />
         </label>
         <label>
-          Tài khoản
-          <input name="username" type="text" autocomplete="username" placeholder="Tạo tài khoản đăng nhập" required autofocus />
+          TĂ i khoáº£n
+          <input name="username" type="text" autocomplete="username" placeholder="Táº¡o tĂ i khoáº£n Ä‘Äƒng nháº­p" required autofocus />
         </label>
         <label>
-          Mật khẩu
-          <input id="registerPassword" name="password" type="password" autocomplete="new-password" placeholder="Tạo mật khẩu" required />
+          Máº­t kháº©u
+          <input id="registerPassword" name="password" type="password" autocomplete="new-password" placeholder="Táº¡o máº­t kháº©u" required />
         </label>
         <div class="password-rules" id="passwordRules" aria-live="polite">
-          <p data-rule="length">8 k? t? tr? l�n</p>
-          <p data-rule="uppercase">�t nh?t 1 k? t? in hoa</p>
-          <p data-rule="lowercase">�t nh?t 1 ch? th�?ng</p>
-          <p data-rule="special">�t nh?t 1 k? t? �?c bi?t</p>
+          <p data-rule="length">8 k&#253; t&#7921; tr&#7903; l&#234;n</p>
+          <p data-rule="uppercase">&#205;t nh&#7845;t 1 k&#253; t&#7921; in hoa</p>
+          <p data-rule="lowercase">&#205;t nh&#7845;t 1 ch&#7919; th&#432;&#7901;ng</p>
+          <p data-rule="special">&#205;t nh&#7845;t 1 k&#253; t&#7921; &#273;&#7863;c bi&#7879;t</p>
         </div>
         <label>
-          Xác nhận mật khẩu
-          <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" placeholder="Nhập lại mật khẩu" required />
+          XĂ¡c nháº­n máº­t kháº©u
+          <input id="confirmPassword" name="confirmPassword" type="password" autocomplete="new-password" placeholder="Nháº­p láº¡i máº­t kháº©u" required />
         </label>
         <p class="password-match" id="passwordMatch" aria-live="polite"></p>
-        <button class="btn btn--primary login-submit" type="submit">Đăng ký</button>
+        <button class="btn btn--primary login-submit" type="submit">ÄÄƒng kĂ½</button>
       </form>
 
-      <p class="auth-switch">Đã có tài khoản? <a href="/login">Đăng nhập</a></p>
+      <p class="auth-switch">ÄĂ£ cĂ³ tĂ i khoáº£n? <a href="/login">ÄÄƒng nháº­p</a></p>
     </section>
   </main>
   <script src="/js/register.js?v=20260527-password-strength" defer></script>

@@ -6,6 +6,26 @@
     radial-gradient(circle at 82% 12%, rgba(37,99,235,.14), transparent 30rem),
     var(--bg);
   color: var(--text);
+  cursor: auto;
+}
+
+.login-page *,
+.admin-page * {
+  cursor: auto;
+}
+
+.login-page a,
+.login-page button,
+.login-page input,
+.admin-page a,
+.admin-page button,
+.admin-page input {
+  cursor: pointer;
+}
+
+.login-page input,
+.admin-page input {
+  cursor: text;
 }
 
 .login-shell,
