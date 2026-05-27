@@ -300,6 +300,7 @@ const briefOpenButtons = document.querySelectorAll('[data-brief-open]');
 const briefCloseButtons = document.querySelectorAll('[data-brief-close]');
 const floatingBriefButton = document.querySelector('.floating-brief-btn');
 const stickyCta = document.querySelector('[data-sticky-cta]');
+const aboutHeroActions = document.querySelector('.about-me-hero__actions');
 const briefToast = document.getElementById('briefToast');
 const briefToastIcon = document.getElementById('briefToastIcon');
 const briefToastTitle = document.getElementById('briefToastTitle');
@@ -387,18 +388,26 @@ function updateFloatingBriefButton() {
 
 function updateStickyCta() {
   if (!stickyCta) return;
-  const shouldShow = window.scrollY > 520 && (!briefModal || !briefModal.classList.contains('open'));
+  const threshold = Math.round(window.innerHeight * 0.5);
+  const shouldShow = window.scrollY > threshold && (!briefModal || !briefModal.classList.contains('open'));
   stickyCta.classList.toggle('is-visible', shouldShow);
+}
+
+function updateAboutHeroActions() {
+  if (!aboutHeroActions) return;
+  aboutHeroActions.classList.toggle('is-scrolled', window.scrollY > Math.round(window.innerHeight * 0.5));
 }
 
 function updateStickyActions() {
   updateFloatingBriefButton();
   updateStickyCta();
+  updateAboutHeroActions();
 }
 
 window.addEventListener('scroll', updateStickyActions, { passive: true });
 updateFloatingBriefButton();
 updateStickyCta();
+updateAboutHeroActions();
 
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape' && briefModal && briefModal.classList.contains('open')) {

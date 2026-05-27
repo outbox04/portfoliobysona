@@ -93,6 +93,39 @@
   gap: 14px;
 }
 
+.about-me-hero__actions {
+  align-items: center;
+  transition: gap .24s var(--ease);
+}
+
+.about-hero-brief-btn {
+  overflow: hidden;
+  max-width: 220px;
+  transition: max-width .24s var(--ease), padding .24s var(--ease), opacity .18s var(--ease), transform .24s var(--ease), box-shadow var(--t), background var(--t);
+}
+
+.about-hero-read-btn {
+  transition: transform .24s var(--ease), border-color var(--t), color var(--t);
+}
+
+.about-me-hero__actions.is-scrolled {
+  gap: 0;
+}
+
+.about-me-hero__actions.is-scrolled .about-hero-brief-btn {
+  max-width: 0;
+  padding-right: 0;
+  padding-left: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-14px);
+  border-width: 0;
+}
+
+.about-me-hero__actions.is-scrolled .about-hero-read-btn {
+  transform: translateX(0);
+}
+
 .seo-visual {
   margin: 0;
   border-radius: 8px;
