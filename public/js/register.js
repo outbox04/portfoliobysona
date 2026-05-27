@@ -46,6 +46,7 @@
     const passwordStrong = validity.every(Boolean);
     const confirmActive = confirmPassword.length > 0;
     const passwordsMatch = passwordStrong && password === confirmPassword;
+    const formReady = passwordStrong && passwordsMatch;
 
     if (matchText) {
       matchText.textContent = confirmActive
@@ -54,7 +55,8 @@
       setState(matchText, passwordsMatch, confirmActive);
     }
 
-    submitButton.disabled = !(passwordStrong && passwordsMatch);
+    form.classList.toggle('is-ready', formReady);
+    submitButton.disabled = !formReady;
   }
 
   passwordInput.addEventListener('input', updatePasswordState);

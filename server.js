@@ -218,7 +218,7 @@ app.get('/login', (req, res) => {
   res.render('login', {
     siteUrl: getSiteUrl(req),
     error: null,
-    success: req.query.registered === '1' ? 'Dang ky thanh cong. Vui long dang nhap de tiep tuc.' : null
+    success: req.query.registered === '1' ? 'Đăng ký thành công. Vui lòng đăng nhập để tiếp tục.' : null
   });
 });
 
