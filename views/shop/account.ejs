@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <%- include('./partials/head', {
   title: 'Account | HS Marketing & AI Shop',
-  description: 'Quan ly tong quan, don hang, thu vien da mua, membership va profile.',
+  description: 'Quản lý tổng quan, đơn hàng, thư viện đã mua, membership và profile.',
   canonical: section === 'overview' ? '/account' : '/account/' + section,
   siteUrl
 }) %>
@@ -11,9 +11,9 @@
 
 <main class="account-shell">
   <aside class="account-sidebar">
-    <a class="<%= section === 'overview' ? 'is-active' : '' %>" href="/account">Tong quan</a>
-    <a class="<%= section === 'orders' ? 'is-active' : '' %>" href="/account/orders">Don hang</a>
-    <a class="<%= section === 'library' ? 'is-active' : '' %>" href="/account/library">Thu vien da mua</a>
+    <a class="<%= section === 'overview' ? 'is-active' : '' %>" href="/account">Tổng quan</a>
+    <a class="<%= section === 'orders' ? 'is-active' : '' %>" href="/account/orders">Đơn hàng</a>
+    <a class="<%= section === 'library' ? 'is-active' : '' %>" href="/account/library">Thư viện đã mua</a>
     <a href="/shop/category/membership">Membership</a>
     <a class="<%= section === 'profile' ? 'is-active' : '' %>" href="/account/profile">Profile</a>
     <a href="/login">Security</a>
@@ -23,19 +23,19 @@
   <section class="account-content">
     <% if (section === 'overview') { %>
       <span class="eyebrow">Dashboard</span>
-      <h1>Tong quan</h1>
+      <h1>Tổng quan</h1>
       <div class="account-metrics">
-        <div><strong>4</strong><span>Purchased products</span></div>
-        <div><strong>1</strong><span>Active membership</span></div>
-        <div><strong>2</strong><span>Pending downloads</span></div>
+        <div><strong>4</strong><span>Sản phẩm đã mua</span></div>
+        <div><strong>1</strong><span>Membership đang hoạt động</span></div>
+        <div><strong>2</strong><span>Tải xuống đang chờ</span></div>
       </div>
       <div class="library-grid">
         <% shop.products.slice(0, 3).forEach(product => { %>
           <article class="library-card">
             <img src="<%= product.thumbnail %>" alt="" loading="lazy" />
             <h3><%= product.title %></h3>
-            <p>Access active</p>
-            <a class="btn btn--ghost" href="/shop/product/<%= product.slug %>">Open resource</a>
+            <p>Đang có quyền truy cập</p>
+            <a class="btn btn--ghost" href="/shop/product/<%= product.slug %>">Mở tài nguyên</a>
           </article>
         <% }) %>
       </div>
@@ -43,16 +43,16 @@
 
     <% if (section === 'orders') { %>
       <span class="eyebrow">Orders</span>
-      <h1>Don hang</h1>
+      <h1>Đơn hàng</h1>
       <div class="order-table">
-        <div class="order-row order-row--head"><span>Order ID</span><span>Date</span><span>Status</span><span>Amount</span><span>Action</span></div>
+        <div class="order-row order-row--head"><span>Mã đơn</span><span>Ngày</span><span>Trạng thái</span><span>Số tiền</span><span>Hành động</span></div>
         <% shop.orders.forEach(order => { %>
           <div class="order-row">
             <span><%= order.id %></span>
             <span><%= order.date %></span>
             <span class="status status--<%= order.status %>"><%= order.status %></span>
             <span><%= order.amount %></span>
-            <a href="#">Download invoice</a>
+            <a href="#">Tải hoá đơn</a>
           </div>
         <% }) %>
       </div>
@@ -60,16 +60,16 @@
 
     <% if (section === 'library') { %>
       <span class="eyebrow">Library</span>
-      <h1>Thu vien da mua</h1>
+      <h1>Thư viện đã mua</h1>
       <div class="library-grid">
         <% shop.products.slice(0, 5).forEach(product => { %>
           <article class="library-card">
             <img src="<%= product.thumbnail %>" alt="" loading="lazy" />
             <h3><%= product.title %></h3>
-            <p><%= product.category === 'membership' ? 'Expires 2026-06-30' : 'Lifetime access' %></p>
+            <p><%= product.category === 'membership' ? 'Hết hạn 2026-06-30' : 'Truy cập trọn đời' %></p>
             <div>
-              <a class="btn btn--primary" href="#">Download</a>
-              <a class="btn btn--ghost" href="/shop/product/<%= product.slug %>">Open</a>
+              <a class="btn btn--primary" href="#">Tải xuống</a>
+              <a class="btn btn--ghost" href="/shop/product/<%= product.slug %>">Mở</a>
             </div>
           </article>
         <% }) %>
@@ -78,15 +78,15 @@
 
     <% if (section === 'profile') { %>
       <span class="eyebrow">Profile</span>
-      <h1>Thong tin tai khoan</h1>
+      <h1>Thông tin tài khoản</h1>
       <form class="checkout-form">
         <div class="field-grid">
-          <label>Name <input value="Tran Hong Son" /></label>
+          <label>Họ tên <input value="Tran Hong Son" /></label>
           <label>Email <input value="decaztran@gmail.com" /></label>
           <label>Company <input placeholder="Company" /></label>
-          <label>Role <input placeholder="Founder / Marketer" /></label>
+          <label>Vai trò <input placeholder="Founder / Marketer" /></label>
         </div>
-        <button class="btn btn--primary" type="button">Save profile</button>
+        <button class="btn btn--primary" type="button">Lưu hồ sơ</button>
       </form>
     <% } %>
   </section>

@@ -2,7 +2,7 @@
 <html lang="vi" data-theme="dark">
 <%- include('./partials/head', {
   title: 'Checkout | HS Marketing & AI Shop',
-  description: 'Thanh toan digital products bang bank transfer, Momo, VNPay hoac Stripe-ready.',
+  description: 'Thanh toán digital products bằng bank transfer, Momo, VNPay hoặc Stripe-ready.',
   canonical: '/checkout',
   siteUrl
 }) %>
@@ -13,24 +13,24 @@
   <section class="checkout-layout">
     <form class="checkout-form" data-checkout-form>
       <span class="eyebrow">Secure Checkout</span>
-      <h1>Thanh toan</h1>
+      <h1>Thanh toán</h1>
       <div class="field-grid">
         <label>Email <input type="email" name="email" required placeholder="you@company.com" /></label>
-        <label>Phone <input name="phone" placeholder="0987 603 615" /></label>
+        <label>Số điện thoại <input name="phone" placeholder="0987 603 615" /></label>
         <label>Company <input name="company" placeholder="Company name" /></label>
-        <label>Tax code <input name="tax" placeholder="Optional" /></label>
+        <label>Mã số thuế <input name="tax" placeholder="Không bắt buộc" /></label>
       </div>
-      <h2>Payment method</h2>
+      <h2>Phương thức thanh toán</h2>
       <div class="payment-grid">
         <label><input type="radio" name="payment" checked /> Bank transfer</label>
         <label><input type="radio" name="payment" /> Momo</label>
         <label><input type="radio" name="payment" /> VNPay</label>
         <label><input type="radio" name="payment" /> Stripe ready</label>
       </div>
-      <button class="btn btn--primary" type="submit">Hoan tat don hang</button>
+      <button class="btn btn--primary" type="submit">Hoàn tất đơn hàng</button>
       <div class="success-panel" data-checkout-success hidden>
-        <strong>Order received.</strong>
-        <p>Ban se nhan email xac nhan va link tai digital product sau khi thanh toan duoc ghi nhan.</p>
+        <strong>Đơn hàng đã được ghi nhận.</strong>
+        <p>Bạn sẽ nhận email xác nhận và link tải digital product sau khi thanh toán được ghi nhận.</p>
       </div>
     </form>
     <aside class="summary-card" data-cart-summary>

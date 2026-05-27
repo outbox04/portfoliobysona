@@ -1,7 +1,7 @@
 (function () {
   const products = Array.isArray(window.__SHOP_PRODUCTS__) ? window.__SHOP_PRODUCTS__ : [];
   const storageKey = 'hs_shop_cart';
-  const money = value => `${Number(value || 0).toLocaleString('vi-VN')}d`;
+  const money = value => `${Number(value || 0).toLocaleString('vi-VN')}đ`;
 
   function getCart() {
     try {
@@ -29,7 +29,7 @@
     if (item) item.quantity += quantity || 1;
     else cart.push({ slug, quantity: quantity || 1 });
     setCart(cart);
-    toast(`${product.title} da them vao gio`);
+    toast(`${product.title} đã thêm vào giỏ`);
   }
 
   function removeFromCart(slug) {
@@ -68,7 +68,7 @@
     lists.forEach(list => {
       const mini = list.hasAttribute('data-checkout-mini');
       if (!cart.length) {
-        list.innerHTML = mini ? '<p class="muted">Chua co san pham.</p>' : '<div class="empty-state"><h2>Gio hang dang trong</h2><p>Chon mot product trong shop de bat dau.</p><a class="btn btn--primary" href="/shop">Ve shop</a></div>';
+        list.innerHTML = mini ? '<p class="muted">Chưa có sản phẩm.</p>' : '<div class="empty-state"><h2>Giỏ hàng đang trống</h2><p>Chọn một product trong shop để bắt đầu.</p><a class="btn btn--primary" href="/shop">Về shop</a></div>';
         return;
       }
 
@@ -141,7 +141,7 @@
     const favorite = event.target.closest('[data-favorite]');
     if (favorite) {
       favorite.classList.toggle('is-favorited');
-      favorite.textContent = favorite.classList.contains('is-favorited') ? 'Da yeu thich' : 'Yeu thich';
+      favorite.textContent = favorite.classList.contains('is-favorited') ? 'Đã yêu thích' : 'Yêu thích';
     }
   });
 
@@ -168,13 +168,13 @@
     const tick = () => {
       const diff = target - Date.now();
       if (diff <= 0) {
-        label.textContent = 'Closed';
+        label.textContent = 'Đã đóng';
         return;
       }
       const days = Math.floor(diff / 86400000);
       const hours = Math.floor((diff % 86400000) / 3600000);
       const minutes = Math.floor((diff % 3600000) / 60000);
-      label.textContent = `${days}d ${hours}h ${minutes}m remaining`;
+      label.textContent = `Còn ${days} ngày ${hours} giờ ${minutes} phút`;
     };
     tick();
     setInterval(tick, 60000);
@@ -224,8 +224,8 @@
     result.innerHTML = '<span class="skeleton"></span><span class="skeleton skeleton--short"></span>';
     setTimeout(() => {
       result.innerHTML = `
-        <strong>KPI Tree demo for: ${String(goal).replace(/[<>]/g, '')}</strong>
-        <p>North Star: qualified revenue pipeline. Leading metrics: traffic quality, lead conversion, CAC payback, content velocity. Lagging metrics: MQL, SQL, revenue and retention signal.</p>
+        <strong>KPI Tree demo cho: ${String(goal).replace(/[<>]/g, '')}</strong>
+        <p>North Star: qualified revenue pipeline. Chỉ số dẫn: chất lượng traffic, chuyển đổi lead, CAC payback, tốc độ sản xuất content. Chỉ số trễ: MQL, SQL, doanh thu và tín hiệu retention.</p>
       `;
     }, 650);
   });
@@ -234,7 +234,7 @@
     event.preventDefault();
     const success = document.querySelector('[data-checkout-success]');
     if (success) success.hidden = false;
-    toast('Order mock da duoc tao');
+    toast('Đơn hàng mock đã được tạo');
   });
 
   updateCartCount();

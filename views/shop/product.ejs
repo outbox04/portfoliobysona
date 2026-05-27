@@ -25,22 +25,22 @@
       </div>
 
       <section class="detail-block">
-        <h2>Overview</h2>
-        <p>San pham duoc thiet ke nhu mot operating kit: ro dau vao, ro dau ra, co checklist va template de team trien khai ngay thay vi doc ly thuyet.</p>
+        <h2>Tổng quan</h2>
+        <p>Sản phẩm được thiết kế như một operating kit: rõ đầu vào, rõ đầu ra, có checklist và template để team triển khai ngay thay vì đọc lý thuyết.</p>
       </section>
 
       <section class="detail-block">
-        <h2>What included</h2>
+        <h2>Bao gồm những gì</h2>
         <div class="check-grid">
           <% product.included.forEach(item => { %><span><%= item %></span><% }) %>
         </div>
       </section>
 
       <section class="detail-block preview-grid">
-        <h2>Preview assets</h2>
-        <div><span>Prompt library</span><strong>120+</strong></div>
-        <div><span>Template pages</span><strong>24</strong></div>
-        <div><span>Setup guide</span><strong>Video</strong></div>
+        <h2>Xem trước tài nguyên</h2>
+        <div><span>Thư viện prompt</span><strong>120+</strong></div>
+        <div><span>Trang template</span><strong>24</strong></div>
+        <div><span>Hướng dẫn setup</span><strong>Video</strong></div>
       </section>
 
       <section class="detail-block">
@@ -73,19 +73,19 @@
       <% if (product.compareAt) { %><p class="compare-price"><%= product.compareAt.toLocaleString('vi-VN') %>d</p><% } %>
       <% if (product.limited) { %>
         <div class="mini-countdown" data-countdown="2026-06-01T23:59:59+07:00">
-          <span>Limited enrollment</span>
-          <strong data-countdown-label>Calculating...</strong>
+          <span>Đợt mở bán giới hạn</span>
+          <strong data-countdown-label>Đang tính...</strong>
         </div>
       <% } %>
-      <label class="qty-field">Quantity <input type="number" value="1" min="1" /></label>
+      <label class="qty-field">Số lượng <input type="number" value="1" min="1" /></label>
       <label class="coupon-field">Coupon <input placeholder="HS-AI" /></label>
       <button class="btn btn--primary" data-buy-now data-slug="<%= product.slug %>">Mua ngay</button>
-      <button class="btn btn--ghost" data-add-cart data-slug="<%= product.slug %>">Them vao gio</button>
-      <button class="btn btn--soft" data-favorite>Yeu thich</button>
+      <button class="btn btn--ghost" data-add-cart data-slug="<%= product.slug %>">Thêm vào giỏ</button>
+      <button class="btn btn--soft" data-favorite>Yêu thích</button>
       <div class="purchase-notes">
-        <span>Instant access</span>
-        <span>Invoice ready</span>
-        <span>Consulting upsell available</span>
+        <span>Truy cập tức thì</span>
+        <span>Sẵn sàng xuất hoá đơn</span>
+        <span>Có upsell consulting</span>
       </div>
     </aside>
   </section>
@@ -93,7 +93,7 @@
 
 <div class="mobile-buy-bar">
   <strong><%= product.priceText %></strong>
-  <button class="btn btn--primary" data-add-cart data-slug="<%= product.slug %>">Them vao gio</button>
+  <button class="btn btn--primary" data-add-cart data-slug="<%= product.slug %>">Thêm vào giỏ</button>
 </div>
 
 <%- include('./partials/footer', { shop }) %>

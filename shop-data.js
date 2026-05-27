@@ -1,12 +1,12 @@
 const categories = [
-  { slug: 'ai-prompt', title: 'AI Prompt', icon: 'sparkles', description: 'Prompt system cho content, ads, SEO, research va automation.' },
-  { slug: 'seo-geo', title: 'SEO/GEO', icon: 'search', description: 'Toolkit toi uu Google, AI Search va Growth Engine Optimization.' },
-  { slug: 'dashboard', title: 'Dashboard', icon: 'chart', description: 'Dashboard KPI, planning va operating rhythm cho team marketing.' },
-  { slug: 'automation', title: 'Automation', icon: 'zap', description: 'Workflow tu dong hoa lead, content, reporting va CRM handoff.' },
-  { slug: 'chatbot', title: 'Chatbot', icon: 'bot', description: 'Chatbot pack cho tu van, lead capture va support co kich ban.' },
-  { slug: 'framework', title: 'Marketing Framework', icon: 'layers', description: 'Framework thuc chien de lap ke hoach, brief va chay chien dich.' },
-  { slug: 'membership', title: 'Membership', icon: 'crown', description: 'Thu vien cap nhat hang thang, workshop va office hour.' },
-  { slug: 'content-system', title: 'Content System', icon: 'grid', description: 'He thong lap lich, san xuat va tai su dung noi dung da kenh.' }
+  { slug: 'ai-prompt', title: 'AI Prompt', icon: 'sparkles', description: 'Hệ thống prompt cho content, ads, SEO, research và automation.' },
+  { slug: 'seo-geo', title: 'SEO/GEO', icon: 'search', description: 'Toolkit tối ưu Google, AI Search và Growth Engine Optimization.' },
+  { slug: 'dashboard', title: 'Dashboard', icon: 'chart', description: 'Dashboard KPI, planning và operating rhythm cho team marketing.' },
+  { slug: 'automation', title: 'Automation', icon: 'zap', description: 'Workflow tự động hoá lead, content, reporting và CRM handoff.' },
+  { slug: 'chatbot', title: 'Chatbot', icon: 'bot', description: 'Chatbot pack cho tư vấn, lead capture và support có kịch bản.' },
+  { slug: 'framework', title: 'Marketing Framework', icon: 'layers', description: 'Framework thực chiến để lập kế hoạch, brief và chạy chiến dịch.' },
+  { slug: 'membership', title: 'Membership', icon: 'crown', description: 'Thư viện cập nhật hằng tháng, workshop và office hour.' },
+  { slug: 'content-system', title: 'Content System', icon: 'grid', description: 'Hệ thống lập lịch, sản xuất và tái sử dụng nội dung đa kênh.' }
 ];
 
 const products = [
@@ -18,15 +18,15 @@ const products = [
     badge: 'BESTSELLER',
     price: 790000,
     compareAt: 1290000,
-    priceText: '790.000d',
+    priceText: '790.000đ',
     thumbnail: '/images/og/content-os.jpg',
-    short: 'Bo prompt, workflow va template giup team marketing san xuat nhanh hon voi AI.',
+    short: 'Bộ prompt, workflow và template giúp team marketing sản xuất nhanh hơn với AI.',
     tags: ['AI', 'Prompt', 'Marketing OS'],
     rating: 4.9,
     reviews: 128,
-    access: 'Lifetime access',
-    included: ['120+ prompt marketing', 'Planning canvas', 'Ad angle library', 'Content repurpose workflow', 'Video huong dan setup'],
-    changelog: ['v2.4: Them prompt GEO va AI Search', 'v2.3: Cap nhat framework audit funnel', 'v2.2: Bo sung template campaign sprint'],
+    access: 'Truy cập trọn đời',
+    included: ['120+ prompt marketing', 'Planning canvas', 'Thư viện góc quảng cáo', 'Workflow tái sử dụng content', 'Video hướng dẫn setup'],
+    changelog: ['v2.4: Thêm prompt GEO và AI Search', 'v2.3: Cập nhật framework audit funnel', 'v2.2: Bổ sung template campaign sprint'],
     featured: true,
     bestseller: true
   },
@@ -38,15 +38,15 @@ const products = [
     badge: 'NEW',
     price: 590000,
     compareAt: 890000,
-    priceText: '590.000d',
+    priceText: '590.000đ',
     thumbnail: '/images/og/kien-thuc.jpg',
-    short: 'Checklist SEO, GEO, content cluster va audit sheet cho website ca nhan/doanh nghiep.',
+    short: 'Checklist SEO, GEO, content cluster và audit sheet cho website cá nhân/doanh nghiệp.',
     tags: ['SEO', 'GEO', 'Audit'],
     rating: 4.8,
     reviews: 64,
-    access: 'Lifetime access',
+    access: 'Truy cập trọn đời',
     included: ['SEO audit checklist', 'GEO content map', 'Keyword cluster sheet', 'Technical quick wins', 'Reporting template'],
-    changelog: ['v1.8: Them AI citation checklist', 'v1.7: Update entity SEO map'],
+    changelog: ['v1.8: Thêm AI citation checklist', 'v1.7: Cập nhật entity SEO map'],
     featured: true,
     bestseller: true
   },
@@ -58,15 +58,15 @@ const products = [
     badge: 'LIMITED',
     price: 690000,
     compareAt: 990000,
-    priceText: '690.000d',
+    priceText: '690.000đ',
     thumbnail: '/images/og/growth-roadmap.jpg',
-    short: 'Dashboard theo doi KPI, budget, channel performance va weekly review.',
+    short: 'Dashboard theo dõi KPI, budget, channel performance và weekly review.',
     tags: ['Dashboard', 'KPI', 'Report'],
     rating: 4.9,
     reviews: 91,
-    access: 'Lifetime access',
+    access: 'Truy cập trọn đời',
     included: ['Dashboard Google Sheets', 'KPI tree', 'Weekly review format', 'Budget tracker', 'Executive summary'],
-    changelog: ['v3.1: Them channel forecast', 'v3.0: Redesign executive view'],
+    changelog: ['v3.1: Thêm channel forecast', 'v3.0: Redesign executive view'],
     featured: true
   },
   {
@@ -77,15 +77,15 @@ const products = [
     badge: 'NEW',
     price: 890000,
     compareAt: 1490000,
-    priceText: '890.000d',
+    priceText: '890.000đ',
     thumbnail: '/images/og/ecosystem.jpg',
-    short: 'Kich ban chatbot, lead routing va automation pack cho tu van san pham/dich vu.',
+    short: 'Kịch bản chatbot, lead routing và automation pack cho tư vấn sản phẩm/dịch vụ.',
     tags: ['Chatbot', 'Automation', 'Lead'],
     rating: 4.7,
     reviews: 43,
-    access: 'Lifetime access',
+    access: 'Truy cập trọn đời',
     included: ['12 flow chatbot', 'Lead qualification script', 'CRM handoff map', 'Follow-up automation', 'Setup checklist'],
-    changelog: ['v1.5: Them flow consulting upsell', 'v1.4: Cap nhat lead scoring'],
+    changelog: ['v1.5: Thêm flow consulting upsell', 'v1.4: Cập nhật lead scoring'],
     featured: true
   },
   {
@@ -96,60 +96,60 @@ const products = [
     badge: 'BESTSELLER',
     price: 490000,
     compareAt: 790000,
-    priceText: '490.000d',
+    priceText: '490.000đ',
     thumbnail: '/images/og/content-os.jpg',
-    short: 'Notion-style content calendar, content bank va repurpose pipeline.',
+    short: 'Content calendar kiểu Notion, content bank và repurpose pipeline.',
     tags: ['Content', 'Notion', 'System'],
     rating: 4.8,
     reviews: 76,
-    access: 'Lifetime access',
+    access: 'Truy cập trọn đời',
     included: ['Content calendar', 'Idea bank', 'Repurpose matrix', 'Publishing checklist'],
-    changelog: ['v2.0: Them AI brief workflow']
+    changelog: ['v2.0: Thêm AI brief workflow']
   },
   {
     slug: 'marketing-membership-june',
-    title: 'Marketing Membership Thang 6',
+    title: 'Marketing Membership Tháng 6',
     category: 'membership',
     type: 'membership',
     badge: 'LIMITED',
     price: 1290000,
     compareAt: 1890000,
-    priceText: '1.290.000d',
+    priceText: '1.290.000đ',
     thumbnail: '/images/og/home.jpg',
-    short: 'Membership hang thang gom thu vien premium, workshop, office hour va template moi.',
+    short: 'Membership hằng tháng gồm thư viện premium, workshop, office hour và template mới.',
     tags: ['Membership', 'Workshop', 'Office Hour'],
     rating: 5,
     reviews: 38,
-    access: '30 ngay membership',
-    included: ['Thu vien premium', '2 workshop/thang', 'Office hour nhom', 'Template moi hang tuan'],
-    changelog: ['June: Mo enrollment 72 gio'],
+    access: '30 ngày membership',
+    included: ['Thư viện premium', '2 workshop/tháng', 'Office hour nhóm', 'Template mới hằng tuần'],
+    changelog: ['Tháng 6: Mở enrollment 72 giờ'],
     limited: true
   }
 ];
 
 const events = [
-  { title: 'Membership thang 6', status: 'Open for 3 days', progress: 72, endsAt: '2026-06-01T23:59:59+07:00', tone: 'hot' },
-  { title: 'Workshop SEO GEO', status: 'Starts in 2 days', progress: 46, endsAt: '2026-05-29T20:00:00+07:00', tone: 'new' },
+  { title: 'Membership tháng 6', status: 'Mở trong 3 ngày', progress: 72, endsAt: '2026-06-01T23:59:59+07:00', tone: 'hot' },
+  { title: 'Workshop SEO GEO', status: 'Bắt đầu sau 2 ngày', progress: 46, endsAt: '2026-05-29T20:00:00+07:00', tone: 'new' },
   { title: 'Mentoring 1-1', status: 'Sold out', progress: 100, endsAt: '2026-05-27T18:00:00+07:00', tone: 'sold' }
 ];
 
 const testimonials = [
-  { name: 'Nguyen Minh Anh', role: 'Founder D2C Brand', quote: 'Toolkit giup team rut ngan 2 tuan planning thanh 3 ngay ma van ro KPI va message.', metric: '+38% ROAS' },
+  { name: 'Nguyễn Minh Anh', role: 'Founder D2C Brand', quote: 'Toolkit giúp team rút ngắn 2 tuần planning thành 3 ngày mà vẫn rõ KPI và message.', metric: '+38% ROAS' },
   { name: 'Le Quang Huy', role: 'Marketing Manager', quote: 'Dashboard va prompt framework lam weekly review cua team gon hon rat nhieu.', metric: '12h saved/week' },
-  { name: 'Pham Thao', role: 'Content Lead', quote: 'Content System de dung, dep va du chat thuc chien. Khong phai template trang tri.', metric: '4x output' }
+  { name: 'Phạm Thảo', role: 'Content Lead', quote: 'Content System dễ dùng, đẹp và đủ chất thực chiến. Không phải template trang trí.', metric: '4x output' }
 ];
 
 const faqs = [
-  { q: 'San pham la digital hay physical?', a: 'Tat ca san pham hien tai la digital product: prompt, template, dashboard, automation pack va membership.' },
-  { q: 'Sau khi mua toi nhan tai nguyen nhu the nao?', a: 'Ban se thay san pham trong Library cua account mock. Khi tich hop payment that, he thong se gui email va cap quyen tai khoan.' },
-  { q: 'Co ho tro consulting khong?', a: 'Co. Moi trang product co CTA upsell consulting de dat lich audit hoac setup rieng.' },
-  { q: 'Co cap nhat mien phi khong?', a: 'San pham lifetime co changelog va cap nhat trong pham vi version. Membership co noi dung moi theo thang.' }
+  { q: 'Sản phẩm là digital hay physical?', a: 'Tất cả sản phẩm hiện tại là digital product: prompt, template, dashboard, automation pack và membership.' },
+  { q: 'Sau khi mua tôi nhận tài nguyên như thế nào?', a: 'Bạn sẽ thấy sản phẩm trong Library của account mock. Khi tích hợp payment thật, hệ thống sẽ gửi email và cấp quyền tài khoản.' },
+  { q: 'Có hỗ trợ consulting không?', a: 'Có. Mỗi trang product có CTA upsell consulting để đặt lịch audit hoặc setup riêng.' },
+  { q: 'Có cập nhật miễn phí không?', a: 'Sản phẩm lifetime có changelog và cập nhật trong phạm vi version. Membership có nội dung mới theo tháng.' }
 ];
 
 const orders = [
-  { id: 'HS-2406-1024', date: '2026-05-25', status: 'paid', amount: '1.480.000d' },
-  { id: 'HS-2406-1019', date: '2026-05-21', status: 'pending', amount: '590.000d' },
-  { id: 'HS-2405-0991', date: '2026-05-12', status: 'expired', amount: '1.290.000d' }
+  { id: 'HS-2406-1024', date: '2026-05-25', status: 'paid', amount: '1.480.000đ' },
+  { id: 'HS-2406-1019', date: '2026-05-21', status: 'pending', amount: '590.000đ' },
+  { id: 'HS-2405-0991', date: '2026-05-12', status: 'expired', amount: '1.290.000đ' }
 ];
 
 function getCategory(slug) {

@@ -6,20 +6,20 @@
   <div class="product-card__body">
     <div class="product-card__meta">
       <span><%= product.type %></span>
-      <span><%= product.rating %> stars</span>
+      <span><%= product.rating %> sao</span>
     </div>
     <h3><a href="/shop/product/<%= product.slug %>"><%= product.title %></a></h3>
     <p><%= product.short %></p>
     <div class="product-card__foot">
       <div>
         <strong><%= product.priceText %></strong>
-        <% if (product.compareAt) { %><span><%= product.compareAt.toLocaleString('vi-VN') %>d</span><% } %>
+        <% if (product.compareAt) { %><span><%= product.compareAt.toLocaleString('vi-VN') %>đ</span><% } %>
       </div>
-      <button class="icon-btn" type="button" data-add-cart data-slug="<%= product.slug %>" aria-label="Them vao gio">+</button>
+      <button class="icon-btn" type="button" data-add-cart data-slug="<%= product.slug %>" aria-label="Thêm vào giỏ">+</button>
     </div>
     <div class="product-card__actions">
       <a class="btn btn--primary" href="/checkout?buy=<%= product.slug %>" data-buy-now data-slug="<%= product.slug %>">Mua ngay</a>
-      <button class="btn btn--ghost" type="button" data-add-cart data-slug="<%= product.slug %>">Them vao gio</button>
+      <button class="btn btn--ghost" type="button" data-add-cart data-slug="<%= product.slug %>">Thêm vào giỏ</button>
     </div>
   </div>
 </article>
