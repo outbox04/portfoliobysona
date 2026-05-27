@@ -50,7 +50,7 @@
 
     if (matchText) {
       matchText.textContent = confirmActive
-        ? (passwordsMatch ? 'Mật khẩu xác nhận khớp' : 'Mật khẩu xác nhận chưa khớp')
+        ? (passwordsMatch ? 'M\u1eadt kh\u1ea9u x\u00e1c nh\u1eadn kh\u1edbp' : 'M\u1eadt kh\u1ea9u x\u00e1c nh\u1eadn ch\u01b0a kh\u1edbp')
         : '';
       setState(matchText, passwordsMatch, confirmActive);
     }

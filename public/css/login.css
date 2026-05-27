@@ -278,6 +278,56 @@
   transition: border-color var(--t), box-shadow var(--t), background var(--t);
 }
 
+.password-field {
+  position: relative;
+  display: grid;
+}
+
+.password-field input {
+  padding-right: 52px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  color: rgba(116, 52, 43, .72);
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  transform: translateY(-50%);
+  transition: color var(--t), background var(--t);
+}
+
+.password-toggle:hover {
+  color: var(--red);
+  background: rgba(230,48,34,.08);
+}
+
+.password-toggle svg {
+  width: 19px;
+  height: 19px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.password-toggle__eye-off,
+.password-toggle.is-visible .password-toggle__eye {
+  display: none;
+}
+
+.password-toggle.is-visible .password-toggle__eye-off {
+  display: block;
+}
+
 .login-form input::placeholder {
   color: rgba(116, 52, 43, .72);
 }
