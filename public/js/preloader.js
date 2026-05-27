@@ -32,6 +32,19 @@
   const preloader   = document.getElementById('preloader');
   if (!preloader) return;
 
+  const SESSION_KEY = 'hs_home_preloader_seen';
+  const navEntry = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
+  const navType = navEntry ? navEntry.type : (performance.navigation && performance.navigation.type === 1 ? 'reload' : 'navigate');
+  const shouldReplay = navType === 'reload' || !sessionStorage.getItem(SESSION_KEY);
+
+  if (!shouldReplay) {
+    preloader.classList.add('done');
+    preloader.style.display = 'none';
+    document.body.classList.remove('pre-loading');
+    document.body.classList.add('pre-done');
+    return;
+  }
+
   const pctEl       = document.getElementById('prePct');
   const barFill     = document.getElementById('preBarFill');
   const barTip      = document.getElementById('preBarTip');
@@ -271,6 +284,7 @@
       preloader.classList.add('done');
       document.body.classList.remove('pre-loading');
       document.body.classList.add('pre-done');
+      sessionStorage.setItem(SESSION_KEY, '1');
 
       // Remove from DOM after animation
       setTimeout(() => {
