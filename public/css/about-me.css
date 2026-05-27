@@ -471,6 +471,50 @@
   justify-content: flex-end;
 }
 
+.about-sticky-cta {
+  appearance: none;
+  position: fixed;
+  left: 50%;
+  bottom: 22px;
+  z-index: 120;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 188px;
+  min-height: 52px;
+  padding: 14px 28px;
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: inherit;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 999px;
+  background: var(--red);
+  box-shadow: 0 18px 42px rgba(230,48,34,.32), 0 0 0 8px rgba(230,48,34,.08);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 22px) scale(.96);
+  transition: opacity .28s var(--ease), transform .28s var(--ease), box-shadow .28s var(--ease), background .28s var(--ease);
+}
+
+.about-sticky-cta.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.about-sticky-cta:hover {
+  color: #fff;
+  background: #ff3a2d;
+  box-shadow: 0 22px 56px rgba(230,48,34,.44), 0 0 0 10px rgba(230,48,34,.10);
+  transform: translate(-50%, -3px) scale(1.02);
+}
+
 @media (max-width: 1080px) {
   .seo-hero__inner,
   .seo-content,
@@ -522,5 +566,13 @@
 
   .about-me-cta__actions {
     justify-content: flex-start;
+  }
+
+  .about-sticky-cta {
+    bottom: 14px;
+    min-width: 164px;
+    min-height: 48px;
+    padding: 13px 22px;
+    font-size: .76rem;
   }
 }

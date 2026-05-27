@@ -31,7 +31,7 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" /></noscript>
   <link rel="stylesheet" href="/css/style.css?v=20260527-about-me-structure" />
-  <link rel="stylesheet" href="/css/about-me.css?v=20260527-about-me-structure" />
+  <link rel="stylesheet" href="/css/about-me.css?v=20260527-sticky-cta" />
   <link rel="preload" as="image" href="/images/about-me/tran-hong-son-branding-digital-marketing-specialist.webp" />
 
   <script type="application/ld+json">
@@ -128,6 +128,9 @@
 <body class="about-me-page">
 <div class="cursor" id="cursor"></div>
 <div class="cursor-follower" id="cursorFollower"></div>
+<button class="about-sticky-cta" type="button" data-sticky-cta data-brief-open aria-label="Mở form Brief Dự Án">
+  Kết nối dự án
+</button>
 
 <nav class="nav scrolled" id="nav">
   <a href="/" class="nav__logo">HS<span>.</span></a>
@@ -509,7 +512,63 @@
   </article>
 </main>
 
+<div class="brief-modal" id="briefModal" aria-hidden="true">
+  <div class="brief-modal__overlay" data-brief-close></div>
+  <div class="brief-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="briefTitle">
+    <button class="brief-modal__close" type="button" aria-label="Đóng form brief" data-brief-close>×</button>
+    <div class="brief-modal__head">
+      <p class="section-label">Brief dự án</p>
+      <h3 id="briefTitle">Thông tin để lên phương án triển khai</h3>
+      <p>Điền nhanh bối cảnh thương hiệu, sản phẩm và mong muốn. Nội dung sẽ được gửi trực tiếp để tôi phản hồi sớm nhất.</p>
+    </div>
+    <form class="brief-form" id="briefForm">
+      <label>
+        Tên thương hiệu
+        <input name="brand" type="text" placeholder="VD: Nội thất Sơn Tùng" required />
+      </label>
+      <label>
+        Sản phẩm / dịch vụ chính
+        <input name="product" type="text" placeholder="VD: Thiết kế và thi công nội thất" required />
+      </label>
+      <label>
+        Website / Fanpage
+        <input name="channel" type="text" placeholder="Link website, Facebook, TikTok..." />
+      </label>
+      <label>
+        Ngân sách dự kiến
+        <input name="budget" type="text" placeholder="VD: 20-50 triệu/tháng" />
+      </label>
+      <fieldset>
+        <legend>Mong muốn triển khai</legend>
+        <div class="brief-checks">
+          <label><input type="checkbox" name="goals" value="Phát triển Branding" /> Phát triển Branding</label>
+          <label><input type="checkbox" name="goals" value="Performance Ads" /> Performance Ads</label>
+          <label><input type="checkbox" name="goals" value="Content/Social Media" /> Content/Social Media</label>
+          <label><input type="checkbox" name="goals" value="Thiết kế hình ảnh" /> Thiết kế hình ảnh</label>
+          <label><input type="checkbox" name="goals" value="Video Production" /> Video Production</label>
+          <label><input type="checkbox" name="goals" value="AI/Automation" /> AI/Automation</label>
+        </div>
+      </fieldset>
+      <label class="brief-form__wide">
+        Thông tin chi tiết và kỳ vọng
+        <textarea name="detail" rows="5" placeholder="Mục tiêu kinh doanh, vấn đề đang gặp, thị trường, đối thủ, timeline mong muốn..." required></textarea>
+      </label>
+      <button class="btn btn--primary brief-form__submit" type="submit">Gửi Brief</button>
+    </form>
+  </div>
+</div>
+
+<div class="brief-toast" id="briefToast" aria-live="polite" aria-hidden="true">
+  <div class="brief-toast__dialog" role="status">
+    <div class="brief-toast__icon" id="briefToastIcon">✓</div>
+    <div>
+      <strong id="briefToastTitle">Đã gửi brief</strong>
+      <p id="briefToastMessage">Cảm ơn bạn. Tôi sẽ phản hồi trong thời gian sớm nhất.</p>
+    </div>
+  </div>
+</div>
+
 <%- include('partials/footer') %>
-<script src="/js/main.js?v=20260527-about-me-structure" defer></script>
+<script src="/js/main.js?v=20260527-about-brief-sticky" defer></script>
 </body>
 </html>
