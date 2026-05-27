@@ -109,6 +109,67 @@
   cursor: pointer;
 }
 
+.login-submit:disabled {
+  opacity: .55;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.password-rules {
+  display: grid;
+  gap: 8px;
+  margin-top: -6px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255,255,255,.025);
+}
+
+.password-rules p,
+.password-match {
+  position: relative;
+  margin: 0;
+  padding-left: 22px;
+  color: var(--text-3);
+  font-size: .82rem;
+  line-height: 1.45;
+}
+
+.password-rules p::before,
+.password-match::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: .42em;
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.24);
+  box-shadow: 0 0 0 4px rgba(255,255,255,.04);
+}
+
+.password-rules p.is-valid,
+.password-match.is-valid {
+  color: #8df0b3;
+}
+
+.password-rules p.is-valid::before,
+.password-match.is-valid::before {
+  background: #2dd47f;
+  box-shadow: 0 0 0 4px rgba(45,212,127,.14);
+}
+
+.password-rules p.is-invalid,
+.password-match.is-invalid {
+  color: #ffb0aa;
+}
+
+.password-rules p.is-invalid::before,
+.password-match.is-invalid::before {
+  background: var(--red);
+  box-shadow: 0 0 0 4px rgba(230,48,34,.14);
+}
+
 .login-alert {
   margin-top: 22px;
   padding: 12px 14px;

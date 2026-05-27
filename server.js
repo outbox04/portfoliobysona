@@ -61,11 +61,12 @@ const depts = require('./depts');
 const ADMIN_SESSION_COOKIE = 'hs_admin_session';
 const ADMIN_SESSION_AGE_MS = 8 * 60 * 60 * 1000;
 const DEFAULT_ADMIN_AUTH_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzBU8HphPjvlsa6tK6Krd195XIMomYL2Q5cUaOpQX3UYY8rUuynInc-Cl9vvf6fQswYGw/exec';
+const DEFAULT_ADMIN_SESSION_SECRET = 'hs-portfolio-admin-session-secret-20260527';
 
 function getAdminConfig() {
   return {
     authScriptUrl: process.env.ADMIN_AUTH_SCRIPT_URL || DEFAULT_ADMIN_AUTH_SCRIPT_URL,
-    secret: process.env.ADMIN_SESSION_SECRET || ''
+    secret: process.env.ADMIN_SESSION_SECRET || DEFAULT_ADMIN_SESSION_SECRET
   };
 }
 
@@ -174,6 +175,15 @@ function clearAdminSessionCookie(res) {
     secure: process.env.NODE_ENV === 'production',
     path: '/'
   });
+}
+
+function validateStrongPassword(password) {
+  return [
+    { valid: password.length >= 8, message: 'Mat khau phai co it nhat 8 ky tu.' },
+    { valid: /[A-Z]/.test(password), message: 'Mat khau phai co it nhat 1 ky tu in hoa.' },
+    { valid: /[a-z]/.test(password), message: 'Mat khau phai co it nhat 1 chu thuong.' },
+    { valid: /[^A-Za-z0-9]/.test(password), message: 'Mat khau phai co it nhat 1 ky tu dac biet.' }
+  ];
 }
 
 function getSiteUrl(req) {
@@ -290,6 +300,15 @@ app.post('/register', (req, res) => {
     return res.status(400).render('register', {
       siteUrl: getSiteUrl(req),
       error: 'Mat khau xac nhan khong khop.',
+      success: null
+    });
+  }
+
+  const passwordIssues = validateStrongPassword(password).filter(rule => !rule.valid);
+  if (passwordIssues.length) {
+    return res.status(400).render('register', {
+      siteUrl: getSiteUrl(req),
+      error: passwordIssues.map(rule => rule.message).join(' '),
       success: null
     });
   }
