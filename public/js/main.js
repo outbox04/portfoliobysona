@@ -335,9 +335,11 @@ briefForm && briefForm.addEventListener('submit', async e => {
     product: form.product.value.trim(),
     channel: form.channel.value.trim(),
     budget: form.budget.value.trim(),
-    goals,
+    goals: goals.join(', '),
+    goalsJson: JSON.stringify(goals),
     detail: form.detail.value.trim(),
-    source: window.location.href
+    source: window.location.href,
+    submittedAt: new Date().toISOString()
   };
 
   if (!payload.brand || !payload.product || !payload.detail) {
@@ -356,13 +358,12 @@ briefForm && briefForm.addEventListener('submit', async e => {
   }
 
   try {
+    const body = new URLSearchParams(payload);
+
     await fetch(BRIEF_WEB_APP_URL, {
       method: 'POST',
       mode: 'no-cors',
-      headers: {
-        'Content-Type': 'text/plain;charset=utf-8'
-      },
-      body: JSON.stringify(payload)
+      body
     });
 
     alert('Brief đã được gửi thành công. Tôi sẽ phản hồi bạn sớm!');
