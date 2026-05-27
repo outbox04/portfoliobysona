@@ -70,6 +70,14 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/tran-hong-son', (req, res) => {
+  res.render('about-me', { siteUrl: getSiteUrl(req) });
+});
+
+app.get('/about-me', (req, res) => {
+  res.redirect(301, '/tran-hong-son');
+});
+
 app.get('/projects/:id', (req, res) => {
   const project = projects.find(p => p.id === req.params.id);
   if (!project) return res.redirect('/');
@@ -104,7 +112,7 @@ app.get('/sitemap.xml', (req, res) => {
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
   // Các trang tĩnh
-  const staticPages = ['', '/kien-thuc', '/ecosystem', '/content-os', '/growth-roadmap'];
+  const staticPages = ['', '/tran-hong-son', '/kien-thuc', '/ecosystem', '/content-os', '/growth-roadmap'];
   staticPages.forEach(page => {
     xml += `  <url>\n    <loc>${baseUrl}${page}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>${page === '' ? '1.0' : '0.8'}</priority>\n  </url>\n`;
   });

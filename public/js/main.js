@@ -43,7 +43,10 @@ window.addEventListener('scroll', () => {
   let current = '';
   sections.forEach(s => { if (window.scrollY >= s.offsetTop - 140) current = s.id; });
   document.querySelectorAll('.nav__link').forEach(l => {
-    l.classList.toggle('active-link', l.getAttribute('href') === '#' + current);
+    const href = l.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      l.classList.toggle('active-link', href === '#' + current);
+    }
   });
 });
 
