@@ -217,7 +217,8 @@ app.get('/login', (req, res) => {
   if (verifyAdminSession(req)) return res.redirect('/admin');
   res.render('login', {
     siteUrl: getSiteUrl(req),
-    error: null
+    error: null,
+    success: req.query.registered === '1' ? 'Dang ky thanh cong. Vui long dang nhap de tiep tuc.' : null
   });
 });
 
@@ -251,14 +252,16 @@ app.post('/login', (req, res) => {
 
       return res.status(401).render('login', {
         siteUrl: getSiteUrl(req),
-        error: data && data.message ? data.message : 'Tai khoan hoac mat khau khong dung.'
+        error: data && data.message ? data.message : 'Tai khoan hoac mat khau khong dung.',
+        success: null
       });
     })
     .catch(error => {
       console.error('Admin login failed:', error);
       return res.status(502).render('login', {
         siteUrl: getSiteUrl(req),
-        error: 'Khong the ket noi he thong xac thuc. Vui long thu lai.'
+        error: 'Khong the ket noi he thong xac thuc. Vui long thu lai.',
+        success: null
       });
     });
 });
@@ -328,11 +331,7 @@ app.post('/register', (req, res) => {
     .then(response => response.json())
     .then(data => {
       if (data && data.success) {
-        return res.render('register', {
-          siteUrl: getSiteUrl(req),
-          error: null,
-          success: data.message || 'Dang ky thanh cong. Ban co the dang nhap sau khi tai khoan duoc kich hoat.'
-        });
+        return res.redirect('/login?registered=1');
       }
 
       return res.status(400).render('register', {
