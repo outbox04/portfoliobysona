@@ -293,7 +293,7 @@ document.querySelectorAll('.kp-tab').forEach(btn => {
 });
 
 // Project brief modal
-const BRIEF_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxWH2w3A4wf8dg6H1dLCHDCP8-_4putsz0L4vtQ_Q7d5_uXPOaqWrenD2yU8Pqowl8s8A/exec';
+const BRIEF_WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbykOFwiCymWcR0wj9xUnIaa6-jvCaU-KNvxCqXlThxd4KtL4Upkq-RNV2brtlBuDDXaaQ/exec';
 const briefModal = document.getElementById('briefModal');
 const briefForm = document.getElementById('briefForm');
 const briefOpenButtons = document.querySelectorAll('[data-brief-open]');
