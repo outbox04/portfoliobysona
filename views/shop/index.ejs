@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<%- include('./partials/head', {
+  title: 'Shop Marketing & AI Premium | Tran Hong Son',
+  description: 'Kho digital products premium cho Marketer, Founder va Team Marketing: AI prompt, toolkit, template, dashboard, chatbot automation va membership.',
+  canonical: '/shop',
+  siteUrl
+}) %>
+<body class="shop-page">
+<%- include('./partials/nav') %>
+
+<main>
+  <section class="shop-hero">
+    <div class="shop-hero__copy reveal-in">
+      <span class="eyebrow">Digital Product Studio</span>
+      <h1>Marketing Thuc Chien x AI x Automation</h1>
+      <p>Kho tai nguyen danh cho Marketer, Founder va Team Marketing muon van hanh nhanh hon, ro KPI hon va co he thong hon.</p>
+      <div class="hero-actions">
+        <a class="btn btn--primary" href="#featured">Kham pha tai nguyen</a>
+        <a class="btn btn--ghost" href="#bestseller">Xem bestseller</a>
+      </div>
+      <div class="hero-proof">
+        <span><strong>1.8k+</strong> downloads</span>
+        <span><strong>4.9/5</strong> avg rating</span>
+        <span><strong>24h</strong> access</span>
+      </div>
+    </div>
+    <div class="hero-stack" aria-label="Featured resources">
+      <% shop.products.slice(0, 4).forEach((product, index) => { %>
+        <a class="floating-card floating-card--<%= index + 1 %>" href="/shop/product/<%= product.slug %>">
+          <img src="<%= product.thumbnail %>" alt="" loading="lazy" decoding="async" />
+          <span><%= product.badge %></span>
+          <strong><%= product.title %></strong>
+          <small><%= product.priceText %></small>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="shop-section" id="featured">
+    <div class="section-head">
+      <span class="eyebrow">Featured Products</span>
+      <h2>San pham dang ban tot</h2>
+      <p>Nhung pack co the dung ngay cho planning, content, SEO/GEO, KPI va automation.</p>
+    </div>
+    <div class="product-grid" id="bestseller">
+      <% shop.products.filter(product => product.featured).forEach(product => { %>
+        <%- include('./partials/product-card', { product }) %>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="shop-section">
+    <div class="section-head">
+      <span class="eyebrow">Categories</span>
+      <h2>Chon theo workflow</h2>
+    </div>
+    <div class="category-grid">
+      <% shop.categories.forEach(category => { %>
+        <a class="category-card" href="/shop/category/<%= category.slug %>">
+          <span class="category-icon"><%= category.icon %></span>
+          <h3><%= category.title %></h3>
+          <p><%= category.description %></p>
+        </a>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="shop-section timeline-section">
+    <div class="section-head">
+      <span class="eyebrow">Time Limited</span>
+      <h2>Mo ban theo dot</h2>
+      <p>Membership, mentoring va workshop co slot gioi han de giu chat luong trien khai.</p>
+    </div>
+    <div class="timeline-list">
+      <% shop.events.forEach(event => { %>
+        <article class="timeline-item" data-countdown="<%= event.endsAt %>">
+          <div>
+            <span class="urgency urgency--<%= event.tone %>"><%= event.status %></span>
+            <h3><%= event.title %></h3>
+            <p data-countdown-label>Calculating...</p>
+          </div>
+          <div class="progress-ring">
+            <span><%= event.progress %>%</span>
+            <div><i style="width:<%= event.progress %>%"></i></div>
+          </div>
+        </article>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="shop-section tool-demo">
+    <div class="tool-demo__panel">
+      <div>
+        <span class="eyebrow">Free Tool Demo</span>
+        <h2>AI KPI Generator</h2>
+        <p>Nhap muc tieu chien dich de xem ban demo KPI tree. Ban full co dashboard, forecast va weekly operating rhythm.</p>
+      </div>
+      <form class="tool-form" data-kpi-tool>
+        <input name="goal" placeholder="VD: Tang lead B2B SaaS trong 90 ngay" />
+        <button class="btn btn--primary" type="submit">Generate</button>
+      </form>
+      <div class="tool-result" data-kpi-result>
+        <span class="skeleton"></span>
+        <span class="skeleton skeleton--short"></span>
+      </div>
+      <a class="btn btn--ghost" href="/shop/product/marketing-kpi-dashboard">Unlock Full Version</a>
+    </div>
+  </section>
+
+  <section class="shop-section">
+    <div class="stats-strip">
+      <div><strong>1.8k+</strong><span>resources delivered</span></div>
+      <div><strong>320+</strong><span>teams supported</span></div>
+      <div><strong>4.9</strong><span>average rating</span></div>
+    </div>
+    <div class="testimonial-grid">
+      <% shop.testimonials.forEach(item => { %>
+        <article class="testimonial-card">
+          <strong><%= item.metric %></strong>
+          <p>"<%= item.quote %>"</p>
+          <span><%= item.name %> - <%= item.role %></span>
+        </article>
+      <% }) %>
+    </div>
+  </section>
+
+  <section class="shop-section faq-section">
+    <div class="section-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>Cau hoi thuong gap</h2>
+    </div>
+    <div class="faq-list">
+      <% shop.faqs.forEach(item => { %>
+        <details class="faq-item">
+          <summary><%= item.q %></summary>
+          <p><%= item.a %></p>
+        </details>
+      <% }) %>
+    </div>
+  </section>
+</main>
+
+<%- include('./partials/footer', { shop }) %>
+</body>
+</html>

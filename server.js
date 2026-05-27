@@ -57,6 +57,7 @@ app.set('views', path.join(__dirname, 'views'));
 const projects = require('./projects');
 const knowledge = require('./knowledge');
 const depts = require('./depts');
+const shop = require('./shop-data');
 
 const ADMIN_SESSION_COOKIE = 'hs_admin_session';
 const ADMIN_SESSION_AGE_MS = 8 * 60 * 60 * 1000;
@@ -396,7 +397,7 @@ app.get('/sitemap.xml', (req, res) => {
   xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
 
   // Các trang tĩnh
-  const staticPages = ['', '/tran-hong-son', '/kien-thuc', '/ecosystem', '/content-os', '/growth-roadmap'];
+  const staticPages = ['', '/tran-hong-son', '/kien-thuc', '/ecosystem', '/content-os', '/growth-roadmap', '/shop', '/cart', '/checkout', '/account', '/account/orders', '/account/library'];
   staticPages.forEach(page => {
     xml += `  <url>\n    <loc>${baseUrl}${page}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>${page === '' ? '1.0' : '0.8'}</priority>\n  </url>\n`;
   });
@@ -409,6 +410,14 @@ app.get('/sitemap.xml', (req, res) => {
   // Các trang chi tiết Kiến thức
   knowledge.forEach(k => {
     xml += `  <url>\n    <loc>${baseUrl}/kien-thuc/${k.id}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+  });
+
+  shop.categories.forEach(category => {
+    xml += `  <url>\n    <loc>${baseUrl}/shop/category/${category.slug}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
+  });
+
+  shop.products.forEach(product => {
+    xml += `  <url>\n    <loc>${baseUrl}/shop/product/${product.slug}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.8</priority>\n  </url>\n`;
   });
 
   xml += '</urlset>';
@@ -427,6 +436,62 @@ app.get('/content-os', (req, res) => {
 
 app.get('/growth-roadmap', (req, res) => {
   res.render('growth-roadmap', { siteUrl: getSiteUrl(req) });
+});
+
+app.get('/shop', (req, res) => {
+  res.render('shop/index', {
+    siteUrl: getSiteUrl(req),
+    shop
+  });
+});
+
+app.get('/shop/category/:slug', (req, res) => {
+  const category = shop.getCategory(req.params.slug);
+  if (!category) return res.redirect('/shop');
+  res.render('shop/category', {
+    siteUrl: getSiteUrl(req),
+    shop,
+    category,
+    products: shop.getProductsByCategory(category.slug)
+  });
+});
+
+app.get('/shop/product/:slug', (req, res) => {
+  const product = shop.getProduct(req.params.slug);
+  if (!product) return res.redirect('/shop');
+  const related = shop.products
+    .filter(item => item.category === product.category && item.slug !== product.slug)
+    .slice(0, 3);
+  res.render('shop/product', {
+    siteUrl: getSiteUrl(req),
+    shop,
+    product,
+    related
+  });
+});
+
+app.get('/cart', (req, res) => {
+  res.render('shop/cart', { siteUrl: getSiteUrl(req), shop });
+});
+
+app.get('/checkout', (req, res) => {
+  res.render('shop/checkout', { siteUrl: getSiteUrl(req), shop });
+});
+
+app.get('/account', (req, res) => {
+  res.render('shop/account', { siteUrl: getSiteUrl(req), shop, section: 'overview' });
+});
+
+app.get('/account/orders', (req, res) => {
+  res.render('shop/account', { siteUrl: getSiteUrl(req), shop, section: 'orders' });
+});
+
+app.get('/account/library', (req, res) => {
+  res.render('shop/account', { siteUrl: getSiteUrl(req), shop, section: 'library' });
+});
+
+app.get('/account/profile', (req, res) => {
+  res.render('shop/account', { siteUrl: getSiteUrl(req), shop, section: 'profile' });
 });
 
 app.post('/api/generate-content', async (req, res) => {

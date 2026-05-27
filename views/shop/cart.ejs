@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<%- include('./partials/head', {
+  title: 'Cart | HS Marketing & AI Shop',
+  description: 'Quan ly gio hang digital products, coupon va checkout.',
+  canonical: '/cart',
+  siteUrl
+}) %>
+<body class="shop-page">
+<%- include('./partials/nav') %>
+
+<main>
+  <section class="sub-hero sub-hero--compact">
+    <span class="eyebrow">Cart</span>
+    <h1>Gio hang cua ban</h1>
+    <p>Apple-style clean checkout cho digital product, template va membership.</p>
+  </section>
+
+  <section class="cart-layout">
+    <div class="cart-list" data-cart-list>
+      <div class="empty-state">
+        <h2>Gio hang dang trong</h2>
+        <p>Chon mot product trong shop de bat dau.</p>
+        <a class="btn btn--primary" href="/shop">Ve shop</a>
+      </div>
+    </div>
+    <aside class="summary-card" data-cart-summary>
+      <h2>Order Summary</h2>
+      <label>Coupon <input data-coupon-input placeholder="HS-AI" /></label>
+      <div><span>Subtotal</span><strong data-subtotal>0d</strong></div>
+      <div><span>VAT</span><strong data-vat>0d</strong></div>
+      <div class="summary-total"><span>Total</span><strong data-total>0d</strong></div>
+      <a class="btn btn--primary" href="/checkout">Thanh toan ngay</a>
+    </aside>
+  </section>
+</main>
+
+<%- include('./partials/footer', { shop }) %>
+</body>
+</html>

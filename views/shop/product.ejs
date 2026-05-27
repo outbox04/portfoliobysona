@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<%- include('./partials/head', {
+  title: product.title + ' | HS Marketing & AI Shop',
+  description: product.short,
+  canonical: '/shop/product/' + product.slug,
+  siteUrl
+}) %>
+<body class="shop-page">
+<%- include('./partials/nav') %>
+
+<main>
+  <section class="product-detail">
+    <article class="product-main">
+      <div class="product-hero-media">
+        <img src="<%= product.thumbnail %>" alt="<%= product.title %>" loading="eager" decoding="async" width="1200" height="760" />
+        <span class="product-badge"><%= product.badge %></span>
+      </div>
+      <div class="product-title-block">
+        <div class="tag-row">
+          <% product.tags.forEach(tag => { %><span><%= tag %></span><% }) %>
+        </div>
+        <h1><%= product.title %></h1>
+        <p><%= product.short %></p>
+      </div>
+
+      <section class="detail-block">
+        <h2>Overview</h2>
+        <p>San pham duoc thiet ke nhu mot operating kit: ro dau vao, ro dau ra, co checklist va template de team trien khai ngay thay vi doc ly thuyet.</p>
+      </section>
+
+      <section class="detail-block">
+        <h2>What included</h2>
+        <div class="check-grid">
+          <% product.included.forEach(item => { %><span><%= item %></span><% }) %>
+        </div>
+      </section>
+
+      <section class="detail-block preview-grid">
+        <h2>Preview assets</h2>
+        <div><span>Prompt library</span><strong>120+</strong></div>
+        <div><span>Template pages</span><strong>24</strong></div>
+        <div><span>Setup guide</span><strong>Video</strong></div>
+      </section>
+
+      <section class="detail-block">
+        <h2>Changelog</h2>
+        <ol class="changelog">
+          <% product.changelog.forEach(item => { %><li><%= item %></li><% }) %>
+        </ol>
+      </section>
+
+      <section class="detail-block">
+        <h2>FAQ</h2>
+        <% shop.faqs.slice(0, 3).forEach(item => { %>
+          <details class="faq-item"><summary><%= item.q %></summary><p><%= item.a %></p></details>
+        <% }) %>
+      </section>
+
+      <section class="detail-block">
+        <h2>Related products</h2>
+        <div class="product-grid product-grid--related">
+          <% related.forEach(item => { %>
+            <%- include('./partials/product-card', { product: item }) %>
+          <% }) %>
+        </div>
+      </section>
+    </article>
+
+    <aside class="purchase-box">
+      <span class="eyebrow"><%= product.access %></span>
+      <h2><%= product.priceText %></h2>
+      <% if (product.compareAt) { %><p class="compare-price"><%= product.compareAt.toLocaleString('vi-VN') %>d</p><% } %>
+      <% if (product.limited) { %>
+        <div class="mini-countdown" data-countdown="2026-06-01T23:59:59+07:00">
+          <span>Limited enrollment</span>
+          <strong data-countdown-label>Calculating...</strong>
+        </div>
+      <% } %>
+      <label class="qty-field">Quantity <input type="number" value="1" min="1" /></label>
+      <label class="coupon-field">Coupon <input placeholder="HS-AI" /></label>
+      <button class="btn btn--primary" data-buy-now data-slug="<%= product.slug %>">Mua ngay</button>
+      <button class="btn btn--ghost" data-add-cart data-slug="<%= product.slug %>">Them vao gio</button>
+      <button class="btn btn--soft" data-favorite>Yeu thich</button>
+      <div class="purchase-notes">
+        <span>Instant access</span>
+        <span>Invoice ready</span>
+        <span>Consulting upsell available</span>
+      </div>
+    </aside>
+  </section>
+</main>
+
+<div class="mobile-buy-bar">
+  <strong><%= product.priceText %></strong>
+  <button class="btn btn--primary" data-add-cart data-slug="<%= product.slug %>">Them vao gio</button>
+</div>
+
+<%- include('./partials/footer', { shop }) %>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<%- include('./partials/head', {
+  title: category.title + ' | HS Marketing & AI Shop',
+  description: category.description,
+  canonical: '/shop/category/' + category.slug,
+  siteUrl
+}) %>
+<body class="shop-page">
+<%- include('./partials/nav') %>
+
+<main>
+  <section class="sub-hero">
+    <span class="eyebrow">Category</span>
+    <h1><%= category.title %></h1>
+    <p><%= category.description %></p>
+  </section>
+
+  <section class="catalog-layout">
+    <aside class="filter-panel">
+      <h2>Filter</h2>
+      <button data-filter-sort="newest">Newest</button>
+      <button data-filter-sort="bestseller">Best seller</button>
+      <button data-filter-sort="price">Price</button>
+      <button data-filter-type="membership">Membership</button>
+      <button data-filter-type="template">Template</button>
+      <button data-filter-type="free">Free</button>
+    </aside>
+    <div>
+      <div class="catalog-bar">
+        <p><%= products.length %> resources</p>
+        <select data-mobile-sort aria-label="Sort products">
+          <option value="newest">Newest</option>
+          <option value="bestseller">Best seller</option>
+          <option value="price">Price</option>
+        </select>
+      </div>
+      <div class="product-grid" data-catalog-grid>
+        <% products.forEach(product => { %>
+          <%- include('./partials/product-card', { product }) %>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+</main>
+
+<%- include('./partials/footer', { shop }) %>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<article class="product-card" data-product-card data-title="<%= product.title.toLowerCase() %>" data-type="<%= product.type %>" data-price="<%= product.price %>" data-bestseller="<%= product.bestseller ? 'true' : 'false' %>">
+  <a class="product-card__media" href="/shop/product/<%= product.slug %>">
+    <img src="<%= product.thumbnail %>" alt="<%= product.title %>" loading="lazy" decoding="async" width="640" height="420" />
+    <span class="product-badge"><%= product.badge %></span>
+  </a>
+  <div class="product-card__body">
+    <div class="product-card__meta">
+      <span><%= product.type %></span>
+      <span><%= product.rating %> stars</span>
+    </div>
+    <h3><a href="/shop/product/<%= product.slug %>"><%= product.title %></a></h3>
+    <p><%= product.short %></p>
+    <div class="product-card__foot">
+      <div>
+        <strong><%= product.priceText %></strong>
+        <% if (product.compareAt) { %><span><%= product.compareAt.toLocaleString('vi-VN') %>d</span><% } %>
+      </div>
+      <button class="icon-btn" type="button" data-add-cart data-slug="<%= product.slug %>" aria-label="Them vao gio">+</button>
+    </div>
+    <div class="product-card__actions">
+      <a class="btn btn--primary" href="/checkout?buy=<%= product.slug %>" data-buy-now data-slug="<%= product.slug %>">Mua ngay</a>
+      <button class="btn btn--ghost" type="button" data-add-cart data-slug="<%= product.slug %>">Them vao gio</button>
+    </div>
+  </div>
+</article>

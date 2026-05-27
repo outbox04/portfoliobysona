@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<%- include('./partials/head', {
+  title: 'Account | HS Marketing & AI Shop',
+  description: 'Quan ly tong quan, don hang, thu vien da mua, membership va profile.',
+  canonical: section === 'overview' ? '/account' : '/account/' + section,
+  siteUrl
+}) %>
+<body class="shop-page">
+<%- include('./partials/nav') %>
+
+<main class="account-shell">
+  <aside class="account-sidebar">
+    <a class="<%= section === 'overview' ? 'is-active' : '' %>" href="/account">Tong quan</a>
+    <a class="<%= section === 'orders' ? 'is-active' : '' %>" href="/account/orders">Don hang</a>
+    <a class="<%= section === 'library' ? 'is-active' : '' %>" href="/account/library">Thu vien da mua</a>
+    <a href="/shop/category/membership">Membership</a>
+    <a class="<%= section === 'profile' ? 'is-active' : '' %>" href="/account/profile">Profile</a>
+    <a href="/login">Security</a>
+    <a href="/login">Logout</a>
+  </aside>
+
+  <section class="account-content">
+    <% if (section === 'overview') { %>
+      <span class="eyebrow">Dashboard</span>
+      <h1>Tong quan</h1>
+      <div class="account-metrics">
+        <div><strong>4</strong><span>Purchased products</span></div>
+        <div><strong>1</strong><span>Active membership</span></div>
+        <div><strong>2</strong><span>Pending downloads</span></div>
+      </div>
+      <div class="library-grid">
+        <% shop.products.slice(0, 3).forEach(product => { %>
+          <article class="library-card">
+            <img src="<%= product.thumbnail %>" alt="" loading="lazy" />
+            <h3><%= product.title %></h3>
+            <p>Access active</p>
+            <a class="btn btn--ghost" href="/shop/product/<%= product.slug %>">Open resource</a>
+          </article>
+        <% }) %>
+      </div>
+    <% } %>
+
+    <% if (section === 'orders') { %>
+      <span class="eyebrow">Orders</span>
+      <h1>Don hang</h1>
+      <div class="order-table">
+        <div class="order-row order-row--head"><span>Order ID</span><span>Date</span><span>Status</span><span>Amount</span><span>Action</span></div>
+        <% shop.orders.forEach(order => { %>
+          <div class="order-row">
+            <span><%= order.id %></span>
+            <span><%= order.date %></span>
+            <span class="status status--<%= order.status %>"><%= order.status %></span>
+            <span><%= order.amount %></span>
+            <a href="#">Download invoice</a>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+
+    <% if (section === 'library') { %>
+      <span class="eyebrow">Library</span>
+      <h1>Thu vien da mua</h1>
+      <div class="library-grid">
+        <% shop.products.slice(0, 5).forEach(product => { %>
+          <article class="library-card">
+            <img src="<%= product.thumbnail %>" alt="" loading="lazy" />
+            <h3><%= product.title %></h3>
+            <p><%= product.category === 'membership' ? 'Expires 2026-06-30' : 'Lifetime access' %></p>
+            <div>
+              <a class="btn btn--primary" href="#">Download</a>
+              <a class="btn btn--ghost" href="/shop/product/<%= product.slug %>">Open</a>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+    <% } %>
+
+    <% if (section === 'profile') { %>
+      <span class="eyebrow">Profile</span>
+      <h1>Thong tin tai khoan</h1>
+      <form class="checkout-form">
+        <div class="field-grid">
+          <label>Name <input value="Tran Hong Son" /></label>
+          <label>Email <input value="decaztran@gmail.com" /></label>
+          <label>Company <input placeholder="Company" /></label>
+          <label>Role <input placeholder="Founder / Marketer" /></label>
+        </div>
+        <button class="btn btn--primary" type="button">Save profile</button>
+      </form>
+    <% } %>
+  </section>
+</main>
+
+<%- include('./partials/footer', { shop }) %>
+</body>
+</html>
