@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Quản trị dự án | Portfolio</title>
+  <link rel="icon" href="/images/software/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css?v=20260527-brief-submit-align" />
+  <link rel="stylesheet" href="/css/login.css?v=20260527-admin-login" />
+</head>
+<body class="admin-page">
+  <main class="admin-shell">
+    <header class="admin-topbar">
+      <a class="login-brand" href="/" aria-label="Về trang chủ">HS<span>.</span></a>
+      <form action="/logout" method="POST">
+        <button class="admin-logout" type="submit">Đăng xuất</button>
+      </form>
+    </header>
+    <section class="admin-board">
+      <p class="login-kicker">Project Admin</p>
+      <% if (user && (user.name || user.username || user.email)) { %>
+        <p class="admin-user">Dang dang nhap: <strong><%= user.name || user.username || user.email %></strong></p>
+      <% } %>
+      <h1>Quản trị dự án</h1>
+      <p>Khu vực quản trị đã được bảo vệ bằng đăng nhập. Bạn có thể gắn các tính năng quản lý dự án vào trang này.</p>
+    </section>
+  </main>
+</body>
+</html>

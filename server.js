@@ -1,9 +1,11 @@
 const express = require('express');
 const compression = require('compression');
 const path = require('path');
+const crypto = require('crypto');
 
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 app.disable('x-powered-by');
 const PORT = process.env.PORT || 3000;
 
@@ -56,6 +58,124 @@ const projects = require('./projects');
 const knowledge = require('./knowledge');
 const depts = require('./depts');
 
+const ADMIN_SESSION_COOKIE = 'hs_admin_session';
+const ADMIN_SESSION_AGE_MS = 8 * 60 * 60 * 1000;
+const DEFAULT_ADMIN_AUTH_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzBU8HphPjvlsa6tK6Krd195XIMomYL2Q5cUaOpQX3UYY8rUuynInc-Cl9vvf6fQswYGw/exec';
+
+function getAdminConfig() {
+  return {
+    authScriptUrl: process.env.ADMIN_AUTH_SCRIPT_URL || DEFAULT_ADMIN_AUTH_SCRIPT_URL,
+    secret: process.env.ADMIN_SESSION_SECRET || ''
+  };
+}
+
+function parseCookies(req) {
+  return String(req.headers.cookie || '')
+    .split(';')
+    .map(cookie => cookie.trim())
+    .filter(Boolean)
+    .reduce((cookies, cookie) => {
+      const index = cookie.indexOf('=');
+      if (index === -1) return cookies;
+      cookies[cookie.slice(0, index)] = decodeURIComponent(cookie.slice(index + 1));
+      return cookies;
+    }, {});
+}
+
+function signAdminSession(user) {
+  const { secret } = getAdminConfig();
+  const payload = Buffer.from(JSON.stringify({
+    user,
+    expiresAt: Date.now() + ADMIN_SESSION_AGE_MS
+  })).toString('base64url');
+  const signature = crypto
+    .createHmac('sha256', secret)
+    .update(payload)
+    .digest('base64url');
+  return `${payload}.${signature}`;
+}
+
+function verifyAdminSession(req) {
+  const { secret } = getAdminConfig();
+  if (!secret) return false;
+
+  const token = parseCookies(req)[ADMIN_SESSION_COOKIE];
+  if (!token || !token.includes('.')) return false;
+
+  const [payload, signature] = token.split('.');
+  const expected = crypto
+    .createHmac('sha256', secret)
+    .update(payload)
+    .digest('base64url');
+
+  if (
+    signature.length !== expected.length ||
+    !crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expected))
+  ) {
+    return false;
+  }
+
+  try {
+    const session = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));
+    return Boolean(session.user) && session.expiresAt > Date.now();
+  } catch (error) {
+    return false;
+  }
+}
+
+function getAdminSession(req) {
+  const { secret } = getAdminConfig();
+  if (!secret) return null;
+
+  const token = parseCookies(req)[ADMIN_SESSION_COOKIE];
+  if (!token || !token.includes('.')) return null;
+
+  const [payload, signature] = token.split('.');
+  const expected = crypto
+    .createHmac('sha256', secret)
+    .update(payload)
+    .digest('base64url');
+
+  if (
+    signature.length !== expected.length ||
+    !crypto.timingSafeEqual(Buffer.from(signature), Buffer.from(expected))
+  ) {
+    return null;
+  }
+
+  try {
+    const session = JSON.parse(Buffer.from(payload, 'base64url').toString('utf8'));
+    if (!session.user || session.expiresAt <= Date.now()) return null;
+    return session;
+  } catch (error) {
+    return null;
+  }
+}
+
+function requireAdmin(req, res, next) {
+  if (verifyAdminSession(req)) return next();
+  res.redirect('/login');
+}
+
+function setAdminSessionCookie(res, user) {
+  res.cookie(ADMIN_SESSION_COOKIE, signAdminSession(user), {
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: process.env.NODE_ENV === 'production',
+    maxAge: ADMIN_SESSION_AGE_MS,
+    path: '/'
+  });
+}
+
+function clearAdminSessionCookie(res) {
+  res.clearCookie(ADMIN_SESSION_COOKIE, {
+    httpOnly: true,
+    sameSite: 'lax',
+    secure: process.env.NODE_ENV === 'production',
+    path: '/'
+  });
+}
+
 function getSiteUrl(req) {
   const protocol = req.headers['x-forwarded-proto'] || req.protocol;
   const host = req.headers['x-forwarded-host'] || req.get('host');
@@ -81,6 +201,147 @@ app.get('/tran-hong-son', (req, res) => {
 
 app.get('/about-me', (req, res) => {
   res.redirect(301, '/tran-hong-son');
+});
+
+app.get('/login', (req, res) => {
+  if (verifyAdminSession(req)) return res.redirect('/admin');
+  res.render('login', {
+    siteUrl: getSiteUrl(req),
+    error: null
+  });
+});
+
+app.post('/login', (req, res) => {
+  const { authScriptUrl, secret } = getAdminConfig();
+  if (!authScriptUrl || !secret) {
+    return res.status(500).render('login', {
+      siteUrl: getSiteUrl(req),
+      error: 'Chua cau hinh xac thuc quan tri. Hay thiet lap ADMIN_AUTH_SCRIPT_URL va ADMIN_SESSION_SECRET.'
+    });
+  }
+
+  const inputUsername = String(req.body.username || '').trim();
+  const inputPassword = String(req.body.password || '');
+
+  fetch(authScriptUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify({
+      action: 'login',
+      username: inputUsername,
+      password: inputPassword
+    })
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data && data.success) {
+        setAdminSessionCookie(res, data.user || { username: inputUsername });
+        return res.redirect('/admin');
+      }
+
+      return res.status(401).render('login', {
+        siteUrl: getSiteUrl(req),
+        error: data && data.message ? data.message : 'Tai khoan hoac mat khau khong dung.'
+      });
+    })
+    .catch(error => {
+      console.error('Admin login failed:', error);
+      return res.status(502).render('login', {
+        siteUrl: getSiteUrl(req),
+        error: 'Khong the ket noi he thong xac thuc. Vui long thu lai.'
+      });
+    });
+});
+
+app.get('/register', (req, res) => {
+  if (verifyAdminSession(req)) return res.redirect('/admin');
+  res.render('register', {
+    siteUrl: getSiteUrl(req),
+    error: null,
+    success: null
+  });
+});
+
+app.post('/register', (req, res) => {
+  const { authScriptUrl, secret } = getAdminConfig();
+  if (!authScriptUrl || !secret) {
+    return res.status(500).render('register', {
+      siteUrl: getSiteUrl(req),
+      error: 'Chua cau hinh xac thuc quan tri. Hay thiet lap ADMIN_AUTH_SCRIPT_URL va ADMIN_SESSION_SECRET.',
+      success: null
+    });
+  }
+
+  const username = String(req.body.username || '').trim();
+  const password = String(req.body.password || '');
+  const confirmPassword = String(req.body.confirmPassword || '');
+  const fullName = String(req.body.fullName || '').trim();
+  const email = String(req.body.email || '').trim();
+
+  if (!username || !password || !confirmPassword) {
+    return res.status(400).render('register', {
+      siteUrl: getSiteUrl(req),
+      error: 'Vui long dien day du tai khoan va mat khau.',
+      success: null
+    });
+  }
+
+  if (password !== confirmPassword) {
+    return res.status(400).render('register', {
+      siteUrl: getSiteUrl(req),
+      error: 'Mat khau xac nhan khong khop.',
+      success: null
+    });
+  }
+
+  fetch(authScriptUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+    body: JSON.stringify({
+      action: 'register',
+      username,
+      password,
+      fullName,
+      full_name: fullName,
+      email
+    })
+  })
+    .then(response => response.json())
+    .then(data => {
+      if (data && data.success) {
+        return res.render('register', {
+          siteUrl: getSiteUrl(req),
+          error: null,
+          success: data.message || 'Dang ky thanh cong. Ban co the dang nhap sau khi tai khoan duoc kich hoat.'
+        });
+      }
+
+      return res.status(400).render('register', {
+        siteUrl: getSiteUrl(req),
+        error: data && data.message ? data.message : 'Khong the dang ky tai khoan.',
+        success: null
+      });
+    })
+    .catch(error => {
+      console.error('Admin register failed:', error);
+      return res.status(502).render('register', {
+        siteUrl: getSiteUrl(req),
+        error: 'Khong the ket noi he thong dang ky. Vui long thu lai.',
+        success: null
+      });
+    });
+});
+
+app.post('/logout', (req, res) => {
+  clearAdminSessionCookie(res);
+  res.redirect('/login');
+});
+
+app.get('/admin', requireAdmin, (req, res) => {
+  res.render('admin', {
+    siteUrl: getSiteUrl(req),
+    user: getAdminSession(req)?.user || null
+  });
 });
 
 app.get('/projects/:id', (req, res) => {
